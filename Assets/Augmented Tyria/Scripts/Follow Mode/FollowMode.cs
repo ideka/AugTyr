@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 using UnityEngine;
 
 public class FollowMode : MonoBehaviour
@@ -89,6 +90,14 @@ public class FollowMode : MonoBehaviour
     {
         if (this.nodeIndex + 1 < this.Route.Nodes.Count)
         {
+            Node reached = this.Route.Nodes[this.nodeIndex];
+            if (reached.Type == NodeType.Waypoint)
+            {
+                Clipboard.Clear();
+                if (reached.WaypointCode != null && reached.WaypointCode != "")
+                    Clipboard.SetText(reached.WaypointCode);
+            }
+
             this.nodeIndex += 1;
             this.RepopulateRoute();
         }
