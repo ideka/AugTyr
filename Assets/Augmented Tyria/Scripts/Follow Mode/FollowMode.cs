@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FollowMode : MonoBehaviour
@@ -10,7 +11,7 @@ public class FollowMode : MonoBehaviour
     public LineRenderer RouteDisplay;
 
     public const float SquaredDistToReach = 1;
-    public const float SquaredMaxRouteLength = 100;
+    public const float SquaredMaxRouteLength = 1000;
 
     public Route Route { get { return this.RouteHolder.Route; } }
 
@@ -39,6 +40,47 @@ public class FollowMode : MonoBehaviour
 
     private void RepopulateRoute()
     {
+        // Repopulate attached nodes.
+        this.nodes.ForEach(n => Destroy(n.gameObject));
+        this.nodes.Clear();
+        float squaredLength = 0;
+        Node previous = null;
+        foreach (Node node in this.Route.Nodes.Skip(this.nodeIndex))
+        {
+            if (squaredLength > SquaredMaxRouteLength)
+                break;
+
+            GameObject gameObject = (GameObject)Instantiate(this.NodePrefab, this.RouteDisplay.transform);
+            NodeDisplay display = gameObject.GetComponent<NodeDisplay>();
+            display.Node = node;
+            display.SetMesh(false);
+            this.nodes.Add(display);
+
+            if (node.Type == NodeType.Waypoint)
+                break;
+
+            if (previous != null)
+                squaredLength += (previous.Position - node.Position).sqrMagnitude;
+            previous = node;
+        }
+
+        // Update route display.
+        this.RouteDisplay.numPositions = 0;  // TODO: Find out if this is needed.
+        Vector3[] positions = this.nodes.Select(n => n.transform.position).ToArray();
+        this.RouteDisplay.numPositions = positions.Length;
+        this.RouteDisplay.SetPositions(positions);
+
+        // Repopulate detached nodes.
+        this.detachedNodes.ForEach(n => Destroy(n.gameObject));
+        this.detachedNodes.Clear();
+        foreach (Node node in this.Route.DetachedNodes)
+        {
+            GameObject gameObject = (GameObject)Instantiate(this.NodePrefab, this.RouteDisplay.transform);
+            NodeDisplay display = gameObject.GetComponent<NodeDisplay>();
+            display.Node = node;
+            display.SetMesh(true);
+            this.detachedNodes.Add(display);
+        }
     }
 
     private void ReachedNode()
