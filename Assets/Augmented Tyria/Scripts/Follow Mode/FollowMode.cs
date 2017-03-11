@@ -59,7 +59,9 @@ public class FollowMode : MonoBehaviour
             if (node.Type == NodeType.Waypoint)
                 break;
 
-            if (previous != null)
+            if (previous == null)
+                display.Select(true);
+            else
                 squaredLength += (previous.Position - node.Position).sqrMagnitude;
             previous = node;
         }
