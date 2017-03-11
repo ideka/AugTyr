@@ -28,8 +28,8 @@ public class RouteHolder : MonoBehaviour
 
         this.Load();
 
-        this.EditMode.gameObject.SetActive(false);
-        this.FollowMode.gameObject.SetActive(true);
+        this.EditMode.gameObject.SetActive(true);
+        this.FollowMode.gameObject.SetActive(false);
     }
 
     private void OnDestroy()
