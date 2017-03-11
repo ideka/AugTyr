@@ -1,0 +1,22 @@
+# Unity generated.
+[Tt]emp/
+[Oo]bj/
+[Bb]uild
+[Ll]ibrary/
+sysinfo.txt
+ 
+# IDE generated.
+[Ee]xported[Oo]bj/
+.vs/
+StyleCop.cache
+/*.userprefs
+/*.csproj
+/*.pidb
+/*.suo
+/*.sln*
+/*.user
+/*.unityproj
+/*.booproj
+
+# Others.
+bin/
