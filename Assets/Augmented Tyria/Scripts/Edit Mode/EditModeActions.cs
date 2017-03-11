@@ -309,6 +309,8 @@ public partial class EditMode
 
     private void UpdateSelectedNode()
     {
+        this.RouteHolder.NodeIndex = this.nodeIndex;
+
         this.nodes.ForEach(n => n.Select(false));
         this.detachedNodes.ForEach(n => n.Select(false));
 

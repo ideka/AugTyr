@@ -34,6 +34,8 @@ public partial class EditMode : MonoBehaviour
 
     private void OnEnable()
     {
+        this.nodeIndex = this.RouteHolder.NodeIndex;
+        this.UpdateSelectedNode();
         this.globalHook.KeyDown += this.GlobalHookKeyDown;
     }
 
