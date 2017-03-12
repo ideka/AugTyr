@@ -9,9 +9,11 @@ public class FollowMode : MonoBehaviour
     public Transform Cursor;
     public RouteHolder RouteHolder;
 
+    public Material FollowMaterial;
+    public Material HeartMaterial;
+
     public GameObject NodePrefab;
     public LineRenderer RouteDisplay;
-
     public LineRenderer OrientationHelper;
 
     public const float SquaredDistToReach = 1;
@@ -128,6 +130,20 @@ public class FollowMode : MonoBehaviour
         Vector3[] positions = this.nodes.Select(n => n.transform.position).ToArray();
         this.RouteDisplay.numPositions = positions.Length;
         this.RouteDisplay.SetPositions(positions);
+
+        // Update route display material.
+        this.RouteDisplay.material = this.FollowMaterial;
+        foreach (Node node in this.Route.Nodes.Take(this.nodeIndex).Reverse())
+        {
+            if (node.Type == NodeType.HeartWall)
+                break;
+
+            if (node.Type == NodeType.Heart)
+            {
+                this.RouteDisplay.material = this.HeartMaterial;
+                break;
+            }
+        }
 
         // Repopulate detached nodes.
         this.detachedNodes.ForEach(n => Destroy(n.gameObject));
