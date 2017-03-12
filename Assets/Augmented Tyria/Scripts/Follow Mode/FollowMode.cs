@@ -12,6 +12,8 @@ public class FollowMode : MonoBehaviour
     public GameObject NodePrefab;
     public LineRenderer RouteDisplay;
 
+    public LineRenderer OrientationHelper;
+
     public const float SquaredDistToReach = 1;
     public const float SquaredMaxRouteLength = 1000;
 
@@ -36,12 +38,15 @@ public class FollowMode : MonoBehaviour
     private void OnEnable()
     {
         this.RepopulateRoute();
+        this.OrientationHelper.gameObject.SetActive(false);
         this.globalHook.KeyDown += this.GlobalHookKeyDown;
+        this.globalHook.KeyUp += this.GlobalHookKeyUp;
     }
 
     private void OnDisable()
     {
         this.globalHook.KeyDown -= this.GlobalHookKeyDown;
+        this.globalHook.KeyUp -= this.GlobalHookKeyUp;
     }
 
     private void OnDestroy()
@@ -54,7 +59,11 @@ public class FollowMode : MonoBehaviour
         if (this.nodeIndex < 0)
             return;
 
-        if ((this.Route.Nodes[this.nodeIndex].Position - this.Cursor.position).sqrMagnitude <= SquaredDistToReach)
+        Node next = this.Route.Nodes[this.nodeIndex];
+
+        this.OrientationHelper.SetPositions(new Vector3[] { this.Cursor.position, next.Position });
+
+        if ((next.Position - this.Cursor.position).sqrMagnitude <= SquaredDistToReach)
             this.ReachedNode();
     }
 
@@ -65,6 +74,19 @@ public class FollowMode : MonoBehaviour
 
         switch (e.KeyCode)
         {
+            case Keys.NumPad0:
+                this.OrientationHelper.gameObject.SetActive(true);
+                break;
+        }
+    }
+
+    private void GlobalHookKeyUp(object sender, KeyEventArgs e)
+    {
+        switch (e.KeyCode)
+        {
+            case Keys.NumPad0:
+                this.OrientationHelper.gameObject.SetActive(false);
+                break;
         }
     }
 
