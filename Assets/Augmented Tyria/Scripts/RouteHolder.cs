@@ -42,7 +42,13 @@ public class RouteHolder : MonoBehaviour
 
     private void Load()
     {
-        this.Route = JsonConvert.DeserializeObject<Route>(File.ReadAllText(Path + this.Mumble.Link.GetCoordinates().MapId + ".json"));
+        try
+        {
+            this.Route = JsonConvert.DeserializeObject<Route>(File.ReadAllText(Path + this.Mumble.Link.GetCoordinates().MapId + ".json"));
+        }
+        catch (FileNotFoundException)
+        {
+        }
         this.NodeIndex = this.Route.Nodes.Any() ? 0 : -1;
     }
 
