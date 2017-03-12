@@ -119,14 +119,13 @@ public class FollowMode : MonoBehaviour
             display.SetMesh(false);
             this.nodes.Add(display);
 
+            if (previous == null)
+                display.Select(true);
+
             if (node.Type == NodeType.Waypoint)
                 break;
 
-            if (previous == null)
-            {
-                display.Select(true);
-            }
-            else
+            if (previous != null)
             {
                 squaredLength += (previous.Position - node.Position).sqrMagnitude;
                 if (squaredLength > SquaredMaxRouteLength)
