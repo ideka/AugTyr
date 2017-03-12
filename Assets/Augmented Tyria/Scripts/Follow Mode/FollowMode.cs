@@ -40,13 +40,11 @@ public class FollowMode : MonoBehaviour
         this.RepopulateRoute();
         this.OrientationHelper.gameObject.SetActive(false);
         this.globalHook.KeyDown += this.GlobalHookKeyDown;
-        this.globalHook.KeyUp += this.GlobalHookKeyUp;
     }
 
     private void OnDisable()
     {
         this.globalHook.KeyDown -= this.GlobalHookKeyDown;
-        this.globalHook.KeyUp -= this.GlobalHookKeyUp;
     }
 
     private void OnDestroy()
@@ -87,19 +85,9 @@ public class FollowMode : MonoBehaviour
                 this.ReachedNode();
                 break;
 
-            // Display the orientation helper.
+            // Toggle the orientation helper.
             case Keys.NumPad0:
-                this.OrientationHelper.gameObject.SetActive(true);
-                break;
-        }
-    }
-
-    private void GlobalHookKeyUp(object sender, KeyEventArgs e)
-    {
-        switch (e.KeyCode)
-        {
-            case Keys.NumPad0:
-                this.OrientationHelper.gameObject.SetActive(false);
+                this.OrientationHelper.gameObject.SetActive(!this.OrientationHelper.gameObject.activeSelf);
                 break;
         }
     }
