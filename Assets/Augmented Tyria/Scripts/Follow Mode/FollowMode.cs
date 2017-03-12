@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Gma.System.MouseKeyHook;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using UnityEngine;
@@ -22,12 +23,30 @@ public class FollowMode : MonoBehaviour
         set { this.RouteHolder.NodeIndex = value; }
     }
 
+    private IKeyboardMouseEvents globalHook;
+
     private List<NodeDisplay> nodes = new List<NodeDisplay>();
     private List<NodeDisplay> detachedNodes = new List<NodeDisplay>();
+
+    private void Awake()
+    {
+        this.globalHook = Hook.GlobalEvents();
+    }
 
     private void OnEnable()
     {
         this.RepopulateRoute();
+        this.globalHook.KeyDown += this.GlobalHookKeyDown;
+    }
+
+    private void OnDisable()
+    {
+        this.globalHook.KeyDown -= this.GlobalHookKeyDown;
+    }
+
+    private void OnDestroy()
+    {
+        this.globalHook.Dispose();
     }
 
     private void Update()
@@ -37,6 +56,16 @@ public class FollowMode : MonoBehaviour
 
         if ((this.Route.Nodes[this.nodeIndex].Position - this.Cursor.position).sqrMagnitude <= SquaredDistToReach)
             this.ReachedNode();
+    }
+
+    private void GlobalHookKeyDown(object sender, KeyEventArgs e)
+    {
+        if (Camera.main.cullingMask == 0)
+            return;
+
+        switch (e.KeyCode)
+        {
+        }
     }
 
     private void RepopulateRoute()
