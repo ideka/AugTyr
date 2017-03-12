@@ -23,6 +23,8 @@ public class RouteHolder : MonoBehaviour
 
     private void Awake()
     {
+        this.NodeIndex = -1;
+
         this.globalHook = Hook.GlobalEvents();
         this.globalHook.KeyDown += this.GlobalHookKeyDown;
 
