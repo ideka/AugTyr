@@ -74,6 +74,20 @@ public class FollowMode : MonoBehaviour
 
         switch (e.KeyCode)
         {
+            // Manually change nodes.
+            case Keys.NumPad4:
+                if (this.nodeIndex > 0)
+                {
+                    this.nodeIndex--;
+                    this.RepopulateRoute();
+                }
+                break;
+
+            case Keys.NumPad6:
+                this.ReachedNode();
+                break;
+
+            // Display the orientation helper.
             case Keys.NumPad0:
                 this.OrientationHelper.gameObject.SetActive(true);
                 break;
