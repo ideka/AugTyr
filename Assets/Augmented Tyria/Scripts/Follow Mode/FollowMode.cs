@@ -113,9 +113,6 @@ public class FollowMode : MonoBehaviour
         Node previous = null;
         foreach (Node node in this.Route.Nodes.Skip(this.nodeIndex))
         {
-            if (squaredLength > SquaredMaxRouteLength)
-                break;
-
             GameObject gameObject = (GameObject)Instantiate(this.NodePrefab, this.RouteDisplay.transform);
             NodeDisplay display = gameObject.GetComponent<NodeDisplay>();
             display.Node = node;
@@ -126,9 +123,16 @@ public class FollowMode : MonoBehaviour
                 break;
 
             if (previous == null)
+            {
                 display.Select(true);
+            }
             else
+            {
                 squaredLength += (previous.Position - node.Position).sqrMagnitude;
+                if (squaredLength > SquaredMaxRouteLength)
+                    break;
+            }
+
             previous = node;
         }
 
