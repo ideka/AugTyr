@@ -23,6 +23,8 @@ public class NodeDisplay : MonoBehaviour
     public const float PulsateMax = .5f;
     public const float PulsateSpeed = 2;
 
+    public Vector3 NormalScale { get { return Vector3.Lerp(Vector3.one * PulsateMax, Vector3.one * PulsateMin, .5f); } }
+
     public Node Node
     {
         set
@@ -55,6 +57,11 @@ public class NodeDisplay : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        this.MeshRenderer.transform.localScale = this.NormalScale;
+    }
+
     public void SetMesh(bool detached)
     {
         this.MeshFilter.mesh = detached ? this.DetachedMesh : this.AttachedMesh;
@@ -67,7 +74,7 @@ public class NodeDisplay : MonoBehaviour
         if (select)
             this.StartCoroutine(this.Pulsating());
         else
-            this.MeshRenderer.transform.localScale = Vector3.Lerp(Vector3.one * PulsateMax, Vector3.one * PulsateMin, .5f);
+            this.MeshRenderer.transform.localScale = this.NormalScale;
     }
 
     private IEnumerator Pulsating()
