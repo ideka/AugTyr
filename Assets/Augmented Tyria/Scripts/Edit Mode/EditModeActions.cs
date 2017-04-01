@@ -62,9 +62,9 @@ public partial class EditMode
 
     private void UpdatePath()
     {
-        this.RouteDisplay.numPositions = 0;  // TODO: Find out if this is needed.
+        this.RouteDisplay.positionCount = 0;  // TODO: Find out if this is needed.
         Vector3[] positions = this.Route.Nodes.Select(n => n.Position).ToArray();
-        this.RouteDisplay.numPositions = positions.Length;
+        this.RouteDisplay.positionCount = positions.Length;
         this.RouteDisplay.SetPositions(positions);
     }
 
