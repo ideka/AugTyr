@@ -74,6 +74,11 @@ public class FollowMode : MonoBehaviour
 
         switch (e.KeyCode)
         {
+            // Select closest connected node.
+            case Keys.NumPad5:
+                this.SelectClosestNode();
+                break;
+
             // Manually change nodes.
             case Keys.NumPad4:
                 if (this.nodeIndex > 0)
@@ -171,6 +176,25 @@ public class FollowMode : MonoBehaviour
             }
 
             this.nodeIndex += 1;
+            this.RepopulateRoute();
+        }
+    }
+
+    private void SelectClosestNode()
+    {
+        if (this.nodes.Count != 0)
+        {
+            float d = -1;
+            this.nodeIndex = 0;
+            foreach (var item in this.Route.Nodes.Select((node, i) => new { position = node.Position, i = i }))
+            {
+                float cd = (this.Cursor.position - item.position).sqrMagnitude;
+                if (d == -1 || d > cd)
+                {
+                    d = cd;
+                    this.nodeIndex = item.i;
+                }
+            }
             this.RepopulateRoute();
         }
     }
