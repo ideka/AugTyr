@@ -19,9 +19,9 @@ public class NodeDisplay : MonoBehaviour
     public Material HeartMaterial;
     public Material HeartWallMaterial;
 
-    public const float PulsateMin = .5f;
-    public const float PulsateMax = 1.5f;
-    public const float PulsateSpeed = 4;
+    public const float PulsateMin = .1f;
+    public const float PulsateMax = .5f;
+    public const float PulsateSpeed = 2;
 
     public Node Node
     {
@@ -67,7 +67,7 @@ public class NodeDisplay : MonoBehaviour
         if (select)
             this.StartCoroutine(this.Pulsating());
         else
-            this.MeshRenderer.transform.localScale = Vector3.one;
+            this.MeshRenderer.transform.localScale = Vector3.Lerp(Vector3.one * PulsateMax, Vector3.one * PulsateMin, .5f);
     }
 
     private IEnumerator Pulsating()
