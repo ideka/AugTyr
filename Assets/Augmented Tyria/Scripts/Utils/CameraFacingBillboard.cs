@@ -2,7 +2,12 @@
 
 public class CameraFacingBillboard : MonoBehaviour
 {
-    void Update()
+    private void Awake()
+    {
+        this.Update();
+    }
+
+    private void Update()
     {
         transform.LookAt(
             transform.position + Camera.main.transform.rotation * Vector3.forward,
