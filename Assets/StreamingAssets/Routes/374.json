@@ -1,1 +1,14 @@
-{"Nodes":[{"X":10.9474506,"Y":394.168457,"Z":-354.737122,"Comment":null,"Type":1,"WaypointCode":"[&BAgFAAA=]","HeartWallValue":null}],"DetachedNodes":[]}
+{
+  "Nodes": [
+    {
+      "X": 10.9474506,
+      "Y": 394.168457,
+      "Z": -354.737122,
+      "Comment": null,
+      "Type": 1,
+      "WaypointCode": "[&BAgFAAA=]",
+      "HeartWallValue": null
+    }
+  ],
+  "DetachedNodes": []
+}

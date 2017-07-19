@@ -1,1 +1,104 @@
-{"Nodes":[{"X":74.25376,"Y":226.785767,"Z":222.364929,"Comment":null,"Type":0,"WaypointCode":null,"HeartWallValue":null},{"X":97.0420151,"Y":239.551834,"Z":230.999725,"Comment":null,"Type":0,"WaypointCode":null,"HeartWallValue":null},{"X":90.909874,"Y":240.65686,"Z":234.263535,"Comment":null,"Type":0,"WaypointCode":null,"HeartWallValue":null},{"X":74.2903,"Y":244.258377,"Z":229.0575,"Comment":null,"Type":0,"WaypointCode":null,"HeartWallValue":null},{"X":60.95902,"Y":244.41658,"Z":226.326248,"Comment":null,"Type":0,"WaypointCode":null,"HeartWallValue":null},{"X":24.8607121,"Y":245.489136,"Z":223.146469,"Comment":null,"Type":0,"WaypointCode":null,"HeartWallValue":null},{"X":48.4820442,"Y":244.416611,"Z":223.650284,"Comment":null,"Type":0,"WaypointCode":null,"HeartWallValue":null},{"X":46.04887,"Y":244.257065,"Z":210.063538,"Comment":null,"Type":0,"WaypointCode":null,"HeartWallValue":null},{"X":39.2050476,"Y":244.257065,"Z":200.312378,"Comment":null,"Type":0,"WaypointCode":null,"HeartWallValue":null},{"X":23.9854984,"Y":244.296875,"Z":184.995483,"Comment":null,"Type":0,"WaypointCode":null,"HeartWallValue":null},{"X":9.140705,"Y":245.150635,"Z":183.284454,"Comment":"Leave instance.","Type":0,"WaypointCode":null,"HeartWallValue":null}],"DetachedNodes":[]}
+{
+  "Nodes": [
+    {
+      "X": 74.25376,
+      "Y": 226.785767,
+      "Z": 222.364929,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 97.0420151,
+      "Y": 239.551834,
+      "Z": 230.999725,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 90.909874,
+      "Y": 240.65686,
+      "Z": 234.263535,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 74.2903,
+      "Y": 244.258377,
+      "Z": 229.0575,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 60.95902,
+      "Y": 244.41658,
+      "Z": 226.326248,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 24.8607121,
+      "Y": 245.489136,
+      "Z": 223.146469,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 48.4820442,
+      "Y": 244.416611,
+      "Z": 223.650284,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 46.04887,
+      "Y": 244.257065,
+      "Z": 210.063538,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 39.2050476,
+      "Y": 244.257065,
+      "Z": 200.312378,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 23.9854984,
+      "Y": 244.296875,
+      "Z": 184.995483,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 9.140705,
+      "Y": 245.150635,
+      "Z": 183.284454,
+      "Comment": "Leave instance.",
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    }
+  ],
+  "DetachedNodes": []
+}

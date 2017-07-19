@@ -108,7 +108,7 @@ public class GameDatabaseHolder : MonoBehaviour
             }
         }
 
-        File.WriteAllText(Path, JsonConvert.SerializeObject(this.GameDatabase));
+        File.WriteAllText(Path, JsonConvert.SerializeObject(this.GameDatabase, Formatting.Indented));
         Debug.Log("DONE!");
     }
 

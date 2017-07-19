@@ -1,1 +1,50 @@
-{"Nodes":[{"X":54.10804,"Y":214.984268,"Z":261.615265,"Comment":null,"Type":0,"WaypointCode":null,"HeartWallValue":null},{"X":56.5396957,"Y":214.99321,"Z":275.0832,"Comment":null,"Type":0,"WaypointCode":null,"HeartWallValue":null},{"X":32.44526,"Y":217.393112,"Z":290.495361,"Comment":null,"Type":0,"WaypointCode":null,"HeartWallValue":null},{"X":8.139269,"Y":222.64566,"Z":295.930664,"Comment":null,"Type":0,"WaypointCode":null,"HeartWallValue":null},{"X":-20.8680134,"Y":228.55423,"Z":291.240265,"Comment":"Leave instance to get the Completion Chest.","Type":0,"WaypointCode":null,"HeartWallValue":null}],"DetachedNodes":[]}
+{
+  "Nodes": [
+    {
+      "X": 54.10804,
+      "Y": 214.984268,
+      "Z": 261.615265,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 56.5396957,
+      "Y": 214.99321,
+      "Z": 275.0832,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 32.44526,
+      "Y": 217.393112,
+      "Z": 290.495361,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 8.139269,
+      "Y": 222.64566,
+      "Z": 295.930664,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -20.8680134,
+      "Y": 228.55423,
+      "Z": 291.240265,
+      "Comment": "Leave instance to get the Completion Chest.",
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    }
+  ],
+  "DetachedNodes": []
+}

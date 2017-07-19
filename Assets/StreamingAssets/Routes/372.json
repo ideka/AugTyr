@@ -1,1 +1,23 @@
-{"Nodes":[{"X":5.64809752,"Y":216.473755,"Z":172.819351,"Comment":null,"Type":0,"WaypointCode":null,"HeartWallValue":null},{"X":-7.63516665,"Y":217.576,"Z":174.331772,"Comment":null,"Type":1,"WaypointCode":"[&BK0DAAA=]","HeartWallValue":null}],"DetachedNodes":[]}
+{
+  "Nodes": [
+    {
+      "X": 5.64809752,
+      "Y": 216.473755,
+      "Z": 172.819351,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -7.63516665,
+      "Y": 217.576,
+      "Z": 174.331772,
+      "Comment": null,
+      "Type": 1,
+      "WaypointCode": "[&BK0DAAA=]",
+      "HeartWallValue": null
+    }
+  ],
+  "DetachedNodes": []
+}

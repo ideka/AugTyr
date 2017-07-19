@@ -68,7 +68,7 @@ public class RouteHolder : MonoBehaviour
 
     private void Save()
     {
-        File.WriteAllText(Path + this.Mumble.Link.GetCoordinates().MapId + ".json", JsonConvert.SerializeObject(this.Route));
+        File.WriteAllText(Path + this.Mumble.Link.GetCoordinates().MapId + ".json", JsonConvert.SerializeObject(this.Route, Formatting.Indented));
     }
 
     private void GlobalHookKeyDown(object sender, KeyEventArgs e)
