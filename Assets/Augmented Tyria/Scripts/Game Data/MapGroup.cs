@@ -23,6 +23,11 @@ public class MapGroup
         return this.Maps.Keys.Min();
     }
 
+    public IEnumerable<KeyValuePair<string, string>> GetWaypoints(Map skip = null)
+    {
+        return this.Maps.Where(m => m.Value != skip).SelectMany(m => m.Value.Waypoints);
+    }
+
     public bool TryAddMap(int id, Map map)
     {
         if (!this.Maps.Any() || map.Sectors.Keys.Intersect(this.allSectors).Any() || this.Maps.Values.Any(m => m.Rect.Overlaps(map.Rect)))
