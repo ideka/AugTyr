@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 public class GameDatabase
@@ -12,6 +11,14 @@ public class GameDatabase
     {
         if (this.MapGroups.All(mg => !mg.TryAddMap(id, map)))
             this.MapGroups.Add(new MapGroup(id, map));
+    }
+
+    public int GetMapGroupId(int mapId)
+    {
+        MapGroup group = this.MapGroups.Find(g => g.Maps.ContainsKey(mapId));
+        if (group == null)
+            return -1;
+        return group.GetId();
     }
 
     public IEnumerable<KeyValuePair<string, string>> GetWaypoints(MapGroup skip = null)

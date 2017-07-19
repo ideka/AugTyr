@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Linq;
 using UnityEngine;
 
 public class Node
@@ -29,22 +28,6 @@ public class Node
 
     // Waypoint attributes.
     public string WaypointCode;
-
-    public void SetWaypointCode(string waypointName)
-    {
-        if (waypointName == null)
-        {
-            this.WaypointCode = null;
-            return;
-        }
-
-        string trimmed = waypointName.TrimStart('[').TrimEnd(']');
-        string result = Waypoints.Codes.FirstOrDefault(kv => kv.Value == trimmed).Key;
-        if (result == null)
-            this.WaypointCode = waypointName;
-        else
-            this.WaypointCode = result;
-    }
 
     // Heart wall attributes.
     public string HeartWallValue;

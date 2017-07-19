@@ -24,7 +24,7 @@ public partial class EditMode
 
     private void AddVisualNode(Node node, bool detached = false, int at = -1)
     {
-        GameObject gameObject = (GameObject)Instantiate(this.NodePrefab, this.RouteDisplay.transform);
+        GameObject gameObject = Instantiate(this.NodePrefab, this.RouteDisplay.transform);
         NodeDisplay display = gameObject.GetComponent<NodeDisplay>();
         display.Node = node;
 
@@ -130,7 +130,7 @@ public partial class EditMode
         switch (node.Type)
         {
             case NodeType.Waypoint:
-                node.SetWaypointCode(to);
+                node.SetWaypointCode(this.RouteHolder.MapId, this.RouteHolder.GameDatabase, to);
                 break;
 
             case NodeType.HeartWall:

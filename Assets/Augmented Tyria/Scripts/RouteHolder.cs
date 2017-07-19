@@ -22,6 +22,9 @@ public class RouteHolder : MonoBehaviour
     public Route Route = new Route();
 
     public int NodeIndex { get; set; }
+    public GameDatabase GameDatabase { get { return this.GameDatabaseHolder.GameDatabase; } }
+    public int MapId { get { return this.Mumble.Link.GetCoordinates().MapId; } }
+    public int MapGroupId { get { return this.GameDatabase.GetMapGroupId(this.MapId); } }
 
     private IKeyboardMouseEvents globalHook;
 

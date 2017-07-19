@@ -136,7 +136,7 @@ public partial class EditMode : MonoBehaviour
                 {
                     Clipboard.Clear();
                     string c = this.GetComment();
-                    if (c != null && c != "")
+                    if (!string.IsNullOrEmpty(c))
                         Clipboard.SetText(c);
                 }
                 break;
@@ -150,7 +150,7 @@ public partial class EditMode : MonoBehaviour
                 {
                     Clipboard.Clear();
                     string c = this.GetData();
-                    if (c != null && c != "")
+                    if (!string.IsNullOrEmpty(c))
                         Clipboard.SetText(c);
                 }
                 break;
