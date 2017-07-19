@@ -7,6 +7,10 @@ public class MapGroup
 
     private HashSet<int> allSectors = new HashSet<int>();
 
+    public MapGroup()
+    {
+    }
+
     public MapGroup(int firstMapId, Map firstMap)
     {
         this.TryAddMap(firstMapId, firstMap);
