@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RouteHolder : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class RouteHolder : MonoBehaviour
     public FollowMode FollowMode;
 
     public static string Path { get { return UnityEngine.Application.streamingAssetsPath + "/Routes/"; } }
+
+    [HideInInspector]
+    public GameDatabaseHolder GameDatabaseHolder;
 
     public Route Route = new Route();
 
@@ -27,6 +31,13 @@ public class RouteHolder : MonoBehaviour
 
         this.globalHook = Hook.GlobalEvents();
         this.globalHook.KeyDown += this.GlobalHookKeyDown;
+
+        this.GameDatabaseHolder = FindObjectOfType<GameDatabaseHolder>();
+        if (this.GameDatabaseHolder == null)
+        {
+            SceneManager.LoadScene("Load");
+            return;
+        }
 
         this.Load();
 

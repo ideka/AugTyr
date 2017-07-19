@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameDatabaseHolder : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class GameDatabaseHolder : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
 
+        this.StartCoroutine(this.Loading());
+    }
+
+    private IEnumerator Loading()
+    {
         try
         {
             this.GameDatabase = JsonConvert.DeserializeObject<GameDatabase>(File.ReadAllText(Path));
@@ -26,14 +32,15 @@ public class GameDatabaseHolder : MonoBehaviour
         {
         }
 
-        this.StartCoroutine(this.UpdateDatabase());
+        yield return this.UpdatingDatabase();
+        SceneManager.LoadScene("Route");
     }
 
-    private IEnumerator UpdateDatabase()
+    private IEnumerator UpdatingDatabase()
     {
         using (APICall call = new APICall("build"))
         {
-            yield return call.Request();
+            yield return call.Requesting();
 
             // Bail early if the database is up-to-date.
             int build = (int)call.Data["id"];
@@ -49,12 +56,12 @@ public class GameDatabaseHolder : MonoBehaviour
 
         using (APICall call = new APICall("continents"))
         {
-            yield return call.Request();
+            yield return call.Requesting();
             foreach (string continentId in call.Data.Skip(0))
             {
                 using (APICall cCall = new APICall("continents", continentId, "floors?ids=all"))
                 {
-                    yield return cCall.Request();
+                    yield return cCall.Requesting();
 
                     Dictionary<int, Map> maps = new Dictionary<int, Map>();
                     foreach (JContainer mapData in (from floor in cCall.Data
@@ -116,7 +123,7 @@ public class GameDatabaseHolder : MonoBehaviour
             this.path = path;
         }
 
-        public IEnumerator Request()
+        public IEnumerator Requesting()
         {
             while (true)
             {

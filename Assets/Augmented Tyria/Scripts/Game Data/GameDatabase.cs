@@ -12,4 +12,9 @@ public class GameDatabase
         if (this.MapGroups.All(mg => !mg.TryAddMap(id, map)))
             this.MapGroups.Add(new MapGroup(id, map));
     }
+
+    public string GetChatCode(int mapId, string waypointName)
+    {
+        return null;
+    }
 }
