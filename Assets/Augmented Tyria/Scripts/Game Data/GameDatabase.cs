@@ -3,13 +3,13 @@ using System.Linq;
 
 public class GameDatabase
 {
-    public int BuildID = -1;
+    public int BuildId = -1;
 
     public List<MapGroup> MapGroups = new List<MapGroup>();
 
-    public void AddMap(Map map)
+    public void AddMap(int id, Map map)
     {
-        if (this.MapGroups.All(mg => !mg.TryAddMap(map)))
-            this.MapGroups.Add(new MapGroup(map));
+        if (this.MapGroups.All(mg => !mg.TryAddMap(id, map)))
+            this.MapGroups.Add(new MapGroup(id, map));
     }
 }

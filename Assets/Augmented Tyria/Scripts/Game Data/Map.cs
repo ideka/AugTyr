@@ -1,19 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Linq;
 
 public class Map
 {
-    public int ID;
     public string Name;
 
     public Dictionary<string, string> Waypoints = new Dictionary<string, string>();
 
+    [JsonIgnore]
     public ContinentRect Rect;
+    [JsonIgnore]
     public Dictionary<int, string> Sectors = new Dictionary<int, string>();
 
     public struct ContinentRect
     {
-        public int ContinentID;
+        public int ContinentId;
         public HashSet<int> Floors;
 
         public int Rect1X;
@@ -23,7 +25,7 @@ public class Map
 
         public bool Overlaps(ContinentRect other)
         {
-            return (this.ContinentID == other.ContinentID &&
+            return (this.ContinentId == other.ContinentId &&
                 this.Floors.Intersect(other.Floors).Any() &&
                 this.Rect1X == other.Rect1X &&
                 this.Rect1Y == other.Rect1Y &&

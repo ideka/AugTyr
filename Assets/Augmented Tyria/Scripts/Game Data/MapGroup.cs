@@ -3,28 +3,28 @@ using System.Linq;
 
 public class MapGroup
 {
-    public List<Map> Maps = new List<Map>();
+    public Dictionary<int, Map> Maps = new Dictionary<int, Map>();
 
-    private HashSet<int> AllSectors = new HashSet<int>();
+    private HashSet<int> allSectors = new HashSet<int>();
 
-    public MapGroup(Map firstMap)
+    public MapGroup(int firstMapId, Map firstMap)
     {
-        this.TryAddMap(firstMap);
+        this.TryAddMap(firstMapId, firstMap);
     }
 
-    public int GetID()
+    public int GetId()
     {
         // The ID of the MapGroup is determined by its map with the
         // lowest ID (presumably the earliest created).
-        return this.Maps.Min(m => m.ID);
+        return this.Maps.Keys.Min();
     }
 
-    public bool TryAddMap(Map map)
+    public bool TryAddMap(int id, Map map)
     {
-        if (!this.Maps.Any() || map.Sectors.Keys.Intersect(this.AllSectors).Any() || this.Maps.Any(m => m.Rect.Overlaps(map.Rect)))
+        if (!this.Maps.Any() || map.Sectors.Keys.Intersect(this.allSectors).Any() || this.Maps.Values.Any(m => m.Rect.Overlaps(map.Rect)))
         {
-            this.Maps.Add(map);
-            this.AllSectors.UnionWith(map.Sectors.Keys);
+            this.Maps[id] = map;
+            this.allSectors.UnionWith(map.Sectors.Keys);
             return true;
         }
 

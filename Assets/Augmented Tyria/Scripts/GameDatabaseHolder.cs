@@ -37,22 +37,22 @@ public class GameDatabaseHolder : MonoBehaviour
 
             // Bail early if the database is up-to-date.
             int build = (int)call.Data["id"];
-            if (this.GameDatabase.BuildID == build)
+            if (this.GameDatabase.BuildId == build)
                 yield break;
 
             // Create a new database.
             this.GameDatabase = new GameDatabase()
             {
-                BuildID = build
+                BuildId = build
             };
         }
 
         using (APICall call = new APICall("continents"))
         {
             yield return call.Request();
-            foreach (string continentID in call.Data.Skip(0))
+            foreach (string continentId in call.Data.Skip(0))
             {
-                using (APICall cCall = new APICall("continents", continentID, "floors?ids=all"))
+                using (APICall cCall = new APICall("continents", continentId, "floors?ids=all"))
                 {
                     yield return cCall.Request();
 
@@ -69,12 +69,11 @@ public class GameDatabaseHolder : MonoBehaviour
                         {
                             map = new Map()
                             {
-                                ID = (int)mapData["id"],
                                 Name = (string)mapData["name"],
 
                                 Rect = new Map.ContinentRect()
                                 {
-                                    ContinentID = int.Parse(continentID),
+                                    ContinentId = int.Parse(continentId),
                                     Floors = new HashSet<int>() { floor },
 
                                     Rect1X = (int)mapData["continent_rect"][0][0],
@@ -83,7 +82,7 @@ public class GameDatabaseHolder : MonoBehaviour
                                     Rect2Y = (int)mapData["continent_rect"][1][1]
                                 }
                             };
-                            maps[map.ID] = map;
+                            maps[(int)mapData["id"]] = map;
                         }
                         else
                         {
@@ -96,8 +95,8 @@ public class GameDatabaseHolder : MonoBehaviour
                             map.Sectors[(int)sectorData["id"]] = (string)sectorData["name"];
                     }
 
-                    foreach (Map map in maps.Values)
-                        this.GameDatabase.AddMap(map);
+                    foreach (KeyValuePair<int, Map> map in maps)
+                        this.GameDatabase.AddMap(map.Key, map.Value);
                 }
             }
         }
