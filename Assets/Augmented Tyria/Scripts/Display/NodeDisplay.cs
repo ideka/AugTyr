@@ -53,7 +53,7 @@ public class NodeDisplay : MonoBehaviour
                     break;
             }
 
-            this.Canvas.gameObject.SetActive(this.Text.text != null && this.Text.text != "");
+            this.Canvas.gameObject.SetActive(!string.IsNullOrEmpty(this.Text.text));
         }
     }
 

@@ -108,7 +108,7 @@ public class FollowMode : MonoBehaviour
         Node previous = null;
         foreach (Node node in this.Route.Nodes.Skip(this.nodeIndex))
         {
-            GameObject gameObject = (GameObject)Instantiate(this.NodePrefab, this.RouteDisplay.transform);
+            GameObject gameObject = Instantiate(this.NodePrefab, this.RouteDisplay.transform);
             NodeDisplay display = gameObject.GetComponent<NodeDisplay>();
             display.Node = node;
             display.SetMesh(false);
@@ -155,7 +155,7 @@ public class FollowMode : MonoBehaviour
         this.detachedNodes.Clear();
         foreach (Node node in this.Route.DetachedNodes)
         {
-            GameObject gameObject = (GameObject)Instantiate(this.NodePrefab, this.RouteDisplay.transform);
+            GameObject gameObject = Instantiate(this.NodePrefab, this.RouteDisplay.transform);
             NodeDisplay display = gameObject.GetComponent<NodeDisplay>();
             display.Node = node;
             display.SetMesh(true);
@@ -168,12 +168,8 @@ public class FollowMode : MonoBehaviour
         if (this.nodeIndex + 1 < this.Route.Nodes.Count)
         {
             Node reached = this.Route.Nodes[this.nodeIndex];
-            if (reached.Type == NodeType.Waypoint)
-            {
-                Clipboard.Clear();
-                if (reached.WaypointCode != null && reached.WaypointCode != "")
-                    Clipboard.SetText(reached.WaypointCode);
-            }
+            if (reached.Type == NodeType.Waypoint && !string.IsNullOrEmpty(reached.WaypointCode))
+                Clipboard.SetText(reached.WaypointCode);
 
             this.nodeIndex += 1;
             this.RepopulateRoute();
