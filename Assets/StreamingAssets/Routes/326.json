@@ -211,8 +211,26 @@
       "X": 96.765274,
       "Y": 302.723663,
       "Z": -241.735046,
-      "Comment": "Enter instance before continuing.",
+      "Comment": "Enter instance.",
+      "Type": 1,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 103.243561,
+      "Y": 341.970764,
+      "Z": -284.776825,
+      "Comment": null,
       "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 80.76907,
+      "Y": 341.972565,
+      "Z": -324.096771,
+      "Comment": "Leave instance.",
+      "Type": 1,
       "WaypointCode": null,
       "HeartWallValue": null
     },
@@ -265,9 +283,18 @@
       "X": 11.9719381,
       "Y": 292.3032,
       "Z": -356.0702,
-      "Comment": "Enter instance before continuing.",
-      "Type": 0,
+      "Comment": "Enter instance.",
+      "Type": 1,
       "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 10.9474506,
+      "Y": 394.168457,
+      "Z": -354.737122,
+      "Comment": null,
+      "Type": 1,
+      "WaypointCode": "[&BAgFAAA=]",
       "HeartWallValue": null
     },
     {
@@ -2344,7 +2371,34 @@
       "X": 468.365784,
       "Y": 320.996246,
       "Z": -304.914124,
-      "Comment": "Enter the instance.",
+      "Comment": "Enter instance.",
+      "Type": 1,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 422.5196,
+      "Y": 333.111877,
+      "Z": -317.298248,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 414.518921,
+      "Y": 333.926453,
+      "Z": -320.706421,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 401.482056,
+      "Y": 337.214447,
+      "Z": -333.528534,
+      "Comment": "Leave instance to get the Completion Chest.",
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
