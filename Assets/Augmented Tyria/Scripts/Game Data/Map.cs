@@ -8,6 +8,7 @@ public class Map
 
     public Dictionary<string, string> Waypoints = new Dictionary<string, string>();
 
+    [JsonIgnore]
     public bool IsInstance;
     [JsonIgnore]
     public ContinentRect Rect;

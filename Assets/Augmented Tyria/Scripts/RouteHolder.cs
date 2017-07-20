@@ -24,9 +24,9 @@ public class RouteHolder : MonoBehaviour
     public int NodeIndex { get; set; }
     public GameDatabase GameDatabase { get { return this.GameDatabaseHolder.GameDatabase; } }
     public int MapId { get { return this.Mumble.Link.GetCoordinates().MapId; } }
-    public int MapGroupId { get { return this.GameDatabase.GetMapGroupId(this.MapId); } }
 
     private IKeyboardMouseEvents globalHook;
+    private int loadedRouteId;
 
     private void Awake()
     {
@@ -43,9 +43,6 @@ public class RouteHolder : MonoBehaviour
         }
 
         this.Load();
-
-        this.EditMode.gameObject.SetActive(true);
-        this.FollowMode.gameObject.SetActive(false);
     }
 
     private void OnDestroy()
@@ -56,19 +53,25 @@ public class RouteHolder : MonoBehaviour
 
     private void Load()
     {
+        if (!int.TryParse(Clipboard.GetText(), out this.loadedRouteId))
+            this.loadedRouteId = this.MapId;
+
         try
         {
-            this.Route = JsonConvert.DeserializeObject<Route>(File.ReadAllText(Path + this.Mumble.Link.GetCoordinates().MapId + ".json"));
+            this.Route = JsonConvert.DeserializeObject<Route>(File.ReadAllText(Path + this.loadedRouteId + ".json"));
         }
         catch (FileNotFoundException)
         {
         }
         this.NodeIndex = this.Route.Nodes.Any() ? 0 : -1;
+
+        this.EditMode.gameObject.SetActive(true);
+        this.FollowMode.gameObject.SetActive(false);
     }
 
     private void Save()
     {
-        File.WriteAllText(Path + this.Mumble.Link.GetCoordinates().MapId + ".json", JsonConvert.SerializeObject(this.Route, Formatting.Indented));
+        File.WriteAllText(Path + this.loadedRouteId + ".json", JsonConvert.SerializeObject(this.Route, Formatting.Indented));
     }
 
     private void GlobalHookKeyDown(object sender, KeyEventArgs e)
@@ -93,6 +96,10 @@ public class RouteHolder : MonoBehaviour
 
             case Keys.Multiply:
                 this.Save();
+                break;
+
+            case Keys.Divide:
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 break;
         }
     }

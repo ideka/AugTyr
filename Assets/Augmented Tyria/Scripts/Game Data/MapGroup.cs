@@ -16,14 +16,6 @@ public class MapGroup
         this.AddMap(firstMapId, firstMap);
     }
 
-    public int GetId()
-    {
-        int[] pIds = this.Maps.Where(m => !m.Value.IsInstance).Select(m => m.Key).ToArray();
-        if (pIds.Any())
-            return pIds.Min();
-        return this.Maps.Keys.Min();
-    }
-
     public IEnumerable<KeyValuePair<string, string>> GetWaypoints(Map skip = null)
     {
         return this.Maps.Where(m => m.Value != skip).SelectMany(m => m.Value.Waypoints);

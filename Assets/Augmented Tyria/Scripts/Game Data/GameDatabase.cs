@@ -21,14 +21,6 @@ public class GameDatabase
         }
     }
 
-    public int GetMapGroupId(int mapId)
-    {
-        MapGroup group = this.MapGroups.Find(g => g.Maps.ContainsKey(mapId));
-        if (group == null)
-            return -1;
-        return group.GetId();
-    }
-
     public IEnumerable<KeyValuePair<string, string>> GetWaypoints(MapGroup skip = null)
     {
         return this.MapGroups.Where(g => g != skip).SelectMany(g => g.GetWaypoints());
