@@ -13,13 +13,14 @@ public class MapGroup
 
     public MapGroup(int firstMapId, Map firstMap)
     {
-        this.TryAddMap(firstMapId, firstMap);
+        this.AddMap(firstMapId, firstMap);
     }
 
     public int GetId()
     {
-        // The ID of the MapGroup is determined by its map with the
-        // lowest ID (presumably the earliest created).
+        int[] pIds = this.Maps.Where(m => !m.Value.IsInstance).Select(m => m.Key).ToArray();
+        if (pIds.Any())
+            return pIds.Min();
         return this.Maps.Keys.Min();
     }
 
@@ -28,15 +29,31 @@ public class MapGroup
         return this.Maps.Where(m => m.Value != skip).SelectMany(m => m.Value.Waypoints);
     }
 
-    public bool TryAddMap(int id, Map map)
+    public bool TryAddMapBySector(int id, Map map)
     {
-        if (!this.Maps.Any() || map.Sectors.Keys.Intersect(this.allSectors).Any() || this.Maps.Values.Any(m => m.Rect.Overlaps(map.Rect)))
+        if (!this.Maps.Any() || map.Sectors.Keys.Intersect(this.allSectors).Any())
         {
-            this.Maps[id] = map;
-            this.allSectors.UnionWith(map.Sectors.Keys);
+            this.AddMap(id, map);
             return true;
         }
 
         return false;
+    }
+
+    public bool TryAddMapByRect(int id, Map map)
+    {
+        if (!this.Maps.Any() || this.Maps.Values.Where(m => !m.IsInstance).Any(m => m.Rect.Overlaps(map.Rect)))
+        {
+            this.AddMap(id, map);
+            return true;
+        }
+
+        return false;
+    }
+
+    private void AddMap(int id, Map map)
+    {
+        this.Maps[id] = map;
+        this.allSectors.UnionWith(map.Sectors.Keys);
     }
 }

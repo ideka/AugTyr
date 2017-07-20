@@ -54,30 +54,37 @@ public class GameDatabaseHolder : MonoBehaviour
             };
         }
 
-        using (APICall call = new APICall("continents"))
+        using (APICall pMaps = new APICall("maps?ids=all"))
+        using (APICall continents = new APICall("continents"))
         {
-            yield return call.Requesting();
-            foreach (string continentId in call.Data.Skip(0))
+            Coroutine cMaps = this.StartCoroutine(pMaps.Requesting());
+            yield return continents.Requesting();
+
+            foreach (string continentId in continents.Data.Skip(0))
             {
-                using (APICall cCall = new APICall("continents", continentId, "floors?ids=all"))
+                using (APICall floors = new APICall("continents", continentId, "floors?ids=all"))
                 {
-                    yield return cCall.Requesting();
+                    yield return floors.Requesting();
 
                     Dictionary<int, Map> maps = new Dictionary<int, Map>();
-                    foreach (JContainer mapData in (from floor in cCall.Data
+                    foreach (JContainer mapData in (from floor in floors.Data
                                                     from regions in floor["regions"]
                                                     from region in regions
                                                     from mapList in region["maps"]
                                                     select mapList).Values())
                     {
                         int floor = (int)mapData.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent["id"];
+                        int mapId = (int)mapData["id"];
                         Map map;
-                        if (!maps.TryGetValue((int)mapData["id"], out map))
+                        if (!maps.TryGetValue(mapId, out map))
                         {
+                            yield return cMaps;
+                            string type = (string)pMaps.Data.First(m => (int)m["id"] == mapId)["type"];
                             map = new Map()
                             {
                                 Name = (string)mapData["name"],
 
+                                IsInstance = type == "Instance" || type == "Tutorial",
                                 Rect = new Map.ContinentRect()
                                 {
                                     ContinentId = int.Parse(continentId),
@@ -89,7 +96,7 @@ public class GameDatabaseHolder : MonoBehaviour
                                     Rect2Y = (int)mapData["continent_rect"][1][1]
                                 }
                             };
-                            maps[(int)mapData["id"]] = map;
+                            maps[mapId] = map;
                         }
                         else
                         {
@@ -102,7 +109,8 @@ public class GameDatabaseHolder : MonoBehaviour
                             map.Sectors[(int)sectorData["id"]] = (string)sectorData["name"];
                     }
 
-                    foreach (KeyValuePair<int, Map> map in maps)
+                    // Add all non-instances first.
+                    foreach (KeyValuePair<int, Map> map in maps.Where(m => !m.Value.IsInstance).Concat(maps.Where(m => m.Value.IsInstance)))
                         this.GameDatabase.AddMap(map.Key, map.Value);
                 }
             }

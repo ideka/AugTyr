@@ -9,8 +9,16 @@ public class GameDatabase
 
     public void AddMap(int id, Map map)
     {
-        if (this.MapGroups.All(mg => !mg.TryAddMap(id, map)))
-            this.MapGroups.Add(new MapGroup(id, map));
+        if (!map.IsInstance)
+        {
+            if (this.MapGroups.All(mg => !mg.TryAddMapBySector(id, map)))
+                this.MapGroups.Add(new MapGroup(id, map));
+        }
+        else
+        {
+            if (this.MapGroups.All(mg => !mg.TryAddMapBySector(id, map)) && this.MapGroups.All(mg => !mg.TryAddMapByRect(id, map)))
+                this.MapGroups.Add(new MapGroup(id, map));
+        }
     }
 
     public int GetMapGroupId(int mapId)
