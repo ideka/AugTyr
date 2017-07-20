@@ -230,7 +230,7 @@
       "Y": 383.5653,
       "Z": 80.60837,
       "Comment": "Enter portal.",
-      "Type": 0,
+      "Type": 1,
       "WaypointCode": null,
       "HeartWallValue": null
     },
@@ -293,7 +293,7 @@
       "Y": 383.7317,
       "Z": 82.533844,
       "Comment": "Enter portal.",
-      "Type": 0,
+      "Type": 1,
       "WaypointCode": null,
       "HeartWallValue": null
     },
@@ -428,7 +428,7 @@
       "Y": 4.89676666,
       "Z": -547.4545,
       "Comment": "Enter portal.",
-      "Type": 0,
+      "Type": 1,
       "WaypointCode": null,
       "HeartWallValue": null
     },
@@ -454,8 +454,44 @@
       "X": -68.3472748,
       "Y": 383.0728,
       "Z": 134.060883,
-      "Comment": "Enter instance before continuing.",
+      "Comment": "Enter instance.",
+      "Type": 1,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -449.045776,
+      "Y": 335.653748,
+      "Z": 666.718,
+      "Comment": null,
       "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -459.6223,
+      "Y": 332.478882,
+      "Z": 668.2688,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -464.770081,
+      "Y": 326.944672,
+      "Z": 663.9488,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -536.260254,
+      "Y": 327.7993,
+      "Z": 629.7971,
+      "Comment": "Leave instance.",
+      "Type": 1,
       "WaypointCode": null,
       "HeartWallValue": null
     },
@@ -463,9 +499,45 @@
       "X": -70.43016,
       "Y": 383.5722,
       "Z": 115.932907,
-      "Comment": "Enter instance before continuing.",
+      "Comment": "Enter instance.",
+      "Type": 1,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -294.903351,
+      "Y": 79.03082,
+      "Z": 63.37367,
+      "Comment": null,
       "Type": 0,
       "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -294.673828,
+      "Y": 80.5965347,
+      "Z": 57.104393,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -294.553772,
+      "Y": 80.59665,
+      "Z": 54.1197662,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -294.2717,
+      "Y": 79.16915,
+      "Z": 48.02147,
+      "Comment": null,
+      "Type": 1,
+      "WaypointCode": "[&BLQEAAA=]",
       "HeartWallValue": null
     },
     {
@@ -508,8 +580,17 @@
       "X": 46.6431046,
       "Y": 386.3682,
       "Z": 163.677231,
-      "Comment": "Enter instance before continuing.",
-      "Type": 0,
+      "Comment": "Enter instance.",
+      "Type": 1,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 47.060627,
+      "Y": 488.1324,
+      "Z": 157.606339,
+      "Comment": "Leave instance.",
+      "Type": 1,
       "WaypointCode": null,
       "HeartWallValue": null
     },

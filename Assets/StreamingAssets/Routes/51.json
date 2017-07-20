@@ -904,8 +904,17 @@
       "X": 622.8086,
       "Y": 28.0232887,
       "Z": 70.3572159,
-      "Comment": "Enter instance before continuing.",
-      "Type": 0,
+      "Comment": "Enter instance.",
+      "Type": 1,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 621.5764,
+      "Y": 29.5222,
+      "Z": 54.8791847,
+      "Comment": "Leave instance.",
+      "Type": 1,
       "WaypointCode": null,
       "HeartWallValue": null
     },

@@ -247,8 +247,26 @@
       "X": 69.23758,
       "Y": 69.32204,
       "Z": 32.5570335,
-      "Comment": "Take the elevator before continuing.",
+      "Comment": "Take the elevator.",
+      "Type": 1,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 28.8466015,
+      "Y": 102.323158,
+      "Z": 51.2832451,
+      "Comment": null,
       "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 31.1840725,
+      "Y": 100.055084,
+      "Z": 25.6943417,
+      "Comment": "Leave instance.",
+      "Type": 1,
       "WaypointCode": null,
       "HeartWallValue": null
     },
