@@ -53,6 +53,8 @@ public class NodeDisplay : MonoBehaviour
                     break;
             }
 
+            this.Text.text = this.Text.text.Trim();
+
             this.Canvas.gameObject.SetActive(!string.IsNullOrEmpty(this.Text.text));
         }
     }
