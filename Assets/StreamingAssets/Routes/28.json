@@ -337,7 +337,7 @@
       "X": -28.63073,
       "Y": 114.519653,
       "Z": -634.4527,
-      "Comment": "If event is up then do riddles, otherwise collect eggs and turn in to roosts.",
+      "Comment": "If event is up take middle option and move on, otherwise collect Eggs and turn in to Roosts.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -580,7 +580,7 @@
       "X": -150.753937,
       "Y": 70.19829,
       "Z": -860.4467,
-      "Comment": "Kill animals, cuddle the cubs at heart NPC.",
+      "Comment": "Kill animals, cuddle the cubs at the Heart NPC.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -1183,7 +1183,7 @@
       "X": -48.7821426,
       "Y": 41.30882,
       "Z": -1175.06641,
-      "Comment": "Weapon swap the cages, kill banners and svanir.",
+      "Comment": "[Weapon-swap] the cages, kill Banners and Svanir.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -1867,7 +1867,7 @@
       "X": 366.120422,
       "Y": 10.736681,
       "Z": -861.3682,
-      "Comment": "Cancel paintremoval, kill everything.",
+      "Comment": "You can cancel the paint removal by moving.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -2596,7 +2596,7 @@
       "X": 204.183746,
       "Y": 25.88125,
       "Z": -716.2528,
-      "Comment": "Erase tags can be canceled by moving.",
+      "Comment": "You can cancel the paint removal by moving.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -2623,7 +2623,7 @@
       "X": 227.4247,
       "Y": 0.222107053,
       "Z": -726.706543,
-      "Comment": "Weaponswap cancel opening the cages.",
+      "Comment": "You can [weapon-swap] open the cages.",
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -3334,7 +3334,7 @@
       "X": -226.887817,
       "Y": 183.383438,
       "Z": -429.658356,
-      "Comment": "Glide under bridge.",
+      "Comment": "Glide under the bridge.",
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -3802,7 +3802,7 @@
       "X": -12.2486591,
       "Y": 36.24494,
       "Z": -223.312943,
-      "Comment": "Pick up bag, drop it and scare bunny, repeat.",
+      "Comment": "Pick up a Bag, wait for rabbits to spawn, drop, scare it, repeat.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -3919,7 +3919,7 @@
       "X": 194.332367,
       "Y": 23.1476269,
       "Z": -148.339737,
-      "Comment": "Throw snowballs at children, aim slightly behind them. Do event if its up.",
+      "Comment": "Throw Snowballs at children, aim slightly behind them. Do event if it's up.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -5350,7 +5350,7 @@
       "X": 250.192047,
       "Y": 72.627594,
       "Z": 760.3228,
-      "Comment": "Do event if it's up otherwise carry kegs or water NPC's.",
+      "Comment": "Do event if it's up. If not, carry kegs or water sleeping NPCs.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -5602,7 +5602,7 @@
       "X": 293.8733,
       "Y": 105.391983,
       "Z": 892.62915,
-      "Comment": "You only need to interact with the same dolyak calf 3 times.",
+      "Comment": "Keep interacting with the same Dolyak Calf.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -5701,7 +5701,7 @@
       "X": 316.173462,
       "Y": 122.0075,
       "Z": 1031.87292,
-      "Comment": "Don't enter instance.",
+      "Comment": "Just walk up to the door, don't enter instance.",
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -7411,7 +7411,7 @@
       "X": -127.456154,
       "Y": 106.214905,
       "Z": 282.3757,
-      "Comment": "Grab rabbit from hole.",
+      "Comment": "Grab a Rabbit from the hole.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -7447,7 +7447,7 @@
       "X": -112.401367,
       "Y": 94.2111359,
       "Z": 216.432526,
-      "Comment": "Give rabbit to him.",
+      "Comment": "Sell the Rabbit here.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -7456,7 +7456,7 @@
       "X": -112.249176,
       "Y": 94.6560059,
       "Z": 221.703583,
-      "Comment": "Buy metal bar.",
+      "Comment": "Buy the Metal Bar.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -7465,7 +7465,7 @@
       "X": -105.635368,
       "Y": 94.54703,
       "Z": 225.932236,
-      "Comment": "Sell metal bar.",
+      "Comment": "Sell the Metal Bar here.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -7474,7 +7474,7 @@
       "X": -109.528343,
       "Y": 94.7722549,
       "Z": 227.8356,
-      "Comment": "Buy armor scraps.",
+      "Comment": "Buy the Armor Scraps.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -7483,7 +7483,7 @@
       "X": -86.3076859,
       "Y": 95.27962,
       "Z": 225.144669,
-      "Comment": "Sell armor scraps.",
+      "Comment": "Sell the Armor Scraps here.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -7492,7 +7492,7 @@
       "X": -82.21361,
       "Y": 96.13396,
       "Z": 225.457748,
-      "Comment": "Buy shaking cage.",
+      "Comment": "Buy the Shaking Cage.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -7501,7 +7501,7 @@
       "X": -87.326355,
       "Y": 95.2356644,
       "Z": 217.392883,
-      "Comment": "Sell shaking cage.",
+      "Comment": "Sell the Shaking Cage here.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -7510,7 +7510,7 @@
       "X": -78.43703,
       "Y": 96.24784,
       "Z": 215.619034,
-      "Comment": "Buy barrel.",
+      "Comment": "Buy the Barrel.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -7519,7 +7519,7 @@
       "X": -112.51693,
       "Y": 94.12646,
       "Z": 215.042831,
-      "Comment": "Sell Barrel.",
+      "Comment": "Sell the Barrel here.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -7528,7 +7528,7 @@
       "X": -106.857086,
       "Y": 92.71549,
       "Z": 204.513687,
-      "Comment": "Give runestones.",
+      "Comment": "Turn in Runestones.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -7809,7 +7809,7 @@
       "X": 25.3426,
       "Y": 95.59855,
       "Z": -661.5616,
-      "Comment": "Lots of eggs out here.",
+      "Comment": "Lots of Eggs out here.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -7818,7 +7818,7 @@
       "X": -180.038666,
       "Y": 105.470734,
       "Z": -951.3923,
-      "Comment": "You can weapon-swap cuddle the cubs.",
+      "Comment": "You can [weapon-swap] cuddle the cubs.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -7827,7 +7827,7 @@
       "X": 237.863144,
       "Y": 0.993709862,
       "Z": -775.34375,
-      "Comment": "Weaponswap bear traps.",
+      "Comment": "You can [weapon-swap] bear traps.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -7836,7 +7836,7 @@
       "X": 430.0862,
       "Y": 72.88717,
       "Z": 283.7053,
-      "Comment": "Clean this out to fill heart.",
+      "Comment": "Clean this out to fill the Heart.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
