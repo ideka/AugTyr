@@ -1336,7 +1336,7 @@
       "X": 686.269531,
       "Y": 94.67675,
       "Z": 140.504257,
-      "Comment": "You can [weapon-swap] open the Rocks & Barrels.",
+      "Comment": "You can [weapon-swap] open the Rocks and Barrels.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -4315,7 +4315,7 @@
       "X": -777.142,
       "Y": 66.91701,
       "Z": 298.624847,
-      "Comment": "You might run into some Bandits around the canyon. If you do, kill them for the nearby heart.",
+      "Comment": "You might run into some Bandits around the canyon. If you do, kill them for the nearby Heart.",
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
