@@ -51,9 +51,9 @@ public class RouteHolder : MonoBehaviour
         this.globalHook.Dispose();
     }
 
-    private void Load()
+    private void Load(bool fromClipboard = false)
     {
-        if (!int.TryParse(Clipboard.GetText(), out this.loadedRouteId))
+        if (!fromClipboard || !int.TryParse(Clipboard.GetText(), out this.loadedRouteId))
             this.loadedRouteId = this.MapId;
 
         try
@@ -64,6 +64,9 @@ public class RouteHolder : MonoBehaviour
         {
         }
         this.NodeIndex = this.Route.Nodes.Any() ? 0 : -1;
+
+        this.EditMode.Reload();
+        this.FollowMode.Reload();
 
         this.EditMode.gameObject.SetActive(true);
         this.FollowMode.gameObject.SetActive(false);
@@ -99,7 +102,7 @@ public class RouteHolder : MonoBehaviour
                 break;
 
             case Keys.Divide:
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                this.Load(e.Control);
                 break;
         }
     }

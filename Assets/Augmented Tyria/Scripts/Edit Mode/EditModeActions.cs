@@ -154,6 +154,7 @@ public partial class EditMode
         if (node == null)
             return;
 
+        // TODO: Review the logic here?
         if (this.onDetached && this.nodeIndex >= 0)
         {
             this.Route.DetachedNodes.RemoveAt(this.detachedNodeIndex);

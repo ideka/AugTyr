@@ -25,10 +25,6 @@ public partial class EditMode : MonoBehaviour
 
     private void Awake()
     {
-        foreach (Node node in this.RouteHolder.Route.Nodes)
-            this.AddVisualNode(node);
-        foreach (Node detachedNode in this.RouteHolder.Route.DetachedNodes)
-            this.AddVisualNode(detachedNode, true);
         this.globalHook = Hook.GlobalEvents();
     }
 
@@ -47,6 +43,24 @@ public partial class EditMode : MonoBehaviour
     private void OnDestroy()
     {
         this.globalHook.Dispose();
+    }
+
+    public void Reload()
+    {
+        this.nodes.ForEach(n => Destroy(n.gameObject));
+        this.nodes.Clear();
+        this.detachedNodes.ForEach(n => Destroy(n.gameObject));
+        this.detachedNodes.Clear();
+
+        foreach (Node node in this.RouteHolder.Route.Nodes)
+            this.AddVisualNode(node);
+        foreach (Node detachedNode in this.RouteHolder.Route.DetachedNodes)
+            this.AddVisualNode(detachedNode, true);
+
+        this.nodeIndex = this.RouteHolder.NodeIndex;
+        this.detachedNodeIndex = -1;
+
+        this.UpdateSelectedNode();
     }
 
     private void GlobalHookKeyDown(object sender, KeyEventArgs e)

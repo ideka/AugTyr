@@ -67,6 +67,14 @@ public class FollowMode : MonoBehaviour
             this.ReachedNode();
     }
 
+    public void Reload()
+    {
+        this.nodes.ForEach(n => Destroy(n.gameObject));
+        this.nodes.Clear();
+        this.detachedNodes.ForEach(n => Destroy(n.gameObject));
+        this.detachedNodes.Clear();
+    }
+
     private void GlobalHookKeyDown(object sender, KeyEventArgs e)
     {
         if (Camera.main.cullingMask == 0)
