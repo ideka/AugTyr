@@ -154,22 +154,24 @@ public partial class EditMode
         if (node == null)
             return;
 
-        // TODO: Review the logic here?
-        if (this.onDetached && this.nodeIndex >= 0)
+        if (this.onDetached)
         {
-            this.Route.DetachedNodes.RemoveAt(this.detachedNodeIndex);
-            this.Route.Nodes.Insert(this.nodeIndex + 1, node);
-            this.RemoveVisualNode(this.detachedNodeIndex, true);
-            this.AddVisualNode(node, false, this.nodeIndex + 1);
+            if (this.nodeIndex >= 0)
+            {
+                this.Route.DetachedNodes.RemoveAt(this.detachedNodeIndex);
+                this.Route.Nodes.Insert(this.nodeIndex + 1, node);
+                this.RemoveVisualNode(this.detachedNodeIndex, true);
+                this.AddVisualNode(node, false, this.nodeIndex + 1);
 
-            this.detachedNodeIndex = -1;
-            this.nodeIndex++;
-            this.onDetached = false;
+                this.detachedNodeIndex = -1;
+                this.nodeIndex++;
+                this.onDetached = false;
 
-            this.UpdateSelectedNode();
-            this.UpdatePath();
+                this.UpdateSelectedNode();
+                this.UpdatePath();
+            }
         }
-        else if (!this.onDetached)
+        else
         {
             this.Route.Nodes.RemoveAt(this.nodeIndex);
             this.Route.DetachedNodes.Add(node);
