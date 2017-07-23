@@ -62,6 +62,7 @@ public class RouteHolder : MonoBehaviour
         }
         catch (FileNotFoundException)
         {
+            this.Route = new Route();
         }
         this.NodeIndex = this.Route.Nodes.Any() ? 0 : -1;
 

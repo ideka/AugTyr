@@ -49,6 +49,7 @@ public partial class EditMode : MonoBehaviour
     {
         this.nodes.ForEach(n => Destroy(n.gameObject));
         this.nodes.Clear();
+        this.RouteDisplay.positionCount = 0;
         this.detachedNodes.ForEach(n => Destroy(n.gameObject));
         this.detachedNodes.Clear();
 

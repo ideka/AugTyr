@@ -57,7 +57,10 @@ public class FollowMode : MonoBehaviour
     private void Update()
     {
         if (this.nodeIndex < 0)
+        {
+            this.OrientationHelper.SetPositions(new Vector3[] { this.Cursor.position, this.Cursor.position });
             return;
+        }
 
         Node next = this.Route.Nodes[this.nodeIndex];
 
@@ -69,10 +72,7 @@ public class FollowMode : MonoBehaviour
 
     public void Reload()
     {
-        this.nodes.ForEach(n => Destroy(n.gameObject));
-        this.nodes.Clear();
-        this.detachedNodes.ForEach(n => Destroy(n.gameObject));
-        this.detachedNodes.Clear();
+        this.RepopulateRoute();
     }
 
     private void GlobalHookKeyDown(object sender, KeyEventArgs e)
