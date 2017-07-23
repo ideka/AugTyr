@@ -343,9 +343,90 @@
       "HeartWallValue": null
     },
     {
-      "X": 803.4995,
-      "Y": 45.4324951,
-      "Z": -453.92215,
+      "X": 810.4003,
+      "Y": 43.9514046,
+      "Z": -468.2758,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 804.4599,
+      "Y": 43.7144852,
+      "Z": -472.3012,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 797.944641,
+      "Y": 45.85248,
+      "Z": -476.670715,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 784.37915,
+      "Y": 47.2177925,
+      "Z": -485.9118,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 787.3725,
+      "Y": 46.3708649,
+      "Z": -474.579468,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 788.432556,
+      "Y": 47.0966721,
+      "Z": -469.890778,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 790.5227,
+      "Y": 44.8912163,
+      "Z": -463.0597,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 792.5029,
+      "Y": 44.9682045,
+      "Z": -456.751221,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 793.847,
+      "Y": 46.38577,
+      "Z": -452.451569,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 795.8256,
+      "Y": 45.19495,
+      "Z": -446.0695,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -5538,10 +5619,10 @@
   ],
   "DetachedNodes": [
     {
-      "X": 781.43866,
-      "Y": 55.57373,
-      "Z": -492.161133,
-      "Comment": "Target this rat, and spam 2 from below, out of LoS, until the Heart is done.",
+      "X": 781.4434,
+      "Y": 55.5738068,
+      "Z": -492.254944,
+      "Comment": "Rat here.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -5551,6 +5632,15 @@
       "Y": 79.0475,
       "Z": 535.391235,
       "Comment": "Give all your [Seraph Badges] to the Heart NPC this way if you did the event earlier and completed the related Heart.",
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 781.712036,
+      "Y": 47.37966,
+      "Z": -487.61496,
+      "Comment": "Target the Rat above and spam 2 from right here, out of LoS, until the Heart is done.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
