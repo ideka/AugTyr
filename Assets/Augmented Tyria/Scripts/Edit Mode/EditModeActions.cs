@@ -190,65 +190,20 @@ public partial class EditMode
 
     private void SelectClosestNode()
     {
-        // TODO: Find a way to apply Don't Repeat Yourself here.
-        int newNodeIndex = -1;
-        if (this.nodes.Count != 0)
-        {
-            float d = -1;
-            newNodeIndex = 0;
-            foreach (var item in this.nodes.Select((display, i) => new { transform = display.transform, i = i }))
-            {
-                float cd = (this.Cursor.position - item.transform.position).sqrMagnitude;
-                if (d == -1 || d > cd)
-                {
-                    d = cd;
-                    newNodeIndex = item.i;
-                }
-            }
-            this.onDetached = false;
-        }
+        if (!this.nodes.Any() && !this.detachedNodes.Any())
+            return;
 
-        int newDetachedNodeIndex = -1;
-        if (this.detachedNodes.Count != 0)
-        {
-            float d = -1;
-            newDetachedNodeIndex = 0;
-            foreach (var item in this.detachedNodes.Select((display, i) => new { transform = display.transform, i = i }))
-            {
-                float cd = (this.Cursor.position - item.transform.position).sqrMagnitude;
-                if (d == -1 || d > cd)
-                {
-                    d = cd;
-                    newDetachedNodeIndex = item.i;
-                }
-            }
-            this.onDetached = true;
-        }
+        var closest = this.nodes
+            .Select((display, i) => new { transform = display.transform, attached = true, i = i })
+            .Concat(this.detachedNodes.Select((display, i) => new { transform = display.transform, attached = false, i = i }))
+            .OrderBy(n => (this.Cursor.position - n.transform.position).sqrMagnitude)
+            .First();
 
-        if (newNodeIndex >= 0 && newDetachedNodeIndex >= 0)
-        {
-            if ((this.Cursor.position - this.nodes[newNodeIndex].transform.position).sqrMagnitude >
-                (this.Cursor.position - this.detachedNodes[newDetachedNodeIndex].transform.position).sqrMagnitude)
-            {
-                this.onDetached = true;
-                this.detachedNodeIndex = newDetachedNodeIndex;
-            }
-            else
-            {
-                this.onDetached = false;
-                this.nodeIndex = newNodeIndex;
-            }
-        }
-        else if (newNodeIndex >= 0)
-        {
-            this.nodeIndex = newNodeIndex;
-            this.onDetached = false;
-        }
-        else if (newDetachedNodeIndex >= 0)
-        {
-            this.detachedNodeIndex = newDetachedNodeIndex;
-            this.onDetached = true;
-        }
+        this.onDetached = !closest.attached;
+        if (this.onDetached)
+            this.detachedNodeIndex = closest.i;
+        else
+            this.nodeIndex = closest.i;
 
         this.UpdateSelectedNode();
     }

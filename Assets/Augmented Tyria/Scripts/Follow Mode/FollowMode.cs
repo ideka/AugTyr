@@ -186,20 +186,14 @@ public class FollowMode : MonoBehaviour
 
     private void SelectClosestNode()
     {
-        if (this.nodes.Count != 0)
-        {
-            float d = -1;
-            this.nodeIndex = 0;
-            foreach (var item in this.Route.Nodes.Select((node, i) => new { position = node.Position, i = i }))
-            {
-                float cd = (this.Cursor.position - item.position).sqrMagnitude;
-                if (d == -1 || d > cd)
-                {
-                    d = cd;
-                    this.nodeIndex = item.i;
-                }
-            }
-            this.RepopulateRoute();
-        }
+        if (!this.nodes.Any())
+            return;
+
+        this.nodeIndex = this.Route.Nodes
+            .Select((node, i) => new { position = node.Position, i = i })
+            .OrderBy(n => (this.Cursor.position - n.position).sqrMagnitude)
+            .First().i;
+
+        this.RepopulateRoute();
     }
 }
