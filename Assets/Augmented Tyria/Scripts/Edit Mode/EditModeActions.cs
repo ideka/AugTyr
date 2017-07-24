@@ -134,7 +134,7 @@ public partial class EditMode
                 break;
 
             case NodeType.HeartWall:
-                node.HeartWallValue = to;
+                node.SetHeartWallValue(to);
                 break;
         }
         this.UpdateSelectedNodeInfo();

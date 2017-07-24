@@ -49,7 +49,7 @@ public class NodeDisplay : MonoBehaviour
 
                 case NodeType.HeartWall:
                     this.MeshRenderer.material = this.HeartWallMaterial;
-                    this.Text.text += "\n\nHeartWall: " + value.HeartWallValue + "%";
+                    this.Text.text += "\n\nHeartWall: " + (value.HeartWallValue ?? "Any") + "%";
                     break;
             }
 

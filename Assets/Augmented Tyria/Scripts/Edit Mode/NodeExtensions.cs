@@ -16,4 +16,12 @@ public static class NodeExtensions
         else
             node.WaypointCode = string.Join(" ", results);
     }
+
+    public static void SetHeartWallValue(this Node node, string input)
+    {
+        node.HeartWallValue = null;
+        int value;
+        if (int.TryParse(input, out value) && value > 0 && value <= 100)
+            node.HeartWallValue = input;
+    }
 }
