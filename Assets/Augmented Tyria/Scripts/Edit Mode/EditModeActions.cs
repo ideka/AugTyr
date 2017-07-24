@@ -156,20 +156,17 @@ public partial class EditMode
 
         if (this.onDetached)
         {
-            if (this.nodeIndex >= 0)
-            {
-                this.Route.DetachedNodes.RemoveAt(this.detachedNodeIndex);
-                this.Route.Nodes.Insert(this.nodeIndex + 1, node);
-                this.RemoveVisualNode(this.detachedNodeIndex, true);
-                this.AddVisualNode(node, false, this.nodeIndex + 1);
+            this.Route.DetachedNodes.RemoveAt(this.detachedNodeIndex);
+            this.Route.Nodes.Insert(this.nodeIndex + 1, node);
+            this.RemoveVisualNode(this.detachedNodeIndex, true);
+            this.AddVisualNode(node, false, this.nodeIndex + 1);
 
-                this.detachedNodeIndex = -1;
-                this.nodeIndex++;
-                this.onDetached = false;
+            this.detachedNodeIndex = -1;
+            this.nodeIndex++;
+            this.onDetached = false;
 
-                this.UpdateSelectedNode();
-                this.UpdatePath();
-            }
+            this.UpdateSelectedNode();
+            this.UpdatePath();
         }
         else
         {
