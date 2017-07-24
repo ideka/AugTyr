@@ -179,7 +179,7 @@ public partial class EditMode
             this.AddVisualNode(node, true);
 
             this.detachedNodeIndex = this.Route.DetachedNodes.Count - 1;
-            if (this.nodeIndex > 0 || this.nodes.Count == 0)
+            if (this.nodeIndex > 0 || !this.nodes.Any())
                 this.nodeIndex--;
             this.onDetached = true;
 
@@ -248,7 +248,7 @@ public partial class EditMode
         {
             this.Route.Nodes.RemoveAt(this.nodeIndex);
             this.RemoveVisualNode(this.nodeIndex);
-            if (this.nodeIndex != 0 || this.nodes.Count == 0)
+            if (this.nodeIndex != 0 || !this.nodes.Any())
                 this.nodeIndex--;
         }
         this.UpdateSelectedNode();

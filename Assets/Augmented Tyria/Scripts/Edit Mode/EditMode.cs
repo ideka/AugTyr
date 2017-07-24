@@ -1,5 +1,6 @@
 ﻿using Gma.System.MouseKeyHook;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using UnityEngine;
 
@@ -89,7 +90,7 @@ public partial class EditMode : MonoBehaviour
             case Keys.NumPad4:
                 if (e.Control)
                 {
-                    if (this.nodes.Count > 0)
+                    if (this.nodes.Any())
                     {
                         this.onDetached = false;
                         this.nodeIndex = 0;
@@ -107,7 +108,7 @@ public partial class EditMode : MonoBehaviour
             case Keys.NumPad6:
                 if (e.Control)
                 {
-                    if (this.nodes.Count > 0)
+                    if (this.nodes.Any())
                     {
                         this.onDetached = false;
                         this.nodeIndex = this.nodes.Count - 1;
