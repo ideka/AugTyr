@@ -1,10 +1,11 @@
 ﻿using Gma.System.MouseKeyHook;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using UnityEngine;
 
-public partial class EditMode : MonoBehaviour
+public partial class EditMode : MonoBehaviour, IActionable
 {
     public Transform Cursor;
     public RouteHolder RouteHolder;
@@ -13,6 +14,112 @@ public partial class EditMode : MonoBehaviour
     public LineRenderer RouteDisplay;
 
     public Route Route { get { return this.RouteHolder.Route; } }
+
+    public Dictionary<string, Action> Actions
+    {
+        get
+        {
+            return new Dictionary<string, Action>()
+            {
+                {
+                    "AddNode", this.AddNode
+                },
+                {
+                    "RemoveNode", this.RemoveNode
+                },
+                {
+                    "SelectClosestNode", this.SelectClosestNode
+                },
+                {
+                    "SelectPreviousNode", () =>
+                    {
+                        if (!this.onDetached)
+                        {
+                            if (this.nodeIndex > 0)
+                                this.nodeIndex--;
+                            this.UpdateSelectedNode();
+                        }
+                    }
+                },
+                {
+                    "SelectNextNode", () =>
+                    {
+                        if (!this.onDetached)
+                        {
+                            if (this.nodeIndex < this.nodes.Count - 1)
+                                this.nodeIndex++;
+                            this.UpdateSelectedNode();
+                        }
+                    }
+                },
+                {
+                    "SelectFirstNode", () =>
+                    {
+                        if (this.nodes.Any())
+                        {
+                            this.onDetached = false;
+                            this.nodeIndex = 0;
+                            this.UpdateSelectedNode();
+                        }
+                    }
+                },
+                {
+                    "SelectLastNode", () =>
+                    {
+                        if (this.nodes.Any())
+                        {
+                            this.onDetached = false;
+                            this.nodeIndex = this.nodes.Count - 1;
+                            this.UpdateSelectedNode();
+                        }
+                    }
+                },
+                {
+                    "PreviousNodeType", () => this.ScrollNodeType(-1)
+                },
+                {
+                    "NextNodeType", () => this.ScrollNodeType(1)
+                },
+                {
+                    "MoveSelectedNode", this.MoveSelectedNode
+                },
+                {
+                    "ToggleAttachNode", this.ToggleAttachNode
+                },
+                {
+                    "GetNodeText", () =>
+                    {
+                        Clipboard.Clear();
+                        string c = this.GetComment();
+                        if (!string.IsNullOrEmpty(c))
+                            Clipboard.SetText(c);
+                    }
+                },
+                {
+                    "SetNodeText", () => this.SetComment(Format(Clipboard.GetText()))
+                },
+                {
+                    "GetNodeData", () =>
+                    {
+                        Clipboard.Clear();
+                        string c = this.GetData();
+                        if (!string.IsNullOrEmpty(c))
+                            Clipboard.SetText(c);
+                    }
+                },
+                {
+                    "SetNodeData", () => this.SetData(Format(Clipboard.GetText()))
+                },
+                {
+                    "ToggleAttachSelection", () =>
+                    {
+                        this.onDetached = !this.onDetached;
+                        this.UpdateSelectedNode();
+                    }
+                }
+            };
+        }
+    }
 
     private IKeyboardMouseEvents globalHook;
 
@@ -70,113 +177,7 @@ public partial class EditMode : MonoBehaviour
         if (Camera.main.cullingMask == 0)
             return;
 
-        switch (e.KeyCode)
-        {
-            // Add/remove nodes.
-            case Keys.Add:
-                this.AddNode();
-                break;
-
-            case Keys.Subtract:
-                this.RemoveNode();
-                break;
-
-            // Select closest node.
-            case Keys.NumPad5:
-                this.SelectClosestNode();
-                break;
-
-            // Change selected node.
-            case Keys.NumPad4:
-                if (e.Control)
-                {
-                    if (this.nodes.Any())
-                    {
-                        this.onDetached = false;
-                        this.nodeIndex = 0;
-                        this.UpdateSelectedNode();
-                    }
-                }
-                else if (!this.onDetached)
-                {
-                    if (this.nodeIndex > 0)
-                        this.nodeIndex--;
-                    this.UpdateSelectedNode();
-                }
-                break;
-
-            case Keys.NumPad6:
-                if (e.Control)
-                {
-                    if (this.nodes.Any())
-                    {
-                        this.onDetached = false;
-                        this.nodeIndex = this.nodes.Count - 1;
-                        this.UpdateSelectedNode();
-                    }
-                }
-                else if (!this.onDetached)
-                {
-                    if (this.nodeIndex < this.nodes.Count - 1)
-                        this.nodeIndex++;
-                    this.UpdateSelectedNode();
-                }
-                break;
-
-            // Change node type.
-            case Keys.NumPad8:
-                this.ScrollNodeType(-1);
-                break;
-
-            case Keys.NumPad2:
-                this.ScrollNodeType(1);
-                break;
-
-            // Move node.
-            case Keys.NumPad7:
-                this.MoveSelectedNode();
-                break;
-
-            // Attach/detach node.
-            case Keys.NumPad9:
-                this.ToggleAttachNode();
-                break;
-
-            // Set/get node data.
-            case Keys.NumPad1:
-                if (e.Control)
-                {
-                    this.SetComment(Format(Clipboard.GetText()));
-                }
-                else
-                {
-                    Clipboard.Clear();
-                    string c = this.GetComment();
-                    if (!string.IsNullOrEmpty(c))
-                        Clipboard.SetText(c);
-                }
-                break;
-
-            case Keys.NumPad3:
-                if (e.Control)
-                {
-                    this.SetData(Format(Clipboard.GetText()));
-                }
-                else
-                {
-                    Clipboard.Clear();
-                    string c = this.GetData();
-                    if (!string.IsNullOrEmpty(c))
-                        Clipboard.SetText(c);
-                }
-                break;
-
-            // Force change mode.
-            case Keys.NumPad0:
-                this.onDetached = !this.onDetached;
-                this.UpdateSelectedNode();
-                break;
-        }
+        this.Act(this.RouteHolder.UserConfig.EditModeInputs, e.KeyCode, e.Control);
     }
 
     public static string Format(string str)

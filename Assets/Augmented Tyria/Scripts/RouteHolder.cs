@@ -1,12 +1,14 @@
 ﻿using Gma.System.MouseKeyHook;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class RouteHolder : MonoBehaviour
+public class RouteHolder : MonoBehaviour, IActionable
 {
     public Mumble Mumble;
 
@@ -18,12 +20,49 @@ public class RouteHolder : MonoBehaviour
 
     [HideInInspector]
     public GameDatabaseHolder GameDatabaseHolder;
+    [HideInInspector]
+    public UserConfigHolder UserConfigHolder;
 
     public Route Route = new Route();
 
     public int NodeIndex { get; set; }
     public GameDatabase GameDatabase { get { return this.GameDatabaseHolder.GameDatabase; } }
+    public UserConfig UserConfig { get { return this.UserConfigHolder.UserConfig; } }
     public int MapId { get { return this.Mumble.Link.GetCoordinates().MapId; } }
+
+    public Dictionary<string, Action> Actions
+    {
+        get
+        {
+            return new Dictionary<string, Action>()
+            {
+                {
+                    "Save", this.Save
+                },
+                {
+                    "Load", () => this.Load()
+                },
+                {
+                    "LoadClipboardId", () => this.Load(true)
+                },
+                {
+                    "ToggleMode", () =>
+                    {
+                        if (this.EditMode.gameObject.activeSelf)
+                        {
+                            this.EditMode.gameObject.SetActive(false);
+                            this.FollowMode.gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            this.EditMode.gameObject.SetActive(true);
+                            this.FollowMode.gameObject.SetActive(false);
+                        }
+                    }
+                },
+            };
+        }
+    }
 
     private IKeyboardMouseEvents globalHook;
     private int loadedRouteId;
@@ -36,7 +75,8 @@ public class RouteHolder : MonoBehaviour
         this.globalHook.KeyDown += this.GlobalHookKeyDown;
 
         this.GameDatabaseHolder = FindObjectOfType<GameDatabaseHolder>();
-        if (this.GameDatabaseHolder == null)
+        this.UserConfigHolder = FindObjectOfType<UserConfigHolder>();
+        if (this.GameDatabaseHolder == null || this.UserConfigHolder == null)
         {
             SceneManager.LoadScene("Load");
             return;
@@ -83,28 +123,6 @@ public class RouteHolder : MonoBehaviour
         if (Camera.main.cullingMask == 0)
             return;
 
-        switch (e.KeyCode)
-        {
-            case Keys.Decimal:
-                if (this.EditMode.gameObject.activeSelf)
-                {
-                    this.EditMode.gameObject.SetActive(false);
-                    this.FollowMode.gameObject.SetActive(true);
-                }
-                else
-                {
-                    this.EditMode.gameObject.SetActive(true);
-                    this.FollowMode.gameObject.SetActive(false);
-                }
-                break;
-
-            case Keys.Multiply:
-                this.Save();
-                break;
-
-            case Keys.Divide:
-                this.Load(e.Control);
-                break;
-        }
+        this.Act(this.UserConfig.RouteInputs, e.KeyCode, e.Control);
     }
 }

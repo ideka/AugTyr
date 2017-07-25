@@ -1,0 +1,133 @@
+{
+	"RouteInputs":
+	[
+		{
+			"ActionName": "Save",
+			"KeyName": "Multiply",
+			"Control": false
+		},
+		{
+			"ActionName": "Load",
+			"KeyName": "Divide",
+			"Control": false
+		},
+		{
+			"ActionName": "LoadClipboardId",
+			"KeyName": "Divide",
+			"Control": true
+		},
+		{
+			"ActionName": "ToggleMode",
+			"KeyName": "Decimal",
+			"Control": false
+		}
+	],
+
+	"EditModeInputs":
+	[
+		{
+			"ActionName": "AddNode",
+			"KeyName": "Add",
+			"Control": false
+		},
+		{
+			"ActionName": "RemoveNode",
+			"KeyName": "Subtract",
+			"Control": false
+		},
+		{
+			"ActionName": "SelectClosestNode",
+			"KeyName": "NumPad5",
+			"Control": false
+		},
+		{
+			"ActionName": "SelectPreviousNode",
+			"KeyName": "NumPad4",
+			"Control": false
+		},
+		{
+			"ActionName": "SelectNextNode",
+			"KeyName": "NumPad6",
+			"Control": false
+		},
+		{
+			"ActionName": "SelectFirstNode",
+			"KeyName": "NumPad4",
+			"Control": true
+		},
+		{
+			"ActionName": "SelectLastNode",
+			"KeyName": "NumPad6",
+			"Control": true
+		},
+		{
+			"ActionName": "PreviousNodeType",
+			"KeyName": "NumPad8",
+			"Control": false
+		},
+		{
+			"ActionName": "NextNodeType",
+			"KeyName": "NumPad2",
+			"Control": false
+		},
+		{
+			"ActionName": "MoveSelectedNode",
+			"KeyName": "NumPad7",
+			"Control": false
+		},
+		{
+			"ActionName": "ToggleAttachNode",
+			"KeyName": "NumPad9",
+			"Control": false
+		},
+		{
+			"ActionName": "GetNodeText",
+			"KeyName": "NumPad1",
+			"Control": false
+		},
+		{
+			"ActionName": "SetNodeText",
+			"KeyName": "NumPad1",
+			"Control": true
+		},
+		{
+			"ActionName": "GetNodeData",
+			"KeyName": "NumPad3",
+			"Control": false
+		},
+		{
+			"ActionName": "SetNodeData",
+			"KeyName": "NumPad3",
+			"Control": true
+		},
+		{
+			"ActionName": "ToggleAttachSelection",
+			"KeyName": "NumPad0",
+			"Control": false
+		}
+	],
+
+	"FollowModeInputs":
+	[
+		{
+			"ActionName": "SelectClosestNode",
+			"KeyName": "NumPad5",
+			"Control": false
+		},
+		{
+			"ActionName": "SelectPreviousNode",
+			"KeyName": "NumPad4",
+			"Control": false
+		},
+		{
+			"ActionName": "SelectNextNode",
+			"KeyName": "NumPad6",
+			"Control": false
+		},
+		{
+			"ActionName": "ToggleOrientationHelper",
+			"KeyName": "NumPad0",
+			"Control": false
+		}
+	]
+}

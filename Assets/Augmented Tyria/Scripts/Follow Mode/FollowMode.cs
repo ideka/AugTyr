@@ -1,10 +1,11 @@
 ﻿using Gma.System.MouseKeyHook;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using UnityEngine;
 
-public class FollowMode : MonoBehaviour
+public class FollowMode : MonoBehaviour, IActionable
 {
     public Transform Cursor;
     public RouteHolder RouteHolder;
@@ -20,6 +21,35 @@ public class FollowMode : MonoBehaviour
     public const float SquaredMaxRouteLength = 1000;
 
     public Route Route { get { return this.RouteHolder.Route; } }
+
+    public Dictionary<string, Action> Actions
+    {
+        get
+        {
+            return new Dictionary<string, Action>()
+            {
+                {
+                    "SelectClosestNode", this.SelectClosestNode
+                },
+                {
+                    "SelectPreviousNode", () =>
+                    {
+                        if (this.nodeIndex > 0)
+                        {
+                            this.nodeIndex--;
+                            this.RepopulateRoute();
+                        }
+                    }
+                },
+                {
+                    "SelectNextNode", this.ReachedNode
+                },
+                {
+                    "ToggleOrientationHelper", () => this.OrientationHelper.gameObject.SetActive(!this.OrientationHelper.gameObject.activeSelf)
+                }
+            };
+        }
+    }
 
     private int nodeIndex
     {
@@ -80,31 +110,7 @@ public class FollowMode : MonoBehaviour
         if (Camera.main.cullingMask == 0)
             return;
 
-        switch (e.KeyCode)
-        {
-            // Select closest connected node.
-            case Keys.NumPad5:
-                this.SelectClosestNode();
-                break;
-
-            // Manually change nodes.
-            case Keys.NumPad4:
-                if (this.nodeIndex > 0)
-                {
-                    this.nodeIndex--;
-                    this.RepopulateRoute();
-                }
-                break;
-
-            case Keys.NumPad6:
-                this.ReachedNode();
-                break;
-
-            // Toggle the orientation helper.
-            case Keys.NumPad0:
-                this.OrientationHelper.gameObject.SetActive(!this.OrientationHelper.gameObject.activeSelf);
-                break;
-        }
+        this.Act(this.RouteHolder.UserConfig.FollowModeInputs, e.KeyCode, e.Control);
     }
 
     private void RepopulateRoute()
