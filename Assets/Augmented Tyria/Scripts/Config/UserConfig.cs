@@ -2,6 +2,7 @@
 
 public class UserConfig
 {
+    public bool AutoUpdateGameDatabase = true;
     public bool StartInFollowMode;
     public bool OrientationHelperDefault = true;
 

@@ -25,6 +25,8 @@
  */
 
 {
+	"AutoUpdateGameDatabase": true,
+
 	"StartInFollowMode": false,
 
 	"OrientationHelperDefault": true,

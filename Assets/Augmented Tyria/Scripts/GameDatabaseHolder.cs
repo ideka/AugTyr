@@ -8,6 +8,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(UserConfigHolder))]
 public class GameDatabaseHolder : MonoBehaviour
 {
     public static string Path { get { return Application.streamingAssetsPath + "/GameDatabase.json"; } }
@@ -15,9 +16,15 @@ public class GameDatabaseHolder : MonoBehaviour
 
     public GameDatabase GameDatabase = new GameDatabase();
 
+    public UserConfig UserConfig { get { return this.UserConfigHolder.UserConfig; } }
+
+    public UserConfigHolder UserConfigHolder { get; private set; }
+
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+
+        this.UserConfigHolder = this.GetComponent<UserConfigHolder>();
 
         this.StartCoroutine(this.Loading());
     }
@@ -32,7 +39,9 @@ public class GameDatabaseHolder : MonoBehaviour
         {
         }
 
-        yield return this.UpdatingDatabase();
+        if (this.UserConfig.AutoUpdateGameDatabase)
+            yield return this.UpdatingDatabase();
+
         SceneManager.LoadScene("Route");
     }
 
