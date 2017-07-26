@@ -1,6 +1,8 @@
-﻿using System;
+﻿#if !UNITY_EDITOR
+using System;
 using System.Runtime.InteropServices;
 using System.Text;
+#endif
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
@@ -8,8 +10,6 @@ public class WindowVisibility : MonoBehaviour
 {
 #if !UNITY_EDITOR
     public const string GameWindowTitle = "Guild Wars 2";
-    public const string MainSceneName = "Main";
-    public const string OffSceneName = "Off";
 
     [DllImport("user32.dll")]
     private static extern IntPtr GetForegroundWindow();
