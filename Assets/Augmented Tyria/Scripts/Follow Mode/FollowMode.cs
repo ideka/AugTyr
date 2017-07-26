@@ -34,9 +34,9 @@ public class FollowMode : MonoBehaviour, IActionable
                 {
                     "SelectPreviousNode", () =>
                     {
-                        if (this.nodeIndex > 0)
+                        if (this.NodeIndex > 0)
                         {
-                            this.nodeIndex--;
+                            this.NodeIndex--;
                             this.RepopulateRoute();
                         }
                     }
@@ -51,7 +51,7 @@ public class FollowMode : MonoBehaviour, IActionable
         }
     }
 
-    private int nodeIndex
+    private int NodeIndex
     {
         get { return this.RouteHolder.NodeIndex; }
         set { this.RouteHolder.NodeIndex = value; }
@@ -86,13 +86,13 @@ public class FollowMode : MonoBehaviour, IActionable
 
     private void Update()
     {
-        if (this.nodeIndex < 0)
+        if (this.NodeIndex < 0)
         {
             this.OrientationHelper.SetPositions(new Vector3[] { this.Cursor.position, this.Cursor.position });
             return;
         }
 
-        Node next = this.Route.Nodes[this.nodeIndex];
+        Node next = this.Route.Nodes[this.NodeIndex];
 
         this.OrientationHelper.SetPositions(new Vector3[] { this.Cursor.position, next.Position });
 
@@ -120,7 +120,7 @@ public class FollowMode : MonoBehaviour, IActionable
         this.nodes.Clear();
         float squaredLength = 0;
         Node previous = null;
-        foreach (Node node in this.Route.Nodes.Skip(this.nodeIndex))
+        foreach (Node node in this.Route.Nodes.Skip(this.NodeIndex))
         {
             GameObject gameObject = Instantiate(this.NodePrefab, this.RouteDisplay.transform);
             NodeDisplay display = gameObject.GetComponent<NodeDisplay>();
@@ -152,7 +152,7 @@ public class FollowMode : MonoBehaviour, IActionable
 
         // Update route display material.
         this.RouteDisplay.material = this.FollowMaterial;
-        foreach (Node node in this.Route.Nodes.Take(this.nodeIndex).Reverse())
+        foreach (Node node in this.Route.Nodes.Take(this.NodeIndex).Reverse())
         {
             if (node.Type == NodeType.HeartWall)
                 break;
@@ -179,13 +179,13 @@ public class FollowMode : MonoBehaviour, IActionable
 
     private void ReachedNode()
     {
-        if (this.nodeIndex + 1 < this.Route.Nodes.Count)
+        if (this.NodeIndex + 1 < this.Route.Nodes.Count)
         {
-            Node reached = this.Route.Nodes[this.nodeIndex];
+            Node reached = this.Route.Nodes[this.NodeIndex];
             if (reached.Type == NodeType.Waypoint && !string.IsNullOrEmpty(reached.WaypointCode))
                 Clipboard.SetText(reached.WaypointCode);
 
-            this.nodeIndex += 1;
+            this.NodeIndex += 1;
             this.RepopulateRoute();
         }
     }
@@ -195,7 +195,7 @@ public class FollowMode : MonoBehaviour, IActionable
         if (!this.nodes.Any())
             return;
 
-        this.nodeIndex = this.Route.Nodes
+        this.NodeIndex = this.Route.Nodes
             .Select((node, i) => new { position = node.Position, i = i })
             .OrderBy(n => (this.Cursor.position - n.position).sqrMagnitude)
             .First().i;
