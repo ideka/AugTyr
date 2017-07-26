@@ -169,7 +169,8 @@ public partial class EditMode : MonoBehaviour, IActionable
         this.nodeIndex = this.RouteHolder.NodeIndex;
         this.detachedNodeIndex = -1;
 
-        this.UpdateSelectedNode();
+        if (this.isActiveAndEnabled)
+            this.UpdateSelectedNode();
     }
 
     private void GlobalHookKeyDown(object sender, KeyEventArgs e)

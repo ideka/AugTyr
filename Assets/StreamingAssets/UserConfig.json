@@ -25,6 +25,10 @@
  */
 
 {
+	"StartInFollowMode": false,
+
+	"OrientationHelperDefault": true,
+
 	"RouteInputs":
 	[
 		{

@@ -109,8 +109,8 @@ public class RouteHolder : MonoBehaviour, IActionable
         this.EditMode.Reload();
         this.FollowMode.Reload();
 
-        this.EditMode.gameObject.SetActive(true);
-        this.FollowMode.gameObject.SetActive(false);
+        this.EditMode.gameObject.SetActive(!this.UserConfig.StartInFollowMode);
+        this.FollowMode.gameObject.SetActive(this.UserConfig.StartInFollowMode);
     }
 
     private void Save()

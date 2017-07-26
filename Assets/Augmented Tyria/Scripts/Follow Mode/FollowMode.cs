@@ -65,12 +65,12 @@ public class FollowMode : MonoBehaviour, IActionable
     private void Awake()
     {
         this.globalHook = Hook.GlobalEvents();
+        this.OrientationHelper.gameObject.SetActive(this.RouteHolder.UserConfig.OrientationHelperDefault);
     }
 
     private void OnEnable()
     {
         this.RepopulateRoute();
-        this.OrientationHelper.gameObject.SetActive(false);
         this.globalHook.KeyDown += this.GlobalHookKeyDown;
     }
 
@@ -128,7 +128,7 @@ public class FollowMode : MonoBehaviour, IActionable
             display.SetMesh(false);
             this.nodes.Add(display);
 
-            if (previous == null)
+            if (previous == null && this.isActiveAndEnabled)
                 display.Select(true);
 
             if (node.Type == NodeType.Waypoint)
