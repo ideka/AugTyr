@@ -36,12 +36,10 @@
 		{
 			"ActionName": "Save",
 			"KeyName": "Multiply",
-			"Control": false
 		},
 		{
 			"ActionName": "Load",
 			"KeyName": "Divide",
-			"Control": false
 		},
 		{
 			"ActionName": "LoadClipboardId",
@@ -51,7 +49,6 @@
 		{
 			"ActionName": "ToggleMode",
 			"KeyName": "Decimal",
-			"Control": false
 		}
 	],
 
@@ -60,27 +57,22 @@
 		{
 			"ActionName": "AddNode",
 			"KeyName": "Add",
-			"Control": false
 		},
 		{
 			"ActionName": "RemoveNode",
 			"KeyName": "Subtract",
-			"Control": false
 		},
 		{
 			"ActionName": "SelectClosestNode",
 			"KeyName": "NumPad5",
-			"Control": false
 		},
 		{
 			"ActionName": "SelectPreviousNode",
 			"KeyName": "NumPad4",
-			"Control": false
 		},
 		{
 			"ActionName": "SelectNextNode",
 			"KeyName": "NumPad6",
-			"Control": false
 		},
 		{
 			"ActionName": "SelectFirstNode",
@@ -95,27 +87,22 @@
 		{
 			"ActionName": "PreviousNodeType",
 			"KeyName": "NumPad8",
-			"Control": false
 		},
 		{
 			"ActionName": "NextNodeType",
 			"KeyName": "NumPad2",
-			"Control": false
 		},
 		{
 			"ActionName": "MoveSelectedNode",
 			"KeyName": "NumPad7",
-			"Control": false
 		},
 		{
 			"ActionName": "ToggleAttachNode",
 			"KeyName": "NumPad9",
-			"Control": false
 		},
 		{
 			"ActionName": "GetNodeText",
 			"KeyName": "NumPad1",
-			"Control": false
 		},
 		{
 			"ActionName": "SetNodeText",
@@ -125,7 +112,6 @@
 		{
 			"ActionName": "GetNodeData",
 			"KeyName": "NumPad3",
-			"Control": false
 		},
 		{
 			"ActionName": "SetNodeData",
@@ -135,7 +121,6 @@
 		{
 			"ActionName": "ToggleAttachSelection",
 			"KeyName": "NumPad0",
-			"Control": false
 		}
 	],
 
@@ -144,22 +129,18 @@
 		{
 			"ActionName": "SelectClosestNode",
 			"KeyName": "NumPad5",
-			"Control": false
 		},
 		{
 			"ActionName": "SelectPreviousNode",
 			"KeyName": "NumPad4",
-			"Control": false
 		},
 		{
 			"ActionName": "SelectNextNode",
 			"KeyName": "NumPad6",
-			"Control": false
 		},
 		{
 			"ActionName": "ToggleOrientationHelper",
 			"KeyName": "NumPad0",
-			"Control": false
 		}
 	]
 }
