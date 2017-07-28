@@ -160,7 +160,6 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
         }
 
         // Update route display.
-        this.RouteDisplay.positionCount = 0;  // TODO: Find out if this is needed.
         Vector3[] positions = this.nodes.Select(n => n.transform.position).ToArray();
         this.RouteDisplay.positionCount = positions.Length;
         this.RouteDisplay.SetPositions(positions);
