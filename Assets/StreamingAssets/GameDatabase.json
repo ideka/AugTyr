@@ -1,5 +1,5 @@
 {
-  "BuildId": 79949,
+  "BuildId": 80079,
   "MapGroups": [
     {
       "Maps": {
@@ -1405,6 +1405,20 @@
     },
     {
       "Maps": {
+        "1203": {
+          "Name": "Siren's Landing",
+          "Waypoints": {
+            "[&BO8JAAA=]": "Camp Reclamation Waypoint"
+          }
+        },
+        "1207": {
+          "Name": "The Last Chance",
+          "Waypoints": {}
+        }
+      }
+    },
+    {
+      "Maps": {
         "15": {
           "Name": "Queensdale",
           "Waypoints": {
@@ -1702,6 +1716,10 @@
         },
         "1190": {
           "Name": "A Meeting of Ministers",
+          "Waypoints": {}
+        },
+        "1204": {
+          "Name": "Palace Temple",
           "Waypoints": {}
         }
       }
@@ -3818,6 +3836,22 @@
     },
     {
       "Maps": {
+        "1208": {
+          "Name": "Shining Blade Headquarters",
+          "Waypoints": {}
+        }
+      }
+    },
+    {
+      "Maps": {
+        "1202": {
+          "Name": "White Mantle Hideout",
+          "Waypoints": {}
+        }
+      }
+    },
+    {
+      "Maps": {
         "350": {
           "Name": "Heart of the Mists",
           "Waypoints": {
@@ -4076,6 +4110,16 @@
     },
     {
       "Maps": {
+        "1206": {
+          "Name": "Mistlock Sanctuary",
+          "Waypoints": {
+            "[&BPMJAAA=]": "Mistlock Sanctuary Waypoint"
+          }
+        }
+      }
+    },
+    {
+      "Maps": {
         "865": {
           "Name": "Mad King's Clock Tower",
           "Waypoints": {}
@@ -4116,6 +4160,14 @@
     {
       "Maps": {
         "958": {
+          "Name": "Fractals of the Mists",
+          "Waypoints": {}
+        }
+      }
+    },
+    {
+      "Maps": {
+        "1205": {
           "Name": "Fractals of the Mists",
           "Waypoints": {}
         }
