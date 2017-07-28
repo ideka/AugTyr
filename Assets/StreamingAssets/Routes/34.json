@@ -346,7 +346,7 @@
             "X": 309.02356,
             "Y": 27.43984,
             "Z": -888.8931,
-            "Comment": "First path",
+            "Comment": null,
             "Type": 0,
             "WaypointCode": null,
             "HeartWallValue": null
@@ -391,7 +391,7 @@
             "X": 324.189148,
             "Y": 25.94265,
             "Z": -858.1607,
-            "Comment": "Second path",
+            "Comment": null,
             "Type": 0,
             "WaypointCode": null,
             "HeartWallValue": null
@@ -526,7 +526,7 @@
             "X": 450.746,
             "Y": 10.7669086,
             "Z": -633.0406,
-            "Comment": "First path",
+            "Comment": null,
             "Type": 0,
             "WaypointCode": null,
             "HeartWallValue": null
@@ -670,7 +670,7 @@
             "X": 425.659027,
             "Y": 15.85634,
             "Z": -647.000366,
-            "Comment": "Second path",
+            "Comment": null,
             "Type": 0,
             "WaypointCode": null,
             "HeartWallValue": null
@@ -1417,7 +1417,7 @@
             "X": -312.211182,
             "Y": 6.116924,
             "Z": -545.5846,
-            "Comment": "First path",
+            "Comment": null,
             "Type": 0,
             "WaypointCode": null,
             "HeartWallValue": null
@@ -1525,7 +1525,7 @@
             "X": -277.6633,
             "Y": 2.476259,
             "Z": -539.7231,
-            "Comment": "Second path",
+            "Comment": null,
             "Type": 0,
             "WaypointCode": null,
             "HeartWallValue": null
@@ -2524,7 +2524,7 @@
             "X": -100.339531,
             "Y": 1.34123659,
             "Z": 0.184574112,
-            "Comment": "First path",
+            "Comment": null,
             "Type": 0,
             "WaypointCode": null,
             "HeartWallValue": null
@@ -2812,7 +2812,7 @@
             "X": -81.7809448,
             "Y": 7.635516,
             "Z": 35.37324,
-            "Comment": "Second path",
+            "Comment": null,
             "Type": 0,
             "WaypointCode": null,
             "HeartWallValue": null
