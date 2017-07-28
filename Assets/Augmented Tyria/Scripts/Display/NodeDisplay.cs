@@ -19,11 +19,27 @@ public class NodeDisplay : MonoBehaviour
     public Material HeartMaterial;
     public Material HeartWallMaterial;
 
-    public const float PulsateMin = .1f;
-    public const float PulsateMax = .5f;
-    public const float PulsateSpeed = 2;
+    public const float PulsateRatio = 3 / 5f;
+    public const float PulsateSpeed = 3f;
 
-    public Vector3 NormalScale { get { return Vector3.Lerp(Vector3.one * PulsateMax, Vector3.one * PulsateMin, .5f); } }
+    public float NormalizedSize { get; private set; }
+
+    public float Size
+    {
+        set
+        {
+            this.SetScale(value);
+            this.size = value;
+        }
+    }
+
+    public bool Detached
+    {
+        set
+        {
+            this.MeshFilter.mesh = value ? this.DetachedMesh : this.AttachedMesh;
+        }
+    }
 
     public Node Node
     {
@@ -59,14 +75,18 @@ public class NodeDisplay : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private float size = .3f;
+
+    private void Start()
     {
-        this.MeshRenderer.transform.localScale = this.NormalScale;
+        this.SetScale(this.size);
     }
 
-    public void SetMesh(bool detached)
+    public void SetUp(float size, bool detached, Node node)
     {
-        this.MeshFilter.mesh = detached ? this.DetachedMesh : this.AttachedMesh;
+        this.Size = size;
+        this.Detached = detached;
+        this.Node = node;
     }
 
     public void Select(bool select)
@@ -76,30 +96,34 @@ public class NodeDisplay : MonoBehaviour
         if (select)
             this.StartCoroutine(this.Pulsating());
         else
-            this.MeshRenderer.transform.localScale = this.NormalScale;
+            this.SetScale(this.size);
+    }
+
+    private void SetScale(float to)
+    {
+        this.MeshRenderer.transform.localScale = Vector3.one * to;
     }
 
     private IEnumerator Pulsating()
     {
+        this.NormalizedSize = .5f;
         while (true)
         {
-            while (this.MeshRenderer.transform.localScale.x < PulsateMax)
-            {
-                this.MeshRenderer.transform.localScale = Vector3.MoveTowards(
-                    this.MeshRenderer.transform.localScale,
-                    Vector3.one * PulsateMax,
-                    Time.deltaTime * PulsateSpeed);
-                yield return null;
-            }
+            yield return this.PulsatingTowards(1);
+            yield return this.PulsatingTowards(0);
+        }
+    }
 
-            while (this.MeshRenderer.transform.localScale.x > PulsateMin)
-            {
-                this.MeshRenderer.transform.localScale = Vector3.MoveTowards(
-                    this.MeshRenderer.transform.localScale,
-                    Vector3.one * PulsateMin,
-                    Time.deltaTime * PulsateSpeed);
-                yield return null;
-            }
+    private IEnumerator PulsatingTowards(float goal)
+    {
+        while (this.NormalizedSize != goal)
+        {
+            this.NormalizedSize = Mathf.MoveTowards(this.NormalizedSize, goal, PulsateSpeed * Time.deltaTime);
+            this.SetScale(Mathf.Lerp(
+                this.size - this.size * PulsateRatio,
+                this.size + this.size * PulsateRatio,
+                this.NormalizedSize));
+            yield return null;
         }
     }
 }

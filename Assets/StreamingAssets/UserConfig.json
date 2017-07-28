@@ -25,12 +25,19 @@
  */
 
 {
+	// Behavior.
 	"AutoUpdateGameDatabase": true,
 
 	"StartInFollowMode": false,
 
 	"OrientationHelperDefault": true,
 
+	// Visuals.
+	"RouteWidth": 1,
+
+	"NodeSize": .3,
+
+	// Input.
 	"RouteInputs":
 	[
 		{

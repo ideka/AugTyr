@@ -70,6 +70,9 @@ public class FollowMode : MonoBehaviour, IActionable
     private void Start()
     {
         this.OrientationHelper.gameObject.SetActive(this.RouteHolder.UserConfig.OrientationHelperDefault);
+
+        this.RouteDisplay.widthMultiplier = this.RouteHolder.UserConfig.RouteWidth;
+        this.OrientationHelper.widthMultiplier = this.RouteHolder.UserConfig.RouteWidth;
     }
 
     private void OnEnable()
@@ -128,8 +131,7 @@ public class FollowMode : MonoBehaviour, IActionable
         {
             GameObject gameObject = Instantiate(this.NodePrefab, this.RouteDisplay.transform);
             NodeDisplay display = gameObject.GetComponent<NodeDisplay>();
-            display.Node = node;
-            display.SetMesh(false);
+            display.SetUp(this.RouteHolder.UserConfig.NodeSize, false, node);
             this.nodes.Add(display);
 
             if (previous == null && this.isActiveAndEnabled)
@@ -175,8 +177,7 @@ public class FollowMode : MonoBehaviour, IActionable
         {
             GameObject gameObject = Instantiate(this.NodePrefab, this.RouteDisplay.transform);
             NodeDisplay display = gameObject.GetComponent<NodeDisplay>();
-            display.Node = node;
-            display.SetMesh(true);
+            display.SetUp(this.RouteHolder.UserConfig.NodeSize, true, node);
             this.detachedNodes.Add(display);
         }
     }

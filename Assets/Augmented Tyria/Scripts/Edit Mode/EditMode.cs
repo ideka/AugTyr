@@ -136,6 +136,11 @@ public partial class EditMode : MonoBehaviour, IActionable
         this.globalHook = Hook.GlobalEvents();
     }
 
+    private void Start()
+    {
+        this.RouteDisplay.widthMultiplier = this.RouteHolder.UserConfig.RouteWidth;
+    }
+
     private void OnEnable()
     {
         this.nodeIndex = this.RouteHolder.NodeIndex;

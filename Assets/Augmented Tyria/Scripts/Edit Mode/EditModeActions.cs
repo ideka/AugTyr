@@ -26,9 +26,7 @@ public partial class EditMode
     {
         GameObject gameObject = Instantiate(this.NodePrefab, this.RouteDisplay.transform);
         NodeDisplay display = gameObject.GetComponent<NodeDisplay>();
-        display.Node = node;
-
-        display.SetMesh(detached);
+        display.SetUp(this.RouteHolder.UserConfig.NodeSize, detached, node);
 
         if (detached)
         {
