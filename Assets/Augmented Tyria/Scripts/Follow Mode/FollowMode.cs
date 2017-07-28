@@ -65,6 +65,10 @@ public class FollowMode : MonoBehaviour, IActionable
     private void Awake()
     {
         this.globalHook = Hook.GlobalEvents();
+    }
+
+    private void Start()
+    {
         this.OrientationHelper.gameObject.SetActive(this.RouteHolder.UserConfig.OrientationHelperDefault);
     }
 
