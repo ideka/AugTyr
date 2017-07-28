@@ -4,7 +4,7 @@
             "X": -472.6381,
             "Y": 47.31938,
             "Z": -751.0388,
-            "Comment": "Start here",
+            "Comment": null,
             "Type": 0,
             "WaypointCode": null,
             "HeartWallValue": null
@@ -3622,7 +3622,7 @@
             "X": 202.632874,
             "Y": 33.3392944,
             "Z": 270.38092,
-            "Comment": "First path",
+            "Comment": null,
             "Type": 0,
             "WaypointCode": null,
             "HeartWallValue": null
@@ -4162,7 +4162,7 @@
             "X": 201.414658,
             "Y": 31.5584068,
             "Z": 278.115662,
-            "Comment": "Second path",
+            "Comment": null,
             "Type": 0,
             "WaypointCode": null,
             "HeartWallValue": null
@@ -4369,7 +4369,7 @@
             "X": -220.307846,
             "Y": 11.902607,
             "Z": 469.0797,
-            "Comment": "First path",
+            "Comment": null,
             "Type": 0,
             "WaypointCode": null,
             "HeartWallValue": null
@@ -4873,7 +4873,7 @@
             "X": -245.818451,
             "Y": 10.0999718,
             "Z": 437.884247,
-            "Comment": "Second path",
+            "Comment": null,
             "Type": 0,
             "WaypointCode": null,
             "HeartWallValue": null
