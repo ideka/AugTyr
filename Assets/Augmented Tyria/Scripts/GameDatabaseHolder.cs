@@ -124,8 +124,7 @@ public class GameDatabaseHolder : MonoBehaviour
                     }
 
                     // Add all non-instances first.
-                    foreach (KeyValuePair<int, Map> map in maps.Where(m => !m.Value.IsInstance).Concat(maps.Where(m => m.Value.IsInstance)))
-                    //foreach (KeyValuePair<int, Map> map in maps.OrderBy(m => m.Value.IsInstance))  // TODO: Find out if this is faster.
+                    foreach (KeyValuePair<int, Map> map in maps.OrderBy(m => m.Value.IsInstance))
                         replacement.AddMap(map.Key, map.Value);
                 }
             }
