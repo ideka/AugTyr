@@ -1819,6 +1819,15 @@
       "HeartWallValue": null
     },
     {
+      "X": -546.1699,
+      "Y": 53.4781227,
+      "Z": 210.571381,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
       "X": -551.6353,
       "Y": 54.84637,
       "Z": 199.629791,
@@ -1957,24 +1966,24 @@
       "X": -593.0718,
       "Y": 84.34919,
       "Z": 242.956833,
+      "Comment": "Glide",
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -577.0317,
+      "Y": 68.048996,
+      "Z": 301.442535,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": -584.255,
-      "Y": 71.43419,
-      "Z": 300.4316,
-      "Comment": null,
-      "Type": 0,
-      "WaypointCode": null,
-      "HeartWallValue": null
-    },
-    {
-      "X": -572.261169,
-      "Y": 67.11534,
-      "Z": 314.499329,
+      "X": -572.895,
+      "Y": 67.24626,
+      "Z": 314.281464,
       "Comment": null,
       "Type": 1,
       "WaypointCode": "[&BFwCAAA=]",
@@ -5880,13 +5889,4 @@
       "HeartWallValue": null
     },
     {
-      "X": -334.522339,
-      "Y": 17.0927563,
-      "Z": -718.1428,
-      "Comment": "Turn in bomb here",
-      "Type": 2,
-      "WaypointCode": null,
-      "HeartWallValue": null
-    }
-  ]
-}
+ 
