@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(UserConfigHolder))]
@@ -27,6 +28,8 @@ public class GameDatabaseHolder : MonoBehaviour
         this.UserConfigHolder = this.GetComponent<UserConfigHolder>();
 
         this.StartCoroutine(this.Loading());
+
+        SceneManager.LoadScene("Route");
     }
 
     private IEnumerator Loading()
@@ -41,12 +44,12 @@ public class GameDatabaseHolder : MonoBehaviour
 
         if (this.UserConfig.AutoUpdateGameDatabase)
             yield return this.UpdatingDatabase();
-
-        SceneManager.LoadScene("Route");
     }
 
     private IEnumerator UpdatingDatabase()
     {
+        GameDatabase replacement = new GameDatabase();
+
         using (APICall call = new APICall("build"))
         {
             yield return call.Requesting();
@@ -57,7 +60,7 @@ public class GameDatabaseHolder : MonoBehaviour
                 yield break;
 
             // Create a new database.
-            this.GameDatabase = new GameDatabase()
+            replacement = new GameDatabase()
             {
                 BuildId = build
             };
@@ -116,15 +119,19 @@ public class GameDatabaseHolder : MonoBehaviour
                             map.Waypoints[(string)wpData["chat_link"]] = (string)wpData["name"];
                         foreach (JToken sectorData in mapData["sectors"].Values())
                             map.Sectors[(int)sectorData["id"]] = (string)sectorData["name"];
+
+                        yield return null;
                     }
 
                     // Add all non-instances first.
                     foreach (KeyValuePair<int, Map> map in maps.Where(m => !m.Value.IsInstance).Concat(maps.Where(m => m.Value.IsInstance)))
-                        this.GameDatabase.AddMap(map.Key, map.Value);
+                    //foreach (KeyValuePair<int, Map> map in maps.OrderBy(m => m.Value.IsInstance))  // TODO: Find out if this is faster.
+                        replacement.AddMap(map.Key, map.Value);
                 }
             }
         }
 
+        this.GameDatabase = replacement;
         File.WriteAllText(Path, JsonConvert.SerializeObject(this.GameDatabase, Formatting.Indented));
         Debug.Log("DONE!");
     }
@@ -133,18 +140,18 @@ public class GameDatabaseHolder : MonoBehaviour
     {
         public JContainer Data;
 
-        private string[] path;
+        private string url;
 
         public APICall(params string[] path)
         {
-            this.path = path;
+            this.url = string.Join("/", new string[] { URL, string.Join("/", path) });
         }
 
         public IEnumerator Requesting()
         {
             while (true)
             {
-                WWW www = new WWW(string.Join("/", new string[] { URL, string.Join("/", this.path) }));
+                WWW www = new WWW(this.url);
                 yield return www;
                 if (string.IsNullOrEmpty(www.error))
                 {
@@ -158,7 +165,6 @@ public class GameDatabaseHolder : MonoBehaviour
         public void Dispose()
         {
             this.Data = null;
-            this.path = null;
         }
     }
 }
