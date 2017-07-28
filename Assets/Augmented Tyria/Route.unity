@@ -42,7 +42,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 9
   m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 9
+    serializedVersion: 8
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
@@ -87,7 +87,7 @@ LightmapSettings:
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_ShadowMaskMode: 2
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -156,20 +156,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -303,7 +289,6 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
 --- !u!1 &1113416815
@@ -349,7 +334,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cursor: {fileID: 2079151480}
   RouteHolder: {fileID: 1128066790}
-  NodePrefab: {fileID: 1000011715836402, guid: 47e1e52bf877b79469c84f7546803dfc, type: 2}
+  NodePrefab: {fileID: 114000014285484788, guid: 47e1e52bf877b79469c84f7546803dfc,
+    type: 2}
   RouteDisplay: {fileID: 1791008092}
 --- !u!1 &1128066789
 GameObject:
@@ -382,6 +368,7 @@ MonoBehaviour:
   EditMode: {fileID: 1113416817}
   FollowMode: {fileID: 1567090674}
   GameDatabaseHolder: {fileID: 0}
+  UserConfigHolder: {fileID: 0}
 --- !u!4 &1128066791
 Transform:
   m_ObjectHideFlags: 0
@@ -500,7 +487,6 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
 --- !u!4 &1350976412
@@ -562,7 +548,8 @@ MonoBehaviour:
   RouteHolder: {fileID: 1128066790}
   FollowMaterial: {fileID: 2100000, guid: c4db21b29562b7148978511e705f16d6, type: 2}
   HeartMaterial: {fileID: 2100000, guid: 630e546052152064288c0e7aa911fa1e, type: 2}
-  NodePrefab: {fileID: 1000011715836402, guid: 47e1e52bf877b79469c84f7546803dfc, type: 2}
+  NodePrefab: {fileID: 114000014285484788, guid: 47e1e52bf877b79469c84f7546803dfc,
+    type: 2}
   RouteDisplay: {fileID: 1039179550}
   OrientationHelper: {fileID: 1350976411}
 --- !u!1 &1791008090
@@ -681,7 +668,6 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
 --- !u!1 &1853645463

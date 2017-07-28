@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using UnityEngine;
 
-public class FollowMode : MonoBehaviour, IActionable
+public class FollowMode : MonoBehaviour, INodeRoute, IActionable
 {
     public Transform Cursor;
     public RouteHolder RouteHolder;
@@ -13,7 +13,7 @@ public class FollowMode : MonoBehaviour, IActionable
     public Material FollowMaterial;
     public Material HeartMaterial;
 
-    public GameObject NodePrefab;
+    public NodeDisplay NodePrefab;
     public LineRenderer RouteDisplay;
     public LineRenderer OrientationHelper;
 
@@ -21,6 +21,7 @@ public class FollowMode : MonoBehaviour, IActionable
     public const float SquaredMaxRouteLength = 1000;
 
     public Route Route { get { return this.RouteHolder.Route; } }
+    public UserConfig UserConfig { get { return this.RouteHolder.UserConfig; } }
 
     public Dictionary<string, Action> Actions
     {
@@ -69,10 +70,10 @@ public class FollowMode : MonoBehaviour, IActionable
 
     private void Start()
     {
-        this.OrientationHelper.gameObject.SetActive(this.RouteHolder.UserConfig.OrientationHelperDefault);
+        this.OrientationHelper.gameObject.SetActive(this.UserConfig.OrientationHelperDefault);
 
-        this.RouteDisplay.widthMultiplier = this.RouteHolder.UserConfig.RouteWidth;
-        this.OrientationHelper.widthMultiplier = this.RouteHolder.UserConfig.RouteWidth;
+        this.RouteDisplay.widthMultiplier = this.UserConfig.RouteWidth;
+        this.OrientationHelper.widthMultiplier = this.UserConfig.RouteWidth;
     }
 
     private void OnEnable()
@@ -107,6 +108,16 @@ public class FollowMode : MonoBehaviour, IActionable
             this.ReachedNode();
     }
 
+    public NodeDisplay GetNodePrefab()
+    {
+        return this.NodePrefab;
+    }
+
+    public LineRenderer GetRouteDisplay()
+    {
+        return this.RouteDisplay;
+    }
+
     public void Reload()
     {
         this.RepopulateRoute();
@@ -117,7 +128,7 @@ public class FollowMode : MonoBehaviour, IActionable
         if (Camera.main.cullingMask == 0)
             return;
 
-        this.Act(this.RouteHolder.UserConfig.FollowModeInputs, e.KeyCode, e.Control);
+        this.Act(this.UserConfig.FollowModeInputs, e.KeyCode, e.Control);
     }
 
     private void RepopulateRoute()
@@ -129,9 +140,7 @@ public class FollowMode : MonoBehaviour, IActionable
         Node previous = null;
         foreach (Node node in this.Route.Nodes.Skip(this.NodeIndex))
         {
-            GameObject gameObject = Instantiate(this.NodePrefab, this.RouteDisplay.transform);
-            NodeDisplay display = gameObject.GetComponent<NodeDisplay>();
-            display.SetUp(this.RouteHolder.UserConfig.NodeSize, false, node);
+            NodeDisplay display = this.NewNodeDisplay(false, node);
             this.nodes.Add(display);
 
             if (previous == null && this.isActiveAndEnabled)
@@ -172,14 +181,7 @@ public class FollowMode : MonoBehaviour, IActionable
 
         // Repopulate detached nodes.
         this.detachedNodes.ForEach(n => Destroy(n.gameObject));
-        this.detachedNodes.Clear();
-        foreach (Node node in this.Route.DetachedNodes)
-        {
-            GameObject gameObject = Instantiate(this.NodePrefab, this.RouteDisplay.transform);
-            NodeDisplay display = gameObject.GetComponent<NodeDisplay>();
-            display.SetUp(this.RouteHolder.UserConfig.NodeSize, true, node);
-            this.detachedNodes.Add(display);
-        }
+        this.detachedNodes = this.Route.DetachedNodes.Select(n => this.NewNodeDisplay(true, n)).ToList();
     }
 
     private void ReachedNode()

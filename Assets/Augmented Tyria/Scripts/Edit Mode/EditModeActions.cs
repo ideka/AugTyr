@@ -24,9 +24,7 @@ public partial class EditMode
 
     private void AddVisualNode(Node node, bool detached = false, int at = -1)
     {
-        GameObject gameObject = Instantiate(this.NodePrefab, this.RouteDisplay.transform);
-        NodeDisplay display = gameObject.GetComponent<NodeDisplay>();
-        display.SetUp(this.RouteHolder.UserConfig.NodeSize, detached, node);
+        NodeDisplay display = this.NewNodeDisplay(detached, node);
 
         if (detached)
         {

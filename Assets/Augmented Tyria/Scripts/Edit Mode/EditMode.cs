@@ -5,15 +5,16 @@ using System.Linq;
 using System.Windows.Forms;
 using UnityEngine;
 
-public partial class EditMode : MonoBehaviour, IActionable
+public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
 {
     public Transform Cursor;
     public RouteHolder RouteHolder;
 
-    public GameObject NodePrefab;
+    public NodeDisplay NodePrefab;
     public LineRenderer RouteDisplay;
 
     public Route Route { get { return this.RouteHolder.Route; } }
+    public UserConfig UserConfig { get { return this.RouteHolder.UserConfig; } }
 
     public Dictionary<string, Action> Actions
     {
@@ -138,7 +139,7 @@ public partial class EditMode : MonoBehaviour, IActionable
 
     private void Start()
     {
-        this.RouteDisplay.widthMultiplier = this.RouteHolder.UserConfig.RouteWidth;
+        this.RouteDisplay.widthMultiplier = this.UserConfig.RouteWidth;
     }
 
     private void OnEnable()
@@ -156,6 +157,16 @@ public partial class EditMode : MonoBehaviour, IActionable
     private void OnDestroy()
     {
         this.globalHook.Dispose();
+    }
+
+    public NodeDisplay GetNodePrefab()
+    {
+        return this.NodePrefab;
+    }
+
+    public LineRenderer GetRouteDisplay()
+    {
+        return this.RouteDisplay;
     }
 
     public void Reload()
@@ -183,7 +194,7 @@ public partial class EditMode : MonoBehaviour, IActionable
         if (Camera.main.cullingMask == 0)
             return;
 
-        this.Act(this.RouteHolder.UserConfig.EditModeInputs, e.KeyCode, e.Control);
+        this.Act(this.UserConfig.EditModeInputs, e.KeyCode, e.Control);
     }
 
     public static string Format(string str)
