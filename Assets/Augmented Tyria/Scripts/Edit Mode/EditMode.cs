@@ -96,6 +96,7 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
                         string c = this.GetComment();
                         if (!string.IsNullOrEmpty(c))
                             Clipboard.SetText(c);
+                        this.Console.InfoFade("Copied selected node text to clipboard.");
                     }
                 },
                 {
@@ -108,6 +109,7 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
                         string c = this.GetData();
                         if (!string.IsNullOrEmpty(c))
                             Clipboard.SetText(c);
+                        this.Console.InfoFade("Copied selected node special text to clipboard.");
                     }
                 },
                 {
