@@ -28,7 +28,7 @@ public class WindowVisibility : MonoBehaviour
         this.defaultCullingMask = this.Camera.cullingMask;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         StringBuilder name = new StringBuilder();
         GetWindowText(GetForegroundWindow(), name, GameWindowTitle.Length + 2);  // ???: Why do I have to add 2 here...?
