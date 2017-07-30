@@ -18,16 +18,11 @@ public class RouteHolder : MonoBehaviour, IActionable
 
     public static string Path { get { return UnityEngine.Application.streamingAssetsPath + "/Routes/"; } }
 
-    [HideInInspector]
-    public GameDatabaseHolder GameDatabaseHolder;
-    [HideInInspector]
-    public UserConfigHolder UserConfigHolder;
-
     public Route Route = new Route();
 
     public int NodeIndex { get; set; }
     public GameDatabase GameDatabase { get { return this.GameDatabaseHolder.GameDatabase; } }
-    public UserConfig UserConfig { get { return this.UserConfigHolder.UserConfig; } }
+    public UserConfig UserConfig { get { return this.GameDatabaseHolder.UserConfig; } }
     public int MapId { get { return this.Mumble.Link.GetCoordinates().MapId; } }
 
     public string InputGroupName { get { return "Route"; } }
@@ -68,20 +63,21 @@ public class RouteHolder : MonoBehaviour, IActionable
     private IKeyboardMouseEvents globalHook;
     private int loadedRouteId;
 
+    public GameDatabaseHolder GameDatabaseHolder { get; private set; }
+
     private void Awake()
     {
-        this.NodeIndex = -1;
-
         this.globalHook = Hook.GlobalEvents();
         this.globalHook.KeyDown += this.GlobalHookKeyDown;
 
         this.GameDatabaseHolder = FindObjectOfType<GameDatabaseHolder>();
-        this.UserConfigHolder = FindObjectOfType<UserConfigHolder>();
-        if (this.GameDatabaseHolder == null || this.UserConfigHolder == null)
+        if (this.GameDatabaseHolder == null)
         {
             SceneManager.LoadScene("Load");
             return;
         }
+
+        this.NodeIndex = -1;
 
         this.Load();
     }
