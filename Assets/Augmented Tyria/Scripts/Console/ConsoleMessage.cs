@@ -4,6 +4,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class ConsoleMessage : MonoBehaviour
 {
+    public AnimationCurve FadeOutCurve;
+
     public static readonly Color InfoColor = new Color(.2f, .2f, .2f);
     public static readonly Color WarningColor = new Color(.6f, .6f, 0);
     public static readonly Color ErrorColor = new Color(.5f, 0, 0);
@@ -31,7 +33,7 @@ public class ConsoleMessage : MonoBehaviour
             else
             {
                 Color c = this.Text.color;
-                c.a = Mathf.InverseLerp(0, this.fadeOutTime, this.fadeOutTimeLeft);
+                c.a = this.FadeOutCurve.Evaluate(Mathf.InverseLerp(this.fadeOutTime, 0, this.fadeOutTimeLeft));
                 this.Text.color = c;
             }
         }
