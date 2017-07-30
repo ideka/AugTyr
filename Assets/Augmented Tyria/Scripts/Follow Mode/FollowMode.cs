@@ -23,6 +23,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
     public Route Route { get { return this.RouteHolder.Route; } }
     public UserConfig UserConfig { get { return this.RouteHolder.UserConfig; } }
 
+    public string InputGroupName { get { return "FollowMode"; } }
     public Dictionary<string, Action> Actions
     {
         get
@@ -128,7 +129,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
         if (Camera.main.cullingMask == 0)
             return;
 
-        this.Act(this.UserConfig.FollowModeInputs, e.KeyCode, e.Control);
+        this.Act(e.KeyCode, e.Control);
     }
 
     private void RepopulateRoute()

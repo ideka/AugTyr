@@ -28,13 +28,11 @@ public class UserConfigHolder : MonoBehaviour
         {
         }
 
-        this.PopulateInputActions(ref this.UserConfig.ConsoleInputs);
-        this.PopulateInputActions(ref this.UserConfig.RouteInputs);
-        this.PopulateInputActions(ref this.UserConfig.EditModeInputs);
-        this.PopulateInputActions(ref this.UserConfig.FollowModeInputs);
+        foreach (List<InputAction> ig in this.UserConfig.InputGroups.Values)
+            this.PopulateInputActions(ig);
     }
 
-    private void PopulateInputActions(ref List<InputAction> inputActions)
+    private void PopulateInputActions(List<InputAction> inputActions)
     {
         foreach (InputAction inac in inputActions)
         {

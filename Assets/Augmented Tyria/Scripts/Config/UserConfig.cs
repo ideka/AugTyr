@@ -13,8 +13,5 @@ public class UserConfig
     public float NodeSize = .3f;
 
     // Input.
-    public List<InputAction> ConsoleInputs;
-    public List<InputAction> RouteInputs;
-    public List<InputAction> EditModeInputs;
-    public List<InputAction> FollowModeInputs;
+    public Dictionary<string, List<InputAction>> InputGroups;
 }

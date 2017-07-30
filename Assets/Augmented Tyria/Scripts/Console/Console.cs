@@ -14,6 +14,7 @@ public class Console : MonoBehaviour, IActionable
 
     public UserConfig UserConfig { get { return this.UserConfigHolder.UserConfig; } }
 
+    public string InputGroupName { get { return "Console"; } }
     public Dictionary<string, Action> Actions
     {
         get
@@ -84,6 +85,6 @@ public class Console : MonoBehaviour, IActionable
         if (Camera.main.cullingMask == 0)
             return;
 
-        this.Act(this.UserConfig.ConsoleInputs, e.KeyCode, e.Control);
+        this.Act(e.KeyCode, e.Control);
     }
 }

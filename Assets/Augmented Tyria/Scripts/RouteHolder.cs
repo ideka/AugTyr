@@ -30,6 +30,7 @@ public class RouteHolder : MonoBehaviour, IActionable
     public UserConfig UserConfig { get { return this.UserConfigHolder.UserConfig; } }
     public int MapId { get { return this.Mumble.Link.GetCoordinates().MapId; } }
 
+    public string InputGroupName { get { return "Route"; } }
     public Dictionary<string, Action> Actions
     {
         get
@@ -123,6 +124,6 @@ public class RouteHolder : MonoBehaviour, IActionable
         if (Camera.main.cullingMask == 0)
             return;
 
-        this.Act(this.UserConfig.RouteInputs, e.KeyCode, e.Control);
+        this.Act(e.KeyCode, e.Control);
     }
 }
