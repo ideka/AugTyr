@@ -193,7 +193,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
             if (reached.Type == NodeType.Waypoint && !string.IsNullOrEmpty(reached.WaypointCode))
             {
                 Clipboard.SetText(reached.WaypointCode);
-                this.Console.PrintInfo(true, "Waypoint code copied: {0}.", reached.WaypointCode);
+                this.Console.InfoFade("Waypoint code copied: {0}.", reached.WaypointCode);
             }
 
             this.NodeIndex += 1;

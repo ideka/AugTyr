@@ -44,7 +44,7 @@ public class UserConfigHolder : MonoBehaviour
             }
             catch (SystemException)
             {
-                this.Console.PrintWarning(false, "Could not parse config key name: \"{0}\", ignoring.", inac.KeyName);
+                this.Console.Warning("Could not parse config key name: \"{0}\", ignoring.", inac.KeyName);
             }
         }
     }

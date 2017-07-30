@@ -53,7 +53,7 @@ public class Console : MonoBehaviour, IActionable
         this.CanvasGroup.alpha = this.Hidden || this.transform.childCount == 0 ? 0 : 1;
     }
 
-    public void Print(ConsoleMessageType type, string message, float fadeOutTime = -1)
+    public void Message(ConsoleMessageType type, string message, float fadeOutTime = -1)
     {
         if (this.UserConfig.ConsoleFilter > (int)type)
             return;
@@ -61,19 +61,49 @@ public class Console : MonoBehaviour, IActionable
         msg.SetUp(type, message, fadeOutTime);
     }
 
-    public void PrintInfo(bool fadeOut, string message, params object[] arg)
+    public void Info(bool fadeOut, string message, params object[] args)
     {
-        this.Print(ConsoleMessageType.Info, string.Format(message, arg), fadeOut ? DefaultFadeTime : -1);
+        this.Message(ConsoleMessageType.Info, string.Format(message, args), fadeOut ? DefaultFadeTime : -1);
     }
 
-    public void PrintWarning(bool fadeOut, string message, params object[] arg)
+    public void Info(string message, params object[] args)
     {
-        this.Print(ConsoleMessageType.Warning, string.Format(message, arg), fadeOut ? DefaultFadeTime : -1);
+        this.Info(false, message, args);
     }
 
-    public void PrintError(bool fadeOut, string message, params object[] arg)
+    public void InfoFade(string message, params object[] args)
     {
-        this.Print(ConsoleMessageType.Error, string.Format(message, arg), fadeOut ? DefaultFadeTime : -1);
+        this.Info(true, message, args);
+    }
+
+    public void Warning(bool fadeOut, string message, params object[] args)
+    {
+        this.Message(ConsoleMessageType.Warning, string.Format(message, args), fadeOut ? DefaultFadeTime : -1);
+    }
+
+    public void Warning(string message, params object[] args)
+    {
+        this.Warning(false, message, args);
+    }
+
+    public void WarningFade(string message, params object[] args)
+    {
+        this.Warning(true, message, args);
+    }
+
+    public void Error(bool fadeOut, string message, params object[] args)
+    {
+        this.Message(ConsoleMessageType.Error, string.Format(message, args), fadeOut ? DefaultFadeTime : -1);
+    }
+
+    public void Error(string message, params object[] args)
+    {
+        this.Error(false, message, args);
+    }
+
+    public void ErrorFade(string message, params object[] args)
+    {
+        this.Error(true, message, args);
     }
 
     public void ToggleHide()

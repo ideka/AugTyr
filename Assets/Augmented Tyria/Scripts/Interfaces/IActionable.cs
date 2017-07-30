@@ -29,7 +29,7 @@ public static class IActionableExtensions
             if (@as.Actions.TryGetValue(actionName, out action))
                 action();
             else
-                @as.Console.PrintWarning(false, "Ignoring unknown action name for {0}: \"{1}\".", @as.InputGroupName, actionName);
+                @as.Console.Warning("Ignoring unknown action name for {0}: \"{1}\".", @as.InputGroupName, actionName);
         }
     }
 }

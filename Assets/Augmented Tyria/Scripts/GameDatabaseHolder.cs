@@ -58,7 +58,7 @@ public class GameDatabaseHolder : MonoBehaviour
             if (this.GameDatabase.BuildId == build)
                 yield break;
 
-            this.Console.PrintInfo(false, "Updating game database ({0} => {1}).", this.GameDatabase.BuildId, build);
+            this.Console.Info("Updating game database ({0} => {1}).", this.GameDatabase.BuildId, build);
 
             // Create a new database.
             replacement = new GameDatabase()
@@ -133,7 +133,7 @@ public class GameDatabaseHolder : MonoBehaviour
 
         this.GameDatabase = replacement;
         File.WriteAllText(Path, JsonConvert.SerializeObject(this.GameDatabase, Formatting.Indented));
-        this.Console.PrintInfo(false, "Game database updated.");
+        this.Console.Info("Game database updated.");
     }
 
     private class APICall : IDisposable

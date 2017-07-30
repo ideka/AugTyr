@@ -94,7 +94,7 @@ public class RouteHolder : MonoBehaviour, IActionable
     private void Update()
     {
         if (this.oldMapId != this.MapId)
-            this.Console.PrintInfo(true, "Map change detected, request a route reload if needed.");
+            this.Console.InfoFade("Map change detected, request a route reload if needed.");
         this.oldMapId = this.MapId;
     }
 
@@ -104,15 +104,15 @@ public class RouteHolder : MonoBehaviour, IActionable
         {
             if (!int.TryParse(Clipboard.GetText(), out this.loadedRouteId))
             {
-                this.Console.PrintError(true, "No valid route ID found in clipboard.");
+                this.Console.ErrorFade("No valid route ID found in clipboard.");
                 return;
             }
-            this.Console.PrintInfo(true, "Loading clipboard route ID {0}.", this.loadedRouteId);
+            this.Console.InfoFade("Loading clipboard route ID {0}.", this.loadedRouteId);
         }
         else
         {
             this.loadedRouteId = this.MapId;
-            this.Console.PrintInfo(true, "Loading current map route ID {0}.", this.loadedRouteId);
+            this.Console.InfoFade("Loading current map route ID {0}.", this.loadedRouteId);
         }
 
         try
@@ -121,7 +121,7 @@ public class RouteHolder : MonoBehaviour, IActionable
         }
         catch (FileNotFoundException)
         {
-            this.Console.PrintInfo(true, "Not found, starting new route for ID {0}.", this.loadedRouteId);
+            this.Console.InfoFade("Not found, starting new route for ID {0}.", this.loadedRouteId);
             this.Route = new Route();
         }
         this.NodeIndex = this.Route.Nodes.Any() ? 0 : -1;
@@ -136,7 +136,7 @@ public class RouteHolder : MonoBehaviour, IActionable
     private void Save()
     {
         File.WriteAllText(Path + this.loadedRouteId + ".json", JsonConvert.SerializeObject(this.Route, Formatting.Indented));
-        this.Console.PrintInfo(true, "Route ID {0} saved.", this.loadedRouteId);
+        this.Console.InfoFade("Route ID {0} saved.", this.loadedRouteId);
     }
 
     private void GlobalHookKeyDown(object sender, KeyEventArgs e)
