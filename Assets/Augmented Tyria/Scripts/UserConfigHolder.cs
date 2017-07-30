@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class UserConfigHolder : MonoBehaviour
 {
+    public Console Console;
+
     public static string Path { get { return UnityEngine.Application.streamingAssetsPath + "/UserConfig.json"; } }
 
     public UserConfig UserConfig = new UserConfig();
@@ -42,6 +44,7 @@ public class UserConfigHolder : MonoBehaviour
             }
             catch (SystemException)
             {
+                this.Console.PrintWarning(false, "Could not parse config key name: \"{0}\", ignoring.", inac.KeyName);
             }
         }
     }

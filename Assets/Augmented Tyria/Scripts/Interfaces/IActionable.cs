@@ -6,6 +6,7 @@ using System.Windows.Forms;
 public interface IActionable
 {
     UserConfig UserConfig { get; }
+    Console Console { get; }
     string InputGroupName { get; }
     Dictionary<string, Action> Actions { get; }
 }
@@ -27,7 +28,8 @@ public static class IActionableExtensions
         {
             if (@as.Actions.TryGetValue(actionName, out action))
                 action();
-            // TODO: Report errors.
+            else
+                @as.Console.PrintWarning(false, "Ignoring unknown action name for {0}: \"{1}\".", @as.InputGroupName, actionName);
         }
     }
 }

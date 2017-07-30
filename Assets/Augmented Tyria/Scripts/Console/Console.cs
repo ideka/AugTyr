@@ -13,6 +13,7 @@ public class Console : MonoBehaviour, IActionable
     public const float DefaultFadeTime = 4;
 
     public UserConfig UserConfig { get { return this.UserConfigHolder.UserConfig; } }
+    Console IActionable.Console { get { return this; } }
 
     public string InputGroupName { get { return "Console"; } }
     public Dictionary<string, Action> Actions

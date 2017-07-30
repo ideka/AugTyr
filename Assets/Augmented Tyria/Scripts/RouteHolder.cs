@@ -23,6 +23,7 @@ public class RouteHolder : MonoBehaviour, IActionable
     public int NodeIndex { get; set; }
     public GameDatabase GameDatabase { get { return this.GameDatabaseHolder.GameDatabase; } }
     public UserConfig UserConfig { get { return this.GameDatabaseHolder.UserConfig; } }
+    public Console Console { get { return this.GameDatabaseHolder.Console; } }
     public int MapId { get { return this.Mumble.Link.GetCoordinates().MapId; } }
 
     public string InputGroupName { get { return "Route"; } }
@@ -62,6 +63,7 @@ public class RouteHolder : MonoBehaviour, IActionable
 
     private IKeyboardMouseEvents globalHook;
     private int loadedRouteId;
+    private int oldMapId;
 
     public GameDatabaseHolder GameDatabaseHolder { get; private set; }
 
@@ -78,6 +80,7 @@ public class RouteHolder : MonoBehaviour, IActionable
         }
 
         this.NodeIndex = -1;
+        this.oldMapId = this.MapId;
 
         this.Load();
     }
@@ -88,10 +91,29 @@ public class RouteHolder : MonoBehaviour, IActionable
         this.globalHook.Dispose();
     }
 
+    private void Update()
+    {
+        if (this.oldMapId != this.MapId)
+            this.Console.PrintInfo(true, "Map change detected, request a route reload if needed.");
+        this.oldMapId = this.MapId;
+    }
+
     private void Load(bool fromClipboard = false)
     {
-        if (!fromClipboard || !int.TryParse(Clipboard.GetText(), out this.loadedRouteId))
+        if (fromClipboard)
+        {
+            if (!int.TryParse(Clipboard.GetText(), out this.loadedRouteId))
+            {
+                this.Console.PrintError(true, "No valid route ID found in clipboard.");
+                return;
+            }
+            this.Console.PrintInfo(true, "Loading clipboard route ID {0}.", this.loadedRouteId);
+        }
+        else
+        {
             this.loadedRouteId = this.MapId;
+            this.Console.PrintInfo(true, "Loading current map route ID {0}.", this.loadedRouteId);
+        }
 
         try
         {
@@ -99,6 +121,7 @@ public class RouteHolder : MonoBehaviour, IActionable
         }
         catch (FileNotFoundException)
         {
+            this.Console.PrintInfo(true, "Not found, starting new route for ID {0}.", this.loadedRouteId);
             this.Route = new Route();
         }
         this.NodeIndex = this.Route.Nodes.Any() ? 0 : -1;
@@ -113,6 +136,7 @@ public class RouteHolder : MonoBehaviour, IActionable
     private void Save()
     {
         File.WriteAllText(Path + this.loadedRouteId + ".json", JsonConvert.SerializeObject(this.Route, Formatting.Indented));
+        this.Console.PrintInfo(true, "Route ID {0} saved.", this.loadedRouteId);
     }
 
     private void GlobalHookKeyDown(object sender, KeyEventArgs e)

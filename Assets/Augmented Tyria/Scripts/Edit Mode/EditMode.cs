@@ -15,6 +15,7 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
 
     public Route Route { get { return this.RouteHolder.Route; } }
     public UserConfig UserConfig { get { return this.RouteHolder.UserConfig; } }
+    public Console Console { get { return this.RouteHolder.Console; } }
 
     public string InputGroupName { get { return "EditMode"; } }
     public Dictionary<string, Action> Actions

@@ -22,6 +22,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
 
     public Route Route { get { return this.RouteHolder.Route; } }
     public UserConfig UserConfig { get { return this.RouteHolder.UserConfig; } }
+    public Console Console { get { return this.RouteHolder.Console; } }
 
     public string InputGroupName { get { return "FollowMode"; } }
     public Dictionary<string, Action> Actions
@@ -190,7 +191,10 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
         {
             Node reached = this.Route.Nodes[this.NodeIndex];
             if (reached.Type == NodeType.Waypoint && !string.IsNullOrEmpty(reached.WaypointCode))
+            {
                 Clipboard.SetText(reached.WaypointCode);
+                this.Console.PrintInfo(true, "Waypoint code copied: {0}.", reached.WaypointCode);
+            }
 
             this.NodeIndex += 1;
             this.RepopulateRoute();
