@@ -12,6 +12,8 @@ public class Console : MonoBehaviour, IActionable
 
     public const float DefaultFadeTime = 4;
 
+    public bool Hidden { get; private set; }
+
     public UserConfig UserConfig { get { return this.UserConfigHolder.UserConfig; } }
     Console IActionable.Console { get { return this; } }
 
@@ -46,6 +48,11 @@ public class Console : MonoBehaviour, IActionable
         this.globalHook.Dispose();
     }
 
+    private void LateUpdate()
+    {
+        this.CanvasGroup.alpha = this.Hidden || this.transform.childCount == 0 ? 0 : 1;
+    }
+
     public void Print(ConsoleMessageType type, string message, float fadeOutTime = -1)
     {
         if (this.UserConfig.ConsoleFilter > (int)type)
@@ -71,7 +78,7 @@ public class Console : MonoBehaviour, IActionable
 
     public void ToggleHide()
     {
-        this.CanvasGroup.alpha = this.CanvasGroup.alpha == 1 ? 0 : 1;
+        this.Hidden = !this.Hidden;
     }
 
     public void Clear()
