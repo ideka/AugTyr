@@ -32,12 +32,28 @@
 
     "OrientationHelperDefault": true,
 
+    "ConsoleFilter": 0,
+
     // Visuals.
     "RouteWidth": 1,
 
     "NodeSize": .3,
 
     // Input.
+    "ConsoleInputs":
+    [
+        {
+            "ActionName": "ToggleHide",
+            "KeyName": "Decimal",
+            "Control": true
+        },
+        {
+            "ActionName": "Clear",
+            "KeyName": "NumPad0",
+            "Control": true
+        }
+    ],
+
     "RouteInputs":
     [
         {

@@ -28,6 +28,7 @@ public class UserConfigHolder : MonoBehaviour
         {
         }
 
+        this.PopulateInputActions(ref this.UserConfig.ConsoleInputs);
         this.PopulateInputActions(ref this.UserConfig.RouteInputs);
         this.PopulateInputActions(ref this.UserConfig.EditModeInputs);
         this.PopulateInputActions(ref this.UserConfig.FollowModeInputs);

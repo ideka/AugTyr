@@ -6,12 +6,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(UserConfigHolder))]
 public class GameDatabaseHolder : MonoBehaviour
 {
+    public Console Console;
+
     public static string Path { get { return Application.streamingAssetsPath + "/GameDatabase.json"; } }
     public static string URL {  get { return "https://api.guildwars2.com/v2"; } }
 
@@ -23,8 +24,6 @@ public class GameDatabaseHolder : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
-
         this.UserConfigHolder = this.GetComponent<UserConfigHolder>();
 
         this.StartCoroutine(this.Loading());
@@ -58,6 +57,8 @@ public class GameDatabaseHolder : MonoBehaviour
             int build = (int)call.Data["id"];
             if (this.GameDatabase.BuildId == build)
                 yield break;
+
+            this.Console.PrintInfo(false, "Updating game database ({0} => {1}).", this.GameDatabase.BuildId, build);
 
             // Create a new database.
             replacement = new GameDatabase()
@@ -132,7 +133,7 @@ public class GameDatabaseHolder : MonoBehaviour
 
         this.GameDatabase = replacement;
         File.WriteAllText(Path, JsonConvert.SerializeObject(this.GameDatabase, Formatting.Indented));
-        Debug.Log("DONE!");
+        this.Console.PrintInfo(false, "Game database updated.");
     }
 
     private class APICall : IDisposable
