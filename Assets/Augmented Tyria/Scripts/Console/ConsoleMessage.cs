@@ -10,8 +10,9 @@ public class ConsoleMessage : MonoBehaviour
     public static readonly Color WarningColor = new Color(.6f, .6f, 0);
     public static readonly Color ErrorColor = new Color(.5f, 0, 0);
 
+    public float FadeOutTimeLeft { get; private set; }
+
     private float fadeOutTime;
-    private float fadeOutTimeLeft;
 
     public Text Text { get; private set; }
 
@@ -24,16 +25,16 @@ public class ConsoleMessage : MonoBehaviour
     {
         if (this.fadeOutTime != -1)
         {
-            this.fadeOutTimeLeft -= Time.deltaTime;
+            this.FadeOutTimeLeft -= Time.deltaTime;
 
-            if (this.fadeOutTimeLeft <= 0)
+            if (this.FadeOutTimeLeft <= 0)
             {
                 Destroy(this.gameObject);
             }
             else
             {
                 Color c = this.Text.color;
-                c.a = this.FadeOutCurve.Evaluate(Mathf.InverseLerp(this.fadeOutTime, 0, this.fadeOutTimeLeft));
+                c.a = this.FadeOutCurve.Evaluate(Mathf.InverseLerp(this.fadeOutTime, 0, this.FadeOutTimeLeft));
                 this.Text.color = c;
             }
         }
@@ -42,7 +43,7 @@ public class ConsoleMessage : MonoBehaviour
     public void SetUp(ConsoleMessageType type, string text, float fadeOutTime = -1)
     {
         this.Text.text = text;
-        this.fadeOutTime = this.fadeOutTimeLeft = fadeOutTime;
+        this.fadeOutTime = this.FadeOutTimeLeft = fadeOutTime;
 
         switch (type)
         {

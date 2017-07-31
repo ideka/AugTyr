@@ -1,6 +1,7 @@
 ﻿using Gma.System.MouseKeyHook;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using UnityEngine;
 
@@ -58,6 +59,10 @@ public class Console : MonoBehaviour, IActionable
         if (this.UserConfig.ConsoleFilter > (int)type)
             return;
         ConsoleMessage msg = Instantiate(this.MessagePrefab.gameObject, this.transform).GetComponent<ConsoleMessage>();
+
+        if (fadeOutTime >= 0)
+            fadeOutTime += this.transform.GetComponentsInChildren<ConsoleMessage>().Max(cm => cm.FadeOutTimeLeft);
+
         msg.SetUp(type, message, fadeOutTime);
     }
 
