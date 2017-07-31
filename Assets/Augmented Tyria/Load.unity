@@ -191,7 +191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!20 &243897506
 Camera:
   m_ObjectHideFlags: 0
@@ -377,7 +377,7 @@ Canvas:
   m_GameObject: {fileID: 535591788}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 243897506}
   m_PlaneDistance: 0
   m_PixelPerfect: 0
