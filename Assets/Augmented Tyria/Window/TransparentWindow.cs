@@ -37,9 +37,11 @@ public class TransparentWindow : MonoBehaviour
     const uint WS_POPUP = 0x80000000;
     const uint WS_VISIBLE = 0x10000000;
     const int HWND_TOPMOST = -1;
+#endif
 
-    private void Start()
+    private void Awake()
     {
+#if !UNITY_EDITOR
         int fWidth = Screen.width;
         int fHeight = Screen.height;
         var margins = new MARGINS() { cxLeftWidth = -1 };
@@ -52,8 +54,8 @@ public class TransparentWindow : MonoBehaviour
         SetLayeredWindowAttributes(hwnd, 0, 255, 2);  // LWA_ALPHA=2
         SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, fWidth, fHeight, 32 | 64);  // SWP_FRAMECHANGED = 0x0020 (32); //SWP_SHOWWINDOW = 0x0040 (64)
         DwmExtendFrameIntoClientArea(hwnd, ref margins);
+#endif
 
         Destroy(this);
     }
-#endif
 }

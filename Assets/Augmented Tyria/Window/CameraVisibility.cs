@@ -33,14 +33,20 @@ public class CameraVisibility : MonoBehaviour
     private int defaultCullingMask;
 
     public Camera Camera { get; private set; }
+#endif
 
     private void Awake()
     {
+#if !UNITY_EDITOR
         this.Camera = this.GetComponent<Camera>();
 
         this.defaultCullingMask = this.Camera.cullingMask;
+#else
+        Destroy(this);
+#endif
     }
 
+#if !UNITY_EDITOR
     private void LateUpdate()
     {
         IntPtr hWnd = GetForegroundWindow();

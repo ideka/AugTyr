@@ -66,16 +66,18 @@ public class AlwaysOnTop : MonoBehaviour
     [DllImport("user32.dll")]
     [return: MarshalAs(UnmanagedType.Bool)]
     private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags);
+#endif
 
-    private void Start()
+    private void Awake()
     {
+#if !UNITY_EDITOR
         IntPtr hWnd = FindWindow(null, ToolWindowTitle);
 
         RECT rect;
         GetWindowRect(new HandleRef(this, hWnd), out rect);
         SetWindowPos(hWnd, HWND_TOPMOST, rect.X, rect.Y, rect.Width, rect.Height, SWP_SHOWWINDOW);
+#endif
 
         Destroy(this);
     }
-#endif
 }
