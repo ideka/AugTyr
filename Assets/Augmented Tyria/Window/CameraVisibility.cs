@@ -44,10 +44,6 @@ public class CameraVisibility : MonoBehaviour
 
             this.Camera.pixelRect = new Rect(r.Left, r.Bottom, r.Width, r.Height);
             this.Camera.rect = new Rect(this.Camera.rect.x, 1 - this.Camera.rect.y, this.Camera.rect.width, this.Camera.rect.height);
-
-            //this.Camera.rect = new Rect(
-            //    (float)r.Left / 1920, 1 - (float)r.Bottom / 1080,
-            //    (float)r.Width / 1920, (float)r.Height / 1080);
         }
         else
         {
