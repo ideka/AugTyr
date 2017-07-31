@@ -1,99 +1,63 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿#if !UNITY_EDITOR
+using System;
 using System.Runtime.InteropServices;
+#endif
 using UnityEngine;
-
 
 public class AlwaysOnTop : MonoBehaviour
 {
-    #region WIN32API
+#if !UNITY_EDITOR
+    public const string ToolWindowTitle = "Augmented Tyria";
 
-    public static readonly System.IntPtr HWND_TOPMOST = new System.IntPtr(-1);
-    public static readonly System.IntPtr HWND_NOT_TOPMOST = new System.IntPtr(-2);
-    const System.UInt32 SWP_SHOWWINDOW = 0x0040;
+    public static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
+    public static readonly IntPtr HWND_NOT_TOPMOST = new IntPtr(-2);
+    public const UInt32 SWP_SHOWWINDOW = 0x0040;
 
     [StructLayout(LayoutKind.Sequential)]
     public struct RECT
     {
-        public int Left, Top, Right, Bottom;
-
-        public RECT(int left, int top, int right, int bottom)
-        {
-            Left = left;
-            Top = top;
-            Right = right;
-            Bottom = bottom;
-        }
-
-        public RECT(System.Drawing.Rectangle r)
-            : this(r.Left, r.Top, r.Right, r.Bottom)
-        {
-        }
+        public int Left;
+        public int Top;
+        public int Right;
+        public int Bottom;
 
         public int X
         {
-            get
-            {
-                return Left;
-            }
+            get { return this.Left; }
+
             set
             {
-                Right -= (Left - value);
-                Left = value;
+                this.Right -= this.Left - value;
+                this.Left = value;
             }
         }
 
         public int Y
         {
-            get
-            {
-                return Top;
-            }
-            set
-            {
-                Bottom -= (Top - value);
-                Top = value;
-            }
-        }
+            get { return this.Top; }
 
-        public int Height
-        {
-            get
-            {
-                return Bottom - Top;
-            }
             set
             {
-                Bottom = value + Top;
+                this.Bottom -= this.Top - value;
+                this.Top = value;
             }
         }
 
         public int Width
         {
-            get
-            {
-                return Right - Left;
-            }
-            set
-            {
-                Right = value + Left;
-            }
+            get { return this.Right - this.Left; }
+            set { this.Right = value + this.Left; }
         }
 
-        public static implicit operator System.Drawing.Rectangle(RECT r)
+        public int Height
         {
-            return new System.Drawing.Rectangle(r.Left, r.Top, r.Width, r.Height);
-        }
-
-        public static implicit operator RECT(System.Drawing.Rectangle r)
-        {
-            return new RECT(r);
+            get { return this.Bottom - this.Top; }
+            set { this.Bottom = value + this.Top; }
         }
     }
 
     [DllImport("user32.dll", SetLastError = true)]
-    private static extern System.IntPtr FindWindow(String lpClassName, String lpWindowName);
+    private static extern IntPtr FindWindow(String lpClassName, String lpWindowName);
 
     [DllImport("user32.dll")]
     [return: MarshalAs(UnmanagedType.Bool)]
@@ -101,58 +65,17 @@ public class AlwaysOnTop : MonoBehaviour
 
     [DllImport("user32.dll")]
     [return: MarshalAs(UnmanagedType.Bool)]
-    private static extern bool SetWindowPos(System.IntPtr hWnd, System.IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags);
+    private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags);
 
-    #endregion
-
-
-    // Use this for initialization
-    void Start()
+    private void Start()
     {
-#if !UNITY_EDITOR
-        AssignTopmostWindow("Augmented Tyria", true);
-#endif
-    }
+        IntPtr hWnd = FindWindow(null, ToolWindowTitle);
 
-    public bool AssignTopmostWindow(string WindowTitle, bool MakeTopmost)
-    {
-        System.IntPtr hWnd = FindWindow((string)null, WindowTitle);
-
-        RECT rect = new RECT();
+        RECT rect;
         GetWindowRect(new HandleRef(this, hWnd), out rect);
+        SetWindowPos(hWnd, HWND_TOPMOST, rect.X, rect.Y, rect.Width, rect.Height, SWP_SHOWWINDOW);
 
-        return SetWindowPos(hWnd, MakeTopmost ? HWND_TOPMOST : HWND_NOT_TOPMOST, rect.X, rect.Y, rect.Width, rect.Height, SWP_SHOWWINDOW);
+        Destroy(this);
     }
-
-    private string[] GetWindowTitles()
-    {
-        List<string> WindowList = new List<string>();
-
-        Process[] ProcessArray = Process.GetProcesses();
-        foreach (Process p in ProcessArray)
-        {
-            if (!IsNullOrWhitespace(p.MainWindowTitle))
-            {
-                WindowList.Add(p.MainWindowTitle);
-            }
-        }
-
-        return WindowList.ToArray();
-    }
-
-    public bool IsNullOrWhitespace(string Str)
-    {
-        if (Str.Equals("null"))
-        {
-            return true;
-        }
-        foreach (char c in Str)
-        {
-            if (c != ' ')
-            {
-                return false;
-            }
-        }
-        return true;
-    }
+#endif
 }
