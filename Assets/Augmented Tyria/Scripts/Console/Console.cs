@@ -58,12 +58,15 @@ public class Console : MonoBehaviour, IActionable
     {
         if (this.UserConfig.ConsoleFilter > (int)type)
             return;
-        ConsoleMessage msg = Instantiate(this.MessagePrefab.gameObject, this.transform).GetComponent<ConsoleMessage>();
 
-        if (fadeOutTime >= 0)
-            fadeOutTime += this.transform.GetComponentsInChildren<ConsoleMessage>().Max(cm => cm.FadeOutTimeLeft);
+        ConsoleMessage[] sent = this.transform.GetComponentsInChildren<ConsoleMessage>();
+        bool permanent = fadeOutTime < 0;
 
-        msg.SetUp(type, message, fadeOutTime);
+        if (!sent.Any() || !sent.Last().TryAddOne(type, message, permanent))
+        {
+            ConsoleMessage msg = Instantiate(this.MessagePrefab.gameObject, this.transform).GetComponent<ConsoleMessage>();
+            msg.SetUp(type, message, permanent ? -1 : fadeOutTime + Mathf.Max(0, sent.Select(cm => cm.FadeOutTimeLeft).DefaultIfEmpty(0).Max()));
+        }
     }
 
     public void Info(bool fadeOut, string message, params object[] args)

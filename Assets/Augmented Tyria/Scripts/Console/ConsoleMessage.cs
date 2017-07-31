@@ -12,6 +12,9 @@ public class ConsoleMessage : MonoBehaviour
 
     public float FadeOutTimeLeft { get; private set; }
 
+    private ConsoleMessageType type;
+    private string originalText;
+    private int timesSent;
     private float fadeOutTime;
 
     public Text Text { get; private set; }
@@ -42,23 +45,39 @@ public class ConsoleMessage : MonoBehaviour
 
     public void SetUp(ConsoleMessageType type, string text, float fadeOutTime = -1)
     {
-        this.Text.text = text;
+        this.type = type;
+        this.originalText = this.Text.text = text;
+        this.timesSent = 1;
         this.fadeOutTime = this.FadeOutTimeLeft = fadeOutTime;
+        this.Text.color = ColorFor(this.type);
+    }
 
+    public bool TryAddOne(ConsoleMessageType type, string text, bool makePermanent)
+    {
+        if (type != this.type || text != this.originalText)
+            return false;
+
+        this.timesSent++;
+        this.fadeOutTime = this.FadeOutTimeLeft = makePermanent ? -1 : this.fadeOutTime;
+        this.Text.text = string.Format("{0} (x{1})", this.originalText, this.timesSent);
+        return true;
+    }
+
+    private static Color ColorFor(ConsoleMessageType type)
+    {
         switch (type)
         {
             case ConsoleMessageType.Info:
-                this.Text.color = InfoColor;
-                break;
+                return InfoColor;
 
             case ConsoleMessageType.Warning:
-                this.Text.color = WarningColor;
-                break;
+                return WarningColor;
 
             case ConsoleMessageType.Error:
-                this.Text.color = ErrorColor;
-                break;
+                return ErrorColor;
         }
+
+        return new Color();
     }
 }
 
