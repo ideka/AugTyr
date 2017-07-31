@@ -51,7 +51,7 @@ public class Console : MonoBehaviour, IActionable
 
     private void LateUpdate()
     {
-        this.CanvasGroup.alpha = this.Hidden || this.transform.childCount == 0 ? 0 : 1;
+        this.CanvasGroup.alpha = this.Hidden ? 0 : 1;
     }
 
     public void Message(ConsoleMessageType type, string message, float fadeOutTime = -1)
@@ -121,7 +121,7 @@ public class Console : MonoBehaviour, IActionable
 
     public void Clear()
     {
-        if (this.CanvasGroup.alpha == 1)
+        if (!this.Hidden)
             foreach (Transform t in this.transform)
                 Destroy(t.gameObject);
     }
