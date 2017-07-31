@@ -19,7 +19,7 @@ public class OverlayWindow : MonoBehaviour
         WinAPI.DwmExtendFrameIntoClientArea(hWnd, ref margins);
 
         // Topmost.
-        WinAPI.SetWindowPos(hWnd, WinAPI.HWND_TOPMOST, 0, 0, Screen.width, Screen.height, 32 | 64);  // SWP_FRAMECHANGED = 0x0020 (32); //SWP_SHOWWINDOW = 0x0040 (64)
+        WinAPI.SetWindowPos(hWnd, WinAPI.HWND_TOPMOST, 0, 0, Screen.width, Screen.height, WinAPI.SWP_FRAMECHANGED | WinAPI.SWP_SHOWWINDOW);
 #endif
 
         Destroy(this);

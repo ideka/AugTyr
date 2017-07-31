@@ -13,6 +13,9 @@ public static class WinAPI
 
     public const uint LWA_ALPHA = 2;
 
+    public const uint SWP_FRAMECHANGED = 0x20;
+    public const uint SWP_SHOWWINDOW = 0x40;
+
     [StructLayout(LayoutKind.Sequential)]
     public struct MARGINS
     {
