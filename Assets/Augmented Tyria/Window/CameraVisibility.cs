@@ -37,7 +37,7 @@ public class CameraVisibility : MonoBehaviour
             WinAPI.RECT r;
             WinAPI.GetWindowRect(hWnd, out r);
 
-            this.Camera.pixelRect = new Rect(r.Left, r.Bottom, r.Width, r.Height);
+            this.Camera.pixelRect = new Rect(r.left, r.bottom, r.Width, r.Height);
             this.Camera.rect = new Rect(this.Camera.rect.x, 1 - this.Camera.rect.y, this.Camera.rect.width, this.Camera.rect.height);
         }
         else

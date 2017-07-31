@@ -11,11 +11,11 @@ public class OverlayWindow : MonoBehaviour
         IntPtr hWnd = WinAPI.GetActiveWindow();
 
         // Transparent.
-        int style = WinAPI.GetWindowLong(hWnd, WinAPI.GWL_EX_STYLE);
-        WinAPI.SetWindowLong(hWnd, WinAPI.GWL_EX_STYLE, (uint)style | WinAPI.WS_EX_LAYERED | WinAPI.WS_EX_TRANSPARENT);
+        IntPtr style = WinAPI.GetWindowLongPtr(hWnd, WinAPI.GWL_EX_STYLE);
+        WinAPI.SetWindowLongPtr(hWnd, WinAPI.GWL_EX_STYLE, new IntPtr((int)style | WinAPI.WS_EX_LAYERED | WinAPI.WS_EX_TRANSPARENT));
         WinAPI.SetLayeredWindowAttributes(hWnd, 0, 255, WinAPI.LWA_ALPHA);
 
-        WinAPI.MARGINS margins = new WinAPI.MARGINS() { LeftWidth = -1 };
+        WinAPI.MARGINS margins = new WinAPI.MARGINS() { cxLeftWidth = -1 };
         WinAPI.DwmExtendFrameIntoClientArea(hWnd, ref margins);
 
         // Topmost.
