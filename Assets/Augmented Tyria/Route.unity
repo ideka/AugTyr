@@ -367,8 +367,6 @@ MonoBehaviour:
   Mumble: {fileID: 1853645465}
   EditMode: {fileID: 1113416817}
   FollowMode: {fileID: 1567090674}
-  GameDatabaseHolder: {fileID: 0}
-  UserConfigHolder: {fileID: 0}
 --- !u!4 &1128066791
 Transform:
   m_ObjectHideFlags: 0
@@ -680,9 +678,7 @@ GameObject:
   - component: {fileID: 1853645473}
   - component: {fileID: 1853645472}
   - component: {fileID: 1853645471}
-  - component: {fileID: 1853645470}
   - component: {fileID: 1853645469}
-  - component: {fileID: 1853645468}
   - component: {fileID: 1853645467}
   - component: {fileID: 1853645466}
   - component: {fileID: 1853645465}
@@ -735,30 +731,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1853645463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20a077df7dbcac2428ac8d64ef96d91c, type: 3}
+  m_Script: {fileID: 11500000, guid: a6386a80a9bcaae42a59be505506bf46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1853645468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1853645463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b27d0eb2edf43740b4114705ad53c49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: d2f3d09a9e2a14148a02e375074de9db, type: 2}
+  Material: {fileID: 2100000, guid: d2f3d09a9e2a14148a02e375074de9db, type: 2}
 --- !u!81 &1853645469
 AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1853645463}
-  m_Enabled: 1
---- !u!124 &1853645470
-Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
