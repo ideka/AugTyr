@@ -679,7 +679,6 @@ GameObject:
   - component: {fileID: 1853645472}
   - component: {fileID: 1853645471}
   - component: {fileID: 1853645469}
-  - component: {fileID: 1853645467}
   - component: {fileID: 1853645466}
   - component: {fileID: 1853645465}
   - component: {fileID: 1853645464}
@@ -723,18 +722,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1632a6dc1f638a42a210876270ad20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1853645467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1853645463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6386a80a9bcaae42a59be505506bf46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Material: {fileID: 2100000, guid: d2f3d09a9e2a14148a02e375074de9db, type: 2}
 --- !u!81 &1853645469
 AudioListener:
   m_ObjectHideFlags: 0
@@ -757,7 +744,7 @@ Camera:
   m_GameObject: {fileID: 1853645463}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -770,7 +757,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295

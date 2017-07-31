@@ -72,6 +72,8 @@ public class RouteHolder : MonoBehaviour, IActionable
         this.globalHook = Hook.GlobalEvents();
         this.globalHook.KeyDown += this.GlobalHookKeyDown;
 
+        this.NodeIndex = -1;
+
         this.GameDatabaseHolder = FindObjectOfType<GameDatabaseHolder>();
         if (this.GameDatabaseHolder == null)
         {
@@ -79,7 +81,6 @@ public class RouteHolder : MonoBehaviour, IActionable
             return;
         }
 
-        this.NodeIndex = -1;
         this.oldMapId = this.MapId;
 
         this.Load();

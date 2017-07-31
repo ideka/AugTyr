@@ -264,9 +264,12 @@ public partial class EditMode
         this.nodes.ForEach(n => n.Select(false));
         this.detachedNodes.ForEach(n => n.Select(false));
 
-        if (this.onDetached && this.detachedNodeIndex >= 0)
-            this.detachedNodes[this.detachedNodeIndex].Select(true);
-        else if (!this.onDetached && this.nodeIndex >= 0) 
+        if (this.onDetached)
+        {
+            if (this.detachedNodeIndex >= 0)
+                this.detachedNodes[this.detachedNodeIndex].Select(true);
+        }
+        else if (this.nodeIndex >= 0)
             this.nodes[this.nodeIndex].Select(true);
     }
 }

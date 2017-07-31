@@ -17,6 +17,6 @@ public class CopyCameraVisibility : MonoBehaviour
     private void LateUpdate()
     {
         this.Camera.cullingMask = Camera.main.cullingMask == 0 ? 0 : this.defaultCullingMask;
-        this.Camera.pixelRect = Camera.main.pixelRect;
+        this.Camera.rect = Camera.main.rect;
     }
 }

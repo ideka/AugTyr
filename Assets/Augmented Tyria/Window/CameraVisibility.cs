@@ -29,6 +29,7 @@ public class CameraVisibility : MonoBehaviour
 #if !UNITY_EDITOR
     private void LateUpdate()
     {
+        // TODO: Use a more strict method to tell if the focused window is Guild Wars 2.
         IntPtr hWnd = WinAPI.GetForegroundWindow();
 
         StringBuilder name = new StringBuilder();
