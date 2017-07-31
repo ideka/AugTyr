@@ -1,6 +1,5 @@
 ﻿#if !UNITY_EDITOR
 using System;
-using System.Text;
 #endif
 using UnityEngine;
 
@@ -9,6 +8,7 @@ public class CameraVisibility : MonoBehaviour
 {
 #if !UNITY_EDITOR
     public const string GameWindowTitle = "Guild Wars 2";
+    public const string GameWindowClass = "ArenaNet_Dx_Window_Class";
 
     private int defaultCullingMask;
 
@@ -29,13 +29,8 @@ public class CameraVisibility : MonoBehaviour
 #if !UNITY_EDITOR
     private void LateUpdate()
     {
-        // TODO: Use a more strict method to tell if the focused window is Guild Wars 2.
         IntPtr hWnd = WinAPI.GetForegroundWindow();
-
-        StringBuilder name = new StringBuilder();
-        WinAPI.GetWindowText(hWnd, name, GameWindowTitle.Length + 2);  // ???: Why do I have to add 2 here...?
-
-        if (name.ToString() == GameWindowTitle)
+        if (WinAPI.CompareTitleAndClass(hWnd, GameWindowTitle, GameWindowClass))
         {
             this.Camera.cullingMask = this.defaultCullingMask;
 

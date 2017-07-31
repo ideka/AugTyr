@@ -1,5 +1,6 @@
 ﻿#if !UNITY_EDITOR
 using System;
+using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -65,7 +66,22 @@ public static class WinAPI
     [DllImport("user32.dll")]
     public static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
 
+    [DllImport("user32.dll")]
+    public static extern int GetClassName(IntPtr hWnd, StringBuilder lpClassName, int nMaxCount);
+
     [DllImport("Dwmapi.dll")]
     public static extern uint DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS margins);
+
+    public static bool Compare(IntPtr hWnd, Func<IntPtr, StringBuilder, int, int> getter, string to, bool ignoreCase = false)
+    {
+        StringBuilder result = new StringBuilder(to.Length + 1);
+        getter(hWnd, result, result.Capacity);
+        return string.Compare(result.ToString(), to, ignoreCase, CultureInfo.InvariantCulture) == 0;
+    }
+
+    public static bool CompareTitleAndClass(IntPtr hWnd, string title, string className)
+    {
+        return Compare(hWnd, GetWindowText, title) && Compare(hWnd, GetClassName, className, true);
+    }
 }
 #endif
