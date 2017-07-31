@@ -33,39 +33,10 @@ public static class WinAPI
         public int Right;
         public int Bottom;
 
-        public int X
-        {
-            get { return this.Left; }
-
-            set
-            {
-                this.Right -= this.Left - value;
-                this.Left = value;
-            }
-        }
-
-        public int Y
-        {
-            get { return this.Top; }
-
-            set
-            {
-                this.Bottom -= this.Top - value;
-                this.Top = value;
-            }
-        }
-
-        public int Width
-        {
-            get { return this.Right - this.Left; }
-            set { this.Right = value + this.Left; }
-        }
-
-        public int Height
-        {
-            get { return this.Bottom - this.Top; }
-            set { this.Bottom = value + this.Top; }
-        }
+        public int X { get { return this.Left; } }
+        public int Y { get { return this.Top; } }
+        public int Width { get { return this.Right - this.Left; } }
+        public int Height { get { return this.Bottom - this.Top; } }
     }
 
     [DllImport("user32.dll")]
