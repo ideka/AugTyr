@@ -11,6 +11,7 @@ public class Console : MonoBehaviour, IActionable
     public ConsoleMessage MessagePrefab;
     public UserConfigHolder UserConfigHolder;
 
+    public const string SInputGroupName = "Console";
     public const float DefaultFadeTime = 4;
 
     public bool Hidden { get; private set; }
@@ -18,7 +19,7 @@ public class Console : MonoBehaviour, IActionable
     public UserConfig UserConfig { get { return this.UserConfigHolder.UserConfig; } }
     Console IActionable.Console { get { return this; } }
 
-    public string InputGroupName { get { return "Console"; } }
+    public string InputGroupName { get { return SInputGroupName; } }
     public Dictionary<string, Action> Actions
     {
         get

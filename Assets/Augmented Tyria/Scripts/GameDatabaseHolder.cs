@@ -14,7 +14,7 @@ public class GameDatabaseHolder : MonoBehaviour
     public Console Console;
 
     public static string Path { get { return Application.streamingAssetsPath + "/GameDatabase.json"; } }
-    public static string URL {  get { return "https://api.guildwars2.com/v2"; } }
+    public const string URL = "https://api.guildwars2.com/v2";
 
     public GameDatabase GameDatabase = new GameDatabase();
 

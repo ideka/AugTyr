@@ -13,11 +13,13 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
     public NodeDisplay NodePrefab;
     public LineRenderer RouteDisplay;
 
+    public const string SInputGroupName = "EditMode";
+
     public Route Route { get { return this.RouteHolder.Route; } }
     public UserConfig UserConfig { get { return this.RouteHolder.UserConfig; } }
     public Console Console { get { return this.RouteHolder.Console; } }
 
-    public string InputGroupName { get { return "EditMode"; } }
+    public string InputGroupName { get { return SInputGroupName; } }
     public Dictionary<string, Action> Actions
     {
         get
