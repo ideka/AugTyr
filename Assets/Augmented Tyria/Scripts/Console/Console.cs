@@ -39,15 +39,11 @@ public class Console : MonoBehaviour, IActionable
     {
         this.CanvasGroup = this.GetComponent<CanvasGroup>();
 
-        this.globalHook = Hook.GlobalEvents();
-        this.globalHook.KeyDown += this.GlobalHookKeyDown;
-
-        this.Validate();
+        this.globalHook = this.SetUp(this, false);
     }
 
     private void OnDestroy()
     {
-        this.globalHook.KeyDown -= this.GlobalHookKeyDown;
         this.globalHook.Dispose();
     }
 
@@ -126,13 +122,5 @@ public class Console : MonoBehaviour, IActionable
         if (!this.Hidden)
             foreach (Transform t in this.transform)
                 Destroy(t.gameObject);
-    }
-
-    private void GlobalHookKeyDown(object sender, KeyEventArgs e)
-    {
-        if (Camera.main.cullingMask == 0)
-            return;
-
-        this.Act(e.KeyCode, e.Control);
     }
 }

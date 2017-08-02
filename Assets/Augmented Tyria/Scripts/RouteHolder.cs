@@ -69,11 +69,9 @@ public class RouteHolder : MonoBehaviour, IActionable
 
     private void Awake()
     {
-        this.globalHook = Hook.GlobalEvents();
-        this.globalHook.KeyDown += this.GlobalHookKeyDown;
-
         this.NodeIndex = -1;
 
+        // TODO: Get rid of.
         this.GameDatabaseHolder = FindObjectOfType<GameDatabaseHolder>();
         if (this.GameDatabaseHolder == null)
         {
@@ -83,14 +81,13 @@ public class RouteHolder : MonoBehaviour, IActionable
 
         this.oldMapId = this.MapId;
 
-        this.Validate();
+        this.globalHook = this.SetUp(this, false);
 
         this.Load();
     }
 
     private void OnDestroy()
     {
-        this.globalHook.KeyDown -= this.GlobalHookKeyDown;
         this.globalHook.Dispose();
     }
 
@@ -140,13 +137,5 @@ public class RouteHolder : MonoBehaviour, IActionable
     {
         File.WriteAllText(Path + this.loadedRouteId + ".json", JsonConvert.SerializeObject(this.Route, Formatting.Indented));
         this.Console.InfoFade("Route ID {0} saved.", this.loadedRouteId);
-    }
-
-    private void GlobalHookKeyDown(object sender, KeyEventArgs e)
-    {
-        if (Camera.main.cullingMask == 0)
-            return;
-
-        this.Act(e.KeyCode, e.Control);
     }
 }

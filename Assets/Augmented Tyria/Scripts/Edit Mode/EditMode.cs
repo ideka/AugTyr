@@ -138,9 +138,7 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
 
     private void Awake()
     {
-        this.globalHook = Hook.GlobalEvents();
-
-        this.Validate();
+        this.globalHook = this.SetUp(this, true);
     }
 
     private void Start()
@@ -152,12 +150,6 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
     {
         this.nodeIndex = this.RouteHolder.NodeIndex;
         this.UpdateSelectedNode();
-        this.globalHook.KeyDown += this.GlobalHookKeyDown;
-    }
-
-    private void OnDisable()
-    {
-        this.globalHook.KeyDown -= this.GlobalHookKeyDown;
     }
 
     private void OnDestroy()
@@ -193,14 +185,6 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
 
         if (this.isActiveAndEnabled)
             this.UpdateSelectedNode();
-    }
-
-    private void GlobalHookKeyDown(object sender, KeyEventArgs e)
-    {
-        if (Camera.main.cullingMask == 0)
-            return;
-
-        this.Act(e.KeyCode, e.Control);
     }
 
     public static string Format(string str)

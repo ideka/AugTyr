@@ -67,9 +67,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
 
     private void Awake()
     {
-        this.globalHook = Hook.GlobalEvents();
-
-        this.Validate();
+        this.globalHook = this.SetUp(this, true);
     }
 
     private void Start()
@@ -83,12 +81,6 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
     private void OnEnable()
     {
         this.RepopulateRoute();
-        this.globalHook.KeyDown += this.GlobalHookKeyDown;
-    }
-
-    private void OnDisable()
-    {
-        this.globalHook.KeyDown -= this.GlobalHookKeyDown;
     }
 
     private void OnDestroy()
@@ -125,14 +117,6 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
     public void Reload()
     {
         this.RepopulateRoute();
-    }
-
-    private void GlobalHookKeyDown(object sender, KeyEventArgs e)
-    {
-        if (Camera.main.cullingMask == 0)
-            return;
-
-        this.Act(e.KeyCode, e.Control);
     }
 
     private void RepopulateRoute()
