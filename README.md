@@ -56,7 +56,7 @@ New route contributions will be added to the project unreviewed and bundled with
 
 ## **0.3** User config
 
-This version introduces a user config system, which lets you change many ways in which the tool behaves.
+This version introduces a user config system, which lets you change many ways in which AugTyr behaves.
 
 The file can be found in AugTyr\_Data/StreamingAssets/UserConfig.json. It is a json file that can be modified with any text editor (notepad should do, really).
 
@@ -190,7 +190,7 @@ For now there's two options:
 
 A better solution will be integrated into AugTyr in the future.
 
-### The tool's resolution is wrong, or the tool opens in the wrong screen. How can I fix it?
+### AugTyr's resolution is wrong, or it opens in the wrong screen. How can I fix it?
 
 Try the following for now.
 
