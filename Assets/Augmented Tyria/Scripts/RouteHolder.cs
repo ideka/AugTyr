@@ -16,6 +16,7 @@ public class RouteHolder : MonoBehaviour, IActionable
     public FollowMode FollowMode;
 
     public static string Path { get { return UnityEngine.Application.streamingAssetsPath + "/Routes/"; } }
+    public static string UnofficialPath { get { return UnityEngine.Application.streamingAssetsPath + "/UnofficialRoutes/"; } }
 
     public Route Route = new Route();
 
@@ -91,28 +92,25 @@ public class RouteHolder : MonoBehaviour, IActionable
     {
         if (fromClipboard)
         {
-            if (!int.TryParse(Clipboard.GetText(), out this.loadedRouteId))
+            int clipboardId;
+            if (!int.TryParse(Clipboard.GetText(), out clipboardId))
             {
                 this.Console.ErrorFade("No valid route ID found in clipboard.");
                 return;
             }
-            this.Console.InfoFade("Loading clipboard route ID {0}.", this.loadedRouteId);
+            this.loadedRouteId = clipboardId;
         }
         else
         {
             this.loadedRouteId = this.MapId;
-            this.Console.InfoFade("Loading current map route ID {0}.", this.loadedRouteId);
         }
 
-        try
+        string source = fromClipboard ? "clipboard" : "current map";
+        this.TryLoadRoute(new Dictionary<string, string>
         {
-            this.Route = JsonConvert.DeserializeObject<Route>(File.ReadAllText(Path + this.loadedRouteId + ".json"));
-        }
-        catch (FileNotFoundException)
-        {
-            this.Console.InfoFade("Not found, starting new route for ID {0}.", this.loadedRouteId);
-            this.Route = new Route();
-        }
+            { Path, string.Format("Loaded {0} route ID {1}.", source, "{0}") },
+            { UnofficialPath, string.Format("Loaded <i>unofficial</i> {0} route ID {1}.", source, "{0}") }
+        }, this.loadedRouteId, out this.Route);
         this.NodeIndex = this.Route.Nodes.Any() ? 0 : -1;
 
         this.EditMode.Reload();
@@ -126,5 +124,30 @@ public class RouteHolder : MonoBehaviour, IActionable
     {
         File.WriteAllText(Path + this.loadedRouteId + ".json", JsonConvert.SerializeObject(this.Route, Formatting.Indented));
         this.Console.InfoFade("Route ID {0} saved.", this.loadedRouteId);
+    }
+
+    private bool TryLoadRoute(Dictionary<string, string> pathMessages, int id, out Route route)
+    {
+        foreach (KeyValuePair<string, string> pathMessage in pathMessages)
+        {
+            try
+            {
+                route = JsonConvert.DeserializeObject<Route>(File.ReadAllText(pathMessage.Key + id + ".json"));
+            }
+            catch (FileNotFoundException)
+            {
+                continue;
+            }
+            this.Console.InfoFade(pathMessage.Value, id);
+            return true;
+        }
+        this.Console.InfoFade("Not found, starting new route for ID {0}.", id);
+        route = new Route();
+        return false;
+    }
+
+    private bool RouteExists(List<string> search, int id)
+    {
+        return search.Any(p => File.Exists(p + id + ".json"));
     }
 }
