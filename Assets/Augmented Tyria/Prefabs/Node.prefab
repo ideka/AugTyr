@@ -233,7 +233,7 @@ MonoBehaviour:
   AttachedMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   DetachedMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   ReachMaterial: {fileID: 2100000, guid: e8b36cfd274f8c1438b221abb87dfb0a, type: 2}
-  WaypointMaterial: {fileID: 2100000, guid: 0d00b8edf5609c043afaffe42e698a30, type: 2}
+  TeleportMaterial: {fileID: 2100000, guid: 0d00b8edf5609c043afaffe42e698a30, type: 2}
   HeartMaterial: {fileID: 2100000, guid: 630e546052152064288c0e7aa911fa1e, type: 2}
   HeartWallMaterial: {fileID: 2100000, guid: e2c49a011c833074ca93552a93e28609, type: 2}
 --- !u!114 &114353788262726270

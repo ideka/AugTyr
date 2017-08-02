@@ -127,7 +127,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
             if (previous == null && this.isActiveAndEnabled)
                 display.Select(true);
 
-            if (node.Type == NodeType.Waypoint)
+            if (node.Type == NodeType.Teleport)
                 break;
 
             if (previous != null)
@@ -169,7 +169,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
         if (this.NodeIndex + 1 < this.Route.Nodes.Count)
         {
             Node reached = this.Route.Nodes[this.NodeIndex];
-            if (reached.Type == NodeType.Waypoint && !string.IsNullOrEmpty(reached.WaypointCode))
+            if (reached.Type == NodeType.Teleport && !string.IsNullOrEmpty(reached.WaypointCode))
             {
                 Clipboard.SetText(reached.WaypointCode);
                 this.Console.InfoFade("Waypoint code copied to clipboard: {0}.", reached.WaypointCode);

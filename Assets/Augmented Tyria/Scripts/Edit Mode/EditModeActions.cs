@@ -107,7 +107,7 @@ public partial class EditMode
 
         switch (node.Type)
         {
-            case NodeType.Waypoint:
+            case NodeType.Teleport:
                 return node.WaypointCode;
 
             case NodeType.HeartWall:
@@ -124,7 +124,7 @@ public partial class EditMode
 
         switch (node.Type)
         {
-            case NodeType.Waypoint:
+            case NodeType.Teleport:
                 node.SetWaypointCode(this.RouteHolder.MapId, this.RouteHolder.GameDatabase, to);
                 break;
 

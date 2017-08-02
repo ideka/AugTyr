@@ -15,7 +15,7 @@ public class NodeDisplay : MonoBehaviour
 
     [Header("Materials")]
     public Material ReachMaterial;
-    public Material WaypointMaterial;
+    public Material TeleportMaterial;
     public Material HeartMaterial;
     public Material HeartWallMaterial;
 
@@ -54,9 +54,12 @@ public class NodeDisplay : MonoBehaviour
                     this.MeshRenderer.material = this.ReachMaterial;
                     break;
 
-                case NodeType.Waypoint:
-                    this.MeshRenderer.material = this.WaypointMaterial;
-                    this.Text.text += "\n\nWP: " + value.WaypointCode;
+                case NodeType.Teleport:
+                    this.MeshRenderer.material = this.TeleportMaterial;
+                    if (string.IsNullOrEmpty(value.WaypointCode))
+                        this.Text.text += "\n\nTeleport.";
+                    else
+                        this.Text.text += "\n\nWP: " + value.WaypointCode;
                     break;
 
                 case NodeType.Heart:

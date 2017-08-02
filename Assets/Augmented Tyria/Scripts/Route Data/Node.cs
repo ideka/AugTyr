@@ -26,9 +26,17 @@ public class Node
 
     public NodeType Type;
 
-    // Waypoint attributes.
+    // Teleport attributes.
     public string WaypointCode;
 
     // Heart wall attributes.
     public string HeartWallValue;
+}
+
+public enum NodeType
+{
+    Reach,
+    Teleport,
+    Heart,
+    HeartWall
 }
