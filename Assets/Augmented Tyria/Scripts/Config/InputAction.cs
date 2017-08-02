@@ -14,4 +14,9 @@ public class InputAction
     {
         return !ReferenceEquals(this, other) && this.ActionName == other.ActionName && this.Key == other.Key && this.Control == other.Control;
     }
+
+    public bool Activated(KeyEventArgs ev)
+    {
+        return this.Key == ev.KeyCode && this.Control == ev.Control;
+    }
 }

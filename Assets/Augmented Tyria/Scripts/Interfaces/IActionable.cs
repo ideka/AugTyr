@@ -46,7 +46,7 @@ public static class IActionableExtensions
                 else if (Camera.main.cullingMask != 0 && @this.Holder.isActiveAndEnabled)
                 {
                     Action action;
-                    foreach (string actionName in @this.GetInputActions().Where(i => i.Key == ev.KeyCode && i.Control == ev.Control).Select(i => i.ActionName))
+                    foreach (string actionName in @this.GetInputActions().Where(i => i.Activated(ev)).Select(i => i.ActionName))
                     {
                         if (@this.Actions.TryGetValue(actionName, out action))
                             action();
