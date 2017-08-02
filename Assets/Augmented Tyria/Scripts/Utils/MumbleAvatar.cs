@@ -1,12 +1,13 @@
-﻿using UnityEngine;
+﻿using MumbleLink_CSharp;
+using UnityEngine;
 
 public class MumbleAvatar : MonoBehaviour
 {
-    public Mumble Mumble = null;
+    public Mumble Mumble;
 
     private void Update()
     {
-        var mem = this.Mumble.Link.Read();
+        MumbleLinkedMemory mem = this.Mumble.Link.Read();
         this.transform.position = new Vector3(mem.FAvatarPosition[0], mem.FAvatarPosition[1], mem.FAvatarPosition[2]);
     }
 }

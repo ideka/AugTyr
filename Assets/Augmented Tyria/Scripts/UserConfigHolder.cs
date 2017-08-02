@@ -15,8 +15,6 @@ public class UserConfigHolder : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
-
         this.Load();
     }
 

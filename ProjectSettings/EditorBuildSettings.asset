@@ -6,8 +6,5 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Augmented Tyria/Load.unity
-    guid: aaebbbd5053b91e42b59e984b7d2625a
-  - enabled: 1
-    path: Assets/Augmented Tyria/Route.unity
+    path: Assets/Augmented Tyria/Main.unity
     guid: fedd2fb5f91a4594594796792ea044ec

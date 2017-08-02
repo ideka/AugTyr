@@ -6,19 +6,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(UserConfigHolder))]
 public class GameDatabaseHolder : MonoBehaviour
 {
-    public Console Console;
-
     public static string Path { get { return Application.streamingAssetsPath + "/GameDatabase.json"; } }
     public const string URL = "https://api.guildwars2.com/v2";
 
     public GameDatabase GameDatabase = new GameDatabase();
 
     public UserConfig UserConfig { get { return this.UserConfigHolder.UserConfig; } }
+    public Console Console { get { return this.UserConfigHolder.Console; } }
 
     public UserConfigHolder UserConfigHolder { get; private set; }
 
@@ -27,8 +25,6 @@ public class GameDatabaseHolder : MonoBehaviour
         this.UserConfigHolder = this.GetComponent<UserConfigHolder>();
 
         this.StartCoroutine(this.Loading());
-
-        SceneManager.LoadScene("Route");
     }
 
     private IEnumerator Loading()

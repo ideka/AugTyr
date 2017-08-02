@@ -6,8 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(GameDatabaseHolder))]
 public class RouteHolder : MonoBehaviour, IActionable
 {
     public Mumble Mumble;
@@ -69,15 +69,9 @@ public class RouteHolder : MonoBehaviour, IActionable
 
     private void Awake()
     {
-        this.NodeIndex = -1;
+        this.GameDatabaseHolder = this.GetComponent<GameDatabaseHolder>();
 
-        // TODO: Get rid of.
-        this.GameDatabaseHolder = FindObjectOfType<GameDatabaseHolder>();
-        if (this.GameDatabaseHolder == null)
-        {
-            SceneManager.LoadScene("Load");
-            return;
-        }
+        this.NodeIndex = -1;
 
         this.oldMapId = this.MapId;
 
