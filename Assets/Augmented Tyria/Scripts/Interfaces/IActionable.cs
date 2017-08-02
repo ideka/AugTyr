@@ -48,7 +48,8 @@ public static class IActionableExtensions
         }
     }
 
-    private static void Validate(this IActionable @for, Func<List<InputAction>, InputAction, bool> match, string message, Func<HashSet<string>, Func<string>, string[]> args)
+    private static void Validate(this IActionable @for, Func<List<InputAction>, InputAction, bool> match,
+        string message, Func<HashSet<string>, Func<string>, string[]> args)
     {
         List<InputAction> inacs = @for.GetInputActions();
         HashSet<string> removed = new HashSet<string>();
