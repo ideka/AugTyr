@@ -84,6 +84,8 @@ public class RouteHolder : MonoBehaviour, IActionable
 
         this.oldMapId = this.MapId;
 
+        this.ValidateInputActions();
+
         this.Load();
     }
 

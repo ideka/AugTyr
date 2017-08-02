@@ -141,6 +141,8 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
     private void Awake()
     {
         this.globalHook = Hook.GlobalEvents();
+
+        this.ValidateInputActions();
     }
 
     private void Start()

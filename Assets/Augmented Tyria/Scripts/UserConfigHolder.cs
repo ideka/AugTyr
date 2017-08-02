@@ -40,8 +40,6 @@ public class UserConfigHolder : MonoBehaviour
         foreach (List<InputAction> ig in this.UserConfig.InputGroups.Values)
             this.PopulateInputActions(ig);
 
-        // TODO: Warn about unknown ActionNames.
-
         // TODO: Make this clear...
         for (IEnumerable<List<string>> id = InputDomains; id.Any(); id = id.Skip(1))
         {

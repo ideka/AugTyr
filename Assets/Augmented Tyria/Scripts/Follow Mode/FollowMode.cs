@@ -69,6 +69,8 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
     private void Awake()
     {
         this.globalHook = Hook.GlobalEvents();
+
+        this.ValidateInputActions();
     }
 
     private void Start()
