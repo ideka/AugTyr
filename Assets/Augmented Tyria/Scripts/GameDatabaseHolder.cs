@@ -39,6 +39,8 @@ public class GameDatabaseHolder : MonoBehaviour
 
         if (this.UserConfig.AutoUpdateGameDatabase)
             yield return this.UpdatingDatabase();
+        else
+            this.Console.InfoFade("Skipping game database update check.");
     }
 
     private IEnumerator UpdatingDatabase()
@@ -52,7 +54,10 @@ public class GameDatabaseHolder : MonoBehaviour
             // Bail early if the database is up-to-date.
             int build = (int)call.Data["id"];
             if (this.GameDatabase.BuildId == build)
+            {
+                this.Console.InfoFade("Game database already up-to-date ({0}).", this.GameDatabase.BuildId);
                 yield break;
+            }
 
             this.Console.Info("Updating game database ({0} => {1}).", this.GameDatabase.BuildId, build);
 
