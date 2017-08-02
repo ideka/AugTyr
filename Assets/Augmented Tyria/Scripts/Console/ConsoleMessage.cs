@@ -6,7 +6,7 @@ public class ConsoleMessage : MonoBehaviour
 {
     public AnimationCurve FadeOutCurve;
 
-    public static readonly Color InfoColor = new Color(.2f, .2f, .2f);
+    public static readonly Color InfoColor = new Color(.35f, .35f, .35f);
     public static readonly Color WarningColor = new Color(.6f, .6f, 0);
     public static readonly Color ErrorColor = new Color(.5f, 0, 0);
 
