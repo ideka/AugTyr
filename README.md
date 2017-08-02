@@ -2,7 +2,7 @@
 
 # PLEASE check in this file before asking questions
 
-If you're already quite familiar with AugTyr 0.2, you only need to read sections labeled as **0.3**.
+If you're already quite familiar with AugTyr 0.2, you only need to read sections labeled as **0.3** (use Ctrl + F).
 
 ## Running AugTyr
 
@@ -24,7 +24,7 @@ Download and extract the archive, then run the AugTyr.exe file alongside Guild W
 
 * *Heart wall node (orange)*: Don't continue past it until you have the specified % on the nearby heart.
 
-## **0.3** Report Console
+## **0.3** Report console
 
 AugTyr now comes with a report console where helpful messages are be displayed.
 
@@ -38,13 +38,31 @@ There are three types of messages:
 
 * *Error (red)*: Reports on problems that the current operation cannot continue because of.
 
-## **0.3** User Config
+The console maintains the smallest size necessary to display all of its messages. When there are no messages, the console will be tiny but still visible (unless specifically hidden).
+
+## **0.3** Unofficial routes
+
+Routes take me a long time to make, and I'm focusing on implementing features right now. Some people have been contributing their routes, but it also takes me a long time to review those.
+
+At the same time, people want more available routes, faster.
+
+As a solution, I've introduced the unofficial route system.
+
+Routes found in the Routes directory are considered "official," and those in the UnofficialRoutes directory are "unofficial."
+
+New route contributions will be added to the project unreviewed and bundled with releases, as unofficial routes. When loading a route, AugTyr will look for an unofficial route if an official one isn't found first.
+
+*Saving is unchanged*. AugTyr will always save to the Routes directory.
+
+## **0.3** User config
 
 This version introduces a user config system, which lets you change many ways in which the tool behaves.
 
 The file can be found in AugTyr\_Data/StreamingAssets/UserConfig.json. It is a json file that can be modified with any text editor (notepad should do, really).
 
 Note: You might notice the json file contains C and C++ style comments. These are *technically* not allowed by the json specification, but Json.NET seems to be OK with them, so no problem for us.
+
+There is no UI to change the user config. I *might* make one (separate from AugTyr itself) in the future.
 
 Below is an overview of currently available options.
 
@@ -152,13 +170,41 @@ Each action can be bound multiple times, or not at all. Additionaly, binding mul
 
 * If you miss multiple nodes, you can always press 5 to select the closest node. If you think the closest node might actually already be behind you, you can press 5 and then 6 in quick succession.
 
-## Why does AugTyr connect to the internet?
+## FAQ
+
+### Why does AugTyr connect to the internet?
 
 AugTyr uses the [official GW2 HTTPS API](https://wiki.guildwars2.com/wiki/API:Main) to build a "game database" of sorts, to be used to resolve waypoint names into waypoint codes.
 
 The download already comes with an up-to-date built database, but AugTyr still makes one API call to check if there has been an update that could've made the database outdated.
 
 All HTTPS API calls can be disabled by setting the `AutoUpdateGameDatabase` option to false.
+
+### How can I tell the beginning of a route?
+
+For now there's two options:
+
+1. Select the first node (Ctrl + Numpad 4 by default in edit mode), then change to follow mode. The orientation helper will point you in the direction of the first node, try to figure it out based on that.
+
+2. Since most routes are just 3D versions of Lulle's routes, you check the route for the map you want beforehand [here](https://oopsy.enjin.com/forum/m/41271713/viewthread/28848825-law-lulles-advanced-worldcompletion-guide).
+
+A better solution will be integrated into AugTyr in the future.
+
+### The tool's resolution is wrong, or the tool opens in the wrong screen. How can I fix it?
+
+Try the following for now.
+
+Create a shortcut for AugTyr.exe, then open its properties, and add the following at the end of the "Target" field:
+
+    -adapter [0] -screen-width [1] -screen-height [2]
+
+Change the `[0]` to set the screen, the `[1]` to set the width, and the `[2]` for the height.
+
+The result will look something like:
+
+    C:\Users\x\Desktop\AugTyr\AugTyr.exe -adapter 1 -screen-width 1920 -screen-height 1080
+
+Use that shortcut to open AugTyr.
 
 ## Download
 
