@@ -1,5 +1,4 @@
-﻿using Gma.System.MouseKeyHook;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -20,6 +19,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
     public const float SquaredDistToReach = 1;
     public const float SquaredMaxRouteLength = 1000;
 
+    public MonoBehaviour Holder { get { return this; } }
     public Route Route { get { return this.RouteHolder.Route; } }
     public UserConfig UserConfig { get { return this.RouteHolder.UserConfig; } }
     public Console Console { get { return this.RouteHolder.Console; } }
@@ -60,14 +60,12 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
         set { this.RouteHolder.NodeIndex = value; }
     }
 
-    private IKeyboardMouseEvents globalHook;
-
     private List<NodeDisplay> nodes = new List<NodeDisplay>();
     private List<NodeDisplay> detachedNodes = new List<NodeDisplay>();
 
     private void Awake()
     {
-        this.globalHook = this.SetUp(this, true);
+        this.SetUp();
     }
 
     private void Start()
@@ -81,11 +79,6 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
     private void OnEnable()
     {
         this.RepopulateRoute();
-    }
-
-    private void OnDestroy()
-    {
-        this.globalHook.Dispose();
     }
 
     private void Update()

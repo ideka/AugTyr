@@ -1,5 +1,4 @@
-﻿using Gma.System.MouseKeyHook;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,6 +20,8 @@ public class RouteHolder : MonoBehaviour, IActionable
     public Route Route = new Route();
 
     public int NodeIndex { get; set; }
+
+    public MonoBehaviour Holder { get { return this; } }
     public GameDatabase GameDatabase { get { return this.GameDatabaseHolder.GameDatabase; } }
     public UserConfig UserConfig { get { return this.GameDatabaseHolder.UserConfig; } }
     public Console Console { get { return this.GameDatabaseHolder.Console; } }
@@ -61,7 +62,6 @@ public class RouteHolder : MonoBehaviour, IActionable
         }
     }
 
-    private IKeyboardMouseEvents globalHook;
     private int loadedRouteId;
     private int oldMapId;
 
@@ -75,14 +75,9 @@ public class RouteHolder : MonoBehaviour, IActionable
 
         this.oldMapId = this.MapId;
 
-        this.globalHook = this.SetUp(this, false);
+        this.SetUp();
 
         this.Load();
-    }
-
-    private void OnDestroy()
-    {
-        this.globalHook.Dispose();
     }
 
     private void Update()

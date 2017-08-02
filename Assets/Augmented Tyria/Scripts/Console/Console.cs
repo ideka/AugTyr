@@ -1,5 +1,4 @@
-﻿using Gma.System.MouseKeyHook;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -14,6 +13,7 @@ public class Console : MonoBehaviour, IActionable
 
     public bool Hidden { get; private set; }
 
+    public MonoBehaviour Holder { get { return this; } }
     public UserConfig UserConfig { get { return this.UserConfigHolder.UserConfig; } }
     Console IActionable.Console { get { return this; } }
 
@@ -30,20 +30,13 @@ public class Console : MonoBehaviour, IActionable
         }
     }
 
-    private IKeyboardMouseEvents globalHook;
-
     public CanvasGroup CanvasGroup { get; private set; }
 
     private void Awake()
     {
         this.CanvasGroup = this.GetComponent<CanvasGroup>();
 
-        this.globalHook = this.SetUp(this, false);
-    }
-
-    private void OnDestroy()
-    {
-        this.globalHook.Dispose();
+        this.SetUp();
     }
 
     private void LateUpdate()

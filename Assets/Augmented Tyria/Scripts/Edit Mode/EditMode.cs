@@ -1,5 +1,4 @@
-﻿using Gma.System.MouseKeyHook;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,6 +12,7 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
     public NodeDisplay NodePrefab;
     public LineRenderer RouteDisplay;
 
+    public MonoBehaviour Holder { get { return this; } }
     public Route Route { get { return this.RouteHolder.Route; } }
     public UserConfig UserConfig { get { return this.RouteHolder.UserConfig; } }
     public Console Console { get { return this.RouteHolder.Console; } }
@@ -126,8 +126,6 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
         }
     }
 
-    private IKeyboardMouseEvents globalHook;
-
     private List<NodeDisplay> nodes = new List<NodeDisplay>();
     private int nodeIndex = -1;
 
@@ -138,7 +136,7 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
 
     private void Awake()
     {
-        this.globalHook = this.SetUp(this, true);
+        this.SetUp();
     }
 
     private void Start()
@@ -150,11 +148,6 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
     {
         this.nodeIndex = this.RouteHolder.NodeIndex;
         this.UpdateSelectedNode();
-    }
-
-    private void OnDestroy()
-    {
-        this.globalHook.Dispose();
     }
 
     public NodeDisplay GetNodePrefab()
