@@ -16,7 +16,6 @@ public class RouteHolder : MonoBehaviour, IActionable
     public EditMode EditMode;
     public FollowMode FollowMode;
 
-    public const string SInputGroupName = "Route";
     public static string Path { get { return UnityEngine.Application.streamingAssetsPath + "/Routes/"; } }
 
     public Route Route = new Route();
@@ -27,7 +26,7 @@ public class RouteHolder : MonoBehaviour, IActionable
     public Console Console { get { return this.GameDatabaseHolder.Console; } }
     public int MapId { get { return this.Mumble.Link.GetCoordinates().MapId; } }
 
-    public string InputGroupName { get { return SInputGroupName; } }
+    public string InputGroupName { get { return "Route"; } }
     public Dictionary<string, Action> Actions
     {
         get

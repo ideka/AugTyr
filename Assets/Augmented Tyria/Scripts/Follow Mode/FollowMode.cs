@@ -17,7 +17,6 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
     public LineRenderer RouteDisplay;
     public LineRenderer OrientationHelper;
 
-    public const string SInputGroupName = "FollowMode";
     public const float SquaredDistToReach = 1;
     public const float SquaredMaxRouteLength = 1000;
 
@@ -25,7 +24,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
     public UserConfig UserConfig { get { return this.RouteHolder.UserConfig; } }
     public Console Console { get { return this.RouteHolder.Console; } }
 
-    public string InputGroupName { get { return SInputGroupName; } }
+    public string InputGroupName { get { return "FollowMode"; } }
     public Dictionary<string, Action> Actions
     {
         get

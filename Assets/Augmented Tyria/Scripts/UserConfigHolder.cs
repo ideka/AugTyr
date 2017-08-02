@@ -11,12 +11,6 @@ public class UserConfigHolder : MonoBehaviour
     public Console Console;
 
     public static string Path { get { return UnityEngine.Application.streamingAssetsPath + "/UserConfig.json"; } }
-    public static readonly List<List<string>> InputDomains = new List<List<string>>
-    {
-        new List<string> { Console.SInputGroupName },
-        new List<string> { RouteHolder.SInputGroupName },
-        new List<string> { EditMode.SInputGroupName, FollowMode.SInputGroupName }
-    };
 
     public UserConfig UserConfig = new UserConfig();
 
