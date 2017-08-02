@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using UnityEngine;
 
@@ -32,24 +31,7 @@ public class UserConfigHolder : MonoBehaviour
         }
 
         foreach (KeyValuePair<string, List<InputAction>> ig in this.UserConfig.InputGroups)
-        {
             this.PopulateInputActions(ig.Value);
-
-            List<InputAction> inacs = ig.Value.ToList();
-            ig.Value.Clear();
-            HashSet<string> duplicates = new HashSet<string>();
-            foreach (InputAction toAdd in inacs)
-            {
-                if (!ig.Value.Any(i => i.Duplicate(toAdd)))
-                    ig.Value.Add(toAdd);
-                else
-                    duplicates.Add(toAdd.ActionName);
-            }
-
-            if (duplicates.Any())
-                Console.Warning("Ignoring duplicate {0} keybindings for: {1}.",
-                    ig.Key, string.Join(" ", duplicates.Select(d => "\"" + d + "\"").ToArray()));
-        }
     }
 
     private void PopulateInputActions(List<InputAction> inputActions)

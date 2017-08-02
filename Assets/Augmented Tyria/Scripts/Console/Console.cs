@@ -42,7 +42,7 @@ public class Console : MonoBehaviour, IActionable
         this.globalHook = Hook.GlobalEvents();
         this.globalHook.KeyDown += this.GlobalHookKeyDown;
 
-        this.ValidateInputActions();
+        this.Validate();
     }
 
     private void OnDestroy()

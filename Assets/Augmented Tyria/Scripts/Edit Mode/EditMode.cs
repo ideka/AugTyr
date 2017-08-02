@@ -140,7 +140,7 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
     {
         this.globalHook = Hook.GlobalEvents();
 
-        this.ValidateInputActions();
+        this.Validate();
     }
 
     private void Start()

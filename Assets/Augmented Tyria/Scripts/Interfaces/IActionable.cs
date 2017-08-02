@@ -21,24 +21,19 @@ public static class IActionableExtensions
         return new List<InputAction>();
     }
 
-    public static void ValidateInputActions(this IActionable @for)
+    public static void Validate(this IActionable @for)
     {
-        List<InputAction> inacs = @for.GetInputActions();
-        HashSet<string> unknown = new HashSet<string>();
-        inacs.RemoveAll(i =>
-        {
-            if (!@for.Actions.ContainsKey(i.ActionName))
+        @for.Validate((all, i) => !@for.Actions.ContainsKey(i.ActionName),
+            "Ignoring unknown input action{0} configured for {1}: {2}.", (r, rs) => new string[]
             {
-                unknown.Add(i.ActionName);
-                return true;
-            }
-            return false;
-        });
+                r.Skip(1).Any() ? "s" : "", @for.InputGroupName, rs()
+            });
 
-        if (unknown.Any())
-            @for.Console.Warning("Ignoring unknown input action{0} configured for {1}: {2}.",
-                unknown.Skip(1).Any() ? "s" : "", @for.InputGroupName,
-                string.Join(" ", unknown.Select(s => "\"" + s + "\"").ToArray()));
+        @for.Validate((all, i) => all.Any(i.Duplicate),
+            "Ignoring duplicate {0} keybindings for: {1}.", (r, rs) => new string[]
+            {
+                @for.InputGroupName, rs()
+            });
     }
 
     public static void Act(this IActionable @as, Keys key, bool control)
@@ -51,5 +46,15 @@ public static class IActionableExtensions
             else
                 @as.Console.Warning("Ignoring unknown action name for {0}: \"{1}\".", @as.InputGroupName, actionName);
         }
+    }
+
+    private static void Validate(this IActionable @for, Func<List<InputAction>, InputAction, bool> match, string message, Func<HashSet<string>, Func<string>, string[]> args)
+    {
+        List<InputAction> inacs = @for.GetInputActions();
+        HashSet<string> removed = new HashSet<string>();
+        inacs.RemoveAll(i => match(inacs, i) && (removed.Add(i.ActionName) || true));
+
+        if (removed.Any())
+            @for.Console.Warning(message, args(removed, () => string.Join(" ", removed.Select(s => "\"" + s + "\"").ToArray())));
     }
 }

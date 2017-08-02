@@ -12,6 +12,6 @@ public class InputAction
 
     public bool Duplicate(InputAction other)
     {
-        return this.ActionName == other.ActionName && this.Key == other.Key && this.Control == other.Control;
+        return !ReferenceEquals(this, other) && this.ActionName == other.ActionName && this.Key == other.Key && this.Control == other.Control;
     }
 }
