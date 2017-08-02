@@ -24,7 +24,7 @@ public static class IActionableExtensions
     public static void ValidateInputActions(this IActionable @for)
     {
         List<InputAction> inacs = @for.GetInputActions();
-        List<string> unknown = new List<string>();
+        HashSet<string> unknown = new HashSet<string>();
         inacs.RemoveAll(i =>
         {
             if (!@for.Actions.ContainsKey(i.ActionName))

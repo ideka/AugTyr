@@ -9,4 +9,9 @@ public class InputAction
 
     [JsonIgnore]
     public Keys Key;
+
+    public bool Duplicate(InputAction other)
+    {
+        return this.ActionName == other.ActionName && this.Key == other.Key && this.Control == other.Control;
+    }
 }

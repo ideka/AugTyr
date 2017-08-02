@@ -37,29 +37,24 @@ public class UserConfigHolder : MonoBehaviour
         {
         }
 
-        foreach (List<InputAction> ig in this.UserConfig.InputGroups.Values)
-            this.PopulateInputActions(ig);
-
-        // TODO: Make this clear...
-        for (IEnumerable<List<string>> id = InputDomains; id.Any(); id = id.Skip(1))
+        foreach (KeyValuePair<string, List<InputAction>> ig in this.UserConfig.InputGroups)
         {
-            foreach (List<string> nid in id.Skip(1))
+            this.PopulateInputActions(ig.Value);
+
+            List<InputAction> inacs = ig.Value.ToList();
+            ig.Value.Clear();
+            HashSet<string> duplicates = new HashSet<string>();
+            foreach (InputAction toAdd in inacs)
             {
-                foreach (string groupName in id.First())
-                {
-                    IEnumerable<InputAction> inacs = this.UserConfig.InputGroups.Where(ig => ig.Key == groupName).SelectMany(ig => ig.Value);
-                    foreach (string nGroupName in nid)
-                    {
-                        foreach (InputAction inac in this.UserConfig.InputGroups.Where(ig => ig.Key == nGroupName).SelectMany(ig => ig.Value))
-                        {
-                            foreach (InputAction repeat in inacs.Where(ia => ia.Key == inac.Key && ia.Control == inac.Control))
-                            {
-                                Console.Warning("Conflicting keybinding for {0}.{1} and {2}.{3}.", groupName, repeat.ActionName, nGroupName, inac.ActionName);
-                            }
-                        }
-                    }
-                }
+                if (!ig.Value.Any(i => i.Duplicate(toAdd)))
+                    ig.Value.Add(toAdd);
+                else
+                    duplicates.Add(toAdd.ActionName);
             }
+
+            if (duplicates.Any())
+                Console.Warning("Ignoring duplicate {0} keybindings for: {1}.",
+                    ig.Key, string.Join(" ", duplicates.Select(d => "\"" + d + "\"").ToArray()));
         }
     }
 
@@ -71,7 +66,7 @@ public class UserConfigHolder : MonoBehaviour
             {
                 inac.Key = (Keys)Enum.Parse(typeof(Keys), inac.KeyName);
             }
-            catch (SystemException)
+            catch
             {
                 this.Console.Warning("Could not parse config key name: \"{0}\", ignoring.", inac.KeyName);
             }
