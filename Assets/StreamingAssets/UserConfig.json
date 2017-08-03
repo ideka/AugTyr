@@ -37,7 +37,7 @@
     // Visuals.
     "RouteWidth": 1,
 
-    "NodeSize": .3,
+    "NodeSize": 0.3,
 
     // Input.
     "InputGroups":
@@ -60,11 +60,11 @@
         [
             {
                 "ActionName": "Save",
-                "KeyName": "Multiply",
+                "KeyName": "Multiply"
             },
             {
                 "ActionName": "Load",
-                "KeyName": "Divide",
+                "KeyName": "Divide"
             },
             {
                 "ActionName": "LoadClipboardId",
@@ -73,7 +73,7 @@
             },
             {
                 "ActionName": "ToggleMode",
-                "KeyName": "Decimal",
+                "KeyName": "Decimal"
             }
         ],
 
@@ -81,23 +81,23 @@
         [
             {
                 "ActionName": "AddNode",
-                "KeyName": "Add",
+                "KeyName": "Add"
             },
             {
                 "ActionName": "RemoveNode",
-                "KeyName": "Subtract",
+                "KeyName": "Subtract"
             },
             {
                 "ActionName": "SelectClosestNode",
-                "KeyName": "NumPad5",
+                "KeyName": "NumPad5"
             },
             {
                 "ActionName": "SelectPreviousNode",
-                "KeyName": "NumPad4",
+                "KeyName": "NumPad4"
             },
             {
                 "ActionName": "SelectNextNode",
-                "KeyName": "NumPad6",
+                "KeyName": "NumPad6"
             },
             {
                 "ActionName": "SelectFirstNode",
@@ -111,23 +111,23 @@
             },
             {
                 "ActionName": "PreviousNodeType",
-                "KeyName": "NumPad8",
+                "KeyName": "NumPad8"
             },
             {
                 "ActionName": "NextNodeType",
-                "KeyName": "NumPad2",
+                "KeyName": "NumPad2"
             },
             {
                 "ActionName": "MoveSelectedNode",
-                "KeyName": "NumPad7",
+                "KeyName": "NumPad7"
             },
             {
                 "ActionName": "ToggleAttachNode",
-                "KeyName": "NumPad9",
+                "KeyName": "NumPad9"
             },
             {
                 "ActionName": "GetNodeText",
-                "KeyName": "NumPad1",
+                "KeyName": "NumPad1"
             },
             {
                 "ActionName": "SetNodeText",
@@ -136,7 +136,7 @@
             },
             {
                 "ActionName": "GetNodeData",
-                "KeyName": "NumPad3",
+                "KeyName": "NumPad3"
             },
             {
                 "ActionName": "SetNodeData",
@@ -145,7 +145,7 @@
             },
             {
                 "ActionName": "ToggleAttachSelection",
-                "KeyName": "NumPad0",
+                "KeyName": "NumPad0"
             }
         ],
 
@@ -153,19 +153,19 @@
         [
             {
                 "ActionName": "SelectClosestNode",
-                "KeyName": "NumPad5",
+                "KeyName": "NumPad5"
             },
             {
                 "ActionName": "SelectPreviousNode",
-                "KeyName": "NumPad4",
+                "KeyName": "NumPad4"
             },
             {
                 "ActionName": "SelectNextNode",
-                "KeyName": "NumPad6",
+                "KeyName": "NumPad6"
             },
             {
                 "ActionName": "ToggleOrientationHelper",
-                "KeyName": "NumPad0",
+                "KeyName": "NumPad0"
             }
         ]
     }
