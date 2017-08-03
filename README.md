@@ -54,6 +54,21 @@ New route contributions will be added to the project unreviewed and bundled with
 
 *Saving is unchanged*. AugTyr will always save to the Routes directory.
 
+## **0.3** Provided routes
+
+ Official            | Official               | | Unofficial
+:--------------------|:-----------------------|-|:-------------------
+ Black Citadel       | Lion's Arch            | | Auric Basin
+ Bloodtide Coast     | Lornar's Pass          | | Caledon Forest
+ Brisban Wildlands   | Mount Maelstrom        | | Cursed Shore
+ Diessa Plateau      | Queensdale             | | Dredgehaunt Cliffs
+ Divinity's Reach    | Rata Sum               | | Frostgorge Sound
+ Fields of Ruin      | Straits of Devastation | | Malchor's Leap
+ Gendarran Fields    | The Grove              | | Metrica Province
+ Harathi Hinterlands | Timberline Falls       | | Plains of Ashford
+ Hoelbrak            | Wayfarer Foothills     | | Sparkfly Fen
+ Kessex Hills        |                        | |
+
 ## **0.3** User config
 
 This version introduces a user config system, which lets you change many ways in which AugTyr behaves.
