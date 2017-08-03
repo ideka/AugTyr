@@ -190,7 +190,7 @@ For now there's two options:
 
 A better solution will be integrated into AugTyr in the future.
 
-### AugTyr's resolution is wrong, or it opens in the wrong screen. How can I fix it?
+### AugTyr's resolution is wrong, or it opens in the wrong screen
 
 Try the following for now.
 
@@ -205,6 +205,10 @@ The result will look something like:
     C:\Users\x\Desktop\AugTyr\AugTyr.exe -adapter 1 -screen-width 1920 -screen-height 1080
 
 Use that shortcut to open AugTyr.
+
+### I only see a black screen
+
+This has been reported to happen if Windows Aero is disabled. See if enabling it helps.
 
 ## Download
 
