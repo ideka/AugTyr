@@ -2,6 +2,9 @@
 
 public class UserConfig
 {
+    // Display.
+    public bool ByColorTransparency = false;
+
     // Behavior.
     public bool AutoUpdateGameDatabase = true;
     public bool StartInFollowMode;
@@ -13,5 +16,5 @@ public class UserConfig
     public float NodeSize = .3f;
 
     // Input.
-    public Dictionary<string, List<InputAction>> InputGroups;
+    public Dictionary<string, List<InputAction>> InputGroups = new Dictionary<string, List<InputAction>>();
 }
