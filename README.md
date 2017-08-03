@@ -1,4 +1,4 @@
-# Augmented Tyria 0.3-beta (not out yet)
+# Augmented Tyria 0.3-beta
 
 # PLEASE check in this file before asking questions
 
@@ -227,4 +227,4 @@ This has been reported to happen if Windows Aero is disabled. See if enabling it
 
 ## Download
 
-Coming soon!
+[AugTyr-0.3](https://github.com/ideka/AugTyr/releases/tag/v0.3-beta)
