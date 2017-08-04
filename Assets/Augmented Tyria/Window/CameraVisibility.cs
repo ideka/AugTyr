@@ -9,9 +9,11 @@ public class CameraVisibility : MonoBehaviour
 #if !UNITY_EDITOR
     public const string GameWindowTitle = "Guild Wars 2";
     public const string GameWindowClass = "ArenaNet_Dx_Window_Class";
+#endif
 
-    private int defaultCullingMask;
+    public static bool Focused { get; private set; }
 
+#if !UNITY_EDITOR
     public Camera Camera { get; private set; }
 #endif
 
@@ -19,10 +21,8 @@ public class CameraVisibility : MonoBehaviour
     {
 #if !UNITY_EDITOR
         this.Camera = this.GetComponent<Camera>();
-
-        this.defaultCullingMask = this.Camera.cullingMask;
-        this.Camera.cullingMask = 0;
 #else
+        Focused = true;
         Destroy(this);
 #endif
     }
@@ -30,23 +30,16 @@ public class CameraVisibility : MonoBehaviour
 #if !UNITY_EDITOR
     private void LateUpdate()
     {
-        //this.Camera.cullingMask = WinAPI.FollowWindow(GameWindowTitle, GameWindowClass) ? this.defaultCullingMask : 0;
-
         IntPtr hWnd = WinAPI.GetForegroundWindow();
-        if (WinAPI.CompareTitleAndClass(hWnd, GameWindowTitle, GameWindowClass))
+        Focused = WinAPI.CompareTitleAndClass(hWnd, GameWindowTitle, GameWindowClass);
+        if (Focused)
         {
-            this.Camera.cullingMask = this.defaultCullingMask;
-
             WinAPI.RECT cr;
             WinAPI.GetClientRect(hWnd, out cr);
             cr = cr.ClientToScreen(hWnd);
 
             this.Camera.pixelRect = new Rect(cr.left, cr.bottom, cr.Width, cr.Height);
             this.Camera.rect = new Rect(this.Camera.rect.x, 1 - this.Camera.rect.y, this.Camera.rect.width, this.Camera.rect.height);
-        }
-        else
-        {
-            this.Camera.cullingMask = 0;
         }
     }
 #endif

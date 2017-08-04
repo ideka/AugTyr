@@ -43,7 +43,7 @@ public static class IActionableExtensions
                 {
                     hook.KeyDown -= callback;
                 }
-                else if (Camera.main.cullingMask != 0 && @this.Holder.isActiveAndEnabled)
+                else if (CameraVisibility.Focused && @this.Holder.isActiveAndEnabled)
                 {
                     Action action;
                     foreach (string actionName in @this.GetInputActions().Where(i => i.Activated(ev)).Select(i => i.ActionName))
