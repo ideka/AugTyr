@@ -144,12 +144,12 @@ public static class WinAPI
     [DllImport("user32.dll", EntryPoint = "SetWindowLongPtr")]
     private static extern IntPtr SetWindowLongPtr64(IntPtr hWnd, int nIndex, UIntPtr dwNewLong);
 
-    public static IntPtr SetWindowLongPtr(IntPtr hWnd, int nIndex, UIntPtr dwNewLong)
+    public static int SetWindowLong(IntPtr hWnd, int nIndex, uint dwNewLong)
     {
         if (IntPtr.Size != 8)
-            return new IntPtr(SetWindowLong32(hWnd, nIndex, (uint)dwNewLong));
+            return SetWindowLong32(hWnd, nIndex, dwNewLong);
         else
-            return SetWindowLongPtr64(hWnd, nIndex, dwNewLong);
+            return (int)SetWindowLongPtr64(hWnd, nIndex, new UIntPtr(dwNewLong));
     }
 
     [DllImport("user32.dll", EntryPoint="GetWindowLong")]
@@ -158,12 +158,12 @@ public static class WinAPI
     [DllImport("user32.dll", EntryPoint="GetWindowLongPtr")]
     private static extern UIntPtr GetWindowLongPtr64(IntPtr hWnd, int nIndex);
 
-    public static UIntPtr GetWindowLongPtr(IntPtr hWnd, int nIndex)
+    public static uint GetWindowLong(IntPtr hWnd, int nIndex)
     {
          if (IntPtr.Size != 8)
-             return new UIntPtr(GetWindowLong32(hWnd, nIndex));
+             return GetWindowLong32(hWnd, nIndex);
          else
-             return GetWindowLongPtr64(hWnd, nIndex);
+             return (uint)GetWindowLongPtr64(hWnd, nIndex);
     }
 
     [DllImport("user32.dll")]
@@ -180,9 +180,10 @@ public static class WinAPI
 
     public static void MakeOverlay(UnityEngine.Color? key = null)
     {
-        // Transparent, click-through.
-        SetWindowLongPtr(Active, GWL_EX_STYLE, new UIntPtr(WS_EX_LAYERED | WS_EX_TRANSPARENT));
+        // Layered, click-through.
+        SetWindowLong(Active, GWL_EX_STYLE, WS_EX_LAYERED | WS_EX_TRANSPARENT);
 
+        // Transparency.
         if (key.HasValue)
         {
             SetLayeredWindowAttributes(Active, new COLORREF(key.Value), byte.MaxValue, LWA_COLORKEY);
@@ -194,7 +195,7 @@ public static class WinAPI
         }
 
         // Topmost.
-        //SetWindowPos(Active, HWND_TOPMOST, 0, 0, Screen.width, Screen.height, SWP_FRAMECHANGED | SWP_SHOWWINDOW);
+        SetWindowPos(Active, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_FRAMECHANGED | SWP_SHOWWINDOW);
     }
 
     public static bool Compare(IntPtr hWnd, Func<IntPtr, StringBuilder, int, int> getter, string to, bool ignoreCase = false)
