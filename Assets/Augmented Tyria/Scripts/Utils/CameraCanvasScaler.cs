@@ -6,21 +6,21 @@ public class CameraCanvasScaler : CanvasScaler
     // The log base doesn't have any influence on the results whatsoever, as long as the same base is used everywhere.
     public const float kLogBase = 2;
 
-    private Canvas m_Canvas;
+    private Canvas newM_Canvas;
 
     protected override void OnEnable()
     {
-        m_Canvas = GetComponent<Canvas>();
+        newM_Canvas = GetComponent<Canvas>();
         base.OnEnable();
     }
 
     protected override void HandleScaleWithScreenSize()
     {
         Vector2 screenSize = new Vector2(Screen.width, Screen.height);
-        if (m_Canvas.renderMode == RenderMode.ScreenSpaceCamera && m_Canvas.worldCamera != null)
+        if (newM_Canvas.renderMode == RenderMode.ScreenSpaceCamera && newM_Canvas.worldCamera != null)
         {
-            screenSize.x *= m_Canvas.worldCamera.rect.width;
-            screenSize.y *= m_Canvas.worldCamera.rect.height;
+            screenSize.x *= newM_Canvas.worldCamera.rect.width;
+            screenSize.y *= newM_Canvas.worldCamera.rect.height;
         }
 
         float scaleFactor = 0;
