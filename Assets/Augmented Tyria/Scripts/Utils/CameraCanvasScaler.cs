@@ -6,7 +6,7 @@ public class CameraCanvasScaler : CanvasScaler
     // The log base doesn't have any influence on the results whatsoever, as long as the same base is used everywhere.
     public const float kLogBase = 2;
 
-    protected Canvas m_Canvas { get; private set; }
+    private Canvas m_Canvas;
 
     protected override void OnEnable()
     {
