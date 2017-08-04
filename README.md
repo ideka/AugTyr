@@ -173,7 +173,7 @@ Each input group contains a list of input actions. An input action is an object 
 
 * `Control` (bool) Whether or not the Ctrl key should be required as a part of the input. This element can be omited to use the default value of false.
 
-Each action can be bound multiple times, or not at all. Additionaly, binding multiple actions to the same input should work as expected, but produces no warning although it probably should; such a warning might be added in the future.
+Each action can be bound multiple times, or not at all. Additionally, binding multiple actions to the same input should work as expected, but produces no warning although it probably should; such a warning might be added in the future.
 
 ## Follow mode tips
 
