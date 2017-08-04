@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -6,6 +7,8 @@ using UnityEngine;
 
 public static class WinAPI
 {
+    public static readonly IntPtr Active = GetActiveWindow();
+
     public static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
 
     public const int GWL_EX_STYLE = -20;
@@ -15,6 +18,7 @@ public static class WinAPI
     public const uint LWA_COLORKEY = 1;
     public const uint LWA_ALPHA = 2;
 
+    public const uint SWP_NOSIZE = 0x1;
     public const uint SWP_FRAMECHANGED = 0x20;
     public const uint SWP_SHOWWINDOW = 0x40;
 
@@ -30,6 +34,40 @@ public static class WinAPI
         public int Y { get { return this.top; } }
         public int Width { get { return this.right - this.left; } }
         public int Height { get { return this.bottom - this.top; } }
+
+        public Point TopLeft { get { return new Point(left, top); } }
+        public Point BottomRight { get { return new Point(right, bottom); } }
+
+        public RECT ClientToScreen(IntPtr hWnd)
+        {
+            return this.PassPoints(hWnd, p =>
+            {
+                WinAPI.ClientToScreen(hWnd, ref p);
+                return p;
+            });
+        }
+
+        public RECT ScreenToClient(IntPtr hWnd)
+        {
+            return this.PassPoints(hWnd, p =>
+            {
+                WinAPI.ScreenToClient(hWnd, ref p);
+                return p;
+            });
+        }
+
+        private RECT PassPoints(IntPtr hWnd, Func<Point, Point> func)
+        {
+            Point topLeft = func(this.TopLeft);
+            Point bottomRight = func(this.BottomRight);
+            return new RECT()
+            {
+                left = topLeft.X,
+                top = topLeft.Y,
+                right = bottomRight.X,
+                bottom = bottomRight.Y
+            };
+        }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -40,7 +78,7 @@ public static class WinAPI
         public byte b;
         public readonly byte padding;
 
-        public COLORREF(Color color)
+        public COLORREF(UnityEngine.Color color)
         {
             this.r = (byte)Mathf.Lerp(byte.MinValue, byte.MaxValue, color.r);
             this.g = (byte)Mathf.Lerp(byte.MinValue, byte.MaxValue, color.g);
@@ -68,6 +106,18 @@ public static class WinAPI
 
     [DllImport("user32.dll")]
     public static extern IntPtr GetForegroundWindow();
+
+    [DllImport("user32.dll")]
+    public static extern bool ScreenToClient(IntPtr hWnd, ref Point lpPoint);
+
+    public static Point ScreenToClient(this Point point, IntPtr hWnd)
+    {
+        ScreenToClient(hWnd, ref point);
+        return point;
+    }
+
+    [DllImport("user32.dll")]
+    public static extern bool ClientToScreen(IntPtr hWnd, ref Point lpPoint);
 
     [DllImport("user32.dll")]
     public static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
@@ -101,24 +151,45 @@ public static class WinAPI
     [DllImport("Dwmapi.dll")]
     public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
 
-    public static void MakeOverlay(Color? key = null)
+    public static bool FollowWindow(string title, string className)
     {
-        IntPtr hWnd = GetActiveWindow();
+#if TEST_A
+        IntPtr fore = GetForegroundWindow();
 
-        bool byColor = key != null;
+        if (!CompareTitleAndClass(fore, title, className))
+            return false;
 
+        RECT r;
+        GetWindowRect(fore, out r);
+        Point local = r.TopLeft.ScreenToClient(Active);
+        SetWindowPos(Active, HWND_TOPMOST, local.X, local.Y, r.Width, r.Height, SWP_FRAMECHANGED | SWP_SHOWWINDOW);
+
+        return true;
+#else
+        return CompareTitleAndClass(GetForegroundWindow(), title, className);
+#endif
+    }
+
+    public static void MakeOverlay(UnityEngine.Color? key = null)
+    {
+#if TEST_A
+        SetWindowLongPtr(Active, -16, new IntPtr(0x80000000 | 0x00040000));
+#endif
         // Transparent, click-through.
-        SetWindowLongPtr(hWnd, GWL_EX_STYLE, new IntPtr(WS_EX_LAYERED | WS_EX_TRANSPARENT));
-        SetLayeredWindowAttributes(hWnd, new COLORREF(key.GetValueOrDefault()), byte.MaxValue, byColor ? LWA_COLORKEY : LWA_ALPHA);
+        SetWindowLongPtr(Active, GWL_EX_STYLE, new IntPtr(WS_EX_LAYERED | WS_EX_TRANSPARENT));
 
-        if (!byColor)
+        if (key.HasValue)
+        {
+            SetLayeredWindowAttributes(Active, new COLORREF(key.Value), byte.MaxValue, LWA_COLORKEY);
+        }
+        else
         {
             MARGINS margins = new MARGINS() { cxLeftWidth = -1 };
-            DwmExtendFrameIntoClientArea(hWnd, ref margins);
+            DwmExtendFrameIntoClientArea(Active, ref margins);
         }
 
         // Topmost.
-        SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, Screen.width, Screen.height, SWP_FRAMECHANGED | SWP_SHOWWINDOW);
+        SetWindowPos(Active, HWND_TOPMOST, 0, 0, Screen.width, Screen.height, SWP_FRAMECHANGED | SWP_SHOWWINDOW);
     }
 
     public static bool Compare(IntPtr hWnd, Func<IntPtr, StringBuilder, int, int> getter, string to, bool ignoreCase = false)

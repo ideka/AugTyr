@@ -21,6 +21,7 @@ public class CameraVisibility : MonoBehaviour
         this.Camera = this.GetComponent<Camera>();
 
         this.defaultCullingMask = this.Camera.cullingMask;
+        this.Camera.cullingMask = 0;
 #else
         Destroy(this);
 #endif
@@ -29,7 +30,9 @@ public class CameraVisibility : MonoBehaviour
 #if !UNITY_EDITOR
     private void LateUpdate()
     {
-        IntPtr hWnd = WinAPI.GetForegroundWindow();
+        this.Camera.cullingMask = WinAPI.FollowWindow(GameWindowTitle, GameWindowClass) ? this.defaultCullingMask : 0;
+
+        /*IntPtr hWnd = WinAPI.GetForegroundWindow();
         if (WinAPI.CompareTitleAndClass(hWnd, GameWindowTitle, GameWindowClass))
         {
             this.Camera.cullingMask = this.defaultCullingMask;
@@ -43,7 +46,7 @@ public class CameraVisibility : MonoBehaviour
         else
         {
             this.Camera.cullingMask = 0;
-        }
+        }*/
     }
 #endif
 }
