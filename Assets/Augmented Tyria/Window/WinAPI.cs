@@ -12,9 +12,16 @@ public static class WinAPI
     public static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
 
     public const int GWL_HWNDPARENT = -8;
+
+    public const int GWL_STYLE = -16;
+    public const uint WS_CLIPSIBLINGS = 0x4000000;
+    public const uint WS_VISIBLE = 0x10000000;
+    public const uint WS_CHILD = 0x40000000;
+    public const uint WS_POPUP = 0x80000000;
+
     public const int GWL_EX_STYLE = -20;
-    public const int WS_EX_LAYERED = 0x80000;
-    public const int WS_EX_TRANSPARENT = 0x20;
+    public const uint WS_EX_LAYERED = 0x80000;
+    public const uint WS_EX_TRANSPARENT = 0x20;
 
     public const uint LWA_COLORKEY = 1;
     public const uint LWA_ALPHA = 2;
@@ -120,6 +127,9 @@ public static class WinAPI
     }
 
     [DllImport("user32.dll")]
+    public static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
+
+    [DllImport("user32.dll")]
     public static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
 
     [DllImport("user32.dll")]
@@ -129,17 +139,31 @@ public static class WinAPI
     public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
 
     [DllImport("user32.dll", EntryPoint = "SetWindowLong")]
-    private static extern int SetWindowLong32(IntPtr hWnd, int nIndex, int dwNewLong);
+    private static extern int SetWindowLong32(IntPtr hWnd, int nIndex, uint dwNewLong);
 
     [DllImport("user32.dll", EntryPoint = "SetWindowLongPtr")]
-    private static extern IntPtr SetWindowLongPtr64(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
+    private static extern IntPtr SetWindowLongPtr64(IntPtr hWnd, int nIndex, UIntPtr dwNewLong);
 
-    public static IntPtr SetWindowLongPtr(IntPtr hWnd, int nIndex, IntPtr dwNewLong)
+    public static IntPtr SetWindowLongPtr(IntPtr hWnd, int nIndex, UIntPtr dwNewLong)
     {
         if (IntPtr.Size != 8)
-            return new IntPtr(SetWindowLong32(hWnd, nIndex, (int)dwNewLong));
+            return new IntPtr(SetWindowLong32(hWnd, nIndex, (uint)dwNewLong));
         else
             return SetWindowLongPtr64(hWnd, nIndex, dwNewLong);
+    }
+
+    [DllImport("user32.dll", EntryPoint="GetWindowLong")]
+    private static extern uint GetWindowLong32(IntPtr hWnd, int nIndex);
+
+    [DllImport("user32.dll", EntryPoint="GetWindowLongPtr")]
+    private static extern UIntPtr GetWindowLongPtr64(IntPtr hWnd, int nIndex);
+
+    public static UIntPtr GetWindowLongPtr(IntPtr hWnd, int nIndex)
+    {
+         if (IntPtr.Size != 8)
+             return new UIntPtr(GetWindowLong32(hWnd, nIndex));
+         else
+             return GetWindowLongPtr64(hWnd, nIndex);
     }
 
     [DllImport("user32.dll")]
@@ -154,32 +178,10 @@ public static class WinAPI
     [DllImport("Dwmapi.dll")]
     public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
 
-    public static bool FollowWindow(string title, string className)
-    {
-#if TEST_A
-        IntPtr fore = GetForegroundWindow();
-
-        if (!CompareTitleAndClass(fore, title, className))
-            return false;
-
-        RECT r;
-        GetWindowRect(fore, out r);
-        Point local = r.TopLeft.ScreenToClient(Active);
-        SetWindowPos(Active, HWND_TOPMOST, local.X, local.Y, r.Width, r.Height, SWP_FRAMECHANGED | SWP_SHOWWINDOW);
-
-        return true;
-#else
-        return CompareTitleAndClass(GetForegroundWindow(), title, className);
-#endif
-    }
-
     public static void MakeOverlay(UnityEngine.Color? key = null)
     {
-#if TEST_A
-        SetWindowLongPtr(Active, -16, new IntPtr(0x80000000 | 0x00040000));
-#endif
         // Transparent, click-through.
-        SetWindowLongPtr(Active, GWL_EX_STYLE, new IntPtr(WS_EX_LAYERED | WS_EX_TRANSPARENT));
+        SetWindowLongPtr(Active, GWL_EX_STYLE, new UIntPtr(WS_EX_LAYERED | WS_EX_TRANSPARENT));
 
         if (key.HasValue)
         {

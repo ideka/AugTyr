@@ -71,9 +71,5 @@ public class CameraVisibility : MonoBehaviour
             this.Camera.cullingMask = 0;
         }
     }
-
-    private void LayOver()
-    {
-    }
 #endif
 }
