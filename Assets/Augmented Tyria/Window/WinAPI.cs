@@ -11,6 +11,7 @@ public static class WinAPI
 
     public static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
 
+    public const int GWL_HWNDPARENT = -8;
     public const int GWL_EX_STYLE = -20;
     public const int WS_EX_LAYERED = 0x80000;
     public const int WS_EX_TRANSPARENT = 0x20;
@@ -19,6 +20,7 @@ public static class WinAPI
     public const uint LWA_ALPHA = 2;
 
     public const uint SWP_NOSIZE = 0x1;
+    public const uint SWP_NOMOVE = 0x2;
     public const uint SWP_FRAMECHANGED = 0x20;
     public const uint SWP_SHOWWINDOW = 0x40;
 
@@ -88,10 +90,16 @@ public static class WinAPI
     }
 
     [DllImport("user32.dll")]
+    public static extern bool IsWindow(IntPtr hWnd);
+
+    [DllImport("user32.dll")]
     public static extern IntPtr GetActiveWindow();
 
     [DllImport("user32.dll")]
     public static extern IntPtr GetForegroundWindow();
+
+    [DllImport("user32.dll")]
+    public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
     [DllImport("user32.dll")]
     public static extern bool ScreenToClient(IntPtr hWnd, ref Point lpPoint);
@@ -184,7 +192,7 @@ public static class WinAPI
         }
 
         // Topmost.
-        SetWindowPos(Active, HWND_TOPMOST, 0, 0, Screen.width, Screen.height, SWP_FRAMECHANGED | SWP_SHOWWINDOW);
+        //SetWindowPos(Active, HWND_TOPMOST, 0, 0, Screen.width, Screen.height, SWP_FRAMECHANGED | SWP_SHOWWINDOW);
     }
 
     public static bool Compare(IntPtr hWnd, Func<IntPtr, StringBuilder, int, int> getter, string to, bool ignoreCase = false)
