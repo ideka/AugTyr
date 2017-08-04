@@ -30,42 +30,28 @@ public static class WinAPI
         public int right;
         public int bottom;
 
-        public int X { get { return this.left; } }
-        public int Y { get { return this.top; } }
         public int Width { get { return this.right - this.left; } }
         public int Height { get { return this.bottom - this.top; } }
 
-        public Point TopLeft { get { return new Point(left, top); } }
-        public Point BottomRight { get { return new Point(right, bottom); } }
-
         public RECT ClientToScreen(IntPtr hWnd)
         {
-            return this.PassPoints(hWnd, p =>
-            {
-                WinAPI.ClientToScreen(hWnd, ref p);
-                return p;
-            });
+            return this.Move(p => p.ClientToScreen(hWnd));
         }
 
         public RECT ScreenToClient(IntPtr hWnd)
         {
-            return this.PassPoints(hWnd, p =>
-            {
-                WinAPI.ScreenToClient(hWnd, ref p);
-                return p;
-            });
+            return this.Move(p => p.ScreenToClient(hWnd));
         }
 
-        private RECT PassPoints(IntPtr hWnd, Func<Point, Point> func)
+        private RECT Move(Func<Point, Point> mover)
         {
-            Point topLeft = func(this.TopLeft);
-            Point bottomRight = func(this.BottomRight);
+            Point lt = mover(new Point(this.left, this.top));
             return new RECT()
             {
-                left = topLeft.X,
-                top = topLeft.Y,
-                right = bottomRight.X,
-                bottom = bottomRight.Y
+                left = lt.X,
+                top = lt.Y,
+                right = this.right + lt.X - this.left,
+                bottom = this.bottom + lt.Y - this.top
             };
         }
     }
@@ -118,6 +104,15 @@ public static class WinAPI
 
     [DllImport("user32.dll")]
     public static extern bool ClientToScreen(IntPtr hWnd, ref Point lpPoint);
+
+    public static Point ClientToScreen(this Point point, IntPtr hWnd)
+    {
+        ClientToScreen(hWnd, ref point);
+        return point;
+    }
+
+    [DllImport("user32.dll")]
+    public static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
 
     [DllImport("user32.dll")]
     public static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);

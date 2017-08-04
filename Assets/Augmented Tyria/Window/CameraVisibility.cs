@@ -30,23 +30,24 @@ public class CameraVisibility : MonoBehaviour
 #if !UNITY_EDITOR
     private void LateUpdate()
     {
-        this.Camera.cullingMask = WinAPI.FollowWindow(GameWindowTitle, GameWindowClass) ? this.defaultCullingMask : 0;
+        //this.Camera.cullingMask = WinAPI.FollowWindow(GameWindowTitle, GameWindowClass) ? this.defaultCullingMask : 0;
 
-        /*IntPtr hWnd = WinAPI.GetForegroundWindow();
+        IntPtr hWnd = WinAPI.GetForegroundWindow();
         if (WinAPI.CompareTitleAndClass(hWnd, GameWindowTitle, GameWindowClass))
         {
             this.Camera.cullingMask = this.defaultCullingMask;
 
-            WinAPI.RECT r;
-            WinAPI.GetWindowRect(hWnd, out r);
+            WinAPI.RECT cr;
+            WinAPI.GetClientRect(hWnd, out cr);
+            cr = cr.ClientToScreen(hWnd);
 
-            this.Camera.pixelRect = new Rect(r.left, r.bottom, r.Width, r.Height);
+            this.Camera.pixelRect = new Rect(cr.left, cr.bottom, cr.Width, cr.Height);
             this.Camera.rect = new Rect(this.Camera.rect.x, 1 - this.Camera.rect.y, this.Camera.rect.width, this.Camera.rect.height);
         }
         else
         {
             this.Camera.cullingMask = 0;
-        }*/
+        }
     }
 #endif
 }
