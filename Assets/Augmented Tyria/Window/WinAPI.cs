@@ -186,7 +186,7 @@ public static class WinAPI
         // Transparency.
         if (key.HasValue)
         {
-            SetLayeredWindowAttributes(Active, new COLORREF(key.Value), byte.MaxValue, LWA_COLORKEY);
+            SetLayeredWindowAttributes(Active, new COLORREF(key.Value), 0, LWA_COLORKEY);
         }
         else
         {

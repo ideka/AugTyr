@@ -1,4 +1,5 @@
-﻿#if !UNITY_EDITOR
+﻿//#undef UNITY_EDITOR
+#if !UNITY_EDITOR
 using System;
 #endif
 using UnityEngine;
@@ -38,12 +39,19 @@ public class CameraVisibility : MonoBehaviour
     {
         IntPtr fore = WinAPI.GetForegroundWindow();
         Focused = WinAPI.CompareTitleAndClass(fore, GameWindowTitle, GameWindowClass);
+        //Focused = fore == WinAPI.Active;
 
         if (Focused)
+        //if (WinAPI.CompareTitleAndClass(fore, GameWindowTitle, GameWindowClass))
         {
             WinAPI.RECT cr;
             WinAPI.GetClientRect(fore, out cr);
             cr = cr.ClientToScreen(fore);
+
+            //cr.left = (int)((float)cr.left * Screen.width / 1920);
+            //cr.top = (int)((float)cr.top * Screen.height / 1080);
+            //cr.right = (int)((float)cr.right * Screen.width / 1920);
+            //cr.bottom = (int)((float)cr.bottom * Screen.height / 1080);
 
             this.Camera.pixelRect = new Rect(cr.left, cr.bottom, cr.Width, cr.Height);
             this.Camera.rect = new Rect(this.Camera.rect.x, 1 - this.Camera.rect.y, this.Camera.rect.width, this.Camera.rect.height);

@@ -53,7 +53,7 @@
 					return float4(0.0f, 0.0f, 0.0f, 0.0f);
 				}
 
-				return color;
+				return float4(0.0f, 0.0f, 0.0f, 0.0f);
 			}
 			ENDCG
 		}
