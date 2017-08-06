@@ -56,8 +56,8 @@ public class NodeDisplay : MonoBehaviour
 
                 case NodeType.Teleport:
                     this.MeshRenderer.material = this.TeleportMaterial;
-                    if (string.IsNullOrEmpty(value.WaypointCode))
-                        this.Text.text += "\n\nTeleport.";
+                    if (string.IsNullOrEmpty(this.Text.text) && string.IsNullOrEmpty(value.WaypointCode))
+                        this.Text.text = "Teleport.";
                     else
                         this.Text.text += "\n\nWP: " + value.WaypointCode;
                     break;
