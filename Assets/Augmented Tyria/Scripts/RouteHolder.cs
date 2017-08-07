@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
+using Forms = System.Windows.Forms;
 using UnityEngine;
 
 [RequireComponent(typeof(GameDatabaseHolder))]
@@ -15,8 +15,8 @@ public class RouteHolder : MonoBehaviour, IActionable
     public EditMode EditMode;
     public FollowMode FollowMode;
 
-    public static string Path { get { return UnityEngine.Application.streamingAssetsPath + "/Routes/"; } }
-    public static string UnofficialPath { get { return UnityEngine.Application.streamingAssetsPath + "/UnofficialRoutes/"; } }
+    public static string Path { get { return Application.streamingAssetsPath + "/Routes/"; } }
+    public static string UnofficialPath { get { return Application.streamingAssetsPath + "/UnofficialRoutes/"; } }
 
     public Route Route = new Route();
 
@@ -93,7 +93,7 @@ public class RouteHolder : MonoBehaviour, IActionable
         if (fromClipboard)
         {
             int clipboardId;
-            if (!int.TryParse(Clipboard.GetText(), out clipboardId))
+            if (!int.TryParse(Forms.Clipboard.GetText(), out clipboardId))
             {
                 this.Console.ErrorFade("No valid route ID found in clipboard.");
                 return;
