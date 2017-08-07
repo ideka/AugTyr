@@ -54,7 +54,7 @@ New route contributions will be added to the project unreviewed and bundled with
 
 *Saving is unchanged*. AugTyr will always save to the Routes directory.
 
-## **0.3** Provided routes
+## **0.3.1** Provided routes
 
  Official            | Official               | | Unofficial
 :--------------------|:-----------------------|-|:-------------------
@@ -67,7 +67,7 @@ New route contributions will be added to the project unreviewed and bundled with
  Gendarran Fields    | The Grove              | | Metrica Province
  Harathi Hinterlands | Timberline Falls       | | Plains of Ashford
  Hoelbrak            | Wayfarer Foothills     | | Sparkfly Fen
- Kessex Hills        |                        | |
+ Kessex Hills        |                        | | Tangled Depths
 
 ## **0.3** User config
 
@@ -80,6 +80,14 @@ Note: You might notice the json file contains C and C++ style comments. These ar
 There is no UI to change the user config. I *might* make one (separate from AugTyr itself) in the future.
 
 Below is an overview of currently available options.
+
+### **0.3.1** Display options
+
+* `ScreenWidth` (int) Set to a positive number to have AugTyr use it as the desired resolution width.
+
+* `ScreenHeight` (int) Set to a positive number to have AugTyr use it as the desired resolution height.
+
+* `ByColorTransparency` (bool) Set to true to enable a different window transparency method. **Be warned**, it's slow and looks worse, so do not bother with this unless the default doesn't work for you.
 
 ### Behavior options
 
@@ -205,25 +213,15 @@ For now there's two options:
 
 A better solution will be integrated into AugTyr in the future.
 
-### AugTyr's resolution is wrong, or it opens in the wrong screen
+### AugTyr's resolution is wrong
 
-Try the following for now.
-
-Create a shortcut for AugTyr.exe, then open its properties, and add the following at the end of the "Target" field:
-
-    -adapter [0] -screen-width [1] -screen-height [2]
-
-Change the `[0]` to set the screen, the `[1]` to set the width, and the `[2]` for the height.
-
-The result will look something like:
-
-    C:\Users\x\Desktop\AugTyr\AugTyr.exe -adapter 1 -screen-width 1920 -screen-height 1080
-
-Use that shortcut to open AugTyr.
+You can set the resolution you want explicitly in the user config file.
 
 ### I only see a black screen
 
-This has been reported to happen if Windows Aero is disabled. See if enabling it helps.
+This has been reported to happen if Windows Aero is disabled. Try enabling it.
+
+If that doesn't help, you can try the by color transparency mode. It's usually really slow, but it might fix the problem. Set the option to true in the user config file.
 
 ## Download
 

@@ -25,18 +25,19 @@
  */
 
 {
+    // Display.
+    "ScreenWidth": 0,
+    "ScreenHeight": 0,
+    "ByColorTransparency": false,
+
     // Behavior.
     "AutoUpdateGameDatabase": true,
-
     "StartInFollowMode": false,
-
     "OrientationHelperDefault": true,
-
     "ConsoleFilter": 0,
 
     // Visuals.
     "RouteWidth": 1,
-
     "NodeSize": 0.3,
 
     // Input.

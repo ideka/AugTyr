@@ -2,14 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Windows.Forms;
+using Forms = System.Windows.Forms;
 using UnityEngine;
 
 public class UserConfigHolder : MonoBehaviour
 {
     public Console Console;
 
-    public static string Path { get { return UnityEngine.Application.streamingAssetsPath + "/UserConfig.json"; } }
+    public static string Path { get { return Application.streamingAssetsPath + "/UserConfig.json"; } }
 
     public UserConfig UserConfig = new UserConfig();
 
@@ -30,6 +30,19 @@ public class UserConfigHolder : MonoBehaviour
 
         foreach (KeyValuePair<string, List<InputAction>> ig in this.UserConfig.InputGroups)
             this.PopulateInputActions(ig.Value);
+
+        // Set the resolution.
+        if (this.UserConfig.ScreenWidth > 0)
+        {
+            if (this.UserConfig.ScreenHeight > 0)
+                Screen.SetResolution(this.UserConfig.ScreenWidth, this.UserConfig.ScreenHeight, true);
+            else
+                Screen.SetResolution(this.UserConfig.ScreenWidth, Screen.height, true);
+        }
+        else if (this.UserConfig.ScreenHeight > 0)
+        {
+            Screen.SetResolution(Screen.width, this.UserConfig.ScreenHeight, true);
+        }
     }
 
     private void PopulateInputActions(List<InputAction> inputActions)
@@ -38,7 +51,7 @@ public class UserConfigHolder : MonoBehaviour
         {
             try
             {
-                inac.Key = (Keys)Enum.Parse(typeof(Keys), inac.KeyName);
+                inac.Key = (Forms.Keys)Enum.Parse(typeof(Forms.Keys), inac.KeyName);
             }
             catch
             {

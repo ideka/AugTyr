@@ -3,6 +3,8 @@
 public class UserConfig
 {
     // Display.
+    public int ScreenWidth = 0;
+    public int ScreenHeight = 0;
     public bool ByColorTransparency = false;
 
     // Behavior.
