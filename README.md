@@ -1,4 +1,4 @@
-# Augmented Tyria 0.3-beta
+# Augmented Tyria 0.3.1-beta
 
 # PLEASE check in this file before asking questions
 
