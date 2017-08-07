@@ -225,4 +225,4 @@ If that doesn't help, you can try the by color transparency mode. It's usually r
 
 ## Download
 
-[AugTyr-0.3](https://github.com/ideka/AugTyr/releases/tag/v0.3-beta)
+[AugTyr-0.3.1](https://github.com/ideka/AugTyr/releases/tag/v0.3.1-beta)
