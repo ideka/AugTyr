@@ -91,13 +91,13 @@ Below is an overview of currently available options.
 
   * `"ConstantBlit"` A shader will explicitly set each pixel's transparency to zero.
 
- * `"DiscardAllBlit"` A shader will make all pixels be ignored, keeping the previous transparency of each one, which should be zero.
-
- * `"DefaultBlit"` Set all pixel's transparency to zero using Unity's default BlitCopy shader.
-
- * `"NeglectBlit"` Tell Unity to let the code decide what to blit, then blit nothing.
-
- * `"ColorIndexed"` Instruct Windows to treat a certain color as transparency, and paint that color as the background. Not recommended as it is slower than the other options, and doesn't allow for semitransparency.
+  * `"DiscardAllBlit"` A shader will make all pixels be ignored, keeping the previous transparency of each one, which should be zero.
+ 
+  * `"DefaultBlit"` Set all pixel's transparency to zero using Unity's default BlitCopy shader.
+ 
+  * `"NeglectBlit"` Tell Unity to let the code decide what to blit, then blit nothing.
+ 
+  * `"ColorIndexed"` Instruct Windows to treat a certain color as transparency, and paint that color as the background. Not recommended as it is slower than the other options, and doesn't allow for semitransparency.
 
 ### Behavior options
 
