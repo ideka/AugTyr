@@ -99,7 +99,7 @@ Below is an overview of currently available options.
 
   * `"All"` Autoload the route on every map change (not recommended, as instances are considered different maps).
 
-  * `"Existing"` Autoload the map's route if it has one created for it only.
+  * `"Existing"` Autoload the route when entering a map that has a route created for it.
 
   * `"NonInstances"` Autoload routes when entering any map that's not an instance (beware, this relies on an updated game database to determine if a map is an instance).
 
@@ -118,6 +118,8 @@ Below is an overview of currently available options.
   * `3` Filter all messages.
 
 ### Visual options
+
+* **0.3.2** `ConsoleFontSize` (int) The font size for all console messages.
 
 * `RouteWidth` (float) The width of all lines drawn, in all modes.
 
