@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
 using UnityEngine;
 
 public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
@@ -92,28 +91,22 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
                 {
                     "GetNodeText", () =>
                     {
-                        Clipboard.Clear();
-                        string c = this.GetComment();
-                        if (!string.IsNullOrEmpty(c))
-                            Clipboard.SetText(c);
+                        GUIUtility.systemCopyBuffer = this.GetComment();
                         this.Console.InfoFade("Copied selected node text to clipboard.");
                     }
                 },
                 {
-                    "SetNodeText", () => this.SetComment(Format(Clipboard.GetText()))
+                    "SetNodeText", () => this.SetComment(Format(GUIUtility.systemCopyBuffer))
                 },
                 {
                     "GetNodeData", () =>
                     {
-                        Clipboard.Clear();
-                        string c = this.GetData();
-                        if (!string.IsNullOrEmpty(c))
-                            Clipboard.SetText(c);
+                        GUIUtility.systemCopyBuffer = this.GetData();
                         this.Console.InfoFade("Copied selected node special text to clipboard.");
                     }
                 },
                 {
-                    "SetNodeData", () => this.SetData(Format(Clipboard.GetText()))
+                    "SetNodeData", () => this.SetData(Format(GUIUtility.systemCopyBuffer))
                 },
                 {
                     "ToggleAttachSelection", () =>

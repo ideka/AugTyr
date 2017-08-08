@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
 using UnityEngine;
 
 public class FollowMode : MonoBehaviour, INodeRoute, IActionable
@@ -171,7 +170,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
             Node reached = this.Route.Nodes[this.NodeIndex];
             if (reached.Type == NodeType.Teleport && !string.IsNullOrEmpty(reached.WaypointCode))
             {
-                Clipboard.SetText(reached.WaypointCode);
+                GUIUtility.systemCopyBuffer = reached.WaypointCode;
                 this.Console.InfoFade("Waypoint code copied to clipboard: {0}.", reached.WaypointCode);
             }
 

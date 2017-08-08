@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Forms = System.Windows.Forms;
 using UnityEngine;
 
 [RequireComponent(typeof(GameDatabaseHolder))]
@@ -93,7 +92,7 @@ public class RouteHolder : MonoBehaviour, IActionable
         if (fromClipboard)
         {
             int clipboardId;
-            if (!int.TryParse(Forms.Clipboard.GetText(), out clipboardId))
+            if (!int.TryParse(GUIUtility.systemCopyBuffer, out clipboardId))
             {
                 this.Console.ErrorFade("No valid route ID found in clipboard.");
                 return;
