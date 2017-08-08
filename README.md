@@ -1,4 +1,4 @@
-# Augmented Tyria 0.3.1-beta
+# Augmented Tyria 0.3.2-beta
 
 # PLEASE check in this file before asking questions
 
@@ -92,6 +92,16 @@ Below is an overview of currently available options.
 ### Behavior options
 
 * `AutoUpdateGameDatabase` (bool) Set to false to disable game database updates. AugTyr should not establish any internet connection if this is the case, but in turn the game database (used to resolve waypoint names into waypoint codes) might become outdated.
+
+* **0.3.2** `RouteAutoload` (string) The route autoload method to use. Possible values are:
+
+  * `"None"` Never autoload routes.
+
+  * `"All"` Autoload the route on every map change (not recommended, as instances are considered different maps).
+
+  * `"Existing"` Autoload the map's route if it has one created for it only.
+
+  * `"NonInstances"` Autoload routes when entering any map that's not an instance (beware, this relies on an updated game database to determine if a map is an instance).
 
 * `StartInFollowMode` (bool) Set to true to instruct AugTyr to be in follow mode when started, instead of edit mode.
 
@@ -224,5 +234,7 @@ This has been reported to happen if Windows Aero is disabled. Try enabling it.
 If that doesn't help, you can try the by color transparency mode. It's usually really slow, but it might fix the problem. Set the option to true in the user config file.
 
 ## Download
+
+AugTyr-0.3.2 is not out yet.
 
 [AugTyr-0.3.1](https://github.com/ideka/AugTyr/releases/tag/v0.3.1-beta)
