@@ -15,7 +15,29 @@ public class UserConfigHolder : MonoBehaviour
 
     private void Awake()
     {
+        Application.logMessageReceived += this.MessageReceived;
+
         this.Load();
+    }
+
+    private void MessageReceived(string text, string stackTrace, LogType type)
+    {
+        switch (type)
+        {
+            case LogType.Log:
+                this.Console.Info(text);
+                break;
+
+            case LogType.Warning:
+                this.Console.Warning(text);
+                break;
+
+            case LogType.Error:
+            case LogType.Assert:
+            case LogType.Exception:
+                this.Console.Error(text);
+                break;
+        }
     }
 
     private void Load()
