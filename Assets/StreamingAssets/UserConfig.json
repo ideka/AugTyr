@@ -38,6 +38,7 @@
     "ConsoleFilter": 0,
 
     // Visuals.
+    "ConsoleFontSize": 20,
     "RouteWidth": 1,
     "NodeSize": 0.3,
 

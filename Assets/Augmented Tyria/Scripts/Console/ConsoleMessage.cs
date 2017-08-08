@@ -43,11 +43,12 @@ public class ConsoleMessage : MonoBehaviour
         }
     }
 
-    public void SetUp(ConsoleMessageType type, string text, float fadeOutTime = -1)
+    public void SetUp(ConsoleMessageType type, string text, int fontSize, float fadeOutTime = -1)
     {
         this.type = type;
         this.originalText = this.Text.text = text;
         this.timesSent = 1;
+        this.Text.fontSize = fontSize;
         this.fadeOutTime = this.FadeOutTimeLeft = fadeOutTime;
         this.Text.color = ColorFor(this.type);
     }

@@ -55,7 +55,8 @@ public class Console : MonoBehaviour, IActionable
         if (!sent.Any() || !sent.Last().TryAddOne(type, message, permanent))
         {
             ConsoleMessage msg = Instantiate(this.MessagePrefab.gameObject, this.transform).GetComponent<ConsoleMessage>();
-            msg.SetUp(type, message, permanent ? -1 : fadeOutTime + Mathf.Max(0, sent.Select(cm => cm.FadeOutTimeLeft).DefaultIfEmpty(0).Max()));
+            msg.SetUp(type, message, this.UserConfig.ConsoleFontSize,
+                permanent ? -1 : fadeOutTime + Mathf.Max(0, sent.Select(cm => cm.FadeOutTimeLeft).DefaultIfEmpty(0).Max()));
         }
     }
 

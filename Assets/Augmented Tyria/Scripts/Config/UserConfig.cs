@@ -15,6 +15,7 @@ public class UserConfig
     public int ConsoleFilter = 0;
 
     // Visuals.
+    public int ConsoleFontSize = 20;
     public float RouteWidth = 1;
     public float NodeSize = .3f;
 
