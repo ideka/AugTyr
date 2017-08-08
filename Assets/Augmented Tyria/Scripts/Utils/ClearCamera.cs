@@ -7,6 +7,8 @@ public class ClearCamera : MonoBehaviour
     public Material FullTransparency;
     public Material DiscardAll;
 
+    public Color ColorKey;
+
     public UserConfig UserConfig { get { return this.UserConfigHolder.UserConfig; } }
 
     private void Awake()
@@ -14,7 +16,8 @@ public class ClearCamera : MonoBehaviour
 #if !UNITY_EDITOR
         if (this.UserConfig.TransparencyMethod == TransparencyMethod.ByColor)
         {
-            WinAPI.MakeOverlay(this.GetComponent<Camera>().backgroundColor);
+            this.GetComponent<Camera>().backgroundColor = this.ColorKey;
+            WinAPI.MakeOverlay(this.ColorKey);
             Destroy(this);
         }
 

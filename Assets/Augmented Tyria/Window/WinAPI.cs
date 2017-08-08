@@ -75,9 +75,9 @@ public static class WinAPI
 
         public COLORREF(UnityEngine.Color color)
         {
-            this.r = (byte)Mathf.Lerp(byte.MinValue, byte.MaxValue, color.r);
-            this.g = (byte)Mathf.Lerp(byte.MinValue, byte.MaxValue, color.g);
-            this.b = (byte)Mathf.Lerp(byte.MinValue, byte.MaxValue, color.b);
+            this.r = (byte)Mathf.Round(Mathf.Lerp(byte.MinValue, byte.MaxValue, color.r));
+            this.g = (byte)Mathf.Round(Mathf.Lerp(byte.MinValue, byte.MaxValue, color.g));
+            this.b = (byte)Mathf.Round(Mathf.Lerp(byte.MinValue, byte.MaxValue, color.b));
             this.padding = 0;
         }
 

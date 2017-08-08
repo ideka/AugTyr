@@ -343,6 +343,7 @@ MonoBehaviour:
   UserConfigHolder: {fileID: 1128066793}
   FullTransparency: {fileID: 2100000, guid: d2f3d09a9e2a14148a02e375074de9db, type: 2}
   DiscardAll: {fileID: 2100000, guid: 90533b39b89c7f148b4f163b98651112, type: 2}
+  ColorKey: {r: 0.16911763, g: 0.2724138, b: 0.13970588, a: 0}
 --- !u!1 &816639983
 GameObject:
   m_ObjectHideFlags: 0
