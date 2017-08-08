@@ -5,7 +5,7 @@ public class UserConfig
     // Display.
     public int ScreenWidth = 0;
     public int ScreenHeight = 0;
-    public bool ByColorTransparency = false;
+    public TransparencyMethod TransparencyMethod = TransparencyMethod.ConstantBlit;
 
     // Behavior.
     public bool AutoUpdateGameDatabase = true;
@@ -21,6 +21,15 @@ public class UserConfig
 
     // Input.
     public Dictionary<string, List<InputAction>> InputGroups = new Dictionary<string, List<InputAction>>();
+}
+
+public enum TransparencyMethod
+{
+    ConstantBlit,
+    DiscardAllBlit,
+    DefaultBlit,
+    NeglectBlit,
+    ByColor
 }
 
 public enum RouteAutoload

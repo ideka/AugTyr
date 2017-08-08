@@ -1,15 +1,14 @@
-﻿Shader "Hidden/OneColor"
+﻿Shader "Hidden/FullTransparency"
 {
 	Properties
 	{
-		_Color ("Color", Color) = (1, 1, 1, 1)
 	}
 
 	SubShader
 	{
-		Cull Off
-		ZWrite Off
 		ZTest Always
+		ZWrite Off
+		Cull Off
 
 		Pass
 		{
@@ -18,8 +17,6 @@
 			#pragma fragment frag
 
 			#include "UnityCG.cginc"
-
-			fixed4 _Color;
 
 			struct appdata
 			{
@@ -40,7 +37,7 @@
 
 			fixed4 frag(v2f i) : COLOR
 			{
-				return _Color;
+				return fixed4(0, 0, 0, 0);
 			}
 			ENDCG
 		}

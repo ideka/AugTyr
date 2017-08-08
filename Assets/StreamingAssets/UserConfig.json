@@ -28,7 +28,7 @@
     // Display.
     "ScreenWidth": 0,
     "ScreenHeight": 0,
-    "ByColorTransparency": false,
+    "TransparencyMethod": "ConstantBlit",
 
     // Behavior.
     "AutoUpdateGameDatabase": true,
