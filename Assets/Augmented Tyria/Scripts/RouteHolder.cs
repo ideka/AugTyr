@@ -17,6 +17,7 @@ public class RouteHolder : MonoBehaviour, IActionable
 
     public static string Path { get { return Application.streamingAssetsPath + "/Routes/"; } }
     public static string UnofficialPath { get { return Application.streamingAssetsPath + "/UnofficialRoutes/"; } }
+    public static List<string> Paths { get { return new List<string> { Path, UnofficialPath }; } }
 
     public Route Route = new Route();
 
@@ -83,9 +84,8 @@ public class RouteHolder : MonoBehaviour, IActionable
 
     private void Update()
     {
-        if (this.oldMapId != this.MapId)
-            this.Console.InfoFade("Map change detected, request a route reload if needed.");
-        this.oldMapId = this.MapId;
+        if (this.MapId.SetIfDiff(ref this.oldMapId) && this.loadedRouteId != this.MapId && this.ShouldAutoload())
+            this.Load();
     }
 
     private void Load(bool fromClipboard = false)
@@ -149,5 +149,46 @@ public class RouteHolder : MonoBehaviour, IActionable
     private bool RouteExists(List<string> search, int id)
     {
         return search.Any(p => File.Exists(p + id + ".json"));
+    }
+
+    private bool ShouldAutoload()
+    {
+        switch (this.UserConfig.RouteAutoload)
+        {
+            case RouteAutoload.None:
+                this.Console.InfoFade("Map change detected, request a route reload if needed.");
+                return false;
+
+            case RouteAutoload.All:
+                this.Console.InfoFade("Loading route for new map ID {0}.", this.MapId);
+                return true;
+
+            case RouteAutoload.Existing:
+                if (!this.RouteExists(Paths, this.MapId))
+                {
+                    this.Console.InfoFade("No route found for new map ID {0}, keeping old route.", this.MapId);
+                    return false;
+                }
+                this.Console.InfoFade("Loading existing route for new map ID {0}.", this.MapId);
+                return true;
+
+            case RouteAutoload.NonInstances:
+                Map map;
+                if (!this.GameDatabase.TryGetMap(this.MapId, out map))
+                {
+                    this.Console.ErrorFade("New map ID {0} not found in game database, keeping old route.", this.MapId);
+                    return false;
+                }
+                else if (map.IsInstance)
+                {
+                    this.Console.InfoFade("New map ID {0} is an instance, keeping old route.", this.MapId);
+                    return false;
+                }
+                this.Console.InfoFade("Loading route for new non-instance map {0}.", this.MapId);
+                return true;
+        }
+
+        this.Console.Error("Unknown smart autoload option: \"{0}\".", this.UserConfig.RouteAutoload);
+        return false;
     }
 }

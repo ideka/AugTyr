@@ -6,10 +6,9 @@ public class Map
 {
     public string Name;
 
+    public bool IsInstance;
     public Dictionary<string, string> Waypoints = new Dictionary<string, string>();
 
-    [JsonIgnore]
-    public bool IsInstance;
     [JsonIgnore]
     public ContinentRect Rect;
     [JsonIgnore]
@@ -29,10 +28,8 @@ public class Map
         {
             return (this.ContinentId == other.ContinentId &&
                 this.Floors.Intersect(other.Floors).Any() &&
-                this.Rect1X == other.Rect1X &&
-                this.Rect1Y == other.Rect1Y &&
-                this.Rect2X == other.Rect2X &&
-                this.Rect2Y == other.Rect2Y);
+                this.Rect1X == other.Rect1X && this.Rect1Y == other.Rect1Y &&
+                this.Rect2X == other.Rect2X && this.Rect2Y == other.Rect2Y);
         }
     }
 }

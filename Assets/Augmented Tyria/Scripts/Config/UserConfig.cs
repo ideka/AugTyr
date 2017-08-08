@@ -9,6 +9,7 @@ public class UserConfig
 
     // Behavior.
     public bool AutoUpdateGameDatabase = true;
+    public RouteAutoload RouteAutoload = RouteAutoload.Existing;
     public bool StartInFollowMode;
     public bool OrientationHelperDefault = true;
     public int ConsoleFilter = 0;
@@ -19,4 +20,12 @@ public class UserConfig
 
     // Input.
     public Dictionary<string, List<InputAction>> InputGroups = new Dictionary<string, List<InputAction>>();
+}
+
+public enum RouteAutoload
+{
+    None,
+    All,
+    Existing,
+    NonInstances
 }

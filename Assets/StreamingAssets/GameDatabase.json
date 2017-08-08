@@ -5,6 +5,7 @@
       "Maps": {
         "26": {
           "Name": "Dredgehaunt Cliffs",
+          "IsInstance": false,
           "Waypoints": {
             "[&BFYCAAA=]": "Tribulation Waypoint",
             "[&BFcCAAA=]": "Frostland Waypoint",
@@ -28,46 +29,57 @@
         },
         "849": {
           "Name": "Ulukk's Hunger",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "663": {
           "Name": "Doubt",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "664": {
           "Name": "The False God's Lair",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "666": {
           "Name": "Bad Ice",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "667": {
           "Name": "Bad Ice",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "669": {
           "Name": "Attempted Deicide",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "670": {
           "Name": "Doubt",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "673": {
           "Name": "Salvation Through Heresy",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "674": {
           "Name": "Enraged and Unashamed",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "675": {
           "Name": "Pastkeeper",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "681": {
           "Name": "Evacuation",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -76,6 +88,7 @@
       "Maps": {
         "27": {
           "Name": "Lornar's Pass",
+          "IsInstance": false,
           "Waypoints": {
             "[&BOUAAAA=]": "Vanjir's Stead Waypoint",
             "[&BOYAAAA=]": "Demon's Maw Waypoint",
@@ -98,78 +111,97 @@
         },
         "828": {
           "Name": "The Durmand Priory",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "964": {
           "Name": "Scarlet's Secret Lair",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "444": {
           "Name": "Sabotage",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "447": {
           "Name": "Codebreaker",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "453": {
           "Name": "Assault the Hill",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "454": {
           "Name": "Silent Warfare",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "455": {
           "Name": "Sever the Head",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "497": {
           "Name": "Dredging Up the Past",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "498": {
           "Name": "Dredging Up the Past",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "634": {
           "Name": "Containment",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "635": {
           "Name": "Containment",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "642": {
           "Name": "The Stone Sheath",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "643": {
           "Name": "Bad Blood",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "653": {
           "Name": "Mightier than the Sword",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "693": {
           "Name": "Library Science",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "700": {
           "Name": "Priory Library",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "713": {
           "Name": "The Priory Assailed",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1016": {
           "Name": "Hidden Arcana",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1029": {
           "Name": "Arcana Obscura",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -178,6 +210,7 @@
       "Maps": {
         "28": {
           "Name": "Wayfarer Foothills",
+          "IsInstance": false,
           "Waypoints": {
             "[&BHIBAAA=]": "Outcast's Waypoint",
             "[&BHMBAAA=]": "Hero's Moot Waypoint",
@@ -200,94 +233,117 @@
         },
         "379": {
           "Name": "The Great Hunt",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "380": {
           "Name": "A Weapon of Legend",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "381": {
           "Name": "The Last of the Giant-Kings",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "382": {
           "Name": "Disciples of the Dragon",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "386": {
           "Name": "Echoes of Ages Past",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "387": {
           "Name": "Wild Spirits",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "388": {
           "Name": "Out of the Skies",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "391": {
           "Name": "Rage of the Minotaurs",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "393": {
           "Name": "Through the Veil",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "394": {
           "Name": "A Trap Foiled",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "396": {
           "Name": "Raven's Revered",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "397": {
           "Name": "One Good Drink Deserves Another",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "399": {
           "Name": "Shape of the Spirit",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "405": {
           "Name": "Blessed of Bear",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "407": {
           "Name": "The Wolf Havroun",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "411": {
           "Name": "Minotaur Rampant",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "415": {
           "Name": "Unexpected Visitors",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "418": {
           "Name": "Don't Leave Your Toys Out",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "419": {
           "Name": "A New Challenger",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "420": {
           "Name": "First Attack",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "421": {
           "Name": "The Finishing Blow",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "428": {
           "Name": "Rumors of Trouble",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "792": {
           "Name": "A Pup's Illness",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -296,6 +352,7 @@
       "Maps": {
         "29": {
           "Name": "Timberline Falls",
+          "IsInstance": false,
           "Waypoints": {
             "[&BEQCAAA=]": "Talus Waypoint",
             "[&BEUCAAA=]": "Serpent Waypoint",
@@ -320,46 +377,57 @@
         },
         "1092": {
           "Name": "Scratch Sentry Defense",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1100": {
           "Name": "Scratch Sentry Defense",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1111": {
           "Name": "Scratch Sentry Defense",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1113": {
           "Name": "Scratch Sentry Defense",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1128": {
           "Name": "Scratch Sentry Defense",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "706": {
           "Name": "The Good Fight",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "709": {
           "Name": "The Sound of Psi-Lance",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "719": {
           "Name": "The Sound of Psi-Lance",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "733": {
           "Name": "Forging the Pact",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "745": {
           "Name": "Striking off the Chains",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "994": {
           "Name": "The Concordia Incident",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -368,6 +436,7 @@
       "Maps": {
         "30": {
           "Name": "Frostgorge Sound",
+          "IsInstance": false,
           "Waypoints": {
             "[&BHgCAAA=]": "Arundon Waypoint",
             "[&BHkCAAA=]": "Groznev Waypoint",
@@ -389,6 +458,7 @@
         },
         "1002": {
           "Name": "Mission Accomplished",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -397,6 +467,7 @@
       "Maps": {
         "31": {
           "Name": "Snowden Drifts",
+          "IsInstance": false,
           "Waypoints": {
             "[&BLMAAAA=]": "Skradden Waypoint",
             "[&BLQAAAA=]": "Lornar's Waypoint",
@@ -421,66 +492,82 @@
         },
         "1065": {
           "Name": "Angvar's Trove",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1067": {
           "Name": "Angvar's Trove",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1089": {
           "Name": "Angvar's Trove",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1093": {
           "Name": "Angvar's Trove",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1109": {
           "Name": "Angvar's Trove",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "427": {
           "Name": "Among the Kodan",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "430": {
           "Name": "Darkness at Drakentelt",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "434": {
           "Name": "Preserving the Balance",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "439": {
           "Name": "Underground Scholar",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "440": {
           "Name": "Dredge Assault",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "441": {
           "Name": "The Dredge Hideout",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "449": {
           "Name": "Armaments",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "471": {
           "Name": "Undead Infestation",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "474": {
           "Name": "Whispers in the Dark",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "476": {
           "Name": "Dangerous Research",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "477": {
           "Name": "Digging Up Answers",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -489,6 +576,7 @@
       "Maps": {
         "326": {
           "Name": "Hoelbrak",
+          "IsInstance": false,
           "Waypoints": {
             "[&BIUDAAA=]": "Might and Main Waypoint",
             "[&BIYDAAA=]": "Trade Commons Waypoint",
@@ -508,90 +596,112 @@
         },
         "334": {
           "Name": "Keg Brawl",
+          "IsInstance": false,
           "Waypoints": {}
         },
         "374": {
           "Name": "Knut Whitebear's Loft",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "375": {
           "Name": "Hunter's Hearth (Home)",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "376": {
           "Name": "Stonewright's Steading",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1161": {
           "Name": "Eir's Homestead",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "385": {
           "Name": "A Weapon of Legend",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "389": {
           "Name": "Echoes of Ages Past",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "390": {
           "Name": "Twilight of the Wolf",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "392": {
           "Name": "A Pup's Illness",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "400": {
           "Name": "Into the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "401": {
           "Name": "Through the Veil",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "410": {
           "Name": "Minotaur Rampant",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "412": {
           "Name": "Unexpected Visitors",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "413": {
           "Name": "Rumors of Trouble",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "414": {
           "Name": "A New Challenger",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "423": {
           "Name": "The Championship Fight",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "424": {
           "Name": "The Championship Fight",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "429": {
           "Name": "Rage of the Minotaurs",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "435": {
           "Name": "Means to an End",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "436": {
           "Name": "Dredge Technology",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "739": {
           "Name": "Liberating Apatia",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1001": {
           "Name": "Summit Invitations",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -600,6 +710,7 @@
       "Maps": {
         "1178": {
           "Name": "Bitterfrost Frontier",
+          "IsInstance": false,
           "Waypoints": {
             "[&BH0JAAA=]": "Sorrow's Eclipse Waypoint",
             "[&BIEJAAA=]": "Koda's Welcome Waypoint"
@@ -607,10 +718,12 @@
         },
         "1180": {
           "Name": "The Bitter Cold",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1181": {
           "Name": "Frozen Out",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -619,6 +732,7 @@
       "Maps": {
         "19": {
           "Name": "Plains of Ashford",
+          "IsInstance": false,
           "Waypoints": {
             "[&BH8BAAA=]": "Vir's Gate Waypoint",
             "[&BIABAAA=]": "Smokestead Waypoint",
@@ -642,118 +756,147 @@
         },
         "1081": {
           "Name": "Langmar Estate",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1082": {
           "Name": "Langmar Estate",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1090": {
           "Name": "Langmar Estate",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1105": {
           "Name": "Langmar Estate",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1129": {
           "Name": "Langmar Estate",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "224": {
           "Name": "Scrapyard Dogs",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "225": {
           "Name": "A Spy for a Spy",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "232": {
           "Name": "Spilled Blood",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "234": {
           "Name": "Ghostbore Musket",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "237": {
           "Name": "Iron Grip of the Legion",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "242": {
           "Name": "Test Your Metal",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "244": {
           "Name": "Quick and Quiet",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "250": {
           "Name": "Windrock Maze",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "252": {
           "Name": "Mired Deep",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "254": {
           "Name": "Deadly Force",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "255": {
           "Name": "Ghostbore Artillery",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "263": {
           "Name": "Chain of Command",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "267": {
           "Name": "The End of the Line",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "269": {
           "Name": "Magic Users",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "272": {
           "Name": "Rage Suppression",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "274": {
           "Name": "Operation: Bulwark",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "276": {
           "Name": "Human's Lament",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "290": {
           "Name": "Stoking the Flame",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "458": {
           "Name": "Fury of the Dead",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "470": {
           "Name": "Graveyard Ornaments",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "797": {
           "Name": "A Traitor's Testimony",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "799": {
           "Name": "Follow the Trail",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1004": {
           "Name": "Plan of Attack",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1006": {
           "Name": "Foefire Cleansing",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -762,6 +905,7 @@
       "Maps": {
         "20": {
           "Name": "Blazeridge Steppes",
+          "IsInstance": false,
           "Waypoints": {
             "[&BPkBAAA=]": "The Last Whiskey Bar Waypoint",
             "[&BPoBAAA=]": "Steeleye Waypoint",
@@ -785,42 +929,52 @@
         },
         "1074": {
           "Name": "Blightwater Shatterstrike",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1123": {
           "Name": "Blightwater Shatterstrike",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1131": {
           "Name": "Blightwater Shatterstrike",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1134": {
           "Name": "Blightwater Shatterstrike",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1142": {
           "Name": "Blightwater Shatterstrike",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "656": {
           "Name": "Untamed Wilds",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "659": {
           "Name": "The Lost Chieftain's Return",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "662": {
           "Name": "Pets and Walls Make Stronger Kraals",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "668": {
           "Name": "Pets and Walls Make Stronger Kraals",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "682": {
           "Name": "Untamed Wilds",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -829,6 +983,7 @@
       "Maps": {
         "21": {
           "Name": "Fields of Ruin",
+          "IsInstance": false,
           "Waypoints": {
             "[&BNMAAAA=]": "Hawkgates Waypoint",
             "[&BNQAAAA=]": "Deathblade's Watch Waypoint",
@@ -851,42 +1006,52 @@
         },
         "1080": {
           "Name": "Branded for Termination",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1112": {
           "Name": "Branded for Termination",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1133": {
           "Name": "Branded for Termination",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1135": {
           "Name": "Branded for Termination",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1146": {
           "Name": "Branded for Termination",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "488": {
           "Name": "Killer Instinct",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "490": {
           "Name": "A Fragile Peace",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "492": {
           "Name": "Don't Shoot the Messenger",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "502": {
           "Name": "Quaestor's Siege",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "503": {
           "Name": "Minister's Defense",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -895,6 +1060,7 @@
       "Maps": {
         "22": {
           "Name": "Fireheart Rise",
+          "IsInstance": false,
           "Waypoints": {
             "[&BBYCAAA=]": "Sati Waypoint",
             "[&BBcCAAA=]": "Pig Iron Waypoint",
@@ -918,6 +1084,7 @@
         },
         "743": {
           "Name": "Fixing the Blame",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -926,6 +1093,7 @@
       "Maps": {
         "25": {
           "Name": "Iron Marches",
+          "IsInstance": false,
           "Waypoints": {
             "[&BOIBAAA=]": "Dewclaw Waypoint",
             "[&BOMBAAA=]": "Bloodfin Lake Waypoint",
@@ -945,26 +1113,32 @@
         },
         "1086": {
           "Name": "Save Our Supplies",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1091": {
           "Name": "Save Our Supplies",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1094": {
           "Name": "Save Our Supplies",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1118": {
           "Name": "Save Our Supplies",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1138": {
           "Name": "Save Our Supplies",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "707": {
           "Name": "Defense Contract",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -973,6 +1147,7 @@
       "Maps": {
         "32": {
           "Name": "Diessa Plateau",
+          "IsInstance": false,
           "Waypoints": {
             "[&BNkAAAA=]": "Charrgate Haven Waypoint",
             "[&BNoAAAA=]": "Blasted Moors Waypoint",
@@ -997,46 +1172,57 @@
         },
         "256": {
           "Name": "No Negotiations",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "257": {
           "Name": "Salvaging Scrap",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "258": {
           "Name": "Salvaging Scrap",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "260": {
           "Name": "In the Ruins",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "282": {
           "Name": "Misplaced Faith",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "294": {
           "Name": "A Fork in the Road",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "416": {
           "Name": "Roadblock",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "417": {
           "Name": "Assault on Moledavia",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "422": {
           "Name": "The Semifinals",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "425": {
           "Name": "The Machine in Action",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "896": {
           "Name": "North Nolan Hatchery",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -1045,6 +1231,7 @@
       "Maps": {
         "218": {
           "Name": "Black Citadel",
+          "IsInstance": false,
           "Waypoints": {
             "[&BKQDAAA=]": "Gladium Waypoint",
             "[&BKUDAAA=]": "Mustering Ground Waypoint",
@@ -1062,134 +1249,166 @@
         },
         "371": {
           "Name": "Hero's Canton",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "372": {
           "Name": "Blood Tribune Quarters",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "373": {
           "Name": "The Command Core",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "460": {
           "Name": "Citadel Stockade",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "833": {
           "Name": "Ash Tribune Quarters",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "938": {
           "Name": "The Reliquary",
+          "IsInstance": true,
           "Waypoints": {
             "[&BCwHAAA=]": "Nolani Academy Ruins Waypoint"
           }
         },
         "939": {
           "Name": "Resealing the Bloody Prince",
+          "IsInstance": true,
           "Waypoints": {
             "[&BCsHAAA=]": "Nolani Academy Ruins Waypoint"
           }
         },
         "211": {
           "Name": "Best Laid Plans",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "215": {
           "Name": "The Tribune's Call",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "216": {
           "Name": "The Tribune's Call",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "217": {
           "Name": "The Tribune's Call",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "222": {
           "Name": "A Spy for a Spy",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "238": {
           "Name": "The Flame Advances",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "239": {
           "Name": "The Flame Advances",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "249": {
           "Name": "An Unusual Inheritance",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "251": {
           "Name": "Mired Deep",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "259": {
           "Name": "In the Ruins",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "262": {
           "Name": "Chain of Command",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "264": {
           "Name": "Time for a Promotion",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "271": {
           "Name": "Rage Suppression",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "275": {
           "Name": "AWOL",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "283": {
           "Name": "Thicker Than Water",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "284": {
           "Name": "Dishonorable Discharge",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "287": {
           "Name": "Searching for the Truth",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "288": {
           "Name": "Lighting the Beacons",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "295": {
           "Name": "Sins of the Father",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "297": {
           "Name": "Graveyard Ornaments",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "459": {
           "Name": "A Fork in the Road",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "464": {
           "Name": "Tribunes in Effigy",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "465": {
           "Name": "Sins of the Father",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "466": {
           "Name": "Misplaced Faith",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "499": {
           "Name": "Scrapyard Dogs",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -1198,6 +1417,7 @@
       "Maps": {
         "51": {
           "Name": "Straits of Devastation",
+          "IsInstance": false,
           "Waypoints": {
             "[&BOwCAAA=]": "Bramble Pass Waypoint",
             "[&BO0CAAA=]": "Signal Peak Waypoint",
@@ -1223,58 +1443,72 @@
         },
         "827": {
           "Name": "Caer Aval",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "731": {
           "Name": "The Battle of Fort Trinity",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "744": {
           "Name": "A Sad Duty",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "746": {
           "Name": "Delivering Justice",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "750": {
           "Name": "Close the Eye",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "751": {
           "Name": "Through the Looking Glass",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "768": {
           "Name": "What the Eye Beholds",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "775": {
           "Name": "Temple of the Forgotten God",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "777": {
           "Name": "Temple of the Forgotten God",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "778": {
           "Name": "Through the Looking Glass",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "779": {
           "Name": "Starving the Beast",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "787": {
           "Name": "Source of Orr",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "788": {
           "Name": "Victory or Death",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "793": {
           "Name": "Hunters and Prey",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -1283,6 +1517,7 @@
       "Maps": {
         "62": {
           "Name": "Cursed Shore",
+          "IsInstance": false,
           "Waypoints": {
             "[&BBcDAAA=]": "Pursuit Pass Waypoint",
             "[&BBgDAAA=]": "R&D Waypoint",
@@ -1301,38 +1536,47 @@
         },
         "1194": {
           "Name": "The Sword Regrown",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "758": {
           "Name": "The Cathedral of Silence",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "763": {
           "Name": "Romke's Final Voyage",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "780": {
           "Name": "Against the Corruption",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "781": {
           "Name": "The Source of Orr",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "783": {
           "Name": "Blast from the Past",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "784": {
           "Name": "The Steel Tide",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "786": {
           "Name": "Ships of the Line",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "790": {
           "Name": "Blast from the Past",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -1341,6 +1585,7 @@
       "Maps": {
         "65": {
           "Name": "Malchor's Leap",
+          "IsInstance": false,
           "Waypoints": {
             "[&BKYCAAA=]": "Pagga's Waypoint",
             "[&BKcCAAA=]": "Doric's Waypoint",
@@ -1359,46 +1604,57 @@
         },
         "760": {
           "Name": "Starving the Beast",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "761": {
           "Name": "Stealing Light",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "762": {
           "Name": "Hunters and Prey",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "764": {
           "Name": "Marching Orders",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "766": {
           "Name": "Air Drop",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "767": {
           "Name": "Estate of Decay",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "769": {
           "Name": "Conscript the Dead Ships",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "772": {
           "Name": "Ossuary of Unquiet Dead",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "782": {
           "Name": "Armor Guard",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "785": {
           "Name": "Further Into Orr",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "789": {
           "Name": "A Grisly Shipment",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -1407,12 +1663,14 @@
       "Maps": {
         "1203": {
           "Name": "Siren's Landing",
+          "IsInstance": false,
           "Waypoints": {
             "[&BO8JAAA=]": "Camp Reclamation Waypoint"
           }
         },
         "1207": {
           "Name": "The Last Chance",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -1421,6 +1679,7 @@
       "Maps": {
         "15": {
           "Name": "Queensdale",
+          "IsInstance": false,
           "Waypoints": {
             "[&BO8AAAA=]": "Shaemoor Waypoint",
             "[&BPAAAAA=]": "Fields Waypoint",
@@ -1442,58 +1701,72 @@
         },
         "61": {
           "Name": "Infiltration",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "89": {
           "Name": "Chasing the Culprits",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "113": {
           "Name": "Desperate Medicine",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "138": {
           "Name": "Defense of Shaemoor",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "140": {
           "Name": "The Apothecary",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "142": {
           "Name": "Going Undercover",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "145": {
           "Name": "The Rescue",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "149": {
           "Name": "The Fall of Falcon Company",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "152": {
           "Name": "Confronting Captain Tervelan",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "154": {
           "Name": "Seek Logan's Aid",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "171": {
           "Name": "Rending the Mantle",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "182": {
           "Name": "Clown College",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "710": {
           "Name": "Early Parole",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "796": {
           "Name": "The Informant",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -1502,6 +1775,7 @@
       "Maps": {
         "17": {
           "Name": "Harathi Hinterlands",
+          "IsInstance": false,
           "Waypoints": {
             "[&BKUAAAA=]": "Faun's Waypoint",
             "[&BKYAAAA=]": "Shieldbluff Waypoint",
@@ -1522,18 +1796,22 @@
         },
         "672": {
           "Name": "Rat-Tastrophe",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "678": {
           "Name": "The Hatchery",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "684": {
           "Name": "Thieving from Thieves",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "691": {
           "Name": "Set to Blow",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -1542,6 +1820,7 @@
       "Maps": {
         "18": {
           "Name": "Divinity's Reach",
+          "IsInstance": false,
           "Waypoints": {
             "[&BCMDAAA=]": "Dwayna Waypoint",
             "[&BCQDAAA=]": "Grenth Waypoint",
@@ -1560,166 +1839,207 @@
         },
         "248": {
           "Name": "Salma District (Home)",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "330": {
           "Name": "Seraph Headquarters",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "378": {
           "Name": "Queen's Throne Room",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1005": {
           "Name": "Party Politics",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "914": {
           "Name": "The Dead End",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "969": {
           "Name": "The Dead End: Advanced Warning",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "971": {
           "Name": "The Dead End: A Study in Scarlet",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "980": {
           "Name": "The Dead End",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "37": {
           "Name": "Arson at the Orphanage",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "55": {
           "Name": "The Hospital in Jeopardy",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "77": {
           "Name": "Search the Premises",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "79": {
           "Name": "The Informant",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "80": {
           "Name": "A Society Function",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "92": {
           "Name": "The Trial of Julius Zamon",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "97": {
           "Name": "Infiltration",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "110": {
           "Name": "The Perils of Friendship",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "120": {
           "Name": "The Commander",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "143": {
           "Name": "Going Undercover",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "144": {
           "Name": "The Greater Good",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "147": {
           "Name": "Breaking the Blade",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "148": {
           "Name": "The Fall of Falcon Company",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "153": {
           "Name": "Seek Logan's Aid",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "157": {
           "Name": "Accusation",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "162": {
           "Name": "Voices From the Past",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "163": {
           "Name": "Voices From the Past",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "172": {
           "Name": "Rending the Mantle",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "178": {
           "Name": "The Floating Grizwhirl",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "179": {
           "Name": "The Floating Grizwhirl",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "180": {
           "Name": "The Floating Grizwhirl",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "186": {
           "Name": "The Ringmaster",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "190": {
           "Name": "The Orders of Tyria",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "200": {
           "Name": "The Queen in Peril",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "201": {
           "Name": "Kellach's Attack",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "202": {
           "Name": "The Queen's Justice",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "203": {
           "Name": "The Trap",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "212": {
           "Name": "Welcome Home",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "226": {
           "Name": "On the Mend",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "327": {
           "Name": "Desperate Medicine",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1189": {
           "Name": "Regrouping with the Queen",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1190": {
           "Name": "A Meeting of Ministers",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1204": {
           "Name": "Palace Temple",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -1728,6 +2048,7 @@
       "Maps": {
         "23": {
           "Name": "Kessex Hills",
+          "IsInstance": false,
           "Waypoints": {
             "[&BAMAAAA=]": "Fort Salma Waypoint",
             "[&BAQAAAA=]": "Overlord's Waypoint",
@@ -1749,82 +2070,102 @@
         },
         "999": {
           "Name": "Trouble at Fort Salma",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1008": {
           "Name": "The Ghosts of Fort Salma",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1193": {
           "Name": "The First Vision",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "159": {
           "Name": "Accusation",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "161": {
           "Name": "Liberation",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "184": {
           "Name": "The Artist's Workshop",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "185": {
           "Name": "Into the Woods",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "191": {
           "Name": "The Orders of Tyria",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "192": {
           "Name": "Brute Force",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "193": {
           "Name": "Mortus Virge",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "195": {
           "Name": "Triskell Quay",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "196": {
           "Name": "Track the Seraph",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "363": {
           "Name": "The Sting",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "364": {
           "Name": "Drawing Out the Cult",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "365": {
           "Name": "Ashes of the Past",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "560": {
           "Name": "Sharpened Thorns",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "561": {
           "Name": "Bramble Walls",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "563": {
           "Name": "Secrets in the Earth",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "676": {
           "Name": "Protest Too Much",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "677": {
           "Name": "Prying the Eye Open",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -1833,6 +2174,7 @@
       "Maps": {
         "24": {
           "Name": "Gendarran Fields",
+          "IsInstance": false,
           "Waypoints": {
             "[&BN8AAAA=]": "Traveler's Dale Waypoint",
             "[&BOAAAAA=]": "Stoneguard Gate Waypoint",
@@ -1860,90 +2202,112 @@
         },
         "830": {
           "Name": "Vigil Headquarters",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "924": {
           "Name": "Grandmaster of Om",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "198": {
           "Name": "Speaker of the Dead",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "199": {
           "Name": "The Sad Tale of the \"Ravenous\"",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "480": {
           "Name": "Defending the Keep",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "481": {
           "Name": "Undead Detection",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "483": {
           "Name": "Ever Vigilant",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "485": {
           "Name": "Research and Destroy",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "487": {
           "Name": "Whispers of Vengeance",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "566": {
           "Name": "The Bad Apple",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "567": {
           "Name": "Trouble at the Roots",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "569": {
           "Name": "Flower of Death",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "570": {
           "Name": "Dead of Winter",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "571": {
           "Name": "A Tangle of Weeds",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "628": {
           "Name": "Stealing Secrets",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "638": {
           "Name": "Down the Hatch",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "645": {
           "Name": "Field Test",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "685": {
           "Name": "Crusader's Return",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "694": {
           "Name": "Rakt and Ruin",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "703": {
           "Name": "The Oratory",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "714": {
           "Name": "Under Siege",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "825": {
           "Name": "Codebreaker",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -1952,6 +2316,7 @@
       "Maps": {
         "50": {
           "Name": "Lion's Arch",
+          "IsInstance": false,
           "Waypoints": {
             "[&BAwEAAA=]": "Commodore's Quarter Waypoint",
             "[&BA0EAAA=]": "Guild Bluff Waypoint",
@@ -1970,62 +2335,77 @@
         },
         "1073": {
           "Name": "Guild Initiative Office",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "489": {
           "Name": "Meeting my Mentor",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "496": {
           "Name": "Meeting my Mentor",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "627": {
           "Name": "Meeting my Mentor",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "633": {
           "Name": "Setting the Stage",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "639": {
           "Name": "Down the Hatch",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "654": {
           "Name": "They Went Thataway",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "660": {
           "Name": "Thrown Off Guard",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "696": {
           "Name": "Reconnaissance",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "699": {
           "Name": "Suspicious Activity",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "701": {
           "Name": "On Red Alert",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "702": {
           "Name": "Forewarned is Forearmed",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "704": {
           "Name": "Killing Fields",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "705": {
           "Name": "The Ghost Rite",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "716": {
           "Name": "Retribution",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -2034,6 +2414,7 @@
       "Maps": {
         "73": {
           "Name": "Bloodtide Coast",
+          "IsInstance": false,
           "Waypoints": {
             "[&BKMBAAA=]": "Archen Foreland Waypoint",
             "[&BKQBAAA=]": "Sorrowful Waypoint",
@@ -2054,30 +2435,37 @@
         },
         "963": {
           "Name": "The Origins of Madness: Reporting In",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "657": {
           "Name": "An Apple a Day",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "680": {
           "Name": "Convincing the Faithful",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "683": {
           "Name": "Champion's Sacrifice",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "686": {
           "Name": "Unholy Grounds",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "687": {
           "Name": "Chosen of the Sun",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "708": {
           "Name": "Shards of Orr",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -2086,6 +2474,7 @@
       "Maps": {
         "873": {
           "Name": "Southsun Cove",
+          "IsInstance": false,
           "Waypoints": {
             "[&BNAGAAA=]": "Lion Point Waypoint",
             "[&BNIGAAA=]": "Pride Point Waypoint",
@@ -2097,30 +2486,37 @@
         },
         "905": {
           "Name": "Crab Toss",
+          "IsInstance": false,
           "Waypoints": {}
         },
         "920": {
           "Name": "Southsun Survival",
+          "IsInstance": false,
           "Waypoints": {}
         },
         "1063": {
           "Name": "Southsun Crab Toss",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1072": {
           "Name": "Southsun Crab Toss",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1084": {
           "Name": "Southsun Crab Toss",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1126": {
           "Name": "Southsun Crab Toss",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1139": {
           "Name": "Southsun Crab Toss",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -2129,6 +2525,7 @@
       "Maps": {
         "1185": {
           "Name": "Lake Doric",
+          "IsInstance": false,
           "Waypoints": {
             "[&BK0JAAA=]": "Doric's Landing Waypoint",
             "[&BK8JAAA=]": "Red Leaf Retreat Waypoint",
@@ -2141,6 +2538,7 @@
       "Maps": {
         "34": {
           "Name": "Caledon Forest",
+          "IsInstance": false,
           "Waypoints": {
             "[&BDQBAAA=]": "Astorea Waypoint",
             "[&BDUBAAA=]": "Spiral Waypoint",
@@ -2164,90 +2562,112 @@
         },
         "505": {
           "Name": "Called to Service",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "509": {
           "Name": "Discovering Darkness",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "511": {
           "Name": "Hounds and the Hunted",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "513": {
           "Name": "Loved and Lost",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "514": {
           "Name": "Saving the Stag",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "515": {
           "Name": "Hidden in Darkness",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "516": {
           "Name": "Good Work Spoiled",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "519": {
           "Name": "Weakness of the Heart",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "521": {
           "Name": "Holding Back the Darkness",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "523": {
           "Name": "Deep Tangled Roots",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "524": {
           "Name": "The Heart of Nightmare",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "525": {
           "Name": "Beneath a Cold Moon",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "527": {
           "Name": "The Knight's Duel",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "528": {
           "Name": "Hammer and Steel",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "529": {
           "Name": "Where Life Goes",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "533": {
           "Name": "After the Storm",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "534": {
           "Name": "Beneath the Waves",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "544": {
           "Name": "Wild Growth",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "545": {
           "Name": "Seeking the Zalisco",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "546": {
           "Name": "The Direct Approach",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "547": {
           "Name": "Trading Trickery",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "806": {
           "Name": "Awakening",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -2256,6 +2676,7 @@
       "Maps": {
         "35": {
           "Name": "Metrica Province",
+          "IsInstance": false,
           "Waypoints": {
             "[&BEAAAAA=]": "Soren Draa Waypoint",
             "[&BEEAAAA=]": "Jeztar Falls Waypoint",
@@ -2277,90 +2698,112 @@
         },
         "573": {
           "Name": "Explosive Intellect",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "574": {
           "Name": "In Snaff's Footsteps",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "576": {
           "Name": "Monkey Wrench",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "578": {
           "Name": "The Things We Do For Love",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "579": {
           "Name": "The Snaff Prize",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "581": {
           "Name": "A Sparkling Rescue",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "582": {
           "Name": "High Maintenance",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "583": {
           "Name": "Snaff Would Be Proud",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "584": {
           "Name": "Taking Credit Back",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "587": {
           "Name": "Here, There, Everywhere",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "590": {
           "Name": "Snaff Would Be Proud",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "591": {
           "Name": "Readings On the Rise",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "592": {
           "Name": "Unscheduled Delay",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "594": {
           "Name": "Stand By Your Krewe",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "595": {
           "Name": "Unwelcome Visitors",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "597": {
           "Name": "Where Credit Is Due",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "598": {
           "Name": "Short Fuse",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "606": {
           "Name": "Salt in the Wound",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "609": {
           "Name": "Serving Up Trouble",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "621": {
           "Name": "Any Sufficiently Advanced Science",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "692": {
           "Name": "Gadd's Last Gizmo",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1026": {
           "Name": "Meeting the Asura",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -2369,6 +2812,7 @@
       "Maps": {
         "54": {
           "Name": "Brisban Wildlands",
+          "IsInstance": false,
           "Waypoints": {
             "[&BFwAAAA=]": "Watchful Source Waypoint",
             "[&BF0AAAA=]": "Wendon Waypoint",
@@ -2387,90 +2831,112 @@
         },
         "537": {
           "Name": "Shattered Light",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1075": {
           "Name": "Proxemics Lab",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1087": {
           "Name": "Proxemics Lab",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1097": {
           "Name": "Proxemics Lab",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1136": {
           "Name": "Proxemics Lab",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1137": {
           "Name": "Proxemics Lab",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "535": {
           "Name": "Mirror, Mirror",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "538": {
           "Name": "An Unknown Soul",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "542": {
           "Name": "Source of the Issue",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "556": {
           "Name": "A Different Dream",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "558": {
           "Name": "Shadow of the Tree",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "559": {
           "Name": "Eye of the Sun",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "564": {
           "Name": "The Blossom of Youth",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "607": {
           "Name": "Free Rein",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "611": {
           "Name": "I Smell a Rat",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "617": {
           "Name": "Bad Business",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "618": {
           "Name": "Beta Test",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "622": {
           "Name": "Bad Forecast",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "623": {
           "Name": "Industrial Espionage",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "624": {
           "Name": "Split Second",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "644": {
           "Name": "Test Subject",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "991": {
           "Name": "Disturbance in Brisban Wildlands",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -2479,6 +2945,7 @@
       "Maps": {
         "91": {
           "Name": "The Grove",
+          "IsInstance": false,
           "Waypoints": {
             "[&BBIEAAA=]": "Caledon Waypoint",
             "[&BLoEAAA=]": "Upper Commons Waypoint",
@@ -2488,102 +2955,127 @@
         },
         "646": {
           "Name": "The House of Caithe",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "647": {
           "Name": "Dreamer's Terrace (Home)",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "648": {
           "Name": "The Omphalos Chamber",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "504": {
           "Name": "Called to Service",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "507": {
           "Name": "Mockery of Death",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "512": {
           "Name": "Hounds and the Hunted",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "517": {
           "Name": "Black Night, White Stag",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "518": {
           "Name": "The Omphalos Chamber",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "520": {
           "Name": "Awakening",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "522": {
           "Name": "A Sly Trick",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "532": {
           "Name": "After the Storm",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "536": {
           "Name": "A Vision of Darkness",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "539": {
           "Name": "An Unknown Soul",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "540": {
           "Name": "Where Life Goes",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "543": {
           "Name": "Wild Growth",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "548": {
           "Name": "Eye of the Sun",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "552": {
           "Name": "Seeking the Zalisco",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "557": {
           "Name": "A Splinter in the Flesh",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "712": {
           "Name": "A Light in the Darkness",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "820": {
           "Name": "The Omphalos Chamber",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "821": {
           "Name": "The Omphalos Chamber",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1010": {
           "Name": "The World Summit",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1025": {
           "Name": "The Newly Awakened",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "845": {
           "Name": "Shattered Light",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1003": {
           "Name": "Rallying Call",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -2592,6 +3084,7 @@
       "Maps": {
         "139": {
           "Name": "Rata Sum",
+          "IsInstance": false,
           "Waypoints": {
             "[&BBMEAAA=]": "Metrical Court Waypoint",
             "[&BBQEAAA=]": "Magustan Court Waypoint",
@@ -2606,102 +3099,127 @@
         },
         "649": {
           "Name": "Snaff Memorial Lab",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "650": {
           "Name": "Applied Development Lab (Home)",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "651": {
           "Name": "Council Level",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "933": {
           "Name": "Ketto's Lab",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "575": {
           "Name": "Golem Positioning System",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "577": {
           "Name": "Defusing the Problem",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "586": {
           "Name": "Political Homicide",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "588": {
           "Name": "Piece Negotiations",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "589": {
           "Name": "Readings On the Rise",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "596": {
           "Name": "Where Credit Is Due",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "599": {
           "Name": "Short Fuse",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "608": {
           "Name": "Serving Up Trouble",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "610": {
           "Name": "Flash Flood",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "614": {
           "Name": "Magnum Opus",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "619": {
           "Name": "Beta Test",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "620": {
           "Name": "Any Sufficiently Advanced Science",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "625": {
           "Name": "Carry a Big Stick",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "629": {
           "Name": "A Bold New Theory",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "630": {
           "Name": "Forging Permission",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "631": {
           "Name": "Forging Permission",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "636": {
           "Name": "Hazardous Environment",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "652": {
           "Name": "A Meeting of the Minds",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "655": {
           "Name": "Lines of Communication",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "711": {
           "Name": "Magic Sucks",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "613": {
           "Name": "Magnum Opus",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -2710,6 +3228,7 @@
       "Maps": {
         "39": {
           "Name": "Mount Maelstrom",
+          "IsInstance": false,
           "Waypoints": {
             "[&BMcCAAA=]": "Murkvale Waypoint",
             "[&BMgCAAA=]": "Govoran Waypoint",
@@ -2732,66 +3251,82 @@
         },
         "726": {
           "Name": "Wet Work",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "727": {
           "Name": "Shell Shock",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "728": {
           "Name": "Volcanic Extraction",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "729": {
           "Name": "Munition Acquisition",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "730": {
           "Name": "To the Core",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "735": {
           "Name": "Willing Captives",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "736": {
           "Name": "Marshaling the Truth",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "737": {
           "Name": "Breaking the Bone Ship",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "738": {
           "Name": "Liberating Apatia",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "747": {
           "Name": "Intercepting the Orb",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1079": {
           "Name": "Deep Trouble",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1083": {
           "Name": "Deep Trouble",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1106": {
           "Name": "Deep Trouble",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1116": {
           "Name": "Deep Trouble",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1130": {
           "Name": "Deep Trouble",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1153": {
           "Name": "Tiger Den",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -2800,6 +3335,7 @@
       "Maps": {
         "53": {
           "Name": "Sparkfly Fen",
+          "IsInstance": false,
           "Waypoints": {
             "[&BMQBAAA=]": "Orvar's Glen Waypoint",
             "[&BMUBAAA=]": "Fort Cadence Waypoint",
@@ -2822,6 +3358,7 @@
         },
         "732": {
           "Name": "Tower Down",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -2830,6 +3367,7 @@
       "Maps": {
         "1041": {
           "Name": "Dragon's Stand",
+          "IsInstance": false,
           "Waypoints": {
             "[&BBAIAAA=]": "Pact Base Camp Waypoint",
             "[&BC4IAAA=]": "Central Forward Camp Waypoint",
@@ -2846,10 +3384,12 @@
         },
         "1095": {
           "Name": "Dragon's Stand (Heart of Thorns)",
+          "IsInstance": false,
           "Waypoints": {}
         },
         "1054": {
           "Name": "Bitter Harvest",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -2858,6 +3398,7 @@
       "Maps": {
         "1043": {
           "Name": "Auric Basin",
+          "IsInstance": false,
           "Waypoints": {
             "[&BMYHAAA=]": "Forgotten City Waypoint",
             "[&BNYHAAA=]": "Wanderer's Waypoint",
@@ -2870,22 +3411,27 @@
         },
         "1172": {
           "Name": "Dragon Vigil",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1182": {
           "Name": "Precocious Aurene",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1032": {
           "Name": "Prized Possessions",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1048": {
           "Name": "City of Hope",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1057": {
           "Name": "Strange Observations",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -2894,6 +3440,7 @@
       "Maps": {
         "1045": {
           "Name": "Tangled Depths",
+          "IsInstance": false,
           "Waypoints": {
             "[&BMwHAAA=]": "Ogre Camp Waypoint",
             "[&BPUHAAA=]": "Ley-Line Confluence Waypoint",
@@ -2906,38 +3453,47 @@
         },
         "1033": {
           "Name": "Buried Insight",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1110": {
           "Name": "Scrap Rifle Field Test",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1115": {
           "Name": "Haywire Punch-o-Matic Battle",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1159": {
           "Name": "Research in Rata Novus",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1169": {
           "Name": "Rata Novus",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1170": {
           "Name": "Taimi's Game",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1176": {
           "Name": "Taimi's Game",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1198": {
           "Name": "Taimi's Pet Project",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1046": {
           "Name": "Roots of Terror",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -2946,6 +3502,7 @@
       "Maps": {
         "1052": {
           "Name": "Verdant Brink",
+          "IsInstance": false,
           "Waypoints": {
             "[&BNUHAAA=]": "Mellaggan's Valor Waypoint",
             "[&BN4HAAA=]": "Shipwreck Peak Waypoint",
@@ -2958,22 +3515,27 @@
         },
         "1158": {
           "Name": "Noble's Folly",
+          "IsInstance": false,
           "Waypoints": {}
         },
         "1037": {
           "Name": "The Jungle Provides",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1050": {
           "Name": "Torn from the Sky",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1051": {
           "Name": "Prisoners of the Dragon",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1192": {
           "Name": "The Second Vision",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -2982,10 +3544,12 @@
       "Maps": {
         "1147": {
           "Name": "Spirit Vale",
+          "IsInstance": false,
           "Waypoints": {}
         },
         "1062": {
           "Name": "Spirit Vale",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -2994,6 +3558,7 @@
       "Maps": {
         "1165": {
           "Name": "Bloodstone Fen",
+          "IsInstance": false,
           "Waypoints": {
             "[&BD8JAAA=]": "Depths of the Maw Waypoint",
             "[&BEEJAAA=]": "Ground Zero Waypoint",
@@ -3003,10 +3568,12 @@
         },
         "1167": {
           "Name": "A Shadow's Deeds",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1166": {
           "Name": "In Pursuit of Caudecus",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3015,6 +3582,7 @@
       "Maps": {
         "988": {
           "Name": "Dry Top",
+          "IsInstance": false,
           "Waypoints": {
             "[&BHoHAAA=]": "Prosperity Waypoint",
             "[&BIAHAAA=]": "Dry Top Entry Waypoint",
@@ -3025,38 +3593,47 @@
         },
         "989": {
           "Name": "Prosperity's Mystery",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "990": {
           "Name": "Cornered",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "993": {
           "Name": "Scarlet's Secret Room",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1000": {
           "Name": "The Waypoint Conundrum",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1007": {
           "Name": "Recalibrating the Waypoints",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1009": {
           "Name": "Taimi's Device",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "992": {
           "Name": "Fallen Hopes",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "997": {
           "Name": "Discovering Scarlet's Breakthrough",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "998": {
           "Name": "The Machine",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3065,6 +3642,7 @@
       "Maps": {
         "1015": {
           "Name": "The Silverwastes",
+          "IsInstance": false,
           "Waypoints": {
             "[&BH8HAAA=]": "Camp Resolve Waypoint",
             "[&BKwHAAA=]": "Hidden Depths Waypoint",
@@ -3073,38 +3651,47 @@
         },
         "1017": {
           "Name": "Reunion with the Pact",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1018": {
           "Name": "Caithe's Reconnaissance Squad",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1022": {
           "Name": "Return to Camp Resolve",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1024": {
           "Name": "No Refuge",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1027": {
           "Name": "Pact Assaulted",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1028": {
           "Name": "The Mystery Cave",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1021": {
           "Name": "Into the Labyrinth",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1023": {
           "Name": "Tracking the Aspect Masters",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1058": {
           "Name": "Prologue: Rally to Maguuma",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3113,6 +3700,7 @@
       "Maps": {
         "1175": {
           "Name": "Ember Bay",
+          "IsInstance": false,
           "Waypoints": {
             "[&BFUJAAA=]": "Scratch Gate Waypoint",
             "[&BF8JAAA=]": "Promontory Waypoint",
@@ -3126,6 +3714,7 @@
       "Maps": {
         "1195": {
           "Name": "Draconis Mons",
+          "IsInstance": false,
           "Waypoints": {
             "[&BL0JAAA=]": "Mariner's Landing Waypoint",
             "[&BM0JAAA=]": "Heathen's Hold Waypoint",
@@ -3138,6 +3727,7 @@
       "Maps": {
         "1155": {
           "Name": "Lion's Arch Aerodrome",
+          "IsInstance": false,
           "Waypoints": {
             "[&BCAJAAA=]": "Aerodrome Waypoint"
           }
@@ -3148,6 +3738,7 @@
       "Maps": {
         "877": {
           "Name": "Snowball Mayhem",
+          "IsInstance": false,
           "Waypoints": {
             "[&BOAGAAA=]": "Blue Team Rally Point",
             "[&BOEGAAA=]": "Red Team Rally Point"
@@ -3155,10 +3746,12 @@
         },
         "881": {
           "Name": "Bell Choir Ensemble",
+          "IsInstance": false,
           "Waypoints": {}
         },
         "882": {
           "Name": "Winter Wonderland",
+          "IsInstance": false,
           "Waypoints": {}
         }
       }
@@ -3167,12 +3760,14 @@
       "Maps": {
         "880": {
           "Name": "Toypocalypse",
+          "IsInstance": false,
           "Waypoints": {
             "[&BOMGAAA=]": "Player Respawn"
           }
         },
         "878": {
           "Name": "Tixx's Infinirarium",
+          "IsInstance": true,
           "Waypoints": {
             "[&BOIGAAA=]": "Toymaker's Airship Waypoint"
           }
@@ -3183,6 +3778,7 @@
       "Maps": {
         "935": {
           "Name": "Super Adventure Box",
+          "IsInstance": false,
           "Waypoints": {
             "[&BCAHAAA=]": null
           }
@@ -3193,6 +3789,7 @@
       "Maps": {
         "911": {
           "Name": "Dragon Ball Arena",
+          "IsInstance": false,
           "Waypoints": {
             "[&BAsHAAA=]": "Blue Team Rally Point",
             "[&BAwHAAA=]": "Red Team Rally Point"
@@ -3204,6 +3801,7 @@
       "Maps": {
         "919": {
           "Name": "Sanctum Sprint",
+          "IsInstance": false,
           "Waypoints": {}
         }
       }
@@ -3212,6 +3810,7 @@
       "Maps": {
         "918": {
           "Name": "Aspect Arena",
+          "IsInstance": false,
           "Waypoints": {
             "[&BBoHAAA=]": "Blue Team Rally Point",
             "[&BBsHAAA=]": "Red Team Rally Point"
@@ -3223,12 +3822,14 @@
       "Maps": {
         "929": {
           "Name": "The Crown Pavilion",
+          "IsInstance": false,
           "Waypoints": {
             "[&BB8HAAA=]": "Crown Pavilion Waypoint"
           }
         },
         "930": {
           "Name": "Opening Ceremony",
+          "IsInstance": true,
           "Waypoints": {
             "[&BB8HAAA=]": "Crown Pavilion Waypoint"
           }
@@ -3239,6 +3840,7 @@
       "Maps": {
         "943": {
           "Name": "Tower of Nightmares",
+          "IsInstance": false,
           "Waypoints": {
             "[&BC8HAAA=]": "Tower of Nightmares Waypoint"
           }
@@ -3249,6 +3851,7 @@
       "Maps": {
         "1042": {
           "Name": "Verdant Brink",
+          "IsInstance": false,
           "Waypoints": {
             "[&BMAHAAA=]": "Shipwreck Peak Waypoint"
           }
@@ -3259,6 +3862,7 @@
       "Maps": {
         "921": {
           "Name": "Basket Brawl",
+          "IsInstance": false,
           "Waypoints": {}
         }
       }
@@ -3267,6 +3871,7 @@
       "Maps": {
         "807": {
           "Name": "Eye of the North",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3275,10 +3880,12 @@
       "Maps": {
         "1066": {
           "Name": "Claiming the Gilded Hollow",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1068": {
           "Name": "Gilded Hollow",
+          "IsInstance": true,
           "Waypoints": {
             "[&BHIIAAA=]": "Cavern Mine Waypoint",
             "[&BNQIAAA=]": "Arena Tower Waypoint",
@@ -3289,18 +3896,22 @@
         },
         "1078": {
           "Name": "Claiming the Gilded Hollow",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1088": {
           "Name": "Claiming the Gilded Hollow",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1098": {
           "Name": "Claiming the Gilded Hollow",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1101": {
           "Name": "Gilded Hollow",
+          "IsInstance": true,
           "Waypoints": {
             "[&BHIIAAA=]": "Cavern Mine Waypoint",
             "[&BNQIAAA=]": "Arena Tower Waypoint",
@@ -3311,6 +3922,7 @@
         },
         "1107": {
           "Name": "Gilded Hollow",
+          "IsInstance": true,
           "Waypoints": {
             "[&BHIIAAA=]": "Cavern Mine Waypoint",
             "[&BNQIAAA=]": "Arena Tower Waypoint",
@@ -3321,6 +3933,7 @@
         },
         "1108": {
           "Name": "Gilded Hollow",
+          "IsInstance": true,
           "Waypoints": {
             "[&BHIIAAA=]": "Cavern Mine Waypoint",
             "[&BNQIAAA=]": "Arena Tower Waypoint",
@@ -3331,6 +3944,7 @@
         },
         "1121": {
           "Name": "Gilded Hollow",
+          "IsInstance": true,
           "Waypoints": {
             "[&BHIIAAA=]": "Cavern Mine Waypoint",
             "[&BNQIAAA=]": "Arena Tower Waypoint",
@@ -3341,10 +3955,12 @@
         },
         "1122": {
           "Name": "Claiming the Gilded Hollow",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1125": {
           "Name": "Gilded Hollow",
+          "IsInstance": true,
           "Waypoints": {
             "[&BHIIAAA=]": "Cavern Mine Waypoint",
             "[&BNQIAAA=]": "Arena Tower Waypoint",
@@ -3359,6 +3975,7 @@
       "Maps": {
         "1149": {
           "Name": "Salvation Pass",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3367,6 +3984,7 @@
       "Maps": {
         "1156": {
           "Name": "Stronghold of the Faithful",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3375,6 +3993,7 @@
       "Maps": {
         "1188": {
           "Name": "Bastion of the Penitent",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3383,18 +4002,22 @@
       "Maps": {
         "336": {
           "Name": "Chantry of Secrets",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "658": {
           "Name": "Base of Operations",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "697": {
           "Name": "Critical Blowback",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "695": {
           "Name": "Suspicious Activity",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3403,10 +4026,12 @@
       "Maps": {
         "698": {
           "Name": "The Battle of Claw Island",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "715": {
           "Name": "Retribution",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3415,6 +4040,7 @@
       "Maps": {
         "776": {
           "Name": "Temple of the Forgotten God",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3423,6 +4049,7 @@
       "Maps": {
         "897": {
           "Name": "Cragstead",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3431,10 +4058,12 @@
       "Maps": {
         "1064": {
           "Name": "Claiming the Lost Precipice",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1069": {
           "Name": "Lost Precipice",
+          "IsInstance": true,
           "Waypoints": {
             "[&BDsIAAA=]": "Canyon Dig Waypoint",
             "[&BFEIAAA=]": "Riverside Overlook Waypoint",
@@ -3446,10 +4075,12 @@
         },
         "1070": {
           "Name": "Claiming the Lost Precipice",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1071": {
           "Name": "Lost Precipice",
+          "IsInstance": true,
           "Waypoints": {
             "[&BDsIAAA=]": "Canyon Dig Waypoint",
             "[&BFEIAAA=]": "Riverside Overlook Waypoint",
@@ -3461,6 +4092,7 @@
         },
         "1076": {
           "Name": "Lost Precipice",
+          "IsInstance": true,
           "Waypoints": {
             "[&BDsIAAA=]": "Canyon Dig Waypoint",
             "[&BFEIAAA=]": "Riverside Overlook Waypoint",
@@ -3472,6 +4104,7 @@
         },
         "1104": {
           "Name": "Lost Precipice",
+          "IsInstance": true,
           "Waypoints": {
             "[&BDsIAAA=]": "Canyon Dig Waypoint",
             "[&BFEIAAA=]": "Riverside Overlook Waypoint",
@@ -3483,10 +4116,12 @@
         },
         "1117": {
           "Name": "Claiming the Lost Precipice",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1124": {
           "Name": "Lost Precipice",
+          "IsInstance": true,
           "Waypoints": {
             "[&BDsIAAA=]": "Canyon Dig Waypoint",
             "[&BFEIAAA=]": "Riverside Overlook Waypoint",
@@ -3498,14 +4133,17 @@
         },
         "1132": {
           "Name": "Claiming the Lost Precipice",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1140": {
           "Name": "Claiming the Lost Precipice",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "1144": {
           "Name": "Lost Precipice",
+          "IsInstance": true,
           "Waypoints": {
             "[&BDsIAAA=]": "Canyon Dig Waypoint",
             "[&BFEIAAA=]": "Riverside Overlook Waypoint",
@@ -3521,6 +4159,7 @@
       "Maps": {
         "75": {
           "Name": "Caudecus's Manor",
+          "IsInstance": true,
           "Waypoints": {
             "[&BDkDAAA=]": "Caudecus's Manor Waypoint",
             "[&BGoGAAA=]": "Formal Garden Waypoint",
@@ -3529,6 +4168,7 @@
         },
         "76": {
           "Name": "Caudecus's Manor",
+          "IsInstance": true,
           "Waypoints": {
             "[&BDoDAAA=]": "Caudecus's Manor Waypoint",
             "[&BGsGAAA=]": "Formal Garden Waypoint",
@@ -3538,6 +4178,7 @@
         },
         "1191": {
           "Name": "Beetlestone Manor",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3546,6 +4187,7 @@
       "Maps": {
         "70": {
           "Name": "Honor of the Waves",
+          "IsInstance": true,
           "Waypoints": {
             "[&BDUDAAA=]": "Honor's Waypoint",
             "[&BFYEAAA=]": "Contemplation Waypoint"
@@ -3553,6 +4195,7 @@
         },
         "71": {
           "Name": "Honor of the Waves",
+          "IsInstance": true,
           "Waypoints": {
             "[&BDQDAAA=]": "Honor's Waypoint",
             "[&BO8GAAA=]": "Palace of Gathering Waypoint",
@@ -3569,6 +4212,7 @@
       "Maps": {
         "112": {
           "Name": "The Ruined City of Arah",
+          "IsInstance": true,
           "Waypoints": {
             "[&BAwFAAA=]": "Pact Encampment Waypoint",
             "[&BK4FAAA=]": "Reza's Waypoint",
@@ -3594,6 +4238,7 @@
         },
         "111": {
           "Name": "Victory or Death",
+          "IsInstance": true,
           "Waypoints": {
             "[&BFsDAAA=]": "Pact Camp Waypoint",
             "[&BF8GAAA=]": "The Humble Waypoint",
@@ -3606,6 +4251,7 @@
       "Maps": {
         "895": {
           "Name": "Super Adventure Box",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3614,6 +4260,7 @@
       "Maps": {
         "934": {
           "Name": "Super Adventure Box",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3622,6 +4269,7 @@
       "Maps": {
         "936": {
           "Name": "Super Adventure Box",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3630,6 +4278,7 @@
       "Maps": {
         "940": {
           "Name": "Nightmare Chamber",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3638,14 +4287,17 @@
       "Maps": {
         "944": {
           "Name": "The Nightmare Incarnate",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "945": {
           "Name": "The Nightmare Ends",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "946": {
           "Name": "The Nightmare Incarnate",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3654,6 +4306,7 @@
       "Maps": {
         "33": {
           "Name": "Ascalonian Catacombs",
+          "IsInstance": true,
           "Waypoints": {
             "[&BJEDAAA=]": "Entrance Waypoint",
             "[&BJIDAAA=]": "Murals Waypoint",
@@ -3662,6 +4315,7 @@
         },
         "36": {
           "Name": "Ascalonian Catacombs",
+          "IsInstance": true,
           "Waypoints": {
             "[&BGsDAAA=]": "Entrance Waypoint",
             "[&BGwDAAA=]": "Archive Waypoint",
@@ -3679,6 +4333,7 @@
       "Maps": {
         "67": {
           "Name": "Twilight Arbor",
+          "IsInstance": true,
           "Waypoints": {
             "[&BNMBAAA=]": "Twilight Arbor Waypoint",
             "[&BGcGAAA=]": "Chamber of Envy Waypoint",
@@ -3698,6 +4353,7 @@
       "Maps": {
         "68": {
           "Name": "Twilight Arbor",
+          "IsInstance": true,
           "Waypoints": {
             "[&BNIBAAA=]": "Twilight Arbor Waypoint",
             "[&BEYDAAA=]": "Peatrot Gallery Waypoint",
@@ -3711,6 +4367,7 @@
       "Maps": {
         "63": {
           "Name": "Sorrow's Embrace",
+          "IsInstance": true,
           "Waypoints": {
             "[&BEoAAAA=]": "Sorrow's Embrace Waypoint",
             "[&BAMEAAA=]": "Mechanisms Waypoint",
@@ -3722,6 +4379,7 @@
         },
         "64": {
           "Name": "Sorrow's Embrace",
+          "IsInstance": true,
           "Waypoints": {
             "[&BBoEAAA=]": "Sorrow's Embrace Waypoint",
             "[&BEQFAAA=]": "The Long Road Waypoint",
@@ -3739,6 +4397,7 @@
       "Maps": {
         "66": {
           "Name": "Citadel of Flame",
+          "IsInstance": true,
           "Waypoints": {
             "[&BGkCAAA=]": "Chamber of Might Waypoint",
             "[&BBcEAAA=]": "Gallery of Rage Waypoint",
@@ -3748,6 +4407,7 @@
         },
         "69": {
           "Name": "Citadel of Flame",
+          "IsInstance": true,
           "Waypoints": {
             "[&BFAEAAA=]": "Gallery of Rage Waypoint",
             "[&BFEEAAA=]": "Molten Foundry Waypoint",
@@ -3769,6 +4429,7 @@
       "Maps": {
         "81": {
           "Name": "Crucible of Eternity",
+          "IsInstance": true,
           "Waypoints": {
             "[&BJUBAAA=]": "Crucible Access Waypoint",
             "[&BIgEAAA=]": "Eternity's Focus Waypoint",
@@ -3783,6 +4444,7 @@
         },
         "82": {
           "Name": "Crucible of Eternity",
+          "IsInstance": true,
           "Waypoints": {
             "[&BJoBAAA=]": "Eternity's Focus Waypoint",
             "[&BEUFAAA=]": "Central Data Repository Waypoint",
@@ -3798,6 +4460,7 @@
       "Maps": {
         "432": {
           "Name": "Fighting the Nightmare",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3806,6 +4469,7 @@
       "Maps": {
         "1040": {
           "Name": "Hearts and Minds",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3814,6 +4478,7 @@
       "Maps": {
         "1154": {
           "Name": "Special Forces Training Area",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3822,6 +4487,7 @@
       "Maps": {
         "1173": {
           "Name": "Taimi's Game",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3830,6 +4496,7 @@
       "Maps": {
         "1196": {
           "Name": "Heart of the Volcano",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3838,6 +4505,7 @@
       "Maps": {
         "1208": {
           "Name": "Shining Blade Headquarters",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3846,6 +4514,7 @@
       "Maps": {
         "1202": {
           "Name": "White Mantle Hideout",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -3854,6 +4523,7 @@
       "Maps": {
         "350": {
           "Name": "Heart of the Mists",
+          "IsInstance": false,
           "Waypoints": {
             "[&BBYEAAA=]": "PvP Lobby Waypoint",
             "[&BEkFAAA=]": "Portal to Lion's Arch",
@@ -3869,6 +4539,7 @@
       "Maps": {
         "549": {
           "Name": "Battle of Kyhlo",
+          "IsInstance": false,
           "Waypoints": {
             "[&BEwEAAA=]": "Blue Team Rally Point",
             "[&BE0EAAA=]": "Red Team Rally Point"
@@ -3880,6 +4551,7 @@
       "Maps": {
         "554": {
           "Name": "Forest of Niflhel",
+          "IsInstance": false,
           "Waypoints": {
             "[&BE4EAAA=]": "Blue Team Rally Point",
             "[&BE8EAAA=]": "Red Team Rally Point"
@@ -3891,6 +4563,7 @@
       "Maps": {
         "795": {
           "Name": "Legacy of the Foefire",
+          "IsInstance": false,
           "Waypoints": {
             "[&BPAEAAA=]": "Blue Team Rally Point",
             "[&BPEEAAA=]": "Red Team Rally Point"
@@ -3902,6 +4575,7 @@
       "Maps": {
         "875": {
           "Name": "Temple of the Silent Storm",
+          "IsInstance": false,
           "Waypoints": {
             "[&BNEGAAA=]": "Blue Team Rally Point",
             "[&BNMGAAA=]": "Red Team Rally Point"
@@ -3913,6 +4587,7 @@
       "Maps": {
         "894": {
           "Name": "Spirit Watch",
+          "IsInstance": false,
           "Waypoints": {
             "[&BPYGAAA=]": "Blue Team Rally Point",
             "[&BPcGAAA=]": "Red Team Rally Point"
@@ -3924,6 +4599,7 @@
       "Maps": {
         "900": {
           "Name": "Skyhammer",
+          "IsInstance": false,
           "Waypoints": {
             "[&BAUHAAA=]": "Blue Team Rally Point",
             "[&BAYHAAA=]": "Red Team Rally Point"
@@ -3935,6 +4611,7 @@
       "Maps": {
         "984": {
           "Name": "Courtyard",
+          "IsInstance": false,
           "Waypoints": {
             "[&BGYHAAA=]": "Blue Team Rally Point",
             "[&BGcHAAA=]": "Red Team Rally Point"
@@ -3946,6 +4623,7 @@
       "Maps": {
         "1011": {
           "Name": "Battle of Champion's Dusk",
+          "IsInstance": false,
           "Waypoints": {
             "[&BJsHAAA=]": "Red Team Rally Point",
             "[&BJ0HAAA=]": "Blue Team Rally Point"
@@ -3957,6 +4635,7 @@
       "Maps": {
         "1163": {
           "Name": "Revenge of the Capricorn",
+          "IsInstance": false,
           "Waypoints": {
             "[&BEMJAAA=]": "Blue Team Rally Point",
             "[&BEcJAAA=]": "Red Team Rally Point"
@@ -3968,6 +4647,7 @@
       "Maps": {
         "1171": {
           "Name": "Eternal Coliseum",
+          "IsInstance": false,
           "Waypoints": {
             "[&BFoJAAA=]": "Blue Team Rally Point",
             "[&BGcJAAA=]": "Red Team Rally Point"
@@ -3979,6 +4659,7 @@
       "Maps": {
         "1200": {
           "Name": "Hall of the Mists",
+          "IsInstance": false,
           "Waypoints": {}
         }
       }
@@ -3987,6 +4668,7 @@
       "Maps": {
         "38": {
           "Name": "Eternal Battlegrounds",
+          "IsInstance": false,
           "Waypoints": {
             "[&BPoDAAA=]": " Hill Waypoint",
             "[&BPsDAAA=]": " Hill Waypoint",
@@ -4019,6 +4701,7 @@
       "Maps": {
         "95": {
           "Name": " Alpine Borderlands",
+          "IsInstance": false,
           "Waypoints": {
             "[&BNkEAAA=]": "Dreadfall Bay Waypoint",
             "[&BNoEAAA=]": "Border Waypoint",
@@ -4041,6 +4724,7 @@
       "Maps": {
         "96": {
           "Name": " Alpine Borderlands",
+          "IsInstance": false,
           "Waypoints": {
             "[&BNMEAAA=]": "Ascension Bay Waypoint",
             "[&BNQEAAA=]": "Border Waypoint",
@@ -4063,6 +4747,7 @@
       "Maps": {
         "968": {
           "Name": "Edge of the Mists",
+          "IsInstance": false,
           "Waypoints": {
             "[&BEMHAAA=]": "Overgrowth Safe Zone Waypoint",
             "[&BEkHAAA=]": "Frostreach Safe Zone Waypoint",
@@ -4078,6 +4763,7 @@
       "Maps": {
         "1099": {
           "Name": " Desert Borderlands",
+          "IsInstance": false,
           "Waypoints": {
             "[&BCsIAAA=]": "Stoic Rampart Emergency Waypoint",
             "[&BDQIAAA=]": "Parched Outpost Emergency Waypoint",
@@ -4100,6 +4786,7 @@
       "Maps": {
         "899": {
           "Name": "Obsidian Sanctum",
+          "IsInstance": false,
           "Waypoints": {
             "[&BAIHAAA=]": "Obsidian Sanctum Waypoint",
             "[&BAMHAAA=]": "Obsidian Sanctum Waypoint",
@@ -4112,6 +4799,7 @@
       "Maps": {
         "1206": {
           "Name": "Mistlock Sanctuary",
+          "IsInstance": false,
           "Waypoints": {
             "[&BPMJAAA=]": "Mistlock Sanctuary Waypoint"
           }
@@ -4122,6 +4810,7 @@
       "Maps": {
         "865": {
           "Name": "Mad King's Clock Tower",
+          "IsInstance": false,
           "Waypoints": {}
         }
       }
@@ -4130,6 +4819,7 @@
       "Maps": {
         "866": {
           "Name": "Mad King's Labyrinth",
+          "IsInstance": false,
           "Waypoints": {
             "[&BM0GAAA=]": "Mad King's Labyrinth Waypoint",
             "[&BCoHAAA=]": "Mad King's Labyrinth Waypoint"
@@ -4137,6 +4827,7 @@
         },
         "864": {
           "Name": "Lunatic Inquisition",
+          "IsInstance": false,
           "Waypoints": {}
         }
       }
@@ -4145,6 +4836,7 @@
       "Maps": {
         "872": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4153,6 +4845,7 @@
       "Maps": {
         "950": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4161,6 +4854,7 @@
       "Maps": {
         "958": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4169,6 +4863,7 @@
       "Maps": {
         "1205": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4177,6 +4872,7 @@
       "Maps": {
         "1177": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4185,6 +4881,7 @@
       "Maps": {
         "953": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4193,6 +4890,7 @@
       "Maps": {
         "948": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4201,6 +4899,7 @@
       "Maps": {
         "1164": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4209,6 +4908,7 @@
       "Maps": {
         "949": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4217,6 +4917,7 @@
       "Maps": {
         "952": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4225,6 +4926,7 @@
       "Maps": {
         "947": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4233,6 +4935,7 @@
       "Maps": {
         "951": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4241,6 +4944,7 @@
       "Maps": {
         "954": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4249,10 +4953,12 @@
       "Maps": {
         "956": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         },
         "960": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4261,6 +4967,7 @@
       "Maps": {
         "955": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4269,6 +4976,7 @@
       "Maps": {
         "959": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {}
         }
       }
@@ -4277,12 +4985,14 @@
       "Maps": {
         "957": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {
             "[&BDAHAAA=]": "Thaumanova Reactor"
           }
         },
         "961": {
           "Name": "Fractals of the Mists",
+          "IsInstance": true,
           "Waypoints": {
             "[&BDAHAAA=]": "Thaumanova Reactor"
           }
@@ -4293,6 +5003,7 @@
       "Maps": {
         "863": {
           "Name": "Ascent to Madness",
+          "IsInstance": true,
           "Waypoints": {
             "[&BMwGAAA=]": "Ascent to Madness Waypoint"
           }

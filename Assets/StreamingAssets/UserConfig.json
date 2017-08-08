@@ -32,6 +32,7 @@
 
     // Behavior.
     "AutoUpdateGameDatabase": true,
+    "RouteAutoload": "Existing",
     "StartInFollowMode": false,
     "OrientationHelperDefault": true,
     "ConsoleFilter": 0,

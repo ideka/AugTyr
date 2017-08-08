@@ -99,6 +99,7 @@ public class GameDatabaseHolder : MonoBehaviour
                                 Name = (string)mapData["name"],
 
                                 IsInstance = type == "Instance" || type == "Tutorial",
+
                                 Rect = new Map.ContinentRect()
                                 {
                                     ContinentId = int.Parse(continentId),

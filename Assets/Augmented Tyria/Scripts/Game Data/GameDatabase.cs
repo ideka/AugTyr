@@ -7,6 +7,15 @@ public class GameDatabase
 
     public List<MapGroup> MapGroups = new List<MapGroup>();
 
+    public bool TryGetMap(int id, out Map map)
+    {
+        foreach (Dictionary<int, Map> maps in this.MapGroups.Select(g => g.Maps))
+            if (maps.TryGetValue(id, out map))
+                return true;
+        map = default(Map);
+        return false;
+    }
+
     public void AddMap(int id, Map map)
     {
         if (!map.IsInstance)
