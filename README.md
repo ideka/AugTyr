@@ -97,7 +97,7 @@ Below is an overview of currently available options.
  
   * `"NeglectBlit"` Tell Unity to let the code decide what to blit, then blit nothing.
  
-  * `"ColorIndexed"` Instruct Windows to treat a certain color as transparency, and paint that color as the background. Not recommended as it is slower than the other options, and doesn't allow for semitransparency.
+  * `"ByColor"` Instruct Windows to treat a certain color as transparency, and paint that color as the background. Not recommended as it is slower than the other options, and doesn't allow for semitransparency.
 
 ### Behavior options
 
