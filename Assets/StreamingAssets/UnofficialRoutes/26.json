@@ -5889,4 +5889,13 @@
       "HeartWallValue": null
     },
     {
- 
+      "X": -334.522339,
+      "Y": 17.0927563,
+      "Z": -718.1428,
+      "Comment": "Turn in bomb here",
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    }
+  ]
+}
