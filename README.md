@@ -87,7 +87,17 @@ Below is an overview of currently available options.
 
 * `ScreenHeight` (int) Set to a positive number to have AugTyr use it as the desired resolution height.
 
-* `ByColorTransparency` (bool) Set to true to enable a different window transparency method. **Be warned**, it's slow and looks worse, so do not bother with this unless the default doesn't work for you.
+* **0.3.2** `TransparencyMethod` (string) Select which method AugTyr should use to make the window transparent. Possible values are:
+
+  * `"ConstantBlit"` A shader will explicitly set each pixel's transparency to zero.
+
+ * `"DiscardAllBlit"` A shader will make all pixels be ignored, keeping the previous transparency of each one, which should be zero.
+
+ * `"DefaultBlit"` Set all pixel's transparency to zero using Unity's default BlitCopy shader.
+
+ * `"NeglectBlit"` Tell Unity to let the code decide what to blit, then blit nothing.
+
+ * `"ColorIndexed"` Instruct Windows to treat a certain color as transparency, and paint that color as the background. Not recommended as it is slower than the other options, and doesn't allow for semitransparency.
 
 ### Behavior options
 
@@ -233,7 +243,7 @@ You can set the resolution you want explicitly in the user config file.
 
 This has been reported to happen if Windows Aero is disabled. Try enabling it.
 
-If that doesn't help, you can try the by color transparency mode. It's usually really slow, but it might fix the problem. Set the option to true in the user config file.
+If that doesn't help, you can try all possible values of the `TransparencyMethod` config entry and see if one of them works for you.
 
 ## Download
 
