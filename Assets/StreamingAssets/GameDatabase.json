@@ -1,5 +1,5 @@
 {
-  "BuildId": 80238,
+  "BuildId": 80778,
   "MapGroups": [
     {
       "Maps": {
@@ -3869,6 +3869,17 @@
     },
     {
       "Maps": {
+        "1206": {
+          "Name": "Mistlock Sanctuary",
+          "IsInstance": false,
+          "Waypoints": {
+            "[&BPMJAAA=]": "Mistlock Sanctuary Waypoint"
+          }
+        }
+      }
+    },
+    {
+      "Maps": {
         "807": {
           "Name": "Eye of the North",
           "IsInstance": true,
@@ -4791,17 +4802,6 @@
             "[&BAIHAAA=]": "Obsidian Sanctum Waypoint",
             "[&BAMHAAA=]": "Obsidian Sanctum Waypoint",
             "[&BAQHAAA=]": "Obsidian Sanctum Waypoint"
-          }
-        }
-      }
-    },
-    {
-      "Maps": {
-        "1206": {
-          "Name": "Mistlock Sanctuary",
-          "IsInstance": false,
-          "Waypoints": {
-            "[&BPMJAAA=]": "Mistlock Sanctuary Waypoint"
           }
         }
       }
