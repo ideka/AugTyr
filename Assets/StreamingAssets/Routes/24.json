@@ -829,27 +829,36 @@
       "HeartWallValue": null
     },
     {
-      "X": 680.5606,
-      "Y": 41.43755,
-      "Z": -140.221481,
+      "X": 683.243652,
+      "Y": 40.2922859,
+      "Z": -136.789352,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": 683.1285,
-      "Y": 41.43006,
-      "Z": -139.739548,
+      "X": 684.137146,
+      "Y": 42.2005157,
+      "Z": -137.2799,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": 694.3044,
-      "Y": 41.43006,
-      "Z": -128.571213,
+      "X": 690.5723,
+      "Y": 42.25271,
+      "Z": -131.221558,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 694.5885,
+      "Y": 41.4294319,
+      "Z": -125.139519,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
