@@ -47,11 +47,6 @@ public static class WinAPI
             return this.Move(p => p.ClientToScreen(hWnd));
         }
 
-        public RECT ScreenToClient(IntPtr hWnd)
-        {
-            return this.Move(p => p.ScreenToClient(hWnd));
-        }
-
         private RECT Move(Func<Point, Point> mover)
         {
             Point lt = mover(new Point(this.left, this.top));
@@ -97,9 +92,6 @@ public static class WinAPI
     }
 
     [DllImport("user32.dll")]
-    public static extern bool IsWindow(IntPtr hWnd);
-
-    [DllImport("user32.dll")]
     public static extern IntPtr GetActiveWindow();
 
     [DllImport("user32.dll")]
@@ -107,15 +99,6 @@ public static class WinAPI
 
     [DllImport("user32.dll")]
     public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-
-    [DllImport("user32.dll")]
-    public static extern bool ScreenToClient(IntPtr hWnd, ref Point lpPoint);
-
-    public static Point ScreenToClient(this Point point, IntPtr hWnd)
-    {
-        ScreenToClient(hWnd, ref point);
-        return point;
-    }
 
     [DllImport("user32.dll")]
     public static extern bool ClientToScreen(IntPtr hWnd, ref Point lpPoint);
@@ -127,13 +110,7 @@ public static class WinAPI
     }
 
     [DllImport("user32.dll")]
-    public static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
-
-    [DllImport("user32.dll")]
     public static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
-
-    [DllImport("user32.dll")]
-    public static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
 
     [DllImport("user32.dll")]
     public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
@@ -150,20 +127,6 @@ public static class WinAPI
             return SetWindowLong32(hWnd, nIndex, dwNewLong);
         else
             return (int)SetWindowLongPtr64(hWnd, nIndex, new UIntPtr(dwNewLong));
-    }
-
-    [DllImport("user32.dll", EntryPoint="GetWindowLong")]
-    private static extern uint GetWindowLong32(IntPtr hWnd, int nIndex);
-
-    [DllImport("user32.dll", EntryPoint="GetWindowLongPtr")]
-    private static extern UIntPtr GetWindowLongPtr64(IntPtr hWnd, int nIndex);
-
-    public static uint GetWindowLong(IntPtr hWnd, int nIndex)
-    {
-         if (IntPtr.Size != 8)
-             return GetWindowLong32(hWnd, nIndex);
-         else
-             return (uint)GetWindowLongPtr64(hWnd, nIndex);
     }
 
     [DllImport("user32.dll")]
