@@ -243,6 +243,8 @@ You can set the resolution you want explicitly in the user config file.
 
 This has been reported to happen if Windows Aero is disabled. Try enabling it.
 
+Something else that might be related is global graphic options, like those set up via the NVIDIA control panel and such.
+
 If that doesn't help, you can try all possible values of the `TransparencyMethod` config entry and see if one of them works for you.
 
 ## Download
