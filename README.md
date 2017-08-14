@@ -1,8 +1,8 @@
-# Augmented Tyria 0.3.2-beta
+# Augmented Tyria 0.4-beta
 
 # PLEASE check in this file before asking questions
 
-If you're already quite familiar with AugTyr 0.2, you only need to read sections labeled as **0.3** (use Ctrl + F).
+If you're already quite familiar with AugTyr 0.3, you only need to read sections labeled as **0.4** (use Ctrl + F).
 
 ## Running AugTyr
 
@@ -87,7 +87,7 @@ Below is an overview of currently available options.
 
 * `ScreenHeight` (int) Set to a positive number to have AugTyr use it as the desired resolution height.
 
-* **0.3.2** `TransparencyMethod` (string) Select which method AugTyr should use to make the window transparent. Possible values are:
+* **0.4** `TransparencyMethod` (string) Select which method AugTyr should use to make the window transparent. Possible values are:
 
   * `"ConstantBlit"` A shader will explicitly set each pixel's transparency to zero.
 
@@ -103,7 +103,7 @@ Below is an overview of currently available options.
 
 * `AutoUpdateGameDatabase` (bool) Set to false to disable game database updates. AugTyr should not establish any internet connection if this is the case, but in turn the game database (used to resolve waypoint names into waypoint codes) might become outdated.
 
-* **0.3.2** `RouteAutoload` (string) The route autoload method to use. Possible values are:
+* **0.4** `RouteAutoload` (string) The route autoload method to use. Possible values are:
 
   * `"None"` Never autoload routes.
 
@@ -129,7 +129,7 @@ Below is an overview of currently available options.
 
 ### Visual options
 
-* **0.3.2** `ConsoleFontSize` (int) The font size for all console messages.
+* **0.4** `ConsoleFontSize` (int) The font size for all console messages.
 
 * `RouteWidth` (float) The width of all lines drawn, in all modes.
 
@@ -249,6 +249,4 @@ If that doesn't help, you can try all possible values of the `TransparencyMethod
 
 ## Download
 
-AugTyr-0.3.2 is not out yet.
-
-[AugTyr-0.3.1](https://github.com/ideka/AugTyr/releases/tag/v0.3.1-beta)
+[AugTyr-0.4](https://github.com/ideka/AugTyr/releases/tag/v0.4-beta)
