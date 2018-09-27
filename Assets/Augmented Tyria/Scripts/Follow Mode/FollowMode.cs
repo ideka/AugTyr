@@ -15,7 +15,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
     public LineRenderer RouteDisplay;
     public LineRenderer OrientationHelper;
 
-    public const float SquaredDistToReach = 1;
+    public const float SquaredDistToReach = 50;
     public const float SquaredMaxRouteLength = 1000;
 
     public MonoBehaviour Holder { get { return this; } }
