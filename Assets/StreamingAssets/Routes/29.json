@@ -2587,7 +2587,7 @@
       "X": 302.222046,
       "Y": 5.12025928,
       "Z": -213.331039,
-      "Comment": "Make Potions here. Kill Krait if Event is up.",
+      "Comment": "Make potion on alchemy table, use the last convo option all the way through. Take it from potion table and throw on monsters",
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -3442,7 +3442,7 @@
       "X": 564.2468,
       "Y": 87.67727,
       "Z": 196.9271,
-      "Comment": "Stand here and dodge forward (don't stand too close to the force field).",
+      "Comment": "Stand here and dodge forward (don't stand too close to the force field, this is hard).",
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
