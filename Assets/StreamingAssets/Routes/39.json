@@ -2506,7 +2506,7 @@
       "X": -173.668747,
       "Y": 13.58611,
       "Z": 567.3357,
-      "Comment": "Buy 50 [Special Root] on the Trading Post and turn it in. Also get transformed to get the next POI.",
+      "Comment": "Buy 50 [Special Root] on the Trading Post and turn it in if event is up. Also get transformed to get the next POI.",
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -3844,9 +3844,9 @@
       "HeartWallValue": null
     },
     {
-      "X": 465.544342,
-      "Y": 62.24289,
-      "Z": -425.907,
+      "X": 465.8673,
+      "Y": 57.1248,
+      "Z": -423.26825,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -3856,7 +3856,7 @@
       "X": 568.8053,
       "Y": 13.4814978,
       "Z": -448.2615,
-      "Comment": "Buy [Alpha Inquest Control Key] on the Trading Post and turn it in.",
+      "Comment": "Buy 20 [Alpha Inquest Control Key] on the Trading Post and turn them in",
       "Type": 1,
       "WaypointCode": "[&BNICAAA=]",
       "HeartWallValue": null
