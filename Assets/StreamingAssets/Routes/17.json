@@ -334,11 +334,11 @@
       "HeartWallValue": null
     },
     {
-      "X": 813.6259,
-      "Y": 45.2482262,
-      "Z": -466.048737,
-      "Comment": "Pick the 3rd option twice to get the Warhorn.",
-      "Type": 2,
+      "X": 813.846863,
+      "Y": 45.14299,
+      "Z": -466.5358,
+      "Comment": null,
+      "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
@@ -5632,6 +5632,15 @@
       "Y": 47.37966,
       "Z": -487.61496,
       "Comment": "Target the Rat above and spam 2 from right here, out of LoS, until the Heart is done.",
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 813.7772,
+      "Y": 46.8408165,
+      "Z": -465.199768,
+      "Comment": "Pick 3rd option twice",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
