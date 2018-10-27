@@ -118,45 +118,36 @@
       "HeartWallValue": null
     },
     {
-      "X": 528.0187,
-      "Y": 45.513443,
-      "Z": -740.0547,
+      "X": 525.5297,
+      "Y": 50.5672226,
+      "Z": -736.931458,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": 535.225769,
-      "Y": 35.2970924,
-      "Z": -736.7083,
+      "X": 531.3408,
+      "Y": 46.1562958,
+      "Z": -730.9728,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": 542.0936,
-      "Y": 34.67809,
-      "Z": -738.6719,
+      "X": 540.4668,
+      "Y": 46.4953728,
+      "Z": -730.858032,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": 548.1904,
-      "Y": 28.6025143,
-      "Z": -738.5465,
-      "Comment": null,
-      "Type": 0,
-      "WaypointCode": null,
-      "HeartWallValue": null
-    },
-    {
-      "X": 555.4161,
-      "Y": 18.16508,
-      "Z": -731.5497,
+      "X": 554.808533,
+      "Y": 16.8150482,
+      "Z": -727.208435,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -334,9 +325,81 @@
       "HeartWallValue": null
     },
     {
-      "X": 369.423157,
-      "Y": 76.13765,
-      "Z": -728.475037,
+      "X": 451.514038,
+      "Y": 56.64462,
+      "Z": -765.806763,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 442.299622,
+      "Y": 56.43822,
+      "Z": -761.606,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 430.973938,
+      "Y": 59.45732,
+      "Z": -756.581238,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 418.8419,
+      "Y": 62.19418,
+      "Z": -751.5191,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 413.437683,
+      "Y": 65.3366547,
+      "Z": -749.1594,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 404.165619,
+      "Y": 68.28832,
+      "Z": -744.726257,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 390.111176,
+      "Y": 72.26416,
+      "Z": -737.9957,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 378.610962,
+      "Y": 74.46301,
+      "Z": -733.1557,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 369.206238,
+      "Y": 75.97482,
+      "Z": -729.0719,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -4951,9 +5014,9 @@
       "HeartWallValue": null
     },
     {
-      "X": -464.049316,
-      "Y": -94.8848343,
-      "Z": -93.46637,
+      "X": -468.158173,
+      "Y": -95.13492,
+      "Z": -93.27022,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -5005,9 +5068,9 @@
       "HeartWallValue": null
     },
     {
-      "X": -645.1874,
-      "Y": -151.302719,
-      "Z": 261.970917,
+      "X": -642.9758,
+      "Y": -149.384872,
+      "Z": 254.210983,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -5044,10 +5107,19 @@
       "X": -708.3271,
       "Y": -99.23856,
       "Z": 301.2849,
-      "Comment": "Duel the 4 trainees then swim around and click objectives",
+      "Comment": "Duel the 4 trainees, after defeating them, relog to reset and duel again. Keep going to complete heart",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
+    },
+    {
+      "X": -715.773743,
+      "Y": -93.65259,
+      "Z": 315.435638,
+      "Comment": null,
+      "Type": 3,
+      "WaypointCode": null,
+      "HeartWallValue": "100"
     },
     {
       "X": -745.1644,
@@ -5057,24 +5129,6 @@
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
-    },
-    {
-      "X": -674.6782,
-      "Y": -16.0972061,
-      "Z": 367.107452,
-      "Comment": null,
-      "Type": 0,
-      "WaypointCode": null,
-      "HeartWallValue": null
-    },
-    {
-      "X": -674.6782,
-      "Y": -16.0972061,
-      "Z": 367.107452,
-      "Comment": null,
-      "Type": 3,
-      "WaypointCode": null,
-      "HeartWallValue": "100"
     },
     {
       "X": -652.3742,
@@ -5365,9 +5419,9 @@
       "HeartWallValue": null
     },
     {
-      "X": -875.5716,
-      "Y": 8.407967,
-      "Z": 871.227844,
+      "X": -878.4959,
+      "Y": 9.148312,
+      "Z": 870.741943,
       "Comment": null,
       "Type": 1,
       "WaypointCode": "[&BH8CAAA=]",
@@ -7716,33 +7770,6 @@
       "HeartWallValue": null
     },
     {
-      "X": -545.8422,
-      "Y": 46.67177,
-      "Z": -242.25972,
-      "Comment": "\"The balance -> The weapon\" in dialog",
-      "Type": 2,
-      "WaypointCode": null,
-      "HeartWallValue": null
-    },
-    {
-      "X": -502.692078,
-      "Y": 43.3899574,
-      "Z": -202.126556,
-      "Comment": "Third option",
-      "Type": 2,
-      "WaypointCode": null,
-      "HeartWallValue": null
-    },
-    {
-      "X": -498.149628,
-      "Y": 44.0920029,
-      "Z": -203.535736,
-      "Comment": "Second option",
-      "Type": 2,
-      "WaypointCode": null,
-      "HeartWallValue": null
-    },
-    {
       "X": -720.340332,
       "Y": -98.16319,
       "Z": 304.741882,
@@ -7774,6 +7801,15 @@
       "Y": -102.354881,
       "Z": 309.0018,
       "Comment": null,
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -610.197266,
+      "Y": 30.7574368,
+      "Z": -301.282043,
+      "Comment": "Old bear once young",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
