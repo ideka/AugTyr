@@ -36,6 +36,7 @@
     "StartInFollowMode": false,
     "OrientationHelperDefault": true,
     "ConsoleFilter": 0,
+    "ConsumeRange": 10,
 
     // Visuals.
     "ConsoleFontSize": 20,
