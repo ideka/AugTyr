@@ -424,6 +424,51 @@
       "HeartWallValue": "100"
     },
     {
+      "X": -961.8188,
+      "Y": 16.6203823,
+      "Z": 464.968964,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -967.535767,
+      "Y": 19.3824711,
+      "Z": 438.859375,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -972.218445,
+      "Y": 21.69077,
+      "Z": 417.422821,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -976.7417,
+      "Y": 24.4747925,
+      "Z": 397.5212,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -980.4517,
+      "Y": 26.5698948,
+      "Z": 382.705,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
       "X": -982.6723,
       "Y": 27.15536,
       "Z": 370.9184,
@@ -433,63 +478,72 @@
       "HeartWallValue": null
     },
     {
-      "X": -980.8306,
-      "Y": 28.03778,
-      "Z": 357.141937,
+      "X": -976.745667,
+      "Y": 27.60195,
+      "Z": 356.191,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": -983.6971,
-      "Y": 28.4442158,
-      "Z": 351.823364,
+      "X": -975.1945,
+      "Y": 27.73136,
+      "Z": 346.5558,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": -986.2862,
-      "Y": 30.4777241,
-      "Z": 346.47525,
+      "X": -974.7811,
+      "Y": 28.07718,
+      "Z": 337.172363,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": -988.219849,
-      "Y": 29.2426472,
-      "Z": 342.3986,
+      "X": -974.1308,
+      "Y": 29.6564541,
+      "Z": 320.8817,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": -1002.46515,
-      "Y": 28.922781,
-      "Z": 313.772247,
+      "X": -978.5234,
+      "Y": 27.5598564,
+      "Z": 299.254517,
       "Comment": "You can [weapon-swap] open the Bushes.",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": -987.6007,
-      "Y": 27.1322651,
-      "Z": 293.513153,
+      "X": -978.2048,
+      "Y": 27.0215282,
+      "Z": 290.6259,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": -951.305054,
-      "Y": 24.8682137,
-      "Z": 249.2342,
+      "X": -970.7876,
+      "Y": 26.4008732,
+      "Z": 275.1232,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -953.3018,
+      "Y": 24.8115826,
+      "Z": 248.852737,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
