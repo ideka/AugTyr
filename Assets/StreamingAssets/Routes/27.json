@@ -94,7 +94,7 @@
       "X": 130.602921,
       "Y": 124.918678,
       "Z": 1361.96094,
-      "Comment": "Run to 1 and beat her up. Then get meat at 2 and give it to 3. Then get out and repair fences/water on drunks.",
+      "Comment": "Run in and follow numbers then get out and repair fences/water on drunks.",
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -964,56 +964,29 @@
       "HeartWallValue": null
     },
     {
-      "X": -284.5874,
-      "Y": 149.971634,
-      "Z": 1068.57886,
-      "Comment": "Follow the line closely to avoid an invisible wall.",
-      "Type": 0,
-      "WaypointCode": null,
-      "HeartWallValue": null
-    },
-    {
-      "X": -339.016968,
-      "Y": 131.671509,
-      "Z": 1113.4906,
+      "X": -284.697357,
+      "Y": 149.990891,
+      "Z": 1068.04346,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": -347.501038,
-      "Y": 107.320869,
-      "Z": 1114.93835,
+      "X": -363.120758,
+      "Y": 122.086838,
+      "Z": 1078.32166,
       "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -363.7707,
+      "Y": 109.724861,
+      "Z": 1075.36572,
+      "Comment": "Kill rats, get Scrap Metal and put in Scrap-Metal Barrels",
       "Type": 2,
-      "WaypointCode": null,
-      "HeartWallValue": null
-    },
-    {
-      "X": -344.970581,
-      "Y": 107.397942,
-      "Z": 1092.795,
-      "Comment": null,
-      "Type": 0,
-      "WaypointCode": null,
-      "HeartWallValue": null
-    },
-    {
-      "X": -351.168335,
-      "Y": 107.83,
-      "Z": 1091.84619,
-      "Comment": null,
-      "Type": 0,
-      "WaypointCode": null,
-      "HeartWallValue": null
-    },
-    {
-      "X": -367.811462,
-      "Y": 107.835075,
-      "Z": 1086.56812,
-      "Comment": null,
-      "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
@@ -1270,18 +1243,27 @@
       "HeartWallValue": null
     },
     {
-      "X": 448.480438,
-      "Y": 217.5253,
-      "Z": 1159.13232,
+      "X": 451.09137,
+      "Y": 215.135651,
+      "Z": 1170.137,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": 452.4905,
-      "Y": 222.741135,
-      "Z": 1145.20215,
+      "X": 458.520081,
+      "Y": 219.168213,
+      "Z": 1154.95752,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 455.303772,
+      "Y": 222.254044,
+      "Z": 1144.50159,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -3889,36 +3871,72 @@
       "HeartWallValue": null
     },
     {
-      "X": -129.17601,
-      "Y": 90.53121,
-      "Z": -205.924789,
+      "X": -106.944176,
+      "Y": 95.08234,
+      "Z": -191.758759,
       "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -90.7245941,
+      "Y": 98.88527,
+      "Z": -183.857025,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -81.1653748,
+      "Y": 103.547157,
+      "Z": -178.895523,
+      "Comment": "Do event if it's up otherwise get an Essence Coagulator and open portals/kill Imps",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": -75.0385361,
-      "Y": 101.776085,
-      "Z": -194.786728,
+      "X": -67.62239,
+      "Y": 106.205048,
+      "Z": -186.272827,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": -66.9689255,
-      "Y": 105.504494,
-      "Z": -193.069077,
+      "X": -54.46196,
+      "Y": 108.835213,
+      "Z": -182.862076,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": 0.191778988,
-      "Y": 111.829643,
-      "Z": -168.598923,
+      "X": -39.1675758,
+      "Y": 111.301834,
+      "Z": -178.888657,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -24.5857811,
+      "Y": 110.41436,
+      "Z": -174.958511,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 1.57478881,
+      "Y": 110.437477,
+      "Z": -170.945862,
       "Comment": null,
       "Type": 3,
       "WaypointCode": null,
@@ -3934,9 +3952,9 @@
       "HeartWallValue": null
     },
     {
-      "X": 40.8338432,
-      "Y": 96.8819046,
-      "Z": -165.645386,
+      "X": 46.1926842,
+      "Y": 96.58995,
+      "Z": -159.133514,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -6294,11 +6312,74 @@
       "HeartWallValue": null
     },
     {
-      "X": -169.357056,
-      "Y": 69.64002,
-      "Z": 689.425,
-      "Comment": "Gap here.",
-      "Type": 0,
+      "X": 105.296173,
+      "Y": 126.886909,
+      "Z": 1344.92444,
+      "Comment": "4",
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 96.4766541,
+      "Y": 126.868271,
+      "Z": 1349.278,
+      "Comment": "5",
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 95.83025,
+      "Y": 126.868622,
+      "Z": 1355.57739,
+      "Comment": "6",
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 96.0966644,
+      "Y": 126.868652,
+      "Z": 1375.962,
+      "Comment": "7",
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 94.5403,
+      "Y": 126.869247,
+      "Z": 1370.92017,
+      "Comment": "8",
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 97.9349,
+      "Y": 126.886414,
+      "Z": 1378.81335,
+      "Comment": "9",
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 130.944412,
+      "Y": 126.886414,
+      "Z": 1384.33752,
+      "Comment": "10",
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 138.623184,
+      "Y": 126.852882,
+      "Z": 1384.22229,
+      "Comment": "11",
+      "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
     }
