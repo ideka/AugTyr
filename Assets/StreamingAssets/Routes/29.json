@@ -3439,15 +3439,6 @@
       "HeartWallValue": null
     },
     {
-      "X": 562.457642,
-      "Y": 87.00811,
-      "Z": 194.6509,
-      "Comment": "Stand here and back out while looking at pink cube",
-      "Type": 0,
-      "WaypointCode": null,
-      "HeartWallValue": null
-    },
-    {
       "X": 558.692932,
       "Y": 85.2855759,
       "Z": 197.200668,
@@ -4044,10 +4035,19 @@
       "HeartWallValue": null
     },
     {
-      "X": 563.8626,
-      "Y": 87.8856354,
-      "Z": 199.2893,
-      "Comment": null,
+      "X": 573.4613,
+      "Y": 86.4640961,
+      "Z": 199.163116,
+      "Comment": "Aim here and dodge",
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 564.194031,
+      "Y": 87.71242,
+      "Z": 197.032562,
+      "Comment": "Stand here",
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
