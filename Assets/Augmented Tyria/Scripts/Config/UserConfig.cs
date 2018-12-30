@@ -13,7 +13,7 @@ public class UserConfig
     public bool StartInFollowMode;
     public bool OrientationHelperDefault = true;
     public int ConsoleFilter = 0;
-    public float ConsumeRange = 10;
+    public float ConsumeRange = 20;
 
     // Visuals.
     public int ConsoleFontSize = 20;
