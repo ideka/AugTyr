@@ -33,10 +33,10 @@
     // Behavior.
     "AutoUpdateGameDatabase": true,
     "RouteAutoload": "Existing",
-    "StartInFollowMode": false,
+    "StartInFollowMode": true,
     "OrientationHelperDefault": true,
     "ConsoleFilter": 0,
-    "ConsumeRange": 10,
+    "ConsumeRange": 20,
 
     // Visuals.
     "ConsoleFontSize": 20,
