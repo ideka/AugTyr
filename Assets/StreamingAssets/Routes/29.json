@@ -2587,7 +2587,7 @@
       "X": 302.222046,
       "Y": 5.12025928,
       "Z": -213.331039,
-      "Comment": "Make Potions here. Kill Krait if Event is up.",
+      "Comment": "Make potion on alchemy table, use the last convo option all the way through. Take it from potion table and throw on monsters",
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -3439,18 +3439,9 @@
       "HeartWallValue": null
     },
     {
-      "X": 564.2468,
-      "Y": 87.67727,
-      "Z": 196.9271,
-      "Comment": "Stand here and dodge forward (don't stand too close to the force field).",
-      "Type": 0,
-      "WaypointCode": null,
-      "HeartWallValue": null
-    },
-    {
-      "X": 562.6921,
-      "Y": 86.78828,
-      "Z": 198.075089,
+      "X": 558.692932,
+      "Y": 85.2855759,
+      "Z": 197.200668,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -4040,6 +4031,24 @@
       "Z": 115.040588,
       "Comment": "Alcove with eggs here.",
       "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 573.4613,
+      "Y": 86.4640961,
+      "Z": 199.163116,
+      "Comment": "Aim here and dodge",
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 564.194031,
+      "Y": 87.71242,
+      "Z": 197.032562,
+      "Comment": "Stand here",
+      "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     }
