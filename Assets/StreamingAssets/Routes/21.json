@@ -469,6 +469,15 @@
       "HeartWallValue": null
     },
     {
+      "X": -794.7982,
+      "Y": 56.76409,
+      "Z": -665.3747,
+      "Comment": "Fight trainees",
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
       "X": -788.559143,
       "Y": 58.623188,
       "Z": -647.238647,
@@ -1291,7 +1300,7 @@
       "X": 195.834412,
       "Y": 35.4562645,
       "Z": -799.2637,
-      "Comment": "Buy 20 [Piece of Scrap Metal] on the Trading Post and turn it in.",
+      "Comment": "Buy 20 [Piece of Charr Scrap Metal] on the Trading Post and turn it in.",
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
@@ -2611,9 +2620,9 @@
       "HeartWallValue": null
     },
     {
-      "X": -379.748718,
-      "Y": 150.92514,
-      "Z": -228.343491,
+      "X": -387.12384,
+      "Y": 126.771545,
+      "Z": -235.340729,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -3160,27 +3169,27 @@
       "HeartWallValue": null
     },
     {
-      "X": -581.024658,
-      "Y": 9.664472,
-      "Z": 721.1961,
+      "X": -561.3777,
+      "Y": 14.034894,
+      "Z": 724.3718,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": -588.868042,
-      "Y": 3.02423143,
-      "Z": 714.846,
+      "X": -557.365356,
+      "Y": 15.1278191,
+      "Z": 720.164,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": -573.5436,
-      "Y": 1.70881641,
-      "Z": 696.2705,
+      "X": -548.7828,
+      "Y": 14.63868,
+      "Z": 711.3153,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -3358,9 +3367,9 @@
       "HeartWallValue": null
     },
     {
-      "X": -382.742279,
-      "Y": 75.3868256,
-      "Z": 556.488831,
+      "X": -380.513153,
+      "Y": 67.85311,
+      "Z": 561.875549,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -4105,18 +4114,18 @@
       "HeartWallValue": null
     },
     {
-      "X": 461.753784,
-      "Y": 50.4069557,
-      "Z": 472.5824,
+      "X": 461.166565,
+      "Y": 42.6665878,
+      "Z": 472.046478,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": 418.9865,
-      "Y": 9.76622,
-      "Z": 596.932068,
+      "X": 424.496033,
+      "Y": 10.0584087,
+      "Z": 580.274963,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -4186,54 +4195,135 @@
       "HeartWallValue": null
     },
     {
-      "X": 460.3793,
-      "Y": 49.9486961,
-      "Z": 470.464478,
+      "X": 461.802063,
+      "Y": 40.965992,
+      "Z": 468.610962,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": 445.174164,
-      "Y": 33.67524,
-      "Z": 415.090179,
+      "X": 473.809784,
+      "Y": 33.0409241,
+      "Z": 442.046021,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": 444.522919,
-      "Y": 34.5866,
-      "Z": 408.708679,
+      "X": 476.015869,
+      "Y": 33.9123878,
+      "Z": 438.6047,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": 443.9559,
-      "Y": 32.57991,
-      "Z": 404.6175,
+      "X": 480.584351,
+      "Y": 35.8471642,
+      "Z": 431.508179,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": 438.771851,
-      "Y": 31.1049213,
-      "Z": 389.792877,
+      "X": 484.322876,
+      "Y": 36.9124832,
+      "Z": 424.896881,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": 436.319946,
-      "Y": 32.8471336,
-      "Z": 387.701874,
+      "X": 483.6669,
+      "Y": 39.0915565,
+      "Z": 423.40274,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 482.139618,
+      "Y": 40.9279175,
+      "Z": 421.281921,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 479.123749,
+      "Y": 41.951622,
+      "Z": 417.709259,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 475.0815,
+      "Y": 41.83235,
+      "Z": 413.018219,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 465.924072,
+      "Y": 40.115,
+      "Z": 402.348816,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 458.89624,
+      "Y": 40.8638153,
+      "Z": 393.7452,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 444.872223,
+      "Y": 35.7688179,
+      "Z": 376.091736,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 438.3859,
+      "Y": 35.8281,
+      "Z": 368.279083,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 431.227631,
+      "Y": 35.4225426,
+      "Z": 359.861664,
+      "Comment": null,
+      "Type": 0,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 424.116272,
+      "Y": 35.2203026,
+      "Z": 352.3648,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -4659,6 +4749,69 @@
       "X": 233.517258,
       "Y": 12.6583757,
       "Z": 335.165558,
+      "Comment": null,
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -811.104553,
+      "Y": 58.0522957,
+      "Z": -678.0832,
+      "Comment": null,
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -823.777,
+      "Y": 57.982502,
+      "Z": -678.2192,
+      "Comment": null,
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -826.730835,
+      "Y": 57.9827347,
+      "Z": -660.324341,
+      "Comment": null,
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -817.430237,
+      "Y": 57.96833,
+      "Z": -651.1563,
+      "Comment": null,
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -783.0629,
+      "Y": 61.7266846,
+      "Z": -640.966064,
+      "Comment": null,
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -781.777954,
+      "Y": 61.66397,
+      "Z": -644.5831,
+      "Comment": null,
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": -780.6061,
+      "Y": 61.4262962,
+      "Z": -654.065247,
       "Comment": null,
       "Type": 2,
       "WaypointCode": null,
