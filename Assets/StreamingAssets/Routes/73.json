@@ -523,9 +523,9 @@
       "HeartWallValue": null
     },
     {
-      "X": 511.623749,
-      "Y": 76.25368,
-      "Z": 312.200134,
+      "X": 519.4376,
+      "Y": 70.9724655,
+      "Z": 317.4913,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -1009,18 +1009,18 @@
       "HeartWallValue": null
     },
     {
-      "X": 195.307526,
-      "Y": 14.3613815,
-      "Z": 961.0544,
+      "X": 207.504227,
+      "Y": 12.1521063,
+      "Z": 955.0029,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
       "HeartWallValue": null
     },
     {
-      "X": 192.360733,
-      "Y": 5.138851,
-      "Z": 948.6447,
+      "X": 199.9836,
+      "Y": 6.04580355,
+      "Z": 942.044556,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -1615,15 +1615,6 @@
       "X": 7.340875,
       "Y": 2.66776419,
       "Z": 420.377167,
-      "Comment": null,
-      "Type": 0,
-      "WaypointCode": null,
-      "HeartWallValue": null
-    },
-    {
-      "X": -40.0138359,
-      "Y": 77.57811,
-      "Z": 297.422882,
       "Comment": null,
       "Type": 0,
       "WaypointCode": null,
@@ -4003,6 +3994,33 @@
       "Y": 0.07384495,
       "Z": -812.203,
       "Comment": "3: Mushroom",
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 639.360352,
+      "Y": -0.374270946,
+      "Z": -803.0226,
+      "Comment": "4: Frog",
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 637.4555,
+      "Y": 1.38448012,
+      "Z": -805.2403,
+      "Comment": "5: Coral",
+      "Type": 2,
+      "WaypointCode": null,
+      "HeartWallValue": null
+    },
+    {
+      "X": 597.931,
+      "Y": 9.017576,
+      "Z": -849.1315,
+      "Comment": "6: Vine",
       "Type": 2,
       "WaypointCode": null,
       "HeartWallValue": null
