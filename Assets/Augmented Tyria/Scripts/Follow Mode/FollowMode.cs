@@ -45,7 +45,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
                     }
                 },
                 {
-                    "SelectNextNode", () => this.ReachedNode(NextNodeIndex + 1)
+                    "SelectNextNode", () => this.ReachedNode(this.NextNodeIndex)
                 },
                 {
                     "ToggleOrientationHelper", () => this.OrientationHelper.gameObject.SetActive(!this.OrientationHelper.gameObject.activeSelf)
