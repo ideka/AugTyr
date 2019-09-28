@@ -19,10 +19,17 @@ public class NodeDisplay : MonoBehaviour
     public Material HeartMaterial;
     public Material HeartWallMaterial;
 
+    public Material ReachedMaterial;
+    public Material ReachedTeleportMaterial;
+    public Material ReachedHeartMaterial;
+    public Material ReachedHeartWallMaterial;
+
     public const float PulsateRatio = 3 / 5f;
     public const float PulsateSpeed = 3f;
 
     public float NormalizedSize { get; private set; }
+
+    private Node _node;
 
     public float Size
     {
@@ -75,6 +82,8 @@ public class NodeDisplay : MonoBehaviour
             this.Text.text = this.Text.text.Trim();
 
             this.Canvas.gameObject.SetActive(!string.IsNullOrEmpty(this.Text.text));
+
+            this._node = value;
         }
     }
 
@@ -90,6 +99,28 @@ public class NodeDisplay : MonoBehaviour
         this.Size = size;
         this.Detached = detached;
         this.Node = node;
+    }
+
+    public void SetReached()
+    {
+        switch (this._node.Type)
+        {
+            case NodeType.Reach:
+                this.MeshRenderer.material = this.ReachedMaterial;
+                break;
+
+            case NodeType.Teleport:
+                this.MeshRenderer.material = this.ReachedTeleportMaterial;
+                break;
+
+            case NodeType.Heart:
+                this.MeshRenderer.material = this.ReachedHeartMaterial;
+                break;
+
+            case NodeType.HeartWall:
+                this.MeshRenderer.material = this.ReachedHeartWallMaterial;
+                break;
+        }
     }
 
     public void Select(bool select)
