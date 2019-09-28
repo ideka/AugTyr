@@ -19,8 +19,11 @@ public class UserConfig
     public float RouteWidth = 1;
     public float NodeSize = .3f;
 
-    // Input.
-    public Dictionary<string, List<InputAction>> InputGroups = new Dictionary<string, List<InputAction>>();
+	// Follow.
+	public float ReachNodeRadius = 15;
+
+	// Input.
+	public Dictionary<string, List<InputAction>> InputGroups = new Dictionary<string, List<InputAction>>();
 }
 
 public enum TransparencyMethod
