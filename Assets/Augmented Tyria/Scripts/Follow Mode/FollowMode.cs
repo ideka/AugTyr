@@ -13,17 +13,19 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
 
     public NodeDisplay NodePrefab;
     public LineRenderer RouteDisplay;
-    public LineRenderer OrientationHelper;
+	public LineRenderer BacktrackDisplay;
+	public LineRenderer OrientationHelper;
 
-    public const float SquaredDistToReach = 1;
-    public const float SquaredMaxRouteLength = 1000;
 
     public MonoBehaviour Holder { get { return this; } }
     public Route Route { get { return this.RouteHolder.Route; } }
     public UserConfig UserConfig { get { return this.RouteHolder.UserConfig; } }
     public Console Console { get { return this.RouteHolder.Console; } }
 
-    public string InputGroupName { get { return "FollowMode"; } }
+	public float SquaredDistToReach { get { return UserConfig.ReachNodeRadius * UserConfig.ReachNodeRadius; } }
+	public float SquaredMaxRouteLength { get { return UserConfig.FollowMaxRouteLength * UserConfig.FollowMaxRouteLength; } }
+
+	public string InputGroupName { get { return "FollowMode"; } }
     public Dictionary<string, Action> Actions
     {
         get
@@ -36,16 +38,16 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
                 {
                     "SelectPreviousNode", () =>
                     {
-                        if (this.NodeIndex > 0)
+                        if (this.NextNodeIndex > 0)
                         {
-                            this.NodeIndex--;
+                            this.NextNodeIndex--;
                             this.RepopulateRoute();
                         }
                     }
                 },
                 {
-                    "SelectNextNode", this.ReachedNode
-                },
+                    "SelectNextNode", () => this.ReachedNode( NextNodeIndex + 1 )
+				},
                 {
                     "ToggleOrientationHelper", () => this.OrientationHelper.gameObject.SetActive(!this.OrientationHelper.gameObject.activeSelf)
                 }
@@ -53,14 +55,15 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
         }
     }
 
-    private int NodeIndex
+    private int NextNodeIndex
     {
         get { return this.RouteHolder.NodeIndex; }
         set { this.RouteHolder.NodeIndex = value; }
     }
 
     private List<NodeDisplay> nodes = new List<NodeDisplay>();
-    private List<NodeDisplay> detachedNodes = new List<NodeDisplay>();
+	private List<NodeDisplay> reachedNodes = new List<NodeDisplay>();
+	private List<NodeDisplay> detachedNodes = new List<NodeDisplay>();
 
     private void Awake()
     {
@@ -82,19 +85,28 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
 
     private void Update()
     {
-        if (this.NodeIndex < 0)
+        if (this.NextNodeIndex < 0)
         {
             this.OrientationHelper.SetPositions(new Vector3[] { this.Cursor.position, this.Cursor.position });
             return;
         }
 
-        Node next = this.Route.Nodes[this.NodeIndex];
+		if( nodes == null )
+			return;
 
-        this.OrientationHelper.SetPositions(new Vector3[] { this.Cursor.position, next.Position });
+		//Rejoin
+		var nextNodes = Route.Nodes.Skip( NextNodeIndex ).Take( nodes.Count ).ToList();
+		OrientationHelper.SetPositions( new Vector3[] { this.Cursor.position, nextNodes.First().Position } );
 
-        if ((next.Position - this.Cursor.position).sqrMagnitude <= SquaredDistToReach)
-            this.ReachedNode();
-    }
+		var next = nextNodes
+			.Select( ( n, i ) => new { node = n, index = i, dist = ( n.Position - this.Cursor.position ).sqrMagnitude } )
+			.Where( n => n.dist <= SquaredDistToReach )
+			.OrderBy( n => n.dist )
+			.FirstOrDefault();
+
+		if( next != null )
+			ReachedNode( NextNodeIndex + next.index );
+	}
 
     public NodeDisplay GetNodePrefab()
     {
@@ -118,7 +130,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
         this.nodes.Clear();
         float squaredLength = 0;
         Node previous = null;
-        foreach (Node node in this.Route.Nodes.Skip(this.NodeIndex))
+        foreach (Node node in this.Route.Nodes.Skip(this.NextNodeIndex))
         {
             NodeDisplay display = this.NewNodeDisplay(false, node);
             this.nodes.Add(display);
@@ -132,7 +144,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
             if (previous != null)
             {
                 squaredLength += (previous.Position - node.Position).sqrMagnitude;
-                if (squaredLength > SquaredMaxRouteLength)
+                if (squaredLength > SquaredMaxRouteLength && nodes.Count >= UserConfig.MinDisplayNodeCount )
                     break;
             }
 
@@ -146,7 +158,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
 
         // Update route display material.
         this.RouteDisplay.material = this.FollowMaterial;
-        foreach (Node node in this.Route.Nodes.Take(this.NodeIndex).Reverse())
+        foreach (Node node in this.Route.Nodes.Take(this.NextNodeIndex).Reverse())
         {
             if (node.Type == NodeType.HeartWall)
                 break;
@@ -161,30 +173,62 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
         // Repopulate detached nodes.
         this.detachedNodes.ForEach(n => Destroy(n.gameObject));
         this.detachedNodes = this.Route.DetachedNodes.Select(n => this.NewNodeDisplay(true, n)).ToList();
-    }
 
-    private void ReachedNode()
-    {
-        if (this.NodeIndex + 1 < this.Route.Nodes.Count)
-        {
-            Node reached = this.Route.Nodes[this.NodeIndex];
-            if (reached.Type == NodeType.Teleport && !string.IsNullOrEmpty(reached.WaypointCode))
-            {
-                GUIUtility.systemCopyBuffer = reached.WaypointCode;
-                this.Console.InfoFade("Waypoint code copied to clipboard: {0}.", reached.WaypointCode);
-            }
 
-            this.NodeIndex += 1;
-            this.RepopulateRoute();
-        }
-    }
+		// Update backtrack
+		if( UserConfig.ShowFollowBacktrack ) {
 
-    private void SelectClosestNode()
+			this.reachedNodes.ForEach( n => Destroy( n.gameObject ) );
+			this.reachedNodes.Clear();
+
+			var index = NextNodeIndex;
+			var len = .0f;
+
+			previous = null;
+			while( index >= 0 && len < SquaredMaxRouteLength ) {
+				NodeDisplay display = this.NewNodeDisplay( false, Route.Nodes[index] );
+				display.SetReached();
+				reachedNodes.Add( display );
+
+				if( index < NextNodeIndex - 1 ) { //Skip first node and dist between 0-1
+					len += ( previous.Position - Route.Nodes[index].Position ).sqrMagnitude;
+					if( len > SquaredMaxRouteLength && nodes.Count >= UserConfig.MinDisplayNodeCount )
+						break;
+				} 
+
+				if( previous == null )
+					display.MeshRenderer.enabled = false;
+
+				previous = Route.Nodes[index];
+				index--;
+			}
+
+			// Update route display.
+			positions = reachedNodes.Select( n => n.transform.position ).ToArray();
+			this.BacktrackDisplay.positionCount = positions.Length;
+			this.BacktrackDisplay.SetPositions( positions );
+		}		
+	}
+
+	private void ReachedNode( int reachedNodeIndex ) {
+		if( reachedNodeIndex + 1 < this.Route.Nodes.Count ) {
+			Node reached = this.Route.Nodes[reachedNodeIndex];
+			if( reached.Type == NodeType.Teleport && !string.IsNullOrEmpty( reached.WaypointCode ) ) {
+				GUIUtility.systemCopyBuffer = reached.WaypointCode;
+				this.Console.InfoFade( "Waypoint code copied to clipboard: {0}.", reached.WaypointCode );
+			}
+
+			this.NextNodeIndex = reachedNodeIndex + 1;
+			this.RepopulateRoute();
+		}
+	}
+
+	private void SelectClosestNode()
     {
         if (!this.nodes.Any())
             return;
 
-        this.NodeIndex = this.Route.Nodes
+        this.NextNodeIndex = this.Route.Nodes
             .Select((node, i) => new { position = node.Position, i = i })
             .OrderBy(n => (this.Cursor.position - n.position).sqrMagnitude)
             .First().i;
