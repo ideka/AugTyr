@@ -23,7 +23,7 @@ public class UserConfig
 	public float ReachNodeRadius = 10;
 	public float FollowMaxRouteLength = 50;
 	public bool ShowFollowBacktrack = true;
-	public int MinDisplayNodeCount;
+	public int MinDisplayNodeCount = 3;
 
     // Input.
     public Dictionary<string, List<InputAction>> InputGroups = new Dictionary<string, List<InputAction>>();
