@@ -21,6 +21,7 @@ public class UserConfig
 
 	// Follow.
 	public float ReachNodeRadius = 15;
+	public float FollowMaxRouteLength = 50;
 
 	// Input.
 	public Dictionary<string, List<InputAction>> InputGroups = new Dictionary<string, List<InputAction>>();
