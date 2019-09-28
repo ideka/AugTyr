@@ -17,14 +17,16 @@ public class UserConfig
     // Visuals.
     public int ConsoleFontSize = 20;
     public float RouteWidth = 1;
-    public float NodeSize = .3f;
+    public float NodeSize = 1.0f;
 
 	// Follow.
-	public float ReachNodeRadius = 15;
+	public float ReachNodeRadius = 10;
 	public float FollowMaxRouteLength = 50;
+	public bool ShowFollowBacktrack = true;
+	public int MinDisplayNodeCount;
 
-	// Input.
-	public Dictionary<string, List<InputAction>> InputGroups = new Dictionary<string, List<InputAction>>();
+    // Input.
+    public Dictionary<string, List<InputAction>> InputGroups = new Dictionary<string, List<InputAction>>();
 }
 
 public enum TransparencyMethod

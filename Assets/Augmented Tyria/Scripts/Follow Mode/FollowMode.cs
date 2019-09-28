@@ -13,7 +13,8 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
 
     public NodeDisplay NodePrefab;
     public LineRenderer RouteDisplay;
-    public LineRenderer OrientationHelper;
+	public LineRenderer BacktrackDisplay;
+	public LineRenderer OrientationHelper;
 
 
     public MonoBehaviour Holder { get { return this; } }
@@ -61,7 +62,8 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
     }
 
     private List<NodeDisplay> nodes = new List<NodeDisplay>();
-    private List<NodeDisplay> detachedNodes = new List<NodeDisplay>();
+	private List<NodeDisplay> reachedNodes = new List<NodeDisplay>();
+	private List<NodeDisplay> detachedNodes = new List<NodeDisplay>();
 
     private void Awake()
     {
@@ -142,7 +144,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
             if (previous != null)
             {
                 squaredLength += (previous.Position - node.Position).sqrMagnitude;
-                if (squaredLength > SquaredMaxRouteLength)
+                if (squaredLength > SquaredMaxRouteLength && nodes.Count >= UserConfig.MinDisplayNodeCount )
                     break;
             }
 
@@ -171,7 +173,42 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
         // Repopulate detached nodes.
         this.detachedNodes.ForEach(n => Destroy(n.gameObject));
         this.detachedNodes = this.Route.DetachedNodes.Select(n => this.NewNodeDisplay(true, n)).ToList();
-    }
+
+
+		// Update backtrack
+		if( UserConfig.ShowFollowBacktrack ) {
+
+			this.reachedNodes.ForEach( n => Destroy( n.gameObject ) );
+			this.reachedNodes.Clear();
+
+			var index = NextNodeIndex;
+			var len = .0f;
+
+			previous = null;
+			while( index >= 0 && len < SquaredMaxRouteLength ) {
+				NodeDisplay display = this.NewNodeDisplay( false, Route.Nodes[index] );
+				display.SetReached();
+				reachedNodes.Add( display );
+
+				if( index < NextNodeIndex - 1 ) { //Skip first node and dist between 0-1
+					len += ( previous.Position - Route.Nodes[index].Position ).sqrMagnitude;
+					if( len > SquaredMaxRouteLength && nodes.Count >= UserConfig.MinDisplayNodeCount )
+						break;
+				} 
+
+				if( previous == null )
+					display.MeshRenderer.enabled = false;
+
+				previous = Route.Nodes[index];
+				index--;
+			}
+
+			// Update route display.
+			positions = reachedNodes.Select( n => n.transform.position ).ToArray();
+			this.BacktrackDisplay.positionCount = positions.Length;
+			this.BacktrackDisplay.SetPositions( positions );
+		}		
+	}
 
 	private void ReachedNode( int reachedNodeIndex ) {
 		if( reachedNodeIndex + 1 < this.Route.Nodes.Count ) {
