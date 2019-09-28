@@ -14,21 +14,21 @@ public class RouteHolder : MonoBehaviour, IActionable
     public EditMode EditMode;
     public FollowMode FollowMode;
 
-    public static string Path { get { return Application.streamingAssetsPath + "/Routes/"; } }
-    public static string UnofficialPath { get { return Application.streamingAssetsPath + "/UnofficialRoutes/"; } }
-    public static List<string> Paths { get { return new List<string> { Path, UnofficialPath }; } }
+    public static string Path { get => Application.streamingAssetsPath + "/Routes/"; }
+    public static string UnofficialPath { get => Application.streamingAssetsPath + "/UnofficialRoutes/"; }
+    public static List<string> Paths { get => new List<string> { Path, UnofficialPath }; }
 
     public Route Route = new Route();
 
     public int NodeIndex { get; set; }
 
-    public MonoBehaviour Holder { get { return this; } }
-    public GameDatabase GameDatabase { get { return this.GameDatabaseHolder.GameDatabase; } }
-    public UserConfig UserConfig { get { return this.GameDatabaseHolder.UserConfig; } }
-    public Console Console { get { return this.GameDatabaseHolder.Console; } }
-    public int MapId { get { return this.Mumble.Link.GetCoordinates().MapId; } }
+    public MonoBehaviour Holder { get => this; }
+    public GameDatabase GameDatabase { get => this.GameDatabaseHolder.GameDatabase; }
+    public UserConfig UserConfig { get => this.GameDatabaseHolder.UserConfig; }
+    public Console Console { get => this.GameDatabaseHolder.Console; }
+    public int MapId { get => this.Mumble.Link.GetCoordinates().MapId; }
 
-    public string InputGroupName { get { return "Route"; } }
+    public string InputGroupName { get => "Route"; }
     public Dictionary<string, Action> Actions
     {
         get
@@ -63,8 +63,8 @@ public class RouteHolder : MonoBehaviour, IActionable
         }
     }
 
-    private int loadedRouteId;
-    private int oldMapId;
+    private int _loadedRouteId;
+    private int _oldMapId;
 
     public GameDatabaseHolder GameDatabaseHolder { get; private set; }
 
@@ -74,7 +74,7 @@ public class RouteHolder : MonoBehaviour, IActionable
 
         this.NodeIndex = -1;
 
-        this.oldMapId = this.MapId;
+        this._oldMapId = this.MapId;
 
         this.SetUp();
 
@@ -83,7 +83,7 @@ public class RouteHolder : MonoBehaviour, IActionable
 
     private void Update()
     {
-        if (this.MapId.SetIfDiff(ref this.oldMapId) && this.loadedRouteId != this.MapId && this.ShouldAutoload())
+        if (this.MapId.SetIfDiff(ref this._oldMapId) && this._loadedRouteId != this.MapId && this.ShouldAutoload())
             this.Load();
     }
 
@@ -91,17 +91,16 @@ public class RouteHolder : MonoBehaviour, IActionable
     {
         if (fromClipboard)
         {
-            int clipboardId;
-            if (!int.TryParse(GUIUtility.systemCopyBuffer, out clipboardId))
+            if (!int.TryParse(GUIUtility.systemCopyBuffer, out int clipboardId))
             {
                 this.Console.ErrorFade("No valid route ID found in clipboard.");
                 return;
             }
-            this.loadedRouteId = clipboardId;
+            this._loadedRouteId = clipboardId;
         }
         else
         {
-            this.loadedRouteId = this.MapId;
+            this._loadedRouteId = this.MapId;
         }
 
         string source = fromClipboard ? "clipboard" : "current map";
@@ -109,7 +108,7 @@ public class RouteHolder : MonoBehaviour, IActionable
         {
             { Path, string.Format("Loaded {0} route ID {1}.", source, "{0}") },
             { UnofficialPath, string.Format("Loaded <i>unofficial</i> {0} route ID {1}.", source, "{0}") }
-        }, this.loadedRouteId, out this.Route);
+        }, this._loadedRouteId, out this.Route);
         this.NodeIndex = this.Route.Nodes.Any() ? 0 : -1;
 
         this.EditMode.Reload();
@@ -121,8 +120,8 @@ public class RouteHolder : MonoBehaviour, IActionable
 
     private void Save()
     {
-        File.WriteAllText(Path + this.loadedRouteId + ".json", JsonConvert.SerializeObject(this.Route, Formatting.Indented));
-        this.Console.InfoFade("Route ID {0} saved.", this.loadedRouteId);
+        File.WriteAllText(Path + this._loadedRouteId + ".json", JsonConvert.SerializeObject(this.Route, Formatting.Indented));
+        this.Console.InfoFade("Route ID {0} saved.", this._loadedRouteId);
     }
 
     private bool TryLoadRoute(Dictionary<string, string> pathMessages, int id, out Route route)
@@ -172,8 +171,7 @@ public class RouteHolder : MonoBehaviour, IActionable
                 return true;
 
             case RouteAutoload.NonInstances:
-                Map map;
-                if (!this.GameDatabase.TryGetMap(this.MapId, out map))
+                if (!this.GameDatabase.TryGetMap(this.MapId, out Map map))
                 {
                     this.Console.ErrorFade("New map ID {0} not found in game database, keeping old route.", this.MapId);
                     return false;

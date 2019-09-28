@@ -5,7 +5,7 @@ public class MapGroup
 {
     public Dictionary<int, Map> Maps = new Dictionary<int, Map>();
 
-    private HashSet<int> allSectors = new HashSet<int>();
+    private readonly HashSet<int> _allSectors = new HashSet<int>();
 
     public MapGroup()
     {
@@ -23,7 +23,7 @@ public class MapGroup
 
     public bool TryAddMapBySector(int id, Map map)
     {
-        if (!this.Maps.Any() || map.Sectors.Keys.Intersect(this.allSectors).Any())
+        if (!this.Maps.Any() || map.Sectors.Keys.Intersect(this._allSectors).Any())
         {
             this.AddMap(id, map);
             return true;
@@ -46,6 +46,6 @@ public class MapGroup
     private void AddMap(int id, Map map)
     {
         this.Maps[id] = map;
-        this.allSectors.UnionWith(map.Sectors.Keys);
+        this._allSectors.UnionWith(map.Sectors.Keys);
     }
 }

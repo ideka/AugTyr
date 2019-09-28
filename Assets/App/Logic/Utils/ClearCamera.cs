@@ -13,21 +13,25 @@ public class ClearCamera : MonoBehaviour
 
     private void Awake()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
+        if (Application.isEditor)
+        {
+            Destroy(this);
+            return;
+        }
+#endif
+
         if (this.UserConfig.TransparencyMethod == TransparencyMethod.ByColor)
         {
             this.GetComponent<Camera>().backgroundColor = this.ColorKey;
             WinAPI.MakeOverlay(this.ColorKey);
             Destroy(this);
+            return;
         }
 
         WinAPI.MakeOverlay();
-#else
-        Destroy(this);
-#endif
     }
 
-#if !UNITY_EDITOR
     private void OnRenderImage(RenderTexture from, RenderTexture to)
     {
         switch (this.UserConfig.TransparencyMethod)
@@ -49,5 +53,4 @@ public class ClearCamera : MonoBehaviour
                 break;
         }
     }
-#endif
 }

@@ -153,7 +153,7 @@ public static class WinAPI
         }
         else
         {
-            MARGINS margins = new MARGINS() { cxLeftWidth = -1 };
+            var margins = new MARGINS() { cxLeftWidth = -1 };
             DwmExtendFrameIntoClientArea(Active, ref margins);
         }
 
@@ -163,7 +163,7 @@ public static class WinAPI
 
     public static bool Compare(IntPtr hWnd, Func<IntPtr, StringBuilder, int, int> getter, string to, bool ignoreCase = false)
     {
-        StringBuilder result = new StringBuilder(to.Length + 1);
+        var result = new StringBuilder(to.Length + 1);
         getter(hWnd, result, result.Capacity);
         return string.Compare(result.ToString(), to, ignoreCase, CultureInfo.InvariantCulture) == 0;
     }

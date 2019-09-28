@@ -29,23 +29,18 @@ public class NodeDisplay : MonoBehaviour
 
     public float NormalizedSize { get; private set; }
 
-    private Node _node;
-
     public float Size
     {
         set
         {
             this.SetScale(value);
-            this.size = value;
+            this._size = value;
         }
     }
 
     public bool Detached
     {
-        set
-        {
-            this.MeshFilter.mesh = value ? this.DetachedMesh : this.AttachedMesh;
-        }
+        set => this.MeshFilter.mesh = value ? this.DetachedMesh : this.AttachedMesh;
     }
 
     public Node Node
@@ -87,11 +82,12 @@ public class NodeDisplay : MonoBehaviour
         }
     }
 
-    private float size = .3f;
+    private Node _node;
+    private float _size = .3f;
 
     private void Start()
     {
-        this.SetScale(this.size);
+        this.SetScale(this._size);
     }
 
     public void SetUp(float size, bool detached, Node node)
@@ -130,7 +126,7 @@ public class NodeDisplay : MonoBehaviour
         if (select)
             this.StartCoroutine(this.Pulsating());
         else
-            this.SetScale(this.size);
+            this.SetScale(this._size);
     }
 
     private void SetScale(float to)
@@ -154,8 +150,8 @@ public class NodeDisplay : MonoBehaviour
         {
             this.NormalizedSize = Mathf.MoveTowards(this.NormalizedSize, goal, PulsateSpeed * Time.deltaTime);
             this.SetScale(Mathf.Lerp(
-                this.size - this.size * PulsateRatio,
-                this.size + this.size * PulsateRatio,
+                this._size - this._size * PulsateRatio,
+                this._size + this._size * PulsateRatio,
                 this.NormalizedSize));
             yield return null;
         }

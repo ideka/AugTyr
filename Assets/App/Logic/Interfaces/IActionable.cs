@@ -18,67 +18,65 @@ public interface IActionable
 
 public static class IActionableExtensions
 {
-    private static IKeyboardMouseEvents hook = Hook.GlobalEvents();
+    private static readonly IKeyboardMouseEvents GlobalHook = Hook.GlobalEvents();
 
-    public static void SetUp(this IActionable @this)
+    public static void SetUp(this IActionable actionable)
     {
-        @this.Validate((all, i) => !@this.Actions.ContainsKey(i.ActionName),
+        actionable.Validate((all, i) => !actionable.Actions.ContainsKey(i.ActionName),
             "Ignoring unknown input action{0} configured for {1}: {2}.", (r, rs) => new string[]
             {
-                r.Skip(1).Any() ? "s" : "", @this.InputGroupName, rs()
+                r.Skip(1).Any() ? "s" : "", actionable.InputGroupName, rs(),
             });
 
-        @this.Validate((all, i) => all.Any(i.Duplicate),
+        actionable.Validate((all, i) => all.Any(i.Duplicate),
             "Ignoring duplicate {0} keybindings for: {1}.", (r, rs) => new string[]
             {
-                @this.InputGroupName, rs()
+                actionable.InputGroupName, rs()
             });
 
-        KeyEventHandler callback = null;
-        callback = (sender, ev) =>
+        void callback(object sender, KeyEventArgs ev)
         {
             try
             {
-                if (@this.Holder == null)
+                if (actionable.Holder == null)
                 {
-                    hook.KeyDown -= callback;
+                    GlobalHook.KeyDown -= callback;
                 }
-                else if (CameraVisibility.Focused && @this.Holder.isActiveAndEnabled)
+                else if (CameraVisibility.Focused && actionable.Holder.isActiveAndEnabled)
                 {
-                    Action action;
-                    foreach (string actionName in @this.GetInputActions().Where(i => i.Activated(ev)).Select(i => i.ActionName))
+                    foreach (string actionName in actionable.GetInputActions().Where(i => i.Activated(ev)).Select(i => i.ActionName))
                     {
-                        if (@this.Actions.TryGetValue(actionName, out action))
+                        if (actionable.Actions.TryGetValue(actionName, out Action action))
                             action();
                         else
-                            @this.Console.Warning("Ignoring unknown action name for {0}: \"{1}\".", @this.InputGroupName, actionName);
+                            actionable.Console.Warning("Ignoring unknown action name for {0}: \"{1}\".", actionable.InputGroupName, actionName);
                     }
                 }
             }
             catch (Exception e)
             {
-                Debug.LogException(e, @this.Holder);
+                Debug.LogException(e, actionable.Holder);
             }
-        };
-        hook.KeyDown += callback;
+        }
+
+        GlobalHook.KeyDown += callback;
     }
 
-    private static List<InputAction> GetInputActions(this IActionable @for)
+    private static List<InputAction> GetInputActions(this IActionable actionable)
     {
-        List<InputAction> inacs;
-        if (@for.UserConfig.InputGroups.TryGetValue(@for.InputGroupName, out inacs))
+        if (actionable.UserConfig.InputGroups.TryGetValue(actionable.InputGroupName, out List<InputAction> inacs))
             return inacs;
         return new List<InputAction>();
     }
 
-    private static void Validate(this IActionable @for, Func<List<InputAction>, InputAction, bool> match,
+    private static void Validate(this IActionable actionable, Func<List<InputAction>, InputAction, bool> match,
         string message, Func<HashSet<string>, Func<string>, string[]> args)
     {
-        List<InputAction> inacs = @for.GetInputActions();
-        HashSet<string> removed = new HashSet<string>();
+        List<InputAction> inacs = actionable.GetInputActions();
+        var removed = new HashSet<string>();
         inacs.RemoveAll(i => match(inacs, i) && (removed.Add(i.ActionName) || true));
 
         if (removed.Any())
-            @for.Console.Warning(message, args(removed, () => string.Join(" ", removed.Select(s => "\"" + s + "\"").ToArray())));
+            actionable.Console.Warning(message, args(removed, () => string.Join(" ", removed.Select(s => "\"" + s + "\"").ToArray())));
     }
 }

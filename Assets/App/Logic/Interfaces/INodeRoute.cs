@@ -9,10 +9,10 @@ public interface INodeRoute
 
 public static class INodeRouteExtensions
 {
-    public static NodeDisplay NewNodeDisplay(this INodeRoute nr, bool detached, Node node)
+    public static NodeDisplay NewNodeDisplay(this INodeRoute nodeRoute, bool detached, Node node)
     {
-        NodeDisplay display = Object.Instantiate(nr.GetNodePrefab().gameObject, nr.GetRouteDisplay().transform).GetComponent<NodeDisplay>();
-        display.SetUp(nr.UserConfig.NodeSize, detached, node);
+        NodeDisplay display = nodeRoute.GetRouteDisplay().transform.Instantiate(nodeRoute.GetNodePrefab());
+        display.SetUp(nodeRoute.UserConfig.NodeSize, detached, node);
         return display;
     }
 }

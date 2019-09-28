@@ -20,8 +20,7 @@ public static class NodeExtensions
     public static void SetHeartWallValue(this Node node, string input)
     {
         node.HeartWallValue = null;
-        int value;
-        if (int.TryParse(input, out value) && value > 0 && value <= 100)
+        if (int.TryParse(input, out int value) && value > 0 && value <= 100)
             node.HeartWallValue = input;
     }
 }

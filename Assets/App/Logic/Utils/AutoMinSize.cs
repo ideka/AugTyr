@@ -13,7 +13,7 @@ public class AutoMinSize : UIBehaviour, ILayoutElement
 
     public RectTransform MaxWidthProvider
     {
-        get { return this.maxWidthProvider; }
+        get => this.maxWidthProvider;
         set
         {
             if (this.maxWidthProvider != value)
@@ -69,20 +69,19 @@ public class AutoMinSize : UIBehaviour, ILayoutElement
         }
     }
 
-    public virtual float preferredWidth { get { return -1; } }
-    public virtual float preferredHeight { get { return -1; } }
-    public virtual float flexibleWidth { get { return -1; } }
-    public virtual float flexibleHeight { get { return -1; } }
-    public virtual int layoutPriority { get { return 1; } }
+    public virtual float preferredWidth { get => -1; }
+    public virtual float preferredHeight { get => -1; }
+    public virtual float flexibleWidth { get => -1; }
+    public virtual float flexibleHeight { get => -1; }
+    public virtual int layoutPriority { get => 1; }
 
-    private RectTransform rectTransform;
+    private RectTransform _rectTransform;
     private RectTransform RectTransform
     {
         get
         {
-            if (this.rectTransform == null)
-                this.rectTransform = this.GetComponent<RectTransform>();
-            return this.rectTransform;
+            this._rectTransform = this._rectTransform ?? this.GetComponent<RectTransform>();
+            return this._rectTransform;
         }
     }
 

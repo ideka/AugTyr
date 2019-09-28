@@ -12,7 +12,7 @@ public class GameDatabase
         foreach (Dictionary<int, Map> maps in this.MapGroups.Select(g => g.Maps))
             if (maps.TryGetValue(id, out map))
                 return true;
-        map = default(Map);
+        map = null;
         return false;
     }
 
@@ -42,8 +42,7 @@ public class GameDatabase
         string[] result;
         foreach (MapGroup group in this.MapGroups)
         {
-            Map map;
-            if (group.Maps.TryGetValue(mapId, out map))
+            if (group.Maps.TryGetValue(mapId, out Map map))
             {
                 if (TryGetChatCodes(map.Waypoints, waypointName, out result))
                     return result;

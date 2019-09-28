@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using Forms = System.Windows.Forms;
+using Keys = System.Windows.Forms.Keys;
 
 public class UserConfigHolder : MonoBehaviour
 {
@@ -42,16 +42,11 @@ public class UserConfigHolder : MonoBehaviour
 
     private void Load()
     {
-        try
-        {
+        if (File.Exists(Path))
             this.UserConfig = JsonConvert.DeserializeObject<UserConfig>(File.ReadAllText(Path));
-        }
-        catch (FileNotFoundException)
-        {
-        }
 
-        foreach (KeyValuePair<string, List<InputAction>> ig in this.UserConfig.InputGroups)
-            this.PopulateInputActions(ig.Value);
+        foreach (var inputGroup in this.UserConfig.InputGroups.Values)
+            this.PopulateInputActions(inputGroup);
 
         // Set the resolution.
         if (this.UserConfig.ScreenWidth > 0)
@@ -73,7 +68,7 @@ public class UserConfigHolder : MonoBehaviour
         {
             try
             {
-                inac.Key = (Forms.Keys)Enum.Parse(typeof(Forms.Keys), inac.KeyName);
+                inac.Key = (Keys)Enum.Parse(typeof(Keys), inac.KeyName);
             }
             catch
             {

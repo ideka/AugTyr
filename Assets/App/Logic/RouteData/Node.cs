@@ -6,10 +6,7 @@ public class Node
     [JsonIgnore]
     public Vector3 Position
     {
-        get
-        {
-            return new Vector3(this.X, this.Y, this.Z);
-        }
+        get => new Vector3(this.X, this.Y, this.Z);
 
         set
         {
@@ -18,6 +15,7 @@ public class Node
             this.Z = value.z;
         }
     }
+
     public float X;
     public float Y;
     public float Z;

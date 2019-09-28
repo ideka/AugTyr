@@ -6,19 +6,19 @@ public partial class EditMode
 {
     private Node GetSelectedNode()
     {
-        if (this.onDetached)
+        if (this._onDetached)
         {
-            if (this.detachedNodeIndex < 0)
+            if (this._detachedNodeIndex < 0)
                 return null;
             else
-                return this.Route.DetachedNodes[this.detachedNodeIndex];
+                return this.Route.DetachedNodes[this._detachedNodeIndex];
         }
         else
         {
-            if (this.nodeIndex < 0)
+            if (this._nodeIndex < 0)
                 return null;
             else
-                return this.Route.Nodes[this.nodeIndex];
+                return this.Route.Nodes[this._nodeIndex];
         }
     }
 
@@ -28,14 +28,14 @@ public partial class EditMode
 
         if (detached)
         {
-            this.detachedNodes.Add(display);
+            this._detachedNodes.Add(display);
         }
         else
         {
             if (at == -1)
-                this.nodes.Add(display);
+                this._nodes.Add(display);
             else
-                this.nodes.Insert(at, display);
+                this._nodes.Insert(at, display);
 
             this.UpdatePath();
         }
@@ -45,13 +45,13 @@ public partial class EditMode
     {
         if (detached)
         {
-            Destroy(this.detachedNodes[at].gameObject);
-            this.detachedNodes.RemoveAt(at);
+            Destroy(this._detachedNodes[at].gameObject);
+            this._detachedNodes.RemoveAt(at);
         }
         else
         {
-            Destroy(this.nodes[at].gameObject);
-            this.nodes.RemoveAt(at);
+            Destroy(this._nodes[at].gameObject);
+            this._nodes.RemoveAt(at);
             this.UpdatePath();
         }
     }
@@ -63,21 +63,16 @@ public partial class EditMode
         this.RouteDisplay.SetPositions(positions);
     }
 
-    private void ScrollNodeType(int direction)
+    private void ScrollNodeType(int amount)
     {
         Node node = this.GetSelectedNode();
         if (node == null)
             return;
 
-        Array values = Enum.GetValues(typeof(NodeType));
-        int newValue = ((int)node.Type + direction) % values.Length;
+        // `(x % len + len) % len` pattern normalizes x between [0, len).
+        int total = Enum.GetValues(typeof(NodeType)).Length;
+        node.Type = (NodeType)((((int)node.Type + amount) % total + total) % total);
 
-        while (newValue < 0)
-            newValue += values.Length;
-        while (newValue >= values.Length)
-            newValue -= values.Length;
-
-        node.Type = (NodeType)newValue;
         this.UpdateSelectedNodeInfo();
     }
 
@@ -137,10 +132,10 @@ public partial class EditMode
 
     private void UpdateSelectedNodeInfo()
     {
-        if (this.onDetached && this.detachedNodeIndex >= 0)
-            this.detachedNodes[this.detachedNodeIndex].Node = this.Route.DetachedNodes[this.detachedNodeIndex];
-        else if (!this.onDetached && this.nodeIndex >= 0)
-            this.nodes[this.nodeIndex].Node = this.Route.Nodes[this.nodeIndex];
+        if (this._onDetached && this._detachedNodeIndex >= 0)
+            this._detachedNodes[this._detachedNodeIndex].Node = this.Route.DetachedNodes[this._detachedNodeIndex];
+        else if (!this._onDetached && this._nodeIndex >= 0)
+            this._nodes[this._nodeIndex].Node = this.Route.Nodes[this._nodeIndex];
     }
 
     private void ToggleAttachNode()
@@ -149,31 +144,31 @@ public partial class EditMode
         if (node == null)
             return;
 
-        if (this.onDetached)
+        if (this._onDetached)
         {
-            this.Route.DetachedNodes.RemoveAt(this.detachedNodeIndex);
-            this.Route.Nodes.Insert(this.nodeIndex + 1, node);
-            this.RemoveVisualNode(this.detachedNodeIndex, true);
-            this.AddVisualNode(node, false, this.nodeIndex + 1);
+            this.Route.DetachedNodes.RemoveAt(this._detachedNodeIndex);
+            this.Route.Nodes.Insert(this._nodeIndex + 1, node);
+            this.RemoveVisualNode(this._detachedNodeIndex, true);
+            this.AddVisualNode(node, false, this._nodeIndex + 1);
 
-            this.detachedNodeIndex = -1;
-            this.nodeIndex++;
-            this.onDetached = false;
+            this._detachedNodeIndex = -1;
+            this._nodeIndex++;
+            this._onDetached = false;
 
             this.UpdateSelectedNode();
             this.UpdatePath();
         }
         else
         {
-            this.Route.Nodes.RemoveAt(this.nodeIndex);
+            this.Route.Nodes.RemoveAt(this._nodeIndex);
             this.Route.DetachedNodes.Add(node);
-            this.RemoveVisualNode(this.nodeIndex);
+            this.RemoveVisualNode(this._nodeIndex);
             this.AddVisualNode(node, true);
 
-            this.detachedNodeIndex = this.Route.DetachedNodes.Count - 1;
-            if (this.nodeIndex > 0 || !this.nodes.Any())
-                this.nodeIndex--;
-            this.onDetached = true;
+            this._detachedNodeIndex = this.Route.DetachedNodes.Count - 1;
+            if (this._nodeIndex > 0 || !this._nodes.Any())
+                this._nodeIndex--;
+            this._onDetached = true;
 
             this.UpdateSelectedNode();
             this.UpdatePath();
@@ -182,43 +177,43 @@ public partial class EditMode
 
     private void SelectClosestNode()
     {
-        if (!this.nodes.Any() && !this.detachedNodes.Any())
+        var closest = this._nodes
+            .Select((display, i) => new { display.transform, attached = true, i })
+            .Concat(this._detachedNodes.Select((display, i) => new { display.transform, attached = false, i }))
+            .OrderBy(n => (this.Cursor.position - n.transform.position).sqrMagnitude)
+            .FirstOrDefault();
+
+        if (closest == null)
             return;
 
-        var closest = this.nodes
-            .Select((display, i) => new { transform = display.transform, attached = true, i = i })
-            .Concat(this.detachedNodes.Select((display, i) => new { transform = display.transform, attached = false, i = i }))
-            .OrderBy(n => (this.Cursor.position - n.transform.position).sqrMagnitude)
-            .First();
-
-        this.onDetached = !closest.attached;
-        if (this.onDetached)
-            this.detachedNodeIndex = closest.i;
+        this._onDetached = !closest.attached;
+        if (this._onDetached)
+            this._detachedNodeIndex = closest.i;
         else
-            this.nodeIndex = closest.i;
+            this._nodeIndex = closest.i;
 
         this.UpdateSelectedNode();
     }
 
     private void AddNode()
     {
-        Node newNode = new Node()
+        var newNode = new Node()
         {
             Type = NodeType.Reach,
             Position = this.Cursor.position
         };
 
-        if (onDetached)
+        if (_onDetached)
         {
             this.Route.DetachedNodes.Add(newNode);
             this.AddVisualNode(newNode, true);
-            this.detachedNodeIndex = this.detachedNodes.Count - 1;
+            this._detachedNodeIndex = this._detachedNodes.Count - 1;
         }
         else
         {
-            this.nodeIndex++;
-            this.Route.Nodes.Insert(this.nodeIndex, newNode);
-            this.AddVisualNode(newNode, false, this.nodeIndex);
+            this._nodeIndex++;
+            this.Route.Nodes.Insert(this._nodeIndex, newNode);
+            this.AddVisualNode(newNode, false, this._nodeIndex);
         }
 
         this.UpdateSelectedNode();
@@ -226,22 +221,21 @@ public partial class EditMode
 
     private void RemoveNode()
     {
-        Node node = this.GetSelectedNode();
-        if (node == null)
+        if (this.GetSelectedNode() == null)
             return;
 
-        if (onDetached)
+        if (_onDetached)
         {
-            this.Route.DetachedNodes.RemoveAt(this.detachedNodeIndex);
-            this.RemoveVisualNode(this.detachedNodeIndex, true);
-            this.detachedNodeIndex = -1;
+            this.Route.DetachedNodes.RemoveAt(this._detachedNodeIndex);
+            this.RemoveVisualNode(this._detachedNodeIndex, true);
+            this._detachedNodeIndex = -1;
         }
         else
         {
-            this.Route.Nodes.RemoveAt(this.nodeIndex);
-            this.RemoveVisualNode(this.nodeIndex);
-            if (this.nodeIndex != 0 || !this.nodes.Any())
-                this.nodeIndex--;
+            this.Route.Nodes.RemoveAt(this._nodeIndex);
+            this.RemoveVisualNode(this._nodeIndex);
+            if (this._nodeIndex != 0 || !this._nodes.Any())
+                this._nodeIndex--;
         }
         this.UpdateSelectedNode();
     }
@@ -259,17 +253,19 @@ public partial class EditMode
 
     private void UpdateSelectedNode()
     {
-        this.RouteHolder.NodeIndex = this.nodeIndex;
+        this.RouteHolder.NodeIndex = this._nodeIndex;
 
-        this.nodes.ForEach(n => n.Select(false));
-        this.detachedNodes.ForEach(n => n.Select(false));
+        this._nodes.ForEach(n => n.Select(false));
+        this._detachedNodes.ForEach(n => n.Select(false));
 
-        if (this.onDetached)
+        if (this._onDetached)
         {
-            if (this.detachedNodeIndex >= 0)
-                this.detachedNodes[this.detachedNodeIndex].Select(true);
+            if (this._detachedNodeIndex >= 0)
+                this._detachedNodes[this._detachedNodeIndex].Select(true);
         }
-        else if (this.nodeIndex >= 0)
-            this.nodes[this.nodeIndex].Select(true);
+        else if (this._nodeIndex >= 0)
+        {
+            this._nodes[this._nodeIndex].Select(true);
+        }
     }
 }

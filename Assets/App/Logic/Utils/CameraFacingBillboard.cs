@@ -4,10 +4,10 @@ public class CameraFacingBillboard : MonoBehaviour
 {
     private void Awake()
     {
-        this.Update();
+        this.LateUpdate();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         transform.LookAt(
             transform.position + Camera.main.transform.rotation * Vector3.forward,

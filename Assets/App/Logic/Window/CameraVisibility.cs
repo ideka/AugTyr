@@ -1,39 +1,35 @@
-﻿#if !UNITY_EDITOR
-using System;
-#endif
+﻿using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
 public class CameraVisibility : MonoBehaviour
 {
-#if !UNITY_EDITOR
     public const string GameWindowTitle = "Guild Wars 2";
     public const string GameWindowClass = "ArenaNet_Dx_Window_Class";
 
     public static bool Focused { get; private set; }
-#else
-    public const bool Focused = true;
-#endif
 
-#if !UNITY_EDITOR
     private int defaultCullingMask;
 
     public Camera Camera { get; private set; }
-#endif
 
     private void Awake()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
+        if (Application.isEditor)
+        {
+            Focused = true;
+            Destroy(this);
+            return;
+        }
+#endif
+
         this.Camera = this.GetComponent<Camera>();
 
         this.defaultCullingMask = this.Camera.cullingMask;
         this.Camera.cullingMask = 0;
-#else
-        Destroy(this);
-#endif
     }
 
-#if !UNITY_EDITOR
     private void LateUpdate()
     {
         IntPtr fore = WinAPI.GetForegroundWindow();
@@ -41,8 +37,7 @@ public class CameraVisibility : MonoBehaviour
 
         if (Focused)
         {
-            WinAPI.RECT cr;
-            WinAPI.GetClientRect(fore, out cr);
+            WinAPI.GetClientRect(fore, out WinAPI.RECT cr);
             cr = cr.ClientToScreen(fore);
 
             this.Camera.pixelRect = new Rect(cr.left, cr.bottom, cr.Width, cr.Height);
@@ -55,5 +50,4 @@ public class CameraVisibility : MonoBehaviour
             this.Camera.cullingMask = 0;
         }
     }
-#endif
 }

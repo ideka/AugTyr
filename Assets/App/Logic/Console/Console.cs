@@ -13,9 +13,9 @@ public class Console : MonoBehaviour, IActionable
 
     public bool Hidden { get; private set; }
 
-    public MonoBehaviour Holder { get { return this; } }
-    public UserConfig UserConfig { get { return this.UserConfigHolder.UserConfig; } }
-    Console IActionable.Console { get { return this; } }
+    public MonoBehaviour Holder { get => this; }
+    public UserConfig UserConfig { get => this.UserConfigHolder.UserConfig; }
+    Console IActionable.Console { get => this; }
 
     public string InputGroupName { get { return "Console"; } }
     public Dictionary<string, Action> Actions
@@ -54,59 +54,29 @@ public class Console : MonoBehaviour, IActionable
 
         if (!sent.Any() || !sent.Last().TryAddOne(type, message, permanent))
         {
-            ConsoleMessage msg = Instantiate(this.MessagePrefab.gameObject, this.transform).GetComponent<ConsoleMessage>();
+            ConsoleMessage msg = this.transform.Instantiate(this.MessagePrefab);
             msg.SetUp(type, message, this.UserConfig.ConsoleFontSize,
                 permanent ? -1 : fadeOutTime + Mathf.Max(0, sent.Select(cm => cm.FadeOutTimeLeft).DefaultIfEmpty(0).Max()));
         }
     }
 
+    public void Info(string message, params object[] args) => this.Info(false, message, args);
+    public void InfoFade(string message, params object[] args) => this.Info(true, message, args);
     public void Info(bool fadeOut, string message, params object[] args)
-    {
-        this.Message(ConsoleMessageType.Info, string.Format(message, args), fadeOut ? DefaultFadeTime : -1);
-    }
+        => this.Message(ConsoleMessageType.Info, string.Format(message, args), fadeOut ? DefaultFadeTime : -1);
 
-    public void Info(string message, params object[] args)
-    {
-        this.Info(false, message, args);
-    }
-
-    public void InfoFade(string message, params object[] args)
-    {
-        this.Info(true, message, args);
-    }
-
+    public void Warning(string message, params object[] args) => this.Warning(false, message, args);
+    public void WarningFade(string message, params object[] args) => this.Warning(true, message, args);
     public void Warning(bool fadeOut, string message, params object[] args)
-    {
-        this.Message(ConsoleMessageType.Warning, string.Format(message, args), fadeOut ? DefaultFadeTime : -1);
-    }
+        => this.Message(ConsoleMessageType.Warning, string.Format(message, args), fadeOut ? DefaultFadeTime : -1);
 
-    public void Warning(string message, params object[] args)
-    {
-        this.Warning(false, message, args);
-    }
-
-    public void WarningFade(string message, params object[] args)
-    {
-        this.Warning(true, message, args);
-    }
-
+    public void Error(string message, params object[] args) => this.Error(false, message, args);
+    public void ErrorFade(string message, params object[] args) => this.Error(true, message, args);
     public void Error(bool fadeOut, string message, params object[] args)
-    {
-        this.Message(ConsoleMessageType.Error, string.Format(message, args), fadeOut ? DefaultFadeTime : -1);
-    }
-
-    public void Error(string message, params object[] args)
-    {
-        this.Error(false, message, args);
-    }
-
-    public void ErrorFade(string message, params object[] args)
-    {
-        this.Error(true, message, args);
-    }
+        => this.Message(ConsoleMessageType.Error, string.Format(message, args), fadeOut ? DefaultFadeTime : -1);
 
     public void ToggleHide()
-    {
+    { 
         this.Hidden = !this.Hidden;
     }
 

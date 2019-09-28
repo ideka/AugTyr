@@ -11,12 +11,12 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
     public NodeDisplay NodePrefab;
     public LineRenderer RouteDisplay;
 
-    public MonoBehaviour Holder { get { return this; } }
-    public Route Route { get { return this.RouteHolder.Route; } }
-    public UserConfig UserConfig { get { return this.RouteHolder.UserConfig; } }
-    public Console Console { get { return this.RouteHolder.Console; } }
+    public MonoBehaviour Holder { get => this; }
+    public Route Route { get => this.RouteHolder.Route; }
+    public UserConfig UserConfig { get => this.RouteHolder.UserConfig; }
+    public Console Console { get => this.RouteHolder.Console; }
 
-    public string InputGroupName { get { return "EditMode"; } }
+    public string InputGroupName { get => "EditMode"; }
     public Dictionary<string, Action> Actions
     {
         get
@@ -35,10 +35,10 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
                 {
                     "SelectPreviousNode", () =>
                     {
-                        if (!this.onDetached)
+                        if (!this._onDetached)
                         {
-                            if (this.nodeIndex > 0)
-                                this.nodeIndex--;
+                            if (this._nodeIndex > 0)
+                                this._nodeIndex--;
                             this.UpdateSelectedNode();
                         }
                     }
@@ -46,10 +46,10 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
                 {
                     "SelectNextNode", () =>
                     {
-                        if (!this.onDetached)
+                        if (!this._onDetached)
                         {
-                            if (this.nodeIndex < this.nodes.Count - 1)
-                                this.nodeIndex++;
+                            if (this._nodeIndex < this._nodes.Count - 1)
+                                this._nodeIndex++;
                             this.UpdateSelectedNode();
                         }
                     }
@@ -57,10 +57,10 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
                 {
                     "SelectFirstNode", () =>
                     {
-                        if (this.nodes.Any())
+                        if (this._nodes.Any())
                         {
-                            this.onDetached = false;
-                            this.nodeIndex = 0;
+                            this._onDetached = false;
+                            this._nodeIndex = 0;
                             this.UpdateSelectedNode();
                         }
                     }
@@ -68,10 +68,10 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
                 {
                     "SelectLastNode", () =>
                     {
-                        if (this.nodes.Any())
+                        if (this._nodes.Any())
                         {
-                            this.onDetached = false;
-                            this.nodeIndex = this.nodes.Count - 1;
+                            this._onDetached = false;
+                            this._nodeIndex = this._nodes.Count - 1;
                             this.UpdateSelectedNode();
                         }
                     }
@@ -111,7 +111,7 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
                 {
                     "ToggleAttachSelection", () =>
                     {
-                        this.onDetached = !this.onDetached;
+                        this._onDetached = !this._onDetached;
                         this.UpdateSelectedNode();
                     }
                 }
@@ -119,13 +119,13 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
         }
     }
 
-    private List<NodeDisplay> nodes = new List<NodeDisplay>();
-    private int nodeIndex = -1;
+    private readonly List<NodeDisplay> _nodes = new List<NodeDisplay>();
+    private int _nodeIndex = -1;
 
-    private List<NodeDisplay> detachedNodes = new List<NodeDisplay>();
-    private int detachedNodeIndex = -1;
+    private readonly List<NodeDisplay> _detachedNodes = new List<NodeDisplay>();
+    private int _detachedNodeIndex = -1;
 
-    private bool onDetached = false;
+    private bool _onDetached = false;
 
     private void Awake()
     {
@@ -139,7 +139,7 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
 
     private void OnEnable()
     {
-        this.nodeIndex = this.RouteHolder.NodeIndex;
+        this._nodeIndex = this.RouteHolder.NodeIndex;
         this.UpdateSelectedNode();
     }
 
@@ -155,19 +155,19 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
 
     public void Reload()
     {
-        this.nodes.ForEach(n => Destroy(n.gameObject));
-        this.nodes.Clear();
+        this._nodes.ForEach(n => Destroy(n.gameObject));
+        this._nodes.Clear();
         this.RouteDisplay.positionCount = 0;
-        this.detachedNodes.ForEach(n => Destroy(n.gameObject));
-        this.detachedNodes.Clear();
+        this._detachedNodes.ForEach(n => Destroy(n.gameObject));
+        this._detachedNodes.Clear();
 
         foreach (Node node in this.RouteHolder.Route.Nodes)
             this.AddVisualNode(node);
         foreach (Node detachedNode in this.RouteHolder.Route.DetachedNodes)
             this.AddVisualNode(detachedNode, true);
 
-        this.nodeIndex = this.RouteHolder.NodeIndex;
-        this.detachedNodeIndex = -1;
+        this._nodeIndex = this.RouteHolder.NodeIndex;
+        this._detachedNodeIndex = -1;
 
         if (this.isActiveAndEnabled)
             this.UpdateSelectedNode();
@@ -175,12 +175,9 @@ public partial class EditMode : MonoBehaviour, INodeRoute, IActionable
 
     public static string Format(string str)
     {
-        if (str == null)
+        if (string.IsNullOrWhiteSpace(str))
             return null;
-        str = str.Trim();
-        if (str == "")
-            return null;
-        else
-            return str;
+
+        return str.Trim();
     }
 }
