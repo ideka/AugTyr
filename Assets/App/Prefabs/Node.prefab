@@ -48,12 +48,12 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000010849738264}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 0
+  m_MotionVectors: 2
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -133,7 +133,8 @@ MonoBehaviour:
   TeleportMaterial: {fileID: 2100000, guid: 0d00b8edf5609c043afaffe42e698a30, type: 2}
   HeartMaterial: {fileID: 2100000, guid: 630e546052152064288c0e7aa911fa1e, type: 2}
   HeartWallMaterial: {fileID: 2100000, guid: e2c49a011c833074ca93552a93e28609, type: 2}
-  ReachedMaterial: {fileID: 2100000, guid: 9d3b0a483f05feb4b96740d34de9e9c5, type: 2}
+  ReachedReachMaterial: {fileID: 2100000, guid: 63412bf4830c114428f556ef2fb915d2,
+    type: 2}
   ReachedTeleportMaterial: {fileID: 2100000, guid: b5989b5cc68bc5d4eb33165c1a641254,
     type: 2}
   ReachedHeartMaterial: {fileID: 2100000, guid: be026a3bd3b1c044c815618b5a217099,

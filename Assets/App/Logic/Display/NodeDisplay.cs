@@ -19,16 +19,23 @@ public class NodeDisplay : MonoBehaviour
     public Material HeartMaterial;
     public Material HeartWallMaterial;
 
-    public Material ReachedMaterial;
+    public Material ReachedReachMaterial;
     public Material ReachedTeleportMaterial;
     public Material ReachedHeartMaterial;
     public Material ReachedHeartWallMaterial;
 
     public const float PulsateRatio = 3 / 5f;
     public const float PulsateSpeed = 3f;
+    public const float ReachedAlpha = .5f;
 
     public float NormalizedSize { get; private set; }
 
+    public bool Detached
+    {
+        set => this.MeshFilter.mesh = value ? this.DetachedMesh : this.AttachedMesh;
+    }
+
+    private float _size = .3f;
     public float Size
     {
         set
@@ -38,11 +45,7 @@ public class NodeDisplay : MonoBehaviour
         }
     }
 
-    public bool Detached
-    {
-        set => this.MeshFilter.mesh = value ? this.DetachedMesh : this.AttachedMesh;
-    }
-
+    private Node _node;
     public Node Node
     {
         set
@@ -82,9 +85,6 @@ public class NodeDisplay : MonoBehaviour
         }
     }
 
-    private Node _node;
-    private float _size = .3f;
-
     private void Start()
     {
         this.SetScale(this._size);
@@ -102,7 +102,7 @@ public class NodeDisplay : MonoBehaviour
         switch (this._node.Type)
         {
             case NodeType.Reach:
-                this.MeshRenderer.material = this.ReachedMaterial;
+                this.MeshRenderer.material = this.ReachedReachMaterial;
                 break;
 
             case NodeType.Teleport:
