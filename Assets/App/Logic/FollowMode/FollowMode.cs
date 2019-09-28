@@ -204,7 +204,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
                 if (iter.i > 1)
                 {
                     squaredLength += (previous.Position - iter.node.Position).sqrMagnitude;
-                    if (squaredLength > this.SquaredMaxRouteLength)
+                    if (squaredLength > this.SquaredMaxRouteLength && this._backtrackNodes.Count >= this.UserConfig.MinDisplayNodeCount)
                         break;
                 }
 
