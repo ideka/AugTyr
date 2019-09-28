@@ -61,7 +61,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
     }
 
     private readonly List<NodeDisplay> _nodes = new List<NodeDisplay>();
-    private readonly List<NodeDisplay> _reachedNodes = new List<NodeDisplay>();
+    private readonly List<NodeDisplay> _backtrackNodes = new List<NodeDisplay>();
     private readonly List<NodeDisplay> _detachedNodes = new List<NodeDisplay>();
 
     private void Awake()
@@ -129,6 +129,7 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
         {
             this._nodes.ForEach(n => Destroy(n.gameObject));
             this._nodes.Clear();
+
             float squaredLength = 0;
             Node previous = null;
             foreach (Node node in this.Route.Nodes.Skip(this.SelectedNodeIndex))
@@ -179,39 +180,39 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
         this._detachedNodes.Clear();
         this._detachedNodes.AddRange(this.Route.DetachedNodes.Select(n => this.NewNodeDisplay(true, n)));
 
-        // Update backtrack
+        // Update backtrack.
         if (this.UserConfig.ShowFollowBacktrack)
         {
-            this._reachedNodes.ForEach(n => Destroy(n.gameObject));
-            this._reachedNodes.Clear();
+            // Repopulate backtrack nodes.
+            this._backtrackNodes.ForEach(n => Destroy(n.gameObject));
+            this._backtrackNodes.Clear();
 
-            int index = this.SelectedNodeIndex;
             float squaredLength = 0;
-
             Node previous = null;
-            while (index >= 0 && squaredLength < SquaredMaxRouteLength)
+            foreach (var iter in this.Route.Nodes.Take(this.SelectedNodeIndex).Reverse().Select((node, i) => new { node, i }))
             {
-                NodeDisplay display = this.NewNodeDisplay(false, this.Route.Nodes[index]);
-                display.SetReached();
-                this._reachedNodes.Add(display);
+                // Don't go past teleport nodes.
+                if (iter.node.Type == NodeType.Teleport && iter.i > 0)
+                    break;
 
-                if (previous == null)
+                NodeDisplay display = this.NewNodeDisplay(false, iter.node);
+                display.SetReached();
+                this._backtrackNodes.Add(display);
+
+                // Only start counting length from 2nd node to ensure nodes won't just disappear
+                // when consuming a single node with a very long trail after it.
+                if (iter.i > 1)
                 {
-                    display.MeshRenderer.enabled = false;
-                }
-                else
-                {
-                    squaredLength += (previous.Position - this.Route.Nodes[index].Position).sqrMagnitude;
+                    squaredLength += (previous.Position - iter.node.Position).sqrMagnitude;
                     if (squaredLength > this.SquaredMaxRouteLength)
                         break;
-                } 
+                }
 
-                previous = this.Route.Nodes[index];
-                index--;
+                previous = iter.node;
             }
 
-            // Update route display.
-            Vector3[] positions = _reachedNodes.Select(n => n.transform.position).ToArray();
+            // Update backtrack route display.
+            Vector3[] positions = _backtrackNodes.Select(n => n.transform.position).ToArray();
             this.BacktrackDisplay.positionCount = positions.Length;
             this.BacktrackDisplay.SetPositions(positions);
         }
