@@ -33,7 +33,7 @@
     // Behavior.
     "AutoUpdateGameDatabase": true,
     "RouteAutoload": "Existing",
-    "StartInFollowMode": false,
+    "StartInFollowMode": true,
     "OrientationHelperDefault": true,
     "ConsoleFilter": 0,
 
@@ -41,6 +41,12 @@
     "ConsoleFontSize": 20,
     "RouteWidth": 1,
     "NodeSize": 0.3,
+
+    // Follow.
+    "ReachNodeRadius": 10,
+    "FollowMaxRouteLength": 50,
+    "MinDisplayNodeCount": 3,
+    "ShowFollowBacktrack": true,
 
     // Input.
     "InputGroups":
