@@ -1,0 +1,20 @@
+* text=auto
+
+# Source files are text.
+*.cs text diff=csharp
+*.cginc text
+*.shader text
+
+# Certain Unity-generated files always use LF.
+*.mat text eol=lf
+*.anim text eol=lf
+*.unity text eol=lf
+*.prefab text eol=lf
+*.physicsMaterial2D text eol=lf
+*.physicMaterial text eol=lf
+*.asset text eol=lf
+*.meta text eol=lf
+*.controller text eol=lf
+
+# json files should always use CRLF for proper windows compatibility.
+*.json text eol=crlf
