@@ -19,17 +19,17 @@ public class NodeDisplay : MonoBehaviour
     public Material HeartMaterial;
     public Material HeartWallMaterial;
 
-	public Material ReachedMaterial;
-	public Material ReachedTeleportMaterial;
-	public Material ReachedHeartMaterial;
-	public Material ReachedHeartWallMaterial;
+    public Material ReachedMaterial;
+    public Material ReachedTeleportMaterial;
+    public Material ReachedHeartMaterial;
+    public Material ReachedHeartWallMaterial;
 
-	public const float PulsateRatio = 3 / 5f;
+    public const float PulsateRatio = 3 / 5f;
     public const float PulsateSpeed = 3f;
 
     public float NormalizedSize { get; private set; }
 
-	private Node _node;
+    private Node _node;
 
     public float Size
     {
@@ -83,7 +83,7 @@ public class NodeDisplay : MonoBehaviour
 
             this.Canvas.gameObject.SetActive(!string.IsNullOrEmpty(this.Text.text));
 
-			_node = value;
+            this._node = value;
         }
     }
 
@@ -101,25 +101,27 @@ public class NodeDisplay : MonoBehaviour
         this.Node = node;
     }
 
-	public void SetReached() {
-		switch( _node.Type ) {
-			case NodeType.Reach:
-				this.MeshRenderer.material = this.ReachedMaterial;
-				break;
+    public void SetReached()
+    {
+        switch (this._node.Type)
+        {
+            case NodeType.Reach:
+                this.MeshRenderer.material = this.ReachedMaterial;
+                break;
 
-			case NodeType.Teleport:
-				this.MeshRenderer.material = this.ReachedTeleportMaterial;
-				break;
+            case NodeType.Teleport:
+                this.MeshRenderer.material = this.ReachedTeleportMaterial;
+                break;
 
-			case NodeType.Heart:
-				this.MeshRenderer.material = this.ReachedHeartMaterial;
-				break;
+            case NodeType.Heart:
+                this.MeshRenderer.material = this.ReachedHeartMaterial;
+                break;
 
-			case NodeType.HeartWall:
-				this.MeshRenderer.material = this.ReachedHeartWallMaterial;
-				break;
-		}
-	}
+            case NodeType.HeartWall:
+                this.MeshRenderer.material = this.ReachedHeartWallMaterial;
+                break;
+        }
+    }
 
     public void Select(bool select)
     {

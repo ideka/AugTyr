@@ -17,13 +17,13 @@ public class UserConfig
     // Visuals.
     public int ConsoleFontSize = 20;
     public float RouteWidth = 1;
-    public float NodeSize = 1.0f;
+    public float NodeSize = 1;
 
-	// Follow.
-	public float ReachNodeRadius = 10;
-	public float FollowMaxRouteLength = 50;
-	public bool ShowFollowBacktrack = true;
-	public int MinDisplayNodeCount = 3;
+    // Follow.
+    public float ReachNodeRadius = 10;
+    public float FollowMaxRouteLength = 50;
+    public bool ShowFollowBacktrack = true;
+    public int MinDisplayNodeCount = 3;
 
     // Input.
     public Dictionary<string, List<InputAction>> InputGroups = new Dictionary<string, List<InputAction>>();

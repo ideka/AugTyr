@@ -13,19 +13,18 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
 
     public NodeDisplay NodePrefab;
     public LineRenderer RouteDisplay;
-	public LineRenderer BacktrackDisplay;
-	public LineRenderer OrientationHelper;
-
+    public LineRenderer BacktrackDisplay;
+    public LineRenderer OrientationHelper;
 
     public MonoBehaviour Holder { get { return this; } }
     public Route Route { get { return this.RouteHolder.Route; } }
     public UserConfig UserConfig { get { return this.RouteHolder.UserConfig; } }
     public Console Console { get { return this.RouteHolder.Console; } }
 
-	public float SquaredDistToReach { get { return UserConfig.ReachNodeRadius * UserConfig.ReachNodeRadius; } }
-	public float SquaredMaxRouteLength { get { return UserConfig.FollowMaxRouteLength * UserConfig.FollowMaxRouteLength; } }
+    public float SquaredDistToReach { get { return Mathf.Pow(this.UserConfig.ReachNodeRadius, 2); } }
+    public float SquaredMaxRouteLength { get { return Mathf.Pow(this.UserConfig.FollowMaxRouteLength, 2); } }
 
-	public string InputGroupName { get { return "FollowMode"; } }
+    public string InputGroupName { get { return "FollowMode"; } }
     public Dictionary<string, Action> Actions
     {
         get
@@ -46,8 +45,8 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
                     }
                 },
                 {
-                    "SelectNextNode", () => this.ReachedNode( NextNodeIndex + 1 )
-				},
+                    "SelectNextNode", () => this.ReachedNode(NextNodeIndex + 1)
+                },
                 {
                     "ToggleOrientationHelper", () => this.OrientationHelper.gameObject.SetActive(!this.OrientationHelper.gameObject.activeSelf)
                 }
@@ -62,8 +61,8 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
     }
 
     private List<NodeDisplay> nodes = new List<NodeDisplay>();
-	private List<NodeDisplay> reachedNodes = new List<NodeDisplay>();
-	private List<NodeDisplay> detachedNodes = new List<NodeDisplay>();
+    private List<NodeDisplay> reachedNodes = new List<NodeDisplay>();
+    private List<NodeDisplay> detachedNodes = new List<NodeDisplay>();
 
     private void Awake()
     {
@@ -91,22 +90,22 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
             return;
         }
 
-		if( nodes == null )
-			return;
+        if (this.nodes == null)
+            return;
 
-		//Rejoin
-		var nextNodes = Route.Nodes.Skip( NextNodeIndex ).Take( nodes.Count ).ToList();
-		OrientationHelper.SetPositions( new Vector3[] { this.Cursor.position, nextNodes.First().Position } );
+        // Rejoin.
+        var nextNodes = this.Route.Nodes.Skip(this.NextNodeIndex).Take(this.nodes.Count).ToList();
+        this.OrientationHelper.SetPositions(new Vector3[] { this.Cursor.position, nextNodes.First().Position });
 
-		var next = nextNodes
-			.Select( ( n, i ) => new { node = n, index = i, dist = ( n.Position - this.Cursor.position ).sqrMagnitude } )
-			.Where( n => n.dist <= SquaredDistToReach )
-			.OrderBy( n => n.dist )
-			.FirstOrDefault();
+        var next = nextNodes
+            .Select((n, i) => new { node = n, index = i, dist = (n.Position - this.Cursor.position).sqrMagnitude })
+            .Where(n => n.dist <= this.SquaredDistToReach)
+            .OrderBy(n => n.dist)
+            .FirstOrDefault();
 
-		if( next != null )
-			ReachedNode( NextNodeIndex + next.index );
-	}
+        if (next != null)
+            this.ReachedNode(this.NextNodeIndex + next.index);
+    }
 
     public NodeDisplay GetNodePrefab()
     {
@@ -126,35 +125,39 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
     private void RepopulateRoute()
     {
         // Repopulate attached nodes.
-        this.nodes.ForEach(n => Destroy(n.gameObject));
-        this.nodes.Clear();
-        float squaredLength = 0;
-        Node previous = null;
-        foreach (Node node in this.Route.Nodes.Skip(this.NextNodeIndex))
         {
-            NodeDisplay display = this.NewNodeDisplay(false, node);
-            this.nodes.Add(display);
-
-            if (previous == null && this.isActiveAndEnabled)
-                display.Select(true);
-
-            if (node.Type == NodeType.Teleport)
-                break;
-
-            if (previous != null)
+            this.nodes.ForEach(n => Destroy(n.gameObject));
+            this.nodes.Clear();
+            float squaredLength = 0;
+            Node previous = null;
+            foreach (Node node in this.Route.Nodes.Skip(this.NextNodeIndex))
             {
-                squaredLength += (previous.Position - node.Position).sqrMagnitude;
-                if (squaredLength > SquaredMaxRouteLength && nodes.Count >= UserConfig.MinDisplayNodeCount )
-                    break;
-            }
+                NodeDisplay display = this.NewNodeDisplay(false, node);
+                this.nodes.Add(display);
 
-            previous = node;
+                if (previous == null && this.isActiveAndEnabled)
+                    display.Select(true);
+
+                if (node.Type == NodeType.Teleport)
+                    break;
+
+                if (previous != null)
+                {
+                    squaredLength += (previous.Position - node.Position).sqrMagnitude;
+                    if (squaredLength > this.SquaredMaxRouteLength && this.nodes.Count >= this.UserConfig.MinDisplayNodeCount)
+                        break;
+                }
+
+                previous = node;
+            }
         }
 
         // Update route display.
-        Vector3[] positions = this.nodes.Select(n => n.transform.position).ToArray();
-        this.RouteDisplay.positionCount = positions.Length;
-        this.RouteDisplay.SetPositions(positions);
+        {
+            Vector3[] positions = this.nodes.Select(n => n.transform.position).ToArray();
+            this.RouteDisplay.positionCount = positions.Length;
+            this.RouteDisplay.SetPositions(positions);
+        }
 
         // Update route display material.
         this.RouteDisplay.material = this.FollowMaterial;
@@ -174,62 +177,67 @@ public class FollowMode : MonoBehaviour, INodeRoute, IActionable
         this.detachedNodes.ForEach(n => Destroy(n.gameObject));
         this.detachedNodes = this.Route.DetachedNodes.Select(n => this.NewNodeDisplay(true, n)).ToList();
 
+        // Update backtrack
+        if (this.UserConfig.ShowFollowBacktrack)
+        {
+            this.reachedNodes.ForEach(n => Destroy(n.gameObject));
+            this.reachedNodes.Clear();
 
-		// Update backtrack
-		if( UserConfig.ShowFollowBacktrack ) {
+            int index = this.NextNodeIndex;
+            float squaredLength = 0;
 
-			this.reachedNodes.ForEach( n => Destroy( n.gameObject ) );
-			this.reachedNodes.Clear();
+            Node previous = null;
+            while (index >= 0 && squaredLength < SquaredMaxRouteLength)
+            {
+                NodeDisplay display = this.NewNodeDisplay(false, this.Route.Nodes[index]);
+                display.SetReached();
+                this.reachedNodes.Add(display);
 
-			var index = NextNodeIndex;
-			var len = .0f;
+                if (previous == null)
+                {
+                    display.MeshRenderer.enabled = false;
+                }
+                else
+                {
+                    squaredLength += (previous.Position - this.Route.Nodes[index].Position).sqrMagnitude;
+                    if (squaredLength > this.SquaredMaxRouteLength)
+                        break;
+                } 
 
-			previous = null;
-			while( index >= 0 && len < SquaredMaxRouteLength ) {
-				NodeDisplay display = this.NewNodeDisplay( false, Route.Nodes[index] );
-				display.SetReached();
-				reachedNodes.Add( display );
+                previous = this.Route.Nodes[index];
+                index--;
+            }
 
-				if( index < NextNodeIndex - 1 ) { //Skip first node and dist between 0-1
-					len += ( previous.Position - Route.Nodes[index].Position ).sqrMagnitude;
-					if( len > SquaredMaxRouteLength && nodes.Count >= UserConfig.MinDisplayNodeCount )
-						break;
-				} 
+            // Update route display.
+            Vector3[] positions = reachedNodes.Select(n => n.transform.position).ToArray();
+            this.BacktrackDisplay.positionCount = positions.Length;
+            this.BacktrackDisplay.SetPositions(positions);
+        }
+    }
 
-				if( previous == null )
-					display.MeshRenderer.enabled = false;
+    private void ReachedNode(int reachedNodeIndex)
+    {
+        if (reachedNodeIndex + 1 < this.Route.Nodes.Count)
+        {
+            Node reached = this.Route.Nodes[reachedNodeIndex];
+            if (reached.Type == NodeType.Teleport && !string.IsNullOrEmpty(reached.WaypointCode))
+            {
+                GUIUtility.systemCopyBuffer = reached.WaypointCode;
+                this.Console.InfoFade("Waypoint code copied to clipboard: {0}.", reached.WaypointCode);
+            }
 
-				previous = Route.Nodes[index];
-				index--;
-			}
+            this.NextNodeIndex = reachedNodeIndex + 1;
+            this.RepopulateRoute();
+        }
+    }
 
-			// Update route display.
-			positions = reachedNodes.Select( n => n.transform.position ).ToArray();
-			this.BacktrackDisplay.positionCount = positions.Length;
-			this.BacktrackDisplay.SetPositions( positions );
-		}		
-	}
-
-	private void ReachedNode( int reachedNodeIndex ) {
-		if( reachedNodeIndex + 1 < this.Route.Nodes.Count ) {
-			Node reached = this.Route.Nodes[reachedNodeIndex];
-			if( reached.Type == NodeType.Teleport && !string.IsNullOrEmpty( reached.WaypointCode ) ) {
-				GUIUtility.systemCopyBuffer = reached.WaypointCode;
-				this.Console.InfoFade( "Waypoint code copied to clipboard: {0}.", reached.WaypointCode );
-			}
-
-			this.NextNodeIndex = reachedNodeIndex + 1;
-			this.RepopulateRoute();
-		}
-	}
-
-	private void SelectClosestNode()
+    private void SelectClosestNode()
     {
         if (!this.nodes.Any())
             return;
 
         this.NextNodeIndex = this.Route.Nodes
-            .Select((node, i) => new { position = node.Position, i = i })
+            .Select((node, i) => new { position = node.Position, i })
             .OrderBy(n => (this.Cursor.position - n.position).sqrMagnitude)
             .First().i;
 

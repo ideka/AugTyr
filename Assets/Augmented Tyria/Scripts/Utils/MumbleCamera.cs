@@ -16,9 +16,9 @@ public class MumbleCamera : MonoBehaviour
 
     private void Update()
     {
-		var identity = this.Mumble.Link.GetIdentity();
-		if( identity != null )
-			this.Camera.fieldOfView = identity.Fov * Mathf.Rad2Deg;
+        var identity = this.Mumble.Link.GetIdentity();
+        if (identity != null)
+            this.Camera.fieldOfView = identity.Fov * Mathf.Rad2Deg;
 
         MumbleLinkedMemory mem = this.Mumble.Link.Read();
         this.transform.position = new Vector3(mem.FCameraPosition[0], mem.FCameraPosition[1], mem.FCameraPosition[2]);
