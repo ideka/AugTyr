@@ -6,5 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Augmented Tyria/Main.unity
+    path: Assets/App/Main.unity
     guid: fedd2fb5f91a4594594796792ea044ec
+  m_configObjects: {}
