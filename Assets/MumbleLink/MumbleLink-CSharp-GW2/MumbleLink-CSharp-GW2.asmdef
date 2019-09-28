@@ -1,0 +1,14 @@
+{
+    "name": "MumbleLink-CSharp-GW2",
+    "references": [
+        "GUID:3b12cd0d307f1fe4882b95ffe323838f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
