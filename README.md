@@ -1,8 +1,10 @@
-# Augmented Tyria 0.4-beta
+# Augmented Tyria 0.5
 
 # PLEASE check in this file before asking questions
 
-If you're already quite familiar with AugTyr 0.3, you only need to read sections labeled as **0.4** (use Ctrl + F).
+Sections are labeled with the version number corresponding to their last update, like this: `[0.5]`.
+
+Use Ctrl + F!
 
 ## Running AugTyr
 
@@ -12,7 +14,7 @@ Download and extract the archive, then run the AugTyr.exe file alongside Guild W
 
 * *Reach node (pink)*: You're just meant to get to it.
 
-* **0.3** *Teleport node (cyan)*: Get to it then teleport to the next node. It should have some text attached to specify how to teleport to the next node unless it's obvious. Some possibilities are:
+* **[0.3]** *Teleport node (cyan)*: Get to it then teleport to the next node. It should have some text attached to specify how to teleport to the next node unless it's obvious. Some possibilities are:
 
   * Using a waypoint. These teleport nodes will have the relevant waypoint code attached to them, which can be easily copied.
  
@@ -24,7 +26,7 @@ Download and extract the archive, then run the AugTyr.exe file alongside Guild W
 
 * *Heart wall node (orange)*: Don't continue past it until you have the specified % on the nearby heart.
 
-## **0.3** Report console
+## **[0.3]** Report console
 
 AugTyr now comes with a report console where helpful messages are be displayed.
 
@@ -40,7 +42,7 @@ There are three types of messages:
 
 The console maintains the smallest size necessary to display all of its messages. When there are no messages, the console will be tiny but still visible (unless specifically hidden).
 
-## **0.3** Unofficial routes
+## **[0.3]** Unofficial routes
 
 Routes take me a long time to make, and I'm focusing on implementing features right now. Some people have been contributing their routes, but it also takes me a long time to review those.
 
@@ -54,7 +56,9 @@ New route contributions will be added to the project unreviewed and bundled with
 
 *Saving is unchanged*. AugTyr will always save to the Routes directory.
 
-## **0.3.1** Provided routes
+## **[0.3.1]** Provided routes
+
+**TODO**: Update this list.
 
  Official            | Official               | | Unofficial
 :--------------------|:-----------------------|-|:-------------------
@@ -69,7 +73,7 @@ New route contributions will be added to the project unreviewed and bundled with
  Hoelbrak            | Wayfarer Foothills     | | Sparkfly Fen
  Kessex Hills        |                        | | Tangled Depths
 
-## **0.3** User config
+## **[0.3]** User config
 
 This version introduces a user config system, which lets you change many ways in which AugTyr behaves.
 
@@ -81,13 +85,13 @@ There is no UI to change the user config. I *might* make one (separate from AugT
 
 Below is an overview of currently available options.
 
-### **0.3.1** Display options
+### **[0.3.1]** Display options
 
 * `ScreenWidth` (int) Set to a positive number to have AugTyr use it as the desired resolution width.
 
 * `ScreenHeight` (int) Set to a positive number to have AugTyr use it as the desired resolution height.
 
-* **0.4** `TransparencyMethod` (string) Select which method AugTyr should use to make the window transparent. Possible values are:
+* **[0.4]** `TransparencyMethod` (string) Select which method AugTyr should use to make the window transparent. Possible values are:
 
   * `"ConstantBlit"` A shader will explicitly set each pixel's transparency to zero.
 
@@ -103,7 +107,7 @@ Below is an overview of currently available options.
 
 * `AutoUpdateGameDatabase` (bool) Set to false to disable game database updates. AugTyr should not establish any internet connection if this is the case, but in turn the game database (used to resolve waypoint names into waypoint codes) might become outdated.
 
-* **0.4** `RouteAutoload` (string) The route autoload method to use. Possible values are:
+* **[0.4]** `RouteAutoload` (string) The route autoload method to use. Possible values are:
 
   * `"None"` Never autoload routes.
 
@@ -129,11 +133,21 @@ Below is an overview of currently available options.
 
 ### Visual options
 
-* **0.4** `ConsoleFontSize` (int) The font size for all console messages.
+* **[0.4]** `ConsoleFontSize` (int) The font size for all console messages.
 
 * `RouteWidth` (float) The width of all lines drawn, in all modes.
 
 * `NodeSize` (float) The size of all nodes drawn, in all modes. Set this to 1 to use old size from v0.1.
+
+### **[0.5]** Follow mode options
+
+* `ReachNodeRadius` (float) Radius around nodes you need to reach to consume them. Set to 1 to restore the old, precise behavior.
+
+* `FollowMaxRouteLength` (float) The max length of the route to show in front of you. Set to 100 to restore the old behavior.
+
+* `MinDisplayNodeCount` (int) The minimum amount of nodes to show in front of you. This takes precedence over `FollowMaxRouteLength`, but neither of them go past Teleport nodes.
+
+* `ShowFollowBacktrack` (bool) Set to true to also see recently consumed nodes. The settings for how many will be shown are the same as for upcoming nodes.
 
 ### Input options
 
@@ -207,13 +221,11 @@ Each action can be bound multiple times, or not at all. Additionally, binding mu
 
 ## Follow mode tips
 
-* In this mode you will "consume" the selected node if you get close enough to it. Then, the next node will become selected.
+* **[0.5]** In this mode you will "consume" any visible node you get close enough to. Then, the next node will become selected.
 
 * Consuming a teleport node with a waypoint code will automatically copy the code to your clipboard.
 
-* If you miss a node that you don't think was critical, you don't have to go back for it. Just press 6.
-
-* If you miss multiple nodes, you can always press 5 to select the closest node. If you think the closest node might actually already be behind you, you can press 5 and then 6 in quick succession.
+* If you lose the route somehow, you can press 5 to select the closest node to you, visible or not.
 
 ## FAQ
 
@@ -249,4 +261,4 @@ If that doesn't help, you can try all possible values of the `TransparencyMethod
 
 ## Download
 
-[AugTyr-0.4](https://github.com/ideka/AugTyr/releases/tag/v0.4-beta)
+[AugTyr releases](https://github.com/ideka/AugTyr/releases)
